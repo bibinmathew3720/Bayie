@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="checkBoxCell" id="KGk-i7-Jjw" customClass="FilterRightCheckBoxCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Vak-0o-1M9">
+                        <rect key="frame" x="8" y="10.5" width="26" height="22"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="26" id="TTx-H8-rVc"/>
+                        </constraints>
+                        <state key="normal" image="checkBoxBlank"/>
+                        <state key="selected" image="checkBoxSelected"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="AiW-6W-ESR">
+                        <rect key="frame" x="42" y="13.5" width="270" height="17"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="16"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="AiW-6W-ESR" firstAttribute="centerY" secondItem="Vak-0o-1M9" secondAttribute="centerY" id="9Tc-5w-dFW"/>
+                    <constraint firstItem="AiW-6W-ESR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="Doo-xN-tJ0"/>
+                    <constraint firstItem="AiW-6W-ESR" firstAttribute="leading" secondItem="Vak-0o-1M9" secondAttribute="trailing" constant="8" id="G5t-Ux-d1x"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="AiW-6W-ESR" secondAttribute="trailing" id="HIr-4W-1kY"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="AiW-6W-ESR" secondAttribute="bottom" constant="5" id="JYv-Eq-2Zp"/>
+                    <constraint firstItem="Vak-0o-1M9" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" id="Qra-Zx-hsz"/>
+                    <constraint firstItem="Vak-0o-1M9" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="uXt-Gj-P3W"/>
+                </constraints>
+            </tableViewCellContentView>
+            <connections>
+                <outlet property="checkButton" destination="Vak-0o-1M9" id="t33-ks-NFy"/>
+                <outlet property="headingLabel" destination="AiW-6W-ESR" id="dcB-Ws-8Ay"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="checkBoxBlank" width="16" height="16"/>
+        <image name="checkBoxSelected" width="16" height="16"/>
+    </resources>
+</document>

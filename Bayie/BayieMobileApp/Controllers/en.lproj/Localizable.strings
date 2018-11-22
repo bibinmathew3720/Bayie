@@ -1,0 +1,124 @@
+/* 
+  Localizable.strings
+  BayieMobileApp
+
+  Created by Pintlab Technologies on 26/04/17.
+  Copyright © 2017 Abbie. All rights reserved.
+*/
+
+//URL's
+
+//Test Url : http://bayie.digiora.com
+//Live Url : https://www.bayie.com
+
+"ADS_MANAGEMENT_URL" = "https://bayie.digiora.com/api/apiAds.php?action=";
+"USER_MANAGEMENT_URL" = "https://bayie.digiora.com/api/apiUser.php?action=";
+
+//Language Selector
+"LOADING" = "Loading";
+"ENGLISH"  = "ENGLISH";
+"ARABIC" = "عربى";
+"YOU_CAN_UPDATE_LANUAGE_PREFERENCE" = "You can update language preferences later in";
+"PROFILE_APP_LANGUAGE" = "Profile > App Language";
+// LOGIN
+"LOGIN" = "LOGIN";
+"CONNECT_WITH_FACEBOOK"  = "Connect with Facebook";
+"CONNECT_WITH_GOOGLE" = "Connect with Google";
+"BUY_AND_SELL_ANYTHING_AT_YOUR_CONVENIENCE" = "Buy and sell anything at your convenience!";
+"EMAIL_OR_MOBILE "= "Email or Mobile";
+"PASSWORD" = "Password";
+"FORGOT_PASSWORD" = "Forgot Password?";
+"DON'T_HAVE_AN_ACCOUNT" = "Don't have an account?";
+"SIGN_UP" = "Sign Up";
+//REGISTRATION
+"REGISTER" = "REGISTER";
+"NAME" = "Name";
+"MOBILE" = "Mobile";
+"EMAIL" = "Email";
+"PASSWORD" = "Password";
+"CONFIRM_PASSWORD" = "Confirm Password";
+//Verify Mobile Number
+"GET_OTP" = "Get OTP";
+"VERIFY_MOBILE_NUMBER" = "Verify Mobile Number";
+//OTP
+"VERIFY_OTP" = "Verify OTP";
+"CONFIRM" = "Confirm";
+"OTP_SENT_TO" = "OTP Sent to";
+"DID_NOT_RECEIVE_OTP" = "Did not receive OTP?";
+"RESEND_OTP" = "Resend OTP";
+//CHANGE PASSWORD
+"CHANGE_YOUR_PASSWORD" = "Change Your Password";
+"CHANGE_PASSWORD" = "CHANGE PASSWORD";
+"NEW_PASSWORD" = "New Password";
+"OLD_PASSWORD" = "Old Password";
+"CONFIRM_PASSWORD" = "Confirm Password";
+//Landing Page
+"BROWSE" = "Browse";
+"LOCATION" = "Location";
+"POST_AD" = "Post Ad";
+"FAVORITES" = "Favorites";
+"PROFILE" = "Profile";
+"VIEW_ALL" = "View all";
+"TRENDING_ADS" = "Trending Ads";
+"ADS_NEARBY" = "Ads Nearby";
+"LOCATION_SELECTION" = "Select Location";
+"MORE" = "More";
+//Listing
+"SORT" = "SORT";
+"FILTER" = "FILTER";
+"SAVE_SEARCH" = "SAVE SEARCH";
+"All" = "All";
+//SORT
+"SORT" = "SORT";
+"CANCEL" = "CANCEL";
+
+"RECENT" = "Recently posted";
+"LOWEST" = "Lowest Price";
+"HIGHEST" = "Highest Price";
+
+//POST Ad
+"POST_AD" = "POST AD";
+"SELECT"  = "Select";
+"PHOTOLIMIT" = "Max photos limit reached";
+
+//MY ADS
+"MY_ADS" = "MY ADS";
+//MY Chat
+"MY_CHAT" = "MY CHATS";
+
+//Saved Search
+"SAVED_SEARCH" = "SAVED SEARCHES";
+"DELETE_ALL" = "Delete All";
+//Search
+"CANCEL" = "Cancel";
+//Location
+"SELECT_YOUR_LOCATION" = "Select Location";
+"OTHER_CITIES" = "Other Cities";
+
+"OMR" = "OMR";
+//Profile
+
+"MY_ADS" = "My Ads";
+"MY_PROFILE" = "My Profile";
+"MY_FAVORITES" = "My Favorites";
+"MY_CHATS" = "My Chats";
+"MY_SAVED_SEARCHES" = "My Saved Searches";
+"FEEDBACK_AND_SUPPORT" = "Feedback and Support";
+"ABOUT" = "About";
+"Search_ON" = "Search on";
+
+//Delete Pop up View
+
+"DELETE" = "DELETE";
+"DELETEPOPUPHEADING" = "Please let me know why do\nyou deleting this Ad.";
+
+"SOLDINBAYIE" = "Sold in Bayie";
+"SOLDINOTHERSITE" = "Sold in another site";
+"NOTSELLING" = "Not selling it anymore";
+"ADOUTDATE" = "Ad is outdated";
+"OTHER" = "Other";
+
+//Video Upload
+
+"VIDEOLIMIT" = "You can upload only one video";
+

@@ -1,0 +1,768 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Workspace
+   version = "1.0">
+   <FileRef
+      location = "group:BayieMobileApp.xcodeproj">
+   </FileRef>
+   <Group
+      location = "group:BayieMobileApp/Controllers"
+      name = "Controllers">
+   </Group>
+   <Group
+      location = "group:BayieMobileApp/Library"
+      name = "Library">
+      <FileRef
+         location = "group:UINavigationBar+Awesome.h">
+      </FileRef>
+      <FileRef
+         location = "group:UINavigationBar+Awesome.m">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:BayieMobileApp/Storyboards"
+      name = "Storyboards">
+      <Group
+         location = "group:AdCategory"
+         name = "AdCategory">
+         <FileRef
+            location = "group:AdCategory.storyboard">
+         </FileRef>
+      </Group>
+   </Group>
+   <FileRef
+      location = "group:BayieMobileApp/UINavigationBar+Awesome.h">
+   </FileRef>
+   <FileRef
+      location = "group:BayieMobileApp/UINavigationBar+Awesome.m">
+   </FileRef>
+   <FileRef
+      location = "group:BayieMobileApp/iTunesArtwork">
+   </FileRef>
+   <FileRef
+      location = "group:BayieMobileApp/iTunesArtwork@2x">
+   </FileRef>
+   <Group
+      location = "group:BayieMobileApp/Assets.xcassets"
+      name = "Assets.xcassets">
+      <Group
+         location = "group:PlayIcon"
+         name = "PlayIcon">
+         <FileRef
+            location = "group:ic_play.png">
+         </FileRef>
+         <FileRef
+            location = "group:ic_play@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:ic_play@2x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:AppIcon.appiconset"
+         name = "AppIcon.appiconset">
+         <FileRef
+            location = "group:60x60.png">
+         </FileRef>
+         <FileRef
+            location = "group:app-Icon@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:ipad_spotlight.png">
+         </FileRef>
+         <FileRef
+            location = "group:setting@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:setting@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:spotlight@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:spotlight@3x-1.png">
+         </FileRef>
+         <FileRef
+            location = "group:spotlight@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:arrow-right.imageset"
+         name = "arrow-right.imageset">
+         <FileRef
+            location = "group:arrow-right.png">
+         </FileRef>
+         <FileRef
+            location = "group:arrow-right@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:arrow-right@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:back-arrow-white.imageset"
+         name = "back-arrow-white.imageset">
+         <FileRef
+            location = "group:back-arrow-white.png">
+         </FileRef>
+         <FileRef
+            location = "group:back-arrow-white@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:back-arrow-white@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:back-arrow.imageset"
+         name = "back-arrow.imageset">
+         <FileRef
+            location = "group:back-arrow.png">
+         </FileRef>
+         <FileRef
+            location = "group:back-arrow@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:back-arrow@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:bayie-logo-main.imageset"
+         name = "bayie-logo-main.imageset">
+         <FileRef
+            location = "group:bayie-logo-main.png">
+         </FileRef>
+         <FileRef
+            location = "group:bayie-logo-main@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:bayie-logo-main@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:brand-green.imageset"
+         name = "brand-green.imageset">
+         <FileRef
+            location = "group:brand-green.png">
+         </FileRef>
+         <FileRef
+            location = "group:brand-green@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:brand-green@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:brand-small.imageset"
+         name = "brand-small.imageset">
+         <FileRef
+            location = "group:brand-small.png">
+         </FileRef>
+         <FileRef
+            location = "group:brand-small@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:brand-small@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:brand.imageset"
+         name = "brand.imageset">
+         <FileRef
+            location = "group:brand.png">
+         </FileRef>
+         <FileRef
+            location = "group:brand@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:brand@3x.png">
+         </FileRef>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <FileRef
+         location = "group:Contents.json">
+      </FileRef>
+      <Group
+         location = "group:facebook.imageset"
+         name = "facebook.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:facebook.png">
+         </FileRef>
+         <FileRef
+            location = "group:facebook@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:facebook@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:filter.imageset"
+         name = "filter.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:filter.png">
+         </FileRef>
+         <FileRef
+            location = "group:filter@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:filter@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:google-plus.imageset"
+         name = "google-plus.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:google-plus.png">
+         </FileRef>
+         <FileRef
+            location = "group:google-plus@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:google-plus@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:login-choose-Screen-bg.imageset"
+         name = "login-choose-Screen-bg.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:login-choose-Screen-bg.jpg">
+         </FileRef>
+         <FileRef
+            location = "group:login-choose-Screen-bg@2x.jpg">
+         </FileRef>
+         <FileRef
+            location = "group:login-choose-Screen-bg@3x.jpg">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:more.imageset"
+         name = "more.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:more.png">
+         </FileRef>
+         <FileRef
+            location = "group:more@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:more@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Navigation"
+         name = "Navigation">
+         <Group
+            location = "group:back-arrow-white.imageset"
+            name = "back-arrow-white.imageset">
+            <FileRef
+               location = "group:back-arrow-white.png">
+            </FileRef>
+            <FileRef
+               location = "group:back-arrow-white@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:back-arrow-white@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:back-arrow.imageset"
+            name = "back-arrow.imageset">
+            <FileRef
+               location = "group:back-arrow.png">
+            </FileRef>
+            <FileRef
+               location = "group:back-arrow@2x-1.png">
+            </FileRef>
+            <FileRef
+               location = "group:back-arrow@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:cart-black.imageset"
+            name = "cart-black.imageset">
+            <FileRef
+               location = "group:cart-black.png">
+            </FileRef>
+            <FileRef
+               location = "group:cart-black@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:cart-black@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:cart-green.imageset"
+            name = "cart-green.imageset">
+            <FileRef
+               location = "group:cart-green.png">
+            </FileRef>
+            <FileRef
+               location = "group:cart-green@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:cart-green@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:cart-white.imageset"
+            name = "cart-white.imageset">
+            <FileRef
+               location = "group:cart-white.png">
+            </FileRef>
+            <FileRef
+               location = "group:cart-white@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:cart-white@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:profile-pic-edit.imageset"
+         name = "profile-pic-edit.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:profile-pic-edit.png">
+         </FileRef>
+         <FileRef
+            location = "group:profile-pic-edit@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:profile-pic-edit@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:search-icon-black.imageset"
+         name = "search-icon-black.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:search-icon-black.png">
+         </FileRef>
+         <FileRef
+            location = "group:search-icon-black@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:search-icon-black@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:search-icon.imageset"
+         name = "search-icon.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:search-icon.png">
+         </FileRef>
+         <FileRef
+            location = "group:search-icon@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:search-icon@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:sort.imageset"
+         name = "sort.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:sort.png">
+         </FileRef>
+         <FileRef
+            location = "group:sort@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:sort@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:splash_Screen_Bg.imageset"
+         name = "splash_Screen_Bg.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:splash-Screen-bg.png">
+         </FileRef>
+         <FileRef
+            location = "group:splash-Screen-bg@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:splash-Screen-bg@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:spotlight.imageset"
+         name = "spotlight.imageset">
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <FileRef
+            location = "group:spotlight.png">
+         </FileRef>
+         <FileRef
+            location = "group:spotlight@2x.png">
+         </FileRef>
+         <FileRef
+            location = "group:spotlight@3x.png">
+         </FileRef>
+      </Group>
+      <Group
+         location = "group:Tabbar"
+         name = "Tabbar">
+         <Group
+            location = "group:camera-active.imageset"
+            name = "camera-active.imageset">
+            <FileRef
+               location = "group:camera-active.png">
+            </FileRef>
+            <FileRef
+               location = "group:camera-active@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:camera-active@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:camera-hover.imageset"
+            name = "camera-hover.imageset">
+            <FileRef
+               location = "group:camera-hover.png">
+            </FileRef>
+            <FileRef
+               location = "group:camera-hover@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:camera-hover@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:camera.imageset"
+            name = "camera.imageset">
+            <FileRef
+               location = "group:camera.png">
+            </FileRef>
+            <FileRef
+               location = "group:camera@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:camera@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+         </Group>
+         <FileRef
+            location = "group:Contents.json">
+         </FileRef>
+         <Group
+            location = "group:fav-active.imageset"
+            name = "fav-active.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:fav-active.png">
+            </FileRef>
+            <FileRef
+               location = "group:fav-active@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:fav-active@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:fav-hover.imageset"
+            name = "fav-hover.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:fav-hover.png">
+            </FileRef>
+            <FileRef
+               location = "group:fav-hover@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:fav-hover@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:fav.imageset"
+            name = "fav.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:fav.png">
+            </FileRef>
+            <FileRef
+               location = "group:fav@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:fav@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:hamburger-active.imageset"
+            name = "hamburger-active.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger-active.png">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger-active@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger-active@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:hamburger-hover.imageset"
+            name = "hamburger-hover.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger-hover.png">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger-hover@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger-hover@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:hamburger.imageset"
+            name = "hamburger.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger.png">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:hamburger@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:location-active.imageset"
+            name = "location-active.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:location-active.png">
+            </FileRef>
+            <FileRef
+               location = "group:location-active@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:location-active@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:location-hover.imageset"
+            name = "location-hover.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:location-hover.png">
+            </FileRef>
+            <FileRef
+               location = "group:location-hover@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:location-hover@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:location.imageset"
+            name = "location.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:location.png">
+            </FileRef>
+            <FileRef
+               location = "group:location@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:location@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:profile-active.imageset"
+            name = "profile-active.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:profile-active.png">
+            </FileRef>
+            <FileRef
+               location = "group:profile-active@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:profile-active@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:profile-hover.imageset"
+            name = "profile-hover.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:profile-hover.png">
+            </FileRef>
+            <FileRef
+               location = "group:profile-hover@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:profile-hover@3x.png">
+            </FileRef>
+         </Group>
+         <Group
+            location = "group:profile.imageset"
+            name = "profile.imageset">
+            <FileRef
+               location = "group:Contents.json">
+            </FileRef>
+            <FileRef
+               location = "group:profile.png">
+            </FileRef>
+            <FileRef
+               location = "group:profile@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:profile@3x.png">
+            </FileRef>
+         </Group>
+      </Group>
+   </Group>
+   <Group
+      location = "group:BayieMobileApp/Base.lproj"
+      name = "Base.lproj">
+      <FileRef
+         location = "group:/Users/pintlab_ios/Documents/Projects/bayieios/BayieMobileApp/Base.lproj/LaunchScreen.storyboard">
+      </FileRef>
+      <FileRef
+         location = "group:Main.storyboard">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:BayieMobileApp/Fonts"
+      name = "Fonts">
+      <FileRef
+         location = "group:Lato-Black.ttf">
+      </FileRef>
+      <FileRef
+         location = "group:Lato-BlackItalic.ttf">
+      </FileRef>
+      <FileRef
+         location = "group:Lato-Bold.ttf">
+      </FileRef>
+      <FileRef
+         location = "group:Lato-BoldItalic.ttf">
+      </FileRef>
+      <FileRef
+         location = "group:Lato-Italic.ttf">
+      </FileRef>
+      <FileRef
+         location = "group:Lato-Light.ttf">
+      </FileRef>
+      <FileRef
+         location = "group:Lato-LightItalic.ttf">
+      </FileRef>
+      <FileRef
+         location = "group:Lato-Regular.ttf">
+      </FileRef>
+   </Group>
+   <Group
+      location = "group:BayieMobileApp/Model Class"
+      name = "Model Class">
+      <FileRef
+         location = "group:DataClass.h">
+      </FileRef>
+      <FileRef
+         location = "group:DataClass.m">
+      </FileRef>
+   </Group>
+   <FileRef
+      location = "group:Pods/Pods.xcodeproj">
+   </FileRef>
+</Workspace>

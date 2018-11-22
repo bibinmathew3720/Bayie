@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="12120" systemVersion="16B2657" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="12088"/>
+        <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="filterLeftCell" id="KGk-i7-Jjw" customClass="FilterLeftTVC">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pa5-Xd-Oo7">
+                        <rect key="frame" x="4" y="13" width="0.0" height="17.5"/>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="hNi-c3-Jhe">
+                        <rect key="frame" x="304" y="16" width="8" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="8" id="7so-Tc-uE8"/>
+                        </constraints>
+                    </imageView>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VHh-ka-ILh">
+                        <rect key="frame" x="0.0" y="42.5" width="320" height="1"/>
+                        <color key="backgroundColor" red="0.72156862745098038" green="0.72156862745098038" blue="0.72156862745098038" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="DFn-LA-iu0"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+                <constraints>
+                    <constraint firstItem="pa5-Xd-Oo7" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="topMargin" constant="5" id="8W7-xh-ZrT"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="hNi-c3-Jhe" secondAttribute="trailing" id="CQQ-fO-pX6"/>
+                    <constraint firstItem="hNi-c3-Jhe" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="Euh-ka-eJg"/>
+                    <constraint firstItem="pa5-Xd-Oo7" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-4" id="KLK-Hn-zJX"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="VHh-ka-ILh" secondAttribute="bottom" constant="-8" id="VnP-vg-tqF"/>
+                    <constraint firstItem="VHh-ka-ILh" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leadingMargin" constant="-8" id="XM3-ZR-TgQ"/>
+                    <constraint firstItem="hNi-c3-Jhe" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="pa5-Xd-Oo7" secondAttribute="trailing" constant="5" id="Zko-re-pSl"/>
+                    <constraint firstAttribute="trailingMargin" secondItem="VHh-ka-ILh" secondAttribute="trailing" constant="-8" id="l8G-bT-w4p"/>
+                    <constraint firstAttribute="bottomMargin" secondItem="pa5-Xd-Oo7" secondAttribute="bottom" constant="5" id="og7-gg-Zh6"/>
+                    <constraint firstItem="pa5-Xd-Oo7" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="t8p-sH-530"/>
+                </constraints>
+            </tableViewCellContentView>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
+            <connections>
+                <outlet property="nameLabel" destination="pa5-Xd-Oo7" id="qtB-Ya-9fN"/>
+                <outlet property="rightArrowIMageView" destination="hNi-c3-Jhe" id="YVi-58-OM9"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="arrow-right" width="8" height="12"/>
+    </resources>
+</document>

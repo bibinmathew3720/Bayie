@@ -1,0 +1,151 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="11762" systemVersion="16D32" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="ipad12_9" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="11757"/>
+        <capability name="Constraints with non-1.0 multipliers" minToolsVersion="5.1"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Bold.ttf">
+            <string>Lato-Bold</string>
+        </array>
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="LanguageSelectorViewController">
+            <connections>
+                <outlet property="arabicButton" destination="E79-DT-X3r" id="A2j-si-pX5"/>
+                <outlet property="bottomLabel" destination="SPd-DO-NGB" id="ewc-SZ-ZJo"/>
+                <outlet property="englishButton" destination="qA8-rs-sc1" id="goQ-3T-gwi"/>
+                <outlet property="profileLabel" destination="FG8-20-07x" id="oSW-wM-lY6"/>
+                <outlet property="view" destination="iN0-l3-epB" id="zu9-D8-8Hz"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="500" height="950"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SpC-lX-9qk">
+                    <rect key="frame" x="0.0" y="0.0" width="500" height="950"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="45s-To-UeF">
+                            <rect key="frame" x="0.0" y="0.0" width="500" height="950"/>
+                            <subviews>
+                                <imageView userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="brand" translatesAutoresizingMaskIntoConstraints="NO" id="hxY-k7-qIq">
+                                    <rect key="frame" x="175" y="95" width="150" height="380"/>
+                                </imageView>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select your language" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="hc9-fS-Ovz">
+                                    <rect key="frame" x="5" y="551" width="490" height="38"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="31"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="4Kz-jI-URf">
+                                    <rect key="frame" x="50" y="629" width="400" height="40"/>
+                                    <subviews>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="E79-DT-X3r">
+                                            <rect key="frame" x="25" y="3" width="150" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="150" id="LbA-rE-oIL"/>
+                                                <constraint firstAttribute="height" constant="35" id="vcn-PR-u19"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                            <state key="normal" title="ARABIC">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="arabicBtn:" destination="-1" eventType="touchUpInside" id="6uP-32-cCU"/>
+                                            </connections>
+                                        </button>
+                                        <button opaque="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qA8-rs-sc1">
+                                            <rect key="frame" x="195" y="3" width="150" height="35"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="35" id="T3R-Em-Iqj"/>
+                                                <constraint firstAttribute="width" constant="150" id="ZH4-DN-dTX"/>
+                                            </constraints>
+                                            <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="20"/>
+                                            <state key="normal" title="ENGLISH">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                            </state>
+                                            <connections>
+                                                <action selector="englishBtn:" destination="-1" eventType="touchUpInside" id="GD6-SD-1rl"/>
+                                            </connections>
+                                        </button>
+                                    </subviews>
+                                    <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="IhN-xe-swy"/>
+                                        <constraint firstItem="qA8-rs-sc1" firstAttribute="centerY" secondItem="4Kz-jI-URf" secondAttribute="centerY" id="RSL-uA-mdv"/>
+                                        <constraint firstItem="E79-DT-X3r" firstAttribute="centerY" secondItem="4Kz-jI-URf" secondAttribute="centerY" id="TyM-IR-FoP"/>
+                                        <constraint firstItem="qA8-rs-sc1" firstAttribute="leading" secondItem="E79-DT-X3r" secondAttribute="trailing" constant="20" id="Ue6-Tu-6S8"/>
+                                        <constraint firstAttribute="width" constant="400" id="cOO-WL-iMX"/>
+                                        <constraint firstItem="E79-DT-X3r" firstAttribute="centerX" secondItem="4Kz-jI-URf" secondAttribute="centerX" multiplier="0.5" id="swo-Ui-WZ6"/>
+                                    </constraints>
+                                </view>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="Profile &gt; App Language testttttttttttt in padddddddd" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FG8-20-07x">
+                                    <rect key="frame" x="50" y="829" width="400" height="21"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="252" verticalCompressionResistancePriority="751" text="You can update language preferences later in" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SPd-DO-NGB">
+                                    <rect key="frame" x="50" y="797" width="400" height="24"/>
+                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="20"/>
+                                    <color key="textColor" red="0.52549019610000003" green="0.97254901959999995" blue="0.96862745100000003" alpha="1" colorSpace="calibratedRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                            </subviews>
+                            <color key="backgroundColor" red="0.0" green="0.69411764710000001" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                            <constraints>
+                                <constraint firstItem="hc9-fS-Ovz" firstAttribute="centerX" secondItem="45s-To-UeF" secondAttribute="centerX" id="12O-ld-F20"/>
+                                <constraint firstItem="4Kz-jI-URf" firstAttribute="top" secondItem="hc9-fS-Ovz" secondAttribute="bottom" constant="40" id="6fN-LS-QTL"/>
+                                <constraint firstItem="FG8-20-07x" firstAttribute="centerX" secondItem="SPd-DO-NGB" secondAttribute="centerX" id="BGT-bY-WUu"/>
+                                <constraint firstItem="hxY-k7-qIq" firstAttribute="centerY" secondItem="45s-To-UeF" secondAttribute="centerY" multiplier="0.6" id="Cj6-Ef-hQG"/>
+                                <constraint firstItem="FG8-20-07x" firstAttribute="top" secondItem="SPd-DO-NGB" secondAttribute="bottom" constant="8" id="DnL-bi-hbi"/>
+                                <constraint firstItem="SPd-DO-NGB" firstAttribute="centerX" secondItem="45s-To-UeF" secondAttribute="centerX" id="E78-kG-vRI"/>
+                                <constraint firstItem="hxY-k7-qIq" firstAttribute="width" secondItem="45s-To-UeF" secondAttribute="width" multiplier="0.3" id="GO9-Af-Wlb"/>
+                                <constraint firstItem="hc9-fS-Ovz" firstAttribute="centerY" secondItem="45s-To-UeF" secondAttribute="centerY" multiplier="1.2" id="HhB-wW-nTj"/>
+                                <constraint firstItem="hxY-k7-qIq" firstAttribute="height" secondItem="45s-To-UeF" secondAttribute="height" multiplier="0.4" id="Rvf-NI-glV"/>
+                                <constraint firstItem="hc9-fS-Ovz" firstAttribute="leading" secondItem="45s-To-UeF" secondAttribute="leading" constant="5" id="UoQ-Sf-WMR"/>
+                                <constraint firstItem="SPd-DO-NGB" firstAttribute="leading" secondItem="45s-To-UeF" secondAttribute="leading" constant="50" id="XUE-uz-qhz"/>
+                                <constraint firstItem="4Kz-jI-URf" firstAttribute="centerX" secondItem="45s-To-UeF" secondAttribute="centerX" id="bY6-WE-2uV"/>
+                                <constraint firstItem="FG8-20-07x" firstAttribute="leading" secondItem="45s-To-UeF" secondAttribute="leading" constant="50" id="rKA-7c-SnP"/>
+                                <constraint firstAttribute="trailing" secondItem="hc9-fS-Ovz" secondAttribute="trailing" constant="5" id="vRw-zn-7xr"/>
+                                <constraint firstItem="hxY-k7-qIq" firstAttribute="centerX" secondItem="45s-To-UeF" secondAttribute="centerX" id="vWE-Nl-VzV"/>
+                                <constraint firstAttribute="trailing" secondItem="FG8-20-07x" secondAttribute="trailing" constant="50" id="w9s-6a-eC2"/>
+                                <constraint firstAttribute="bottom" secondItem="FG8-20-07x" secondAttribute="bottom" constant="100" id="yh9-2U-xcT"/>
+                                <constraint firstAttribute="trailing" secondItem="SPd-DO-NGB" secondAttribute="trailing" constant="50" id="ywI-9L-nWe"/>
+                            </constraints>
+                        </view>
+                    </subviews>
+                    <constraints>
+                        <constraint firstItem="45s-To-UeF" firstAttribute="top" secondItem="SpC-lX-9qk" secondAttribute="top" id="6dY-Gj-3E8"/>
+                        <constraint firstAttribute="bottom" secondItem="45s-To-UeF" secondAttribute="bottom" id="7JY-hJ-107"/>
+                        <constraint firstItem="45s-To-UeF" firstAttribute="leading" secondItem="SpC-lX-9qk" secondAttribute="leading" id="r7R-UX-zTx"/>
+                        <constraint firstAttribute="trailing" secondItem="45s-To-UeF" secondAttribute="trailing" id="xfe-gD-nX3"/>
+                    </constraints>
+                </scrollView>
+            </subviews>
+            <constraints>
+                <constraint firstAttribute="bottom" secondItem="SpC-lX-9qk" secondAttribute="bottom" id="49o-lI-Pbj"/>
+                <constraint firstAttribute="trailing" secondItem="SpC-lX-9qk" secondAttribute="trailing" id="78D-hj-PXv"/>
+                <constraint firstItem="SpC-lX-9qk" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="7Tf-2r-Lmq"/>
+                <constraint firstItem="SpC-lX-9qk" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Rgg-eU-VAj"/>
+                <constraint firstItem="45s-To-UeF" firstAttribute="width" secondItem="iN0-l3-epB" secondAttribute="width" id="dxU-lu-5xl"/>
+                <constraint firstItem="45s-To-UeF" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" id="gNC-7y-sPc"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="28" y="141"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="brand" width="72" height="90"/>
+    </resources>
+</document>

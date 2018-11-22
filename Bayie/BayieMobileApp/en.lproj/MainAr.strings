@@ -1,0 +1,486 @@
+
+/* Class = "UIButton"; normalTitle = "show"; ObjectID = "17p-E3-AOc"; */
+"17p-E3-AOc.normalTitle" = "show";
+
+/* Class = "UILabel"; text = "SAVED SEARCHES"; ObjectID = "1Xh-Lt-0Cu"; */
+"1Xh-Lt-0Cu.text" = "SAVED SEARCHES";
+
+/* Class = "UILabel"; text = "Automotive"; ObjectID = "1xN-nn-XVf"; */
+"1xN-nn-XVf.text" = "Automotive";
+
+/* Class = "UILabel"; text = "Did not receive OTP?"; ObjectID = "2Rp-4q-0IZ"; */
+"2Rp-4q-0IZ.text" = "Did not receive OTP?";
+
+/* Class = "UILabel"; text = "Migrate hdt speaker "; ObjectID = "2aY-Wd-bb4"; */
+"2aY-Wd-bb4.text" = "Migrate hdt speaker ";
+
+/* Class = "UILabel"; text = "Condition"; ObjectID = "3n8-vt-YOe"; */
+"3n8-vt-YOe.text" = "Condition";
+
+/* Class = "UILabel"; text = "Trending Ads"; ObjectID = "3te-2I-3i3"; */
+"3te-2I-3i3.text" = "Trending Ads";
+
+/* Class = "UILabel"; text = "Name"; ObjectID = "4nJ-1f-ipG"; */
+"4nJ-1f-ipG.text" = "Name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "5fJ-np-6Pg"; */
+"5fJ-np-6Pg.text" = "Label";
+
+/* Class = "UILabel"; text = "Verified with"; ObjectID = "5jo-vS-b3Q"; */
+"5jo-vS-b3Q.text" = "Verified with";
+
+/* Class = "UIBarButtonItem"; title = "Get OTP"; ObjectID = "5od-Y7-SdF"; */
+"5od-Y7-SdF.title" = "Get OTP";
+
+/* Class = "UILabel"; text = "ELECTRONICS AND APPLIANCES"; ObjectID = "5v2-AQ-Hf7"; */
+"5v2-AQ-Hf7.text" = "ELECTRONICS AND APPLIANCES";
+
+/* Class = "UILabel"; text = "AL Seeb"; ObjectID = "67e-gF-ywl"; */
+"67e-gF-ywl.text" = "AL Seeb";
+
+/* Class = "UILabel"; text = "Trending ads"; ObjectID = "6LI-28-o63"; */
+"6LI-28-o63.text" = "Trending ads";
+
+/* Class = "UILabel"; text = "+968 9995874185"; ObjectID = "6RW-xi-bTS"; */
+"6RW-xi-bTS.text" = "+968 9995874185";
+
+/* Class = "UIButton"; normalTitle = "Back to Login"; ObjectID = "71i-aU-6eh"; */
+"71i-aU-6eh.normalTitle" = "Back to Login";
+
+/* Class = "UILabel"; text = "Verified with"; ObjectID = "7Xh-dW-aGI"; */
+"7Xh-dW-aGI.text" = "Verified with";
+
+/* Class = "UIButton"; normalTitle = "REGISTER"; ObjectID = "7c1-eR-EvM"; */
+"7c1-eR-EvM.normalTitle" = "REGISTER";
+
+/* Class = "UIButton"; normalTitle = "Sell all ads"; ObjectID = "7lk-ZH-vHW"; */
+"7lk-ZH-vHW.normalTitle" = "Sell all ads";
+
+/* Class = "UILabel"; text = "Select your language"; ObjectID = "8M0-QZ-nVJ"; */
+"8M0-QZ-nVJ.text" = "Select your language";
+
+/* Class = "UITextField"; placeholder = "Email"; ObjectID = "8U7-HN-uWL"; */
+"8U7-HN-uWL.placeholder" = "Email";
+
+/* Class = "UIButton"; normalTitle = "Resend OTP"; ObjectID = "9b4-9X-ouo"; */
+"9b4-9X-ouo.normalTitle" = "Resend OTP";
+
+/* Class = "UISearchBar"; placeholder = "Search                                     "; ObjectID = "9fH-gt-ieH"; */
+"9fH-gt-ieH.placeholder" = "Search                                     ";
+
+/* Class = "UILabel"; text = "FEATURED"; ObjectID = "A7L-kI-roT"; */
+"A7L-kI-roT.text" = "FEATURED";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "AIg-c2-yBt"; */
+"AIg-c2-yBt.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Update"; ObjectID = "AZg-xM-AS6"; */
+"AZg-xM-AS6.normalTitle" = "Update";
+
+/* Class = "UILabel"; text = "FORGOT PASSWORD"; ObjectID = "BSb-fi-tJX"; */
+"BSb-fi-tJX.text" = "FORGOT PASSWORD";
+
+/* Class = "UILabel"; text = "Ad Details"; ObjectID = "Bu6-zN-OFp"; */
+"Bu6-zN-OFp.text" = "Ad Details";
+
+/* Class = "UILabel"; text = "Electronics and appliances"; ObjectID = "BvG-pF-Y8D"; */
+"BvG-pF-Y8D.text" = "Electronics and appliances";
+
+/* Class = "UILabel"; text = "Mirage hdt speakerr"; ObjectID = "E4G-ai-wTx"; */
+"E4G-ai-wTx.text" = "Mirage hdt speakerr";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "ESV-tq-Nos"; */
+"ESV-tq-Nos.text" = "Label";
+
+/* Class = "UILabel"; text = "EDIT PROFILE"; ObjectID = "EcN-P3-Vxn"; */
+"EcN-P3-Vxn.text" = "EDIT PROFILE";
+
+/* Class = "UIButton"; normalTitle = "Change Password"; ObjectID = "FaD-nY-Ach"; */
+"FaD-nY-Ach.normalTitle" = "Change Password";
+
+/* Class = "UITextField"; text = "aameena"; ObjectID = "G3w-gN-TrB"; */
+"G3w-gN-TrB.text" = "aameena";
+
+/* Class = "UITextField"; placeholder = "Name"; ObjectID = "GUg-mV-4lz"; */
+"GUg-mV-4lz.placeholder" = "Name";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HO4-3n-Wzf"; */
+"HO4-3n-Wzf.text" = "Label";
+
+/* Class = "UILabel"; text = "FEATURED"; ObjectID = "HTe-eh-AOj"; */
+"HTe-eh-AOj.text" = "FEATURED";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "HvT-RP-nrg"; */
+"HvT-RP-nrg.text" = "Label";
+
+/* Class = "UILabel"; text = "MY ADS"; ObjectID = "IqI-1b-mbs"; */
+"IqI-1b-mbs.text" = "MY ADS";
+
+/* Class = "UITabBarItem"; title = "Location"; ObjectID = "IrQ-yr-mz9"; */
+"IrQ-yr-mz9.title" = "Location";
+
+/* Class = "UITextField"; placeholder = "كلمه السر"; ObjectID = "JG7-gN-gTG"; */
+"JG7-gN-gTG.placeholder" = "كلمه السر";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "JbT-dq-7CD"; */
+"JbT-dq-7CD.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "LOGOUT"; ObjectID = "Jdn-W7-i7h"; */
+"Jdn-W7-i7h.normalTitle" = "الخروج";
+
+/* Class = "UILabel"; text = "SORT"; ObjectID = "K4r-yw-fsL"; */
+"K4r-yw-fsL.text" = "SORT";
+
+/* Class = "UIButton"; normalTitle = "Report"; ObjectID = "KEU-7K-heC"; */
+"KEU-7K-heC.normalTitle" = "Report";
+
+/* Class = "UILabel"; text = "test"; ObjectID = "KiV-pJ-tkk"; */
+"KiV-pJ-tkk.text" = "test";
+
+/* Class = "UILabel"; text = "160 OMR"; ObjectID = "L6y-eu-ZiM"; */
+"L6y-eu-ZiM.text" = "160 OMR";
+
+/* Class = "UIButton"; normalTitle = "  SORT"; ObjectID = "Lsg-Zs-UxC"; */
+"Lsg-Zs-UxC.normalTitle" = "  SORT";
+
+/* Class = "UITextField"; text = "ammee@gmail.com"; ObjectID = "MKN-h8-v2d"; */
+"MKN-h8-v2d.text" = "ammee@gmail.com";
+
+/* Class = "UILabel"; text = "Ads Nearby"; ObjectID = "MRA-4m-cCW"; */
+"MRA-4m-cCW.text" = "Ads Nearby";
+
+/* Class = "UINavigationItem"; title = "Change Your Password"; ObjectID = "N7W-Ja-Qk0"; */
+"N7W-Ja-Qk0.title" = "Change Your Password";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "O3e-mZ-two"; */
+"O3e-mZ-two.text" = "Label";
+
+/* Class = "UILabel"; text = "215 OMR"; ObjectID = "OFX-bX-f5g"; */
+"OFX-bX-f5g.text" = "215 OMR";
+
+/* Class = "UILabel"; text = "Muscat march 2017"; ObjectID = "OJf-5y-ner"; */
+"OJf-5y-ner.text" = "Muscat march 2017";
+
+/* Class = "UIButton"; normalTitle = "Save Search"; ObjectID = "ORa-vx-DAK"; */
+"ORa-vx-DAK.normalTitle" = "Save Search";
+
+/* Class = "UIButton"; normalTitle = "show"; ObjectID = "Oe8-Zr-uAR"; */
+"Oe8-Zr-uAR.normalTitle" = "show";
+
+/* Class = "UITabBarItem"; title = "موقعك"; ObjectID = "Plb-af-4qe"; */
+"Plb-af-4qe.title" = "موقعك";
+
+/* Class = "UIButton"; normalTitle = "Connect wth Facebook"; ObjectID = "QmX-T5-YkY"; */
+"QmX-T5-YkY.normalTitle" = "Connect wth Facebook";
+
+/* Class = "UITabBarItem"; title = "Browse"; ObjectID = "R3B-jy-QzG"; */
+"R3B-jy-QzG.title" = "Browse";
+
+/* Class = "UILabel"; text = "+968"; ObjectID = "S9W-iO-iON"; */
+"S9W-iO-iON.text" = "+968";
+
+/* Class = "UITextField"; placeholder = "Phone Number"; ObjectID = "SHy-uG-NQr"; */
+"SHy-uG-NQr.placeholder" = "Phone Number";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "TdD-MZ-9yR"; */
+"TdD-MZ-9yR.normalTitle" = "LOGIN";
+
+/* Class = "UIButton"; normalTitle = "Sign Up"; ObjectID = "Tk5-kX-ZQ5"; */
+"Tk5-kX-ZQ5.normalTitle" = "Sign Up";
+
+/* Class = "UILabel"; text = "REGISTER"; ObjectID = "TxV-HK-Xhd"; */
+"TxV-HK-Xhd.text" = "REGISTER";
+
+/* Class = "UILabel"; text = "About Us"; ObjectID = "VM1-kH-YVP"; */
+"VM1-kH-YVP.text" = "About Us";
+
+/* Class = "UILabel"; text = "Muscat,march 2017"; ObjectID = "VUV-Ym-HaV"; */
+"VUV-Ym-HaV.text" = "Muscat,march 2017";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "WuK-ao-Vf6"; */
+"WuK-ao-Vf6.text" = "Label";
+
+/* Class = "UILabel"; text = "Location"; ObjectID = "XWN-L5-1lL"; */
+"XWN-L5-1lL.text" = "Location";
+
+/* Class = "UILabel"; text = "You can update language preferences later in"; ObjectID = "Xbz-Hq-QD6"; */
+"Xbz-Hq-QD6.text" = "You can update language preferences later in";
+
+/* Class = "UITextField"; text = "English"; ObjectID = "XhQ-vM-kIg"; */
+"XhQ-vM-kIg.text" = "English";
+
+/* Class = "UILabel"; text = "AL Seeb"; ObjectID = "Xmj-I7-o0X"; */
+"Xmj-I7-o0X.text" = "AL Seeb";
+
+/* Class = "UIButton"; normalTitle = "View all"; ObjectID = "Xmu-4x-O8J"; */
+"Xmu-4x-O8J.normalTitle" = "View all";
+
+/* Class = "UITabBarItem"; title = "Browse"; ObjectID = "YUA-gi-tMV"; */
+"YUA-gi-tMV.title" = "Browse";
+
+/* Class = "UILabel"; text = "Email"; ObjectID = "YWi-6y-mNU"; */
+"YWi-6y-mNU.text" = "Email";
+
+/* Class = "UILabel"; text = "Mirage hdt speakerr"; ObjectID = "ZUo-lw-6TZ"; */
+"ZUo-lw-6TZ.text" = "Mirage hdt speakerr";
+
+/* Class = "UISearchBar"; placeholder = "Search"; ObjectID = "Zen-6x-OIc"; */
+"Zen-6x-OIc.placeholder" = "Search";
+
+/* Class = "UITextField"; placeholder = "Email or Mobile"; ObjectID = "ac3-ga-v5z"; */
+"ac3-ga-v5z.placeholder" = "Email or Mobile";
+
+/* Class = "UILabel"; text = "cghh"; ObjectID = "acc-WT-A8Q"; */
+"acc-WT-A8Q.text" = "cghh";
+
+/* Class = "UILabel"; text = "Favorites"; ObjectID = "ape-o6-qQh"; */
+"ape-o6-qQh.text" = "Favorites";
+
+/* Class = "UIButton"; normalTitle = "SAVE SEARCH"; ObjectID = "axO-Xz-mEC"; */
+"axO-Xz-mEC.normalTitle" = "SAVE SEARCH";
+
+/* Class = "UIButton"; normalTitle = "Delete All"; ObjectID = "bm0-tC-OU7"; */
+"bm0-tC-OU7.normalTitle" = "Delete All";
+
+/* Class = "UILabel"; text = "Change Password"; ObjectID = "c9G-0z-YhD"; */
+"c9G-0z-YhD.text" = "Change Password";
+
+/* Class = "UILabel"; text = "Description"; ObjectID = "caz-n9-kiX"; */
+"caz-n9-kiX.text" = "Description";
+
+/* Class = "UILabel"; text = "Mirage hdt speaker"; ObjectID = "dGZ-Xm-EuT"; */
+"dGZ-Xm-EuT.text" = "Mirage hdt speaker";
+
+/* Class = "UITextField"; placeholder = "Old Password"; ObjectID = "dZx-Lk-lPi"; */
+"dZx-Lk-lPi.placeholder" = "Old Password";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "daY-qz-fnw"; */
+"daY-qz-fnw.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "POST AD"; ObjectID = "dof-z6-xO1"; */
+"dof-z6-xO1.title" = "POST AD";
+
+/* Class = "UIButton"; normalTitle = "  SORT"; ObjectID = "e5p-kH-whr"; */
+"e5p-kH-whr.normalTitle" = "  SORT";
+
+/* Class = "UIButton"; normalTitle = "  FILTER"; ObjectID = "eH2-C3-Jfk"; */
+"eH2-C3-Jfk.normalTitle" = "  FILTER";
+
+/* Class = "UIButton"; normalTitle = "CHANGE PASSWORD"; ObjectID = "eIQ-VG-5lc"; */
+"eIQ-VG-5lc.normalTitle" = "CHANGE PASSWORD";
+
+/* Class = "UIButton"; normalTitle = "عربى"; ObjectID = "exL-Ki-Nhc"; */
+"exL-Ki-Nhc.normalTitle" = "عربى";
+
+/* Class = "UILabel"; text = "locatn"; ObjectID = "f5y-rI-UCE"; */
+"f5y-rI-UCE.text" = "locatn";
+
+/* Class = "UILabel"; text = "+968"; ObjectID = "fHJ-AM-eVm"; */
+"fHJ-AM-eVm.text" = "+968";
+
+/* Class = "UIButton"; normalTitle = "show"; ObjectID = "fgn-TA-D4y"; */
+"fgn-TA-D4y.normalTitle" = "show";
+
+/* Class = "UILabel"; text = "Ad ID:"; ObjectID = "fv2-H5-jZf"; */
+"fv2-H5-jZf.text" = "Ad ID:";
+
+/* Class = "UILabel"; text = "160 OMR"; ObjectID = "g7E-fV-5CF"; */
+"g7E-fV-5CF.text" = "160 OMR";
+
+/* Class = "UILabel"; text = "Select Location"; ObjectID = "h3u-bX-VhA"; */
+"h3u-bX-VhA.text" = "Select Location";
+
+/* Class = "UILabel"; text = "Ameenah"; ObjectID = "hJ4-cy-gTS"; */
+"hJ4-cy-gTS.text" = "Ameenah";
+
+/* Class = "UIButton"; normalTitle = "Forget Password?"; ObjectID = "haW-Nw-wTd"; */
+"haW-Nw-wTd.normalTitle" = "Forget Password?";
+
+/* Class = "UILabel"; text = "Use Current location"; ObjectID = "hiA-v7-2AT"; */
+"hiA-v7-2AT.text" = "Use Current location";
+
+/* Class = "UILabel"; text = "App Language"; ObjectID = "htP-zo-g77"; */
+"htP-zo-g77.text" = "App Language";
+
+/* Class = "UITextField"; text = "alseeb"; ObjectID = "hy1-tQ-ujk"; */
+"hy1-tQ-ujk.text" = "alseeb";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "iCB-LE-9qm"; */
+"iCB-LE-9qm.placeholder" = "Confirm Password";
+
+/* Class = "UIButton"; normalTitle = "Filter"; ObjectID = "iSb-m6-W1l"; */
+"iSb-m6-W1l.normalTitle" = "Filter";
+
+/* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "icN-O8-52T"; */
+"icN-O8-52T.normalTitle" = "LOGIN";
+
+/* Class = "UILabel"; text = "lbl"; ObjectID = "iiY-8M-FxP"; */
+"iiY-8M-FxP.text" = "lbl";
+
+/* Class = "UILabel"; text = "LOGIN"; ObjectID = "jns-CA-WZz"; */
+"jns-CA-WZz.text" = "LOGIN";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "jyW-dl-lcL"; */
+"jyW-dl-lcL.text" = "Label";
+
+/* Class = "UILabel"; text = "Select your location"; ObjectID = "kHX-wi-0KQ"; */
+"kHX-wi-0KQ.text" = "Select your location";
+
+/* Class = "UILabel"; text = "fzsgbdfzgb"; ObjectID = "kXJ-Rp-viB"; */
+"kXJ-Rp-viB.text" = "fzsgbdfzgb";
+
+/* Class = "UIButton"; normalTitle = "RECOVER"; ObjectID = "m2N-Oy-SdA"; */
+"m2N-Oy-SdA.normalTitle" = "RECOVER";
+
+/* Class = "UILabel"; text = "Phone"; ObjectID = "m88-ii-ove"; */
+"m88-ii-ove.text" = "Phone";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "mUs-vX-CFc"; */
+"mUs-vX-CFc.text" = "Label";
+
+/* Class = "UINavigationItem"; title = "Verify Mobile Number"; ObjectID = "mWJ-25-YnR"; */
+"mWJ-25-YnR.title" = "Verify Mobile Number";
+
+/* Class = "UILabel"; text = "Automotive"; ObjectID = "mjs-fc-HAt"; */
+"mjs-fc-HAt.text" = "Automotive";
+
+/* Class = "UITextField"; placeholder = "Mobile Number"; ObjectID = "mrj-EP-8H1"; */
+"mrj-EP-8H1.placeholder" = "Mobile Number";
+
+/* Class = "UIButton"; normalTitle = "CANCEL"; ObjectID = "mt6-d9-omw"; */
+"mt6-d9-omw.normalTitle" = "CANCEL";
+
+/* Class = "UIButton"; normalTitle = "ENGLISH"; ObjectID = "mtg-sc-DOZ"; */
+"mtg-sc-DOZ.normalTitle" = "ENGLISH";
+
+/* Class = "UILabel"; text = "Select Your Location"; ObjectID = "n6X-pc-Y3g"; */
+"n6X-pc-Y3g.text" = "Select Your Location";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "o6s-pZ-CfD"; */
+"o6s-pZ-CfD.text" = "Label";
+
+/* Class = "UIButton"; normalTitle = "Share this ad"; ObjectID = "oMp-jb-9rm"; */
+"oMp-jb-9rm.normalTitle" = "Share this ad";
+
+/* Class = "UIButton"; normalTitle = "Connect with Google"; ObjectID = "ocl-Gi-PDI"; */
+"ocl-Gi-PDI.normalTitle" = "Connect with Google";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "oib-5R-ToO"; */
+"oib-5R-ToO.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "p4k-4s-uBa"; */
+"p4k-4s-uBa.title" = "Profile";
+
+/* Class = "UILabel"; text = "ads1"; ObjectID = "pJz-N9-XNs"; */
+"pJz-N9-XNs.text" = "ads1";
+
+/* Class = "UILabel"; text = "ELECTRONICS AND APPLIANCES"; ObjectID = "pKn-ak-KUB"; */
+"pKn-ak-KUB.text" = "ELECTRONICS AND APPLIANCES";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "pWi-b8-3gc"; */
+"pWi-b8-3gc.text" = "Label";
+
+/* Class = "UITabBarItem"; title = "Profile"; ObjectID = "pYb-hd-oeH"; */
+"pYb-hd-oeH.title" = "Profile";
+
+/* Class = "UILabel"; text = "Other Cities"; ObjectID = "psp-0v-mpV"; */
+"psp-0v-mpV.text" = "Other Cities";
+
+/* Class = "UITextField"; placeholder = "Password"; ObjectID = "q8K-Pg-LiI"; */
+"q8K-Pg-LiI.placeholder" = "Password";
+
+/* Class = "UITextField"; placeholder = "Confirm Password"; ObjectID = "q8X-y0-xAL"; */
+"q8X-y0-xAL.placeholder" = "Confirm Password";
+
+/* Class = "UILabel"; text = ",March 2017"; ObjectID = "r9o-Pk-lBR"; */
+"r9o-Pk-lBR.text" = ",March 2017";
+
+/* Class = "UILabel"; text = "Don't have an account?"; ObjectID = "rT2-dX-ktT"; */
+"rT2-dX-ktT.text" = "Don't have an account?";
+
+/* Class = "UILabel"; text = "160 OMR"; ObjectID = "rXh-dU-FBh"; */
+"rXh-dU-FBh.text" = "160 OMR";
+
+/* Class = "UIButton"; normalTitle = "   FILTER"; ObjectID = "reM-pY-XXe"; */
+"reM-pY-XXe.normalTitle" = "   FILTER";
+
+/* Class = "UIButton"; normalTitle = "CALL"; ObjectID = "ri9-Rm-6BM"; */
+"ri9-Rm-6BM.normalTitle" = "CALL";
+
+/* Class = "UILabel"; text = "OTP Sent to"; ObjectID = "rwS-vp-Iqy"; */
+"rwS-vp-Iqy.text" = "OTP Sent to";
+
+/* Class = "UIButton"; normalTitle = "CHAT"; ObjectID = "s26-pl-X12"; */
+"s26-pl-X12.normalTitle" = "CHAT";
+
+/* Class = "UIButton"; normalTitle = "CHAT"; ObjectID = "sPL-dw-0ac"; */
+"sPL-dw-0ac.normalTitle" = "CHAT";
+
+/* Class = "UIButton"; normalTitle = "Cancel"; ObjectID = "sPh-IZ-YhR"; */
+"sPh-IZ-YhR.normalTitle" = "Cancel";
+
+/* Class = "UIButton"; normalTitle = "CHAT"; ObjectID = "sTP-LV-yRQ"; */
+"sTP-LV-yRQ.normalTitle" = "CHAT";
+
+/* Class = "UITabBarItem"; title = "المفضلة"; ObjectID = "syB-y1-L7v"; */
+"syB-y1-L7v.title" = "المفضلة";
+
+/* Class = "UIButton"; normalTitle = "LOGOUT"; ObjectID = "t8T-65-cnB"; */
+"t8T-65-cnB.normalTitle" = "الخروج";
+
+/* Class = "UILabel"; text = "Label"; ObjectID = "tx3-Wu-V6B"; */
+"tx3-Wu-V6B.text" = "Label";
+
+/* Class = "UILabel"; text = "FILTER"; ObjectID = "tz7-pm-uGo"; */
+"tz7-pm-uGo.text" = "FILTER";
+
+/* Class = "UIBarButtonItem"; title = "Confirm"; ObjectID = "uHC-YJ-ILy"; */
+"uHC-YJ-ILy.title" = "Confirm";
+
+/* Class = "UITextField"; placeholder = "البريد الإلكتروني أو الجوال"; ObjectID = "usp-H5-OTN"; */
+"usp-H5-OTN.placeholder" = "البريد الإلكتروني أو الجوال";
+
+/* Class = "UINavigationItem"; title = "POST AD"; ObjectID = "uzW-No-RK6"; */
+"uzW-No-RK6.title" = "POST AD";
+
+/* Class = "UILabel"; text = "Seller Detail"; ObjectID = "v3p-k9-RPZ"; */
+"v3p-k9-RPZ.text" = "Seller Detail";
+
+/* Class = "UILabel"; text = "A3"; ObjectID = "vCj-dI-awO"; */
+"vCj-dI-awO.text" = "تم البحث في";
+
+/* Class = "UITextField"; placeholder = "Mobile"; ObjectID = "xoD-PE-Dyd"; */
+"xoD-PE-Dyd.placeholder" = "Mobile";
+
+/* Class = "UINavigationItem"; title = "Verify OTP"; ObjectID = "xtZ-Y6-E9s"; */
+"xtZ-Y6-E9s.title" = "Verify OTP";
+
+/* Class = "UILabel"; text = "Muscat,march 2017"; ObjectID = "xtd-17-rbd"; */
+"xtd-17-rbd.text" = "Muscat,march 2017";
+
+/* Class = "UITabBarItem"; title = "Favorites"; ObjectID = "xvI-AU-wk5"; */
+"xvI-AU-wk5.title" = "Favorites";
+
+/* Class = "UILabel"; text = "muscat march 2017"; ObjectID = "yJG-JQ-1qA"; */
+"yJG-JQ-1qA.text" = "muscat march 2017";
+
+/* Class = "UILabel"; text = "Profile > App Language in phoneeeee"; ObjectID = "yLY-SX-10Z"; */
+"yLY-SX-10Z.text" = "Profile > App Language in phoneeeee";
+
+/* Class = "UILabel"; text = "Ameenah"; ObjectID = "yVs-tw-7e7"; */
+"yVs-tw-7e7.text" = "Ameenah";
+
+/* Class = "UIButton"; normalTitle = "View All"; ObjectID = "ykT-wj-sff"; */
+"ykT-wj-sff.normalTitle" = "View All";
+
+/* Class = "UILabel"; text = "Ads Nearby"; ObjectID = "zay-rw-ACA"; */
+"zay-rw-ACA.text" = "Ads Nearby";
+
+/* Class = "UITabBarItem"; title = "Post Ad"; ObjectID = "zfG-Jz-6kg"; */
+"zfG-Jz-6kg.title" = "Post Ad";
+
+/* Class = "UITabBarItem"; title = "نشر إعلان"; ObjectID = "zig-Ah-zqk"; */
+"zig-Ah-zqk.title" = "نشر إعلان";
+
+/* Class = "UITextField"; placeholder = "New Password"; ObjectID = "zy8-Wh-NT2"; */
+"zy8-Wh-NT2.placeholder" = "New Password";

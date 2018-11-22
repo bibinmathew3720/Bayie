@@ -1,0 +1,115 @@
+/*
+ Localizable.strings
+ BayieMobileApp
+ 
+ Created by Pintlab Technologies on 26/04/17.
+ Copyright © 2017 Abbie. All rights reserved.
+ */
+
+//URL's
+
+"ADS_MANAGEMENT_URL" = "https://bayie.digiora.com/api/apiAds.php?action=";
+"USER_MANAGEMENT_URL" = "https://bayie.digiora.com/api/apiUser.php?action=";
+
+//Language Selector
+"LOADING" = "Loading";
+"ENGLISH"  = "ENGLISH";
+"ARABIC" = "عربى";
+"YOU_CAN_UPDATE_LANUAGE_PREFERENCE" = "You can update language preferences later in";
+"PROFILE_APP_LANGUAGE" = "Profile > App Language";
+// LOGIN
+"LOGIN" = "تسجيل الدخول";
+"CONNECT_WITH_FACEBOOK"  = "تواصل مع الفيسبوك";
+"CONNECT_WITH_GOOGLE" = "تواصل مع غوغل";
+"BUY_AND_SELL_ANYTHING_AT_YOUR_CONVENIENCE" = "شراء وبيع أي شيء على راحتك! ";
+"EMAIL_OR_MOBILE "= "البريد الإلكتروني أو الجوال";
+"PASSWORD" = "كلمه السر";
+"FORGOT_PASSWORD" = "هل نسيت كلمة المرور؟";
+"DON'T_HAVE_AN_ACCOUNT" = "ليس لديك حساب؟ سجل";
+"SIGN_UP" = "سجل";
+//REGISTRATION
+"REGISTER" = "تسجيل";
+"NAME" = "اسم";
+"MOBILE" = "التليفون المحمول";
+"EMAIL" = "البريد الإلكتروني";
+"PASSWORD" = "كلمه السر";
+"CONFIRM_PASSWORD" = "تأكيد كلمة المرور";
+//Verify Mobile Number
+"GET_OTP" = "توليد كلمة مرور مرة واحدة";
+"VERIFY_MOBILE_NUMBER" = "تحقق من رقم الجوال";
+//OTP
+"VERIFY_OTP" = "تحقق من كلمة مرور مرة واحدة";
+"CONFIRM" = "تؤكد";
+"OTP_SENT_TO" = "تم إرسال كلمة مرور مرة واحدة إلى";
+"DID_NOT_RECEIVE_OTP" = "ألم تتلق كلمة مرور لمرة واحدة؟";
+"RESEND_OTP" = "إعادة إرسال أوتب";
+//CHANGE PASSWORD
+"CHANGE_YOUR_PASSWORD" = "غير كلمة المرور الخاصة بك";
+"CHANGE_PASSWORD" = "تغيير كلمة السر";
+"NEW_PASSWORD" = "كلمة السر الجديدة";
+"OLD_PASSWORD" = "كلمة المرور القديمة";
+"CONFIRM_PASSWORD" = "تأكيد كلمة المرور";
+//Landing Page
+"BROWSE" = "تصفح";
+"LOCATION" = "موقعك";
+"POST_AD" = "نشر إعلان";
+"FAVORITES" = "المفضلة";
+"PROFILE" = "الملف الشخصي";
+"VIEW_ALL" = "عرض الكل";
+"TRENDING_ADS" = "الإعلانات الرائجة";
+"ADS_NEARBY" = "إعلانات في محيطك";
+"LOCATION_SELECTION" = "حدد موقعك";
+"MORE" = "أكثر من";
+//Listing
+"SORT" = "فرز";
+"FILTER" = "منقي";
+"SAVE_SEARCH" = "احفظ البحث";
+"All" = "الكل";
+//SORT
+"SORT" = "فرز";
+"CANCEL" = "إلغاء";
+
+"RECENT" = "نشرت مؤخرا";
+"LOWEST" = "أقل سعر";
+"HIGHEST" = "اغلى سعر";
+
+
+//POST Ad
+"POST_AD" = "بوست أد";
+"SELECT"  = "تحديد";
+"PHOTOLIMIT" = "تم الوصول إلى الحد الأقصى لعدد الصور";
+//MY ADS
+"MY_ADS" = "ماي أدس";
+//MY Chat
+"MY_CHAT" = "دردشاتي";
+
+//Saved Search
+"SAVED_SEARCH" = "الابحاث المحفوظة";
+"DELETE_ALL" = "Delete All";
+//Search
+"CANCEL" = "إلغاء";
+//Location
+"SELECT_YOUR_LOCATION" = "حدد موقعك";
+"OTHER_CITIES" = "مدن أخرى";
+"OMR" = "OMR";
+//Profile
+"MY_ADS" = "ماي أدس";
+"MY_PROFILE" = "ملفي";
+"MY_FAVORITES" = "مفضلتي";
+"MY_CHATS" = "دردشاتي";
+"MY_SAVED_SEARCHES" = "عمليات البحث المحفوظة";
+"FEEDBACK_AND_SUPPORT" = "ردود الفعل والدعم";
+"ABOUT" = "حول";
+// Send Message
+"Enter message" = "أدخل الرسالة";
+
+//Delete Pop up View
+
+"DELETE" = "حذف";
+"DELETEPOPUPHEADING" = "واسمحوا لي أن أعرف لماذا لا \n تحذف هذا الإعلان.";
+
+"SOLDINBAYIE" = "يباع في باي";
+"SOLDINOTHERSITE" = "تم البيع في موقع آخر";
+"NOTSELLING" = "عدم بيعه بعد الآن";
+"ADOUTDATE" = "الإعلان قديم";
+"OTHER" = "آخر";

@@ -1,0 +1,34 @@
+source 'https://github.com/CocoaPods/Specs.git'
+platform :ios, ‘8.0’
+
+target 'BayieMobileApp' do
+
+ pod 'DownPicker'
+ pod 'AFNetworking', '~> 3.0'
+ pod 'MBProgressHUD', '~> 1.0.0'
+ pod 'Firebase/Core'
+ pod 'Firebase/AdMob'
+ pod 'SDWebImage', '~>3.8'
+ pod 'UIViewController-TransparentNavBar'
+ pod 'FBSDKCoreKit'
+ pod 'FBSDKLoginKit'
+ pod 'FBSDKShareKit'
+ pod 'FBSDKMessengerShareKit'
+ pod 'Google/SignIn'
+ pod 'IQKeyboardManager'
+ pod 'DKImagePickerController'
+ pod 'NextGrowingTextView'
+ pod 'GoogleUtilities'
+ pod 'Firebase/Messaging'
+  pod 'PBJVideoPlayer'
+ use_frameworks!
+
+end
+
+post_install do |installer|
+    installer.pods_project.targets.each do |target|
+        target.build_configurations.each do |config|
+            config.build_settings['SWIFT_VERSION'] = '3.0'
+        end
+    end
+end

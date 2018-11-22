@@ -1,0 +1,183 @@
+PODS:
+  - AFNetworking (3.2.1):
+    - AFNetworking/NSURLSession (= 3.2.1)
+    - AFNetworking/Reachability (= 3.2.1)
+    - AFNetworking/Security (= 3.2.1)
+    - AFNetworking/Serialization (= 3.2.1)
+    - AFNetworking/UIKit (= 3.2.1)
+  - AFNetworking/NSURLSession (3.2.1):
+    - AFNetworking/Reachability
+    - AFNetworking/Security
+    - AFNetworking/Serialization
+  - AFNetworking/Reachability (3.2.1)
+  - AFNetworking/Security (3.2.1)
+  - AFNetworking/Serialization (3.2.1)
+  - AFNetworking/UIKit (3.2.1):
+    - AFNetworking/NSURLSession
+  - Bolts (1.8.4):
+    - Bolts/AppLinks (= 1.8.4)
+    - Bolts/Tasks (= 1.8.4)
+  - Bolts/AppLinks (1.8.4):
+    - Bolts/Tasks
+  - Bolts/Tasks (1.8.4)
+  - DKImagePickerController (3.5.1):
+    - DKImagePickerController/Camera (= 3.5.1)
+    - DKImagePickerController/ImageManager (= 3.5.1)
+  - DKImagePickerController/Camera (3.5.1)
+  - DKImagePickerController/ImageManager (3.5.1)
+  - DownPicker (0.1.34)
+  - FBSDKCoreKit (4.21.0):
+    - Bolts (~> 1.7)
+  - FBSDKLoginKit (4.21.0):
+    - FBSDKCoreKit
+  - FBSDKMessengerShareKit (1.3.2)
+  - FBSDKShareKit (4.21.0):
+    - FBSDKCoreKit
+  - Firebase/AdMob (3.15.0):
+    - Firebase/Core
+    - Google-Mobile-Ads-SDK (= 7.19.0)
+  - Firebase/Core (3.15.0):
+    - FirebaseAnalytics (= 3.7.0)
+    - FirebaseCore (= 3.5.2)
+  - Firebase/Messaging (3.15.0):
+    - Firebase/Core
+    - FirebaseMessaging (= 1.2.2)
+  - FirebaseAnalytics (3.7.0):
+    - FirebaseCore (~> 3.5)
+    - FirebaseInstanceID (~> 1.0)
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseCore (3.5.2):
+    - "GoogleToolboxForMac/NSData+zlib (~> 2.1)"
+  - FirebaseInstanceID (1.0.9)
+  - FirebaseMessaging (1.2.2):
+    - FirebaseAnalytics (~> 3.7)
+    - FirebaseInstanceID (~> 1.0)
+    - GoogleToolboxForMac/Logger (~> 2.1)
+    - Protobuf (~> 3.1)
+  - Google-Mobile-Ads-SDK (7.19.0)
+  - Google/Core (3.0.3):
+    - FirebaseAnalytics (~> 3.2)
+  - Google/SignIn (3.0.3):
+    - Google/Core
+    - GoogleSignIn (~> 4.0)
+  - GoogleSignIn (4.0.2):
+    - "GoogleToolboxForMac/NSDictionary+URLArguments (~> 2.1)"
+    - "GoogleToolboxForMac/NSString+URLArguments (~> 2.1)"
+    - GTMOAuth2 (~> 1.0)
+    - GTMSessionFetcher/Core (~> 1.1)
+  - GoogleSymbolUtilities (1.1.2)
+  - GoogleToolboxForMac/DebugUtils (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - GoogleToolboxForMac/Defines (2.1.1)
+  - GoogleToolboxForMac/Logger (2.1.1):
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - "GoogleToolboxForMac/NSData+zlib (2.1.1)":
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+  - "GoogleToolboxForMac/NSDictionary+URLArguments (2.1.1)":
+    - GoogleToolboxForMac/DebugUtils (= 2.1.1)
+    - GoogleToolboxForMac/Defines (= 2.1.1)
+    - "GoogleToolboxForMac/NSString+URLArguments (= 2.1.1)"
+  - "GoogleToolboxForMac/NSString+URLArguments (2.1.1)"
+  - GoogleUtilities (1.3.2):
+    - GoogleSymbolUtilities (~> 1.1)
+  - GTMOAuth2 (1.1.4):
+    - GTMSessionFetcher (~> 1.1)
+  - GTMSessionFetcher (1.1.9):
+    - GTMSessionFetcher/Full (= 1.1.9)
+  - GTMSessionFetcher/Core (1.1.9)
+  - GTMSessionFetcher/Full (1.1.9):
+    - GTMSessionFetcher/Core (= 1.1.9)
+  - IQKeyboardManager (4.0.9)
+  - MBProgressHUD (1.0.0)
+  - NextGrowingTextView (0.7.3)
+  - PBJVideoPlayer (0.3.2)
+  - Protobuf (3.3.0)
+  - SDWebImage (3.8.2):
+    - SDWebImage/Core (= 3.8.2)
+  - SDWebImage/Core (3.8.2)
+  - UIViewController-TransparentNavBar (1.3)
+
+DEPENDENCIES:
+  - AFNetworking (~> 3.0)
+  - DKImagePickerController
+  - DownPicker
+  - FBSDKCoreKit
+  - FBSDKLoginKit
+  - FBSDKMessengerShareKit
+  - FBSDKShareKit
+  - Firebase/AdMob
+  - Firebase/Core
+  - Firebase/Messaging
+  - Google/SignIn
+  - GoogleUtilities
+  - IQKeyboardManager
+  - MBProgressHUD (~> 1.0.0)
+  - NextGrowingTextView
+  - PBJVideoPlayer
+  - SDWebImage (~> 3.8)
+  - UIViewController-TransparentNavBar
+
+SPEC REPOS:
+  https://github.com/cocoapods/specs.git:
+    - AFNetworking
+    - Bolts
+    - DKImagePickerController
+    - DownPicker
+    - FBSDKCoreKit
+    - FBSDKLoginKit
+    - FBSDKMessengerShareKit
+    - FBSDKShareKit
+    - Firebase
+    - FirebaseAnalytics
+    - FirebaseCore
+    - FirebaseInstanceID
+    - FirebaseMessaging
+    - Google
+    - Google-Mobile-Ads-SDK
+    - GoogleSignIn
+    - GoogleSymbolUtilities
+    - GoogleToolboxForMac
+    - GoogleUtilities
+    - GTMOAuth2
+    - GTMSessionFetcher
+    - IQKeyboardManager
+    - MBProgressHUD
+    - NextGrowingTextView
+    - PBJVideoPlayer
+    - Protobuf
+    - SDWebImage
+    - UIViewController-TransparentNavBar
+
+SPEC CHECKSUMS:
+  AFNetworking: b6f891fdfaed196b46c7a83cf209e09697b94057
+  Bolts: 8a7995239dbe724f9cba2248b766d48b7ebdd322
+  DKImagePickerController: 8db7e76a88a7a66a893ba30e935cc4c9bb7ed335
+  DownPicker: c00ea63f08ae82116cc93d0eba74e86bf3d4c68e
+  FBSDKCoreKit: 8a372ab194b5c7c26355c1920ef52dbeb44bc222
+  FBSDKLoginKit: a1a5f4b4ac445823a020fbeeaf5f03714a67ff9c
+  FBSDKMessengerShareKit: 41c0b1a667d685c9433f993eb9611b3d5074e1cb
+  FBSDKShareKit: 649a7acfd01a3e056a33994c1bfbb997814cc8a2
+  Firebase: 2b1cdfba1cda8589f32904a697cc753322bff9d8
+  FirebaseAnalytics: 0d1b7d81d5021155be37702a94ba1ec16d45365d
+  FirebaseCore: a024587e43778508700af8c6b1209f7c4516ba02
+  FirebaseInstanceID: 2d0518b1378fe9d685ef40cbdd63d2fdc1125339
+  FirebaseMessaging: df8267f378580a24174ce7861233aa11d5c90109
+  Google: cd92fab98f800f509da88c1e0c570275713bc9d5
+  Google-Mobile-Ads-SDK: d1bcdbd8347a105a687345b8511701172a5074e9
+  GoogleSignIn: d7ad83f13480e1f30453471d00d19b5293ac46af
+  GoogleSymbolUtilities: 631ee17048aa5e9ab133470d768ea997a5ef9b96
+  GoogleToolboxForMac: 8e329f1b599f2512c6b10676d45736bcc2cbbeb0
+  GoogleUtilities: 8bbc733218aad26306f9d4a253823986110e3358
+  GTMOAuth2: 7fc9c10f5c745f4d9850419ea88889fe3baa6b7d
+  GTMSessionFetcher: 5c046c76a1f859bc9c187e918f18e4fc7bb57b5e
+  IQKeyboardManager: 322c7405df3eb5f7e50dede32ea937bf3d4364e0
+  MBProgressHUD: 4890f671c94e8a0f3cf959aa731e9de2f036d71a
+  NextGrowingTextView: 8092e8723a52a739b8002df1492083451092551d
+  PBJVideoPlayer: b2f79c2139e4a74711bc900dd879cee4e7ccfef6
+  Protobuf: d582fecf68201eac3d79ed61369ef45734394b9c
+  SDWebImage: 098e97e6176540799c27e804c96653ee0833d13c
+  UIViewController-TransparentNavBar: 71a4912f9b258fa4a962a251b92e8f35f4df037c
+
+PODFILE CHECKSUM: 67c1b82e14ff1b58a99f089165465c41209ee209
+
+COCOAPODS: 1.5.3
