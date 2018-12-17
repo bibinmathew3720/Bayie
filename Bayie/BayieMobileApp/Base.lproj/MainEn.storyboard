@@ -6034,6 +6034,10 @@
                                         <exclude reference="gox-Mw-BJ0"/>
                                     </mask>
                                 </variation>
+                                <connections>
+                                    <outlet property="dataSource" destination="DuJ-ro-Beg" id="0a7-ah-4Xw"/>
+                                    <outlet property="delegate" destination="DuJ-ro-Beg" id="1zz-rn-NDg"/>
+                                </connections>
                             </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
@@ -6054,6 +6058,9 @@
                     <simulatedTabBarMetrics key="simulatedBottomBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="375" height="880"/>
+                    <connections>
+                        <outlet property="auctionCollectionView" destination="32I-S4-FBh" id="PL6-M0-bex"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="tyS-5k-OVn" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>

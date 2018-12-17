@@ -7,9 +7,10 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "Auction.h"
 
 @interface CustomCategoryCollectionViewCell : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UIImageView *categoryImage;
 @property (weak, nonatomic) IBOutlet UILabel *categoryName;
-
+@property (nonatomic, strong) Auction *auct;
 @end

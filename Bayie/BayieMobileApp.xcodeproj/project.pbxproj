@@ -160,6 +160,7 @@
 		D0E9F7721F35AE6C001B1EE3 /* FilterLeftTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E9F7701F35AE6C001B1EE3 /* FilterLeftTVC.xib */; };
 		D0F2B45B2042AD1D0034A3D6 /* ListingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2B45A2042AD1D0034A3D6 /* ListingCollectionCell.m */; };
 		D0FBAC2721C7FF6000370522 /* AuctionListingVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBAC2621C7FF6000370522 /* AuctionListingVC.m */; };
+		D0FBAC2A21C8083800370522 /* Auction.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBAC2921C8083800370522 /* Auction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -446,6 +447,8 @@
 		D0F7BF841F57488500F84DDD /* Bayie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bayie.entitlements; sourceTree = "<group>"; };
 		D0FBAC2521C7FF6000370522 /* AuctionListingVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuctionListingVC.h; sourceTree = "<group>"; };
 		D0FBAC2621C7FF6000370522 /* AuctionListingVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuctionListingVC.m; sourceTree = "<group>"; };
+		D0FBAC2821C8083800370522 /* Auction.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Auction.h; sourceTree = "<group>"; };
+		D0FBAC2921C8083800370522 /* Auction.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Auction.m; sourceTree = "<group>"; };
 		D0FF17B91F91EA2000B7BB4B /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -1303,6 +1306,8 @@
 			children = (
 				D0FBAC2521C7FF6000370522 /* AuctionListingVC.h */,
 				D0FBAC2621C7FF6000370522 /* AuctionListingVC.m */,
+				D0FBAC2821C8083800370522 /* Auction.h */,
+				D0FBAC2921C8083800370522 /* Auction.m */,
 			);
 			path = AuctionVCs;
 			sourceTree = "<group>";
@@ -1625,6 +1630,7 @@
 				485D637E1EE7390A00462D4D /* JSONHTTPClient.m in Sources */,
 				48D5FCB31EDB649000241420 /* PostAdvertisementViewController.m in Sources */,
 				485D638F1EE7393700462D4D /* ChatMessageCell.m in Sources */,
+				D0FBAC2A21C8083800370522 /* Auction.m in Sources */,
 				D0E9F7651F35A916001B1EE3 /* FilterVC.m in Sources */,
 				48246A991EBCFDBF00D01286 /* AdCategory.m in Sources */,
 				48246AA31EBCFEB300D01286 /* SubCategory.m in Sources */,

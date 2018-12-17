@@ -10,4 +10,9 @@
 
 @implementation CustomCategoryCollectionViewCell
 
+-(void)setAuct:(Auction *)auct{
+    self.categoryName.text = auct.title;
+}
+
 @end
+

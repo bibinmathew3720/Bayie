@@ -9,5 +9,5 @@
 #import <UIKit/UIKit.h>
 
 @interface AuctionListingVC : UIViewController
-
+@property (weak, nonatomic) IBOutlet UICollectionView *auctionCollectionView;
 @end
