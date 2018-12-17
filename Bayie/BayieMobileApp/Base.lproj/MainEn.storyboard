@@ -3777,11 +3777,11 @@
             </objects>
             <point key="canvasLocation" x="-55.072463768115945" y="-1236.6847826086957"/>
         </scene>
-        <!--Browse-->
+        <!--Ads-->
         <scene sceneID="Lf4-V0-UU9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oop-z3-bLL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Browse" image="hamburger" id="R3B-jy-QzG">
+                    <tabBarItem key="tabBarItem" title="Ads" image="hamburger" id="R3B-jy-QzG">
                         <offsetWrapper key="titlePositionAdjustment" horizontal="0.0" vertical="-3"/>
                     </tabBarItem>
                     <toolbarItems/>
@@ -5402,8 +5402,25 @@
                                     <constraint firstItem="YS0-D9-PsK" firstAttribute="centerY" secondItem="VY5-kM-6E4" secondAttribute="centerY" multiplier="0.9" id="wfD-cU-Mgq"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="WPy-su-ufm">
+                                <rect key="frame" x="0.0" y="80" width="375" height="24.666666666666671"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jWw-bL-Wsv">
+                                        <rect key="frame" x="177.33333333333334" y="0.0" width="20.666666666666657" height="14.666666666666666"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.69803921568627447" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstAttribute="bottom" secondItem="jWw-bL-Wsv" secondAttribute="bottom" constant="10" id="76F-Wg-JdC"/>
+                                    <constraint firstItem="jWw-bL-Wsv" firstAttribute="top" secondItem="WPy-su-ufm" secondAttribute="top" id="JLP-TD-UFy"/>
+                                    <constraint firstItem="jWw-bL-Wsv" firstAttribute="centerX" secondItem="WPy-su-ufm" secondAttribute="centerX" id="JLz-ft-IA2"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nt0-2G-kt5">
-                                <rect key="frame" x="8" y="88" width="359" height="735"/>
+                                <rect key="frame" x="8" y="112.66666666666669" width="359" height="710.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="b2D-IT-eJX"/>
@@ -5475,12 +5492,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
-                            <constraint firstItem="Nt0-2G-kt5" firstAttribute="top" secondItem="0sW-ZO-XBn" secondAttribute="bottom" constant="8" id="4eT-mg-oB9"/>
+                            <constraint firstAttribute="trailing" secondItem="WPy-su-ufm" secondAttribute="trailing" id="73h-C4-O4b"/>
                             <constraint firstItem="Nt0-2G-kt5" firstAttribute="leading" secondItem="eP1-6N-84o" secondAttribute="leading" constant="8" id="75M-GE-Yl8"/>
+                            <constraint firstItem="Nt0-2G-kt5" firstAttribute="top" secondItem="WPy-su-ufm" secondAttribute="bottom" constant="8" id="9h6-HL-KMb"/>
                             <constraint firstItem="7bk-JY-bgN" firstAttribute="top" secondItem="Nt0-2G-kt5" secondAttribute="bottom" constant="8" id="Ymc-Rl-oGW"/>
+                            <constraint firstItem="WPy-su-ufm" firstAttribute="leading" secondItem="eP1-6N-84o" secondAttribute="leading" id="cYf-LX-nNN"/>
                             <constraint firstAttribute="trailing" secondItem="Nt0-2G-kt5" secondAttribute="trailing" constant="8" id="fdI-00-b2K"/>
                             <constraint firstItem="0sW-ZO-XBn" firstAttribute="leading" secondItem="eP1-6N-84o" secondAttribute="leading" id="iHc-7R-Oog"/>
                             <constraint firstItem="0sW-ZO-XBn" firstAttribute="top" secondItem="eP1-6N-84o" secondAttribute="top" id="kuM-oU-IHx"/>
+                            <constraint firstItem="WPy-su-ufm" firstAttribute="top" secondItem="0sW-ZO-XBn" secondAttribute="bottom" id="leW-rg-MVq"/>
                             <constraint firstAttribute="trailing" secondItem="0sW-ZO-XBn" secondAttribute="trailing" id="pVy-ca-RR0"/>
                         </constraints>
                     </view>
@@ -5913,7 +5933,7 @@
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="Idu-dG-u1k"/>
-        <segue reference="UTN-Vn-9Ft"/>
+        <segue reference="aID-BJ-AxO"/>
         <segue reference="66Q-ev-JoN"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

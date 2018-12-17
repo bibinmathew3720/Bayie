@@ -3478,11 +3478,11 @@
             </objects>
             <point key="canvasLocation" x="-563" y="2328"/>
         </scene>
-        <!--Browse-->
+        <!--Ads-->
         <scene sceneID="Lf4-V0-UU9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oop-z3-bLL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Browse" image="hamburger" id="R3B-jy-QzG"/>
+                    <tabBarItem key="tabBarItem" title="Ads" image="hamburger" id="R3B-jy-QzG"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -4775,8 +4775,25 @@
                                     <constraint firstItem="xa7-i1-ZyQ" firstAttribute="bottom" secondItem="GjJ-5e-P6B" secondAttribute="bottomMargin" id="tQ3-KL-rDt"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="eSk-ZT-Xzi">
+                                <rect key="frame" x="0.0" y="80" width="450" height="24.666666666666671"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Ads" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ia7-5R-75d">
+                                        <rect key="frame" x="215" y="0.0" width="20.666666666666657" height="14.666666666666666"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.69803921570000005" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="ia7-5R-75d" firstAttribute="top" secondItem="eSk-ZT-Xzi" secondAttribute="top" id="3Wd-Je-6qz"/>
+                                    <constraint firstAttribute="bottom" secondItem="ia7-5R-75d" secondAttribute="bottom" constant="10" id="Ojo-PE-yUI"/>
+                                    <constraint firstItem="ia7-5R-75d" firstAttribute="centerX" secondItem="eSk-ZT-Xzi" secondAttribute="centerX" id="nBh-2d-ABd"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tg7-T0-yYZ">
-                                <rect key="frame" x="8" y="88" width="434" height="855"/>
+                                <rect key="frame" x="8" y="112.66666666666669" width="434" height="830.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="oos-B5-cPC"/>
@@ -4845,12 +4862,15 @@
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="tg7-T0-yYZ" secondAttribute="trailing" constant="8" id="Fgu-2h-GZi"/>
-                            <constraint firstItem="tg7-T0-yYZ" firstAttribute="top" secondItem="GjJ-5e-P6B" secondAttribute="bottom" constant="8" id="Ko4-5p-8Ho"/>
+                            <constraint firstItem="tg7-T0-yYZ" firstAttribute="top" secondItem="eSk-ZT-Xzi" secondAttribute="bottom" constant="8" id="PJt-wv-RNo"/>
                             <constraint firstAttribute="trailing" secondItem="GjJ-5e-P6B" secondAttribute="trailing" id="T5t-Y3-1kv"/>
                             <constraint firstItem="GjJ-5e-P6B" firstAttribute="top" secondItem="Jwy-vM-mwY" secondAttribute="top" id="XVW-X3-ZCj"/>
                             <constraint firstItem="tg7-T0-yYZ" firstAttribute="leading" secondItem="Jwy-vM-mwY" secondAttribute="leading" constant="8" id="YWU-T7-K9O"/>
                             <constraint firstItem="GjJ-5e-P6B" firstAttribute="leading" secondItem="Jwy-vM-mwY" secondAttribute="leading" id="YgM-8L-4yY"/>
+                            <constraint firstItem="eSk-ZT-Xzi" firstAttribute="leading" secondItem="Jwy-vM-mwY" secondAttribute="leading" id="ch1-2J-SBY"/>
                             <constraint firstItem="JVn-DW-KMg" firstAttribute="top" secondItem="tg7-T0-yYZ" secondAttribute="bottom" constant="8" id="iTf-cL-IdA"/>
+                            <constraint firstAttribute="trailing" secondItem="eSk-ZT-Xzi" secondAttribute="trailing" id="nA2-WK-nFA"/>
+                            <constraint firstItem="eSk-ZT-Xzi" firstAttribute="top" secondItem="GjJ-5e-P6B" secondAttribute="bottom" id="sSx-Sx-h80"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="UZF-J1-vVP"/>

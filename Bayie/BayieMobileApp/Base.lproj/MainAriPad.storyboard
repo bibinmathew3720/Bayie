@@ -3586,11 +3586,11 @@
             </objects>
             <point key="canvasLocation" x="-563" y="2328"/>
         </scene>
-        <!--Browse-->
+        <!--إعلانات-->
         <scene sceneID="Lf4-V0-UU9">
             <objects>
                 <navigationController automaticallyAdjustsScrollViewInsets="NO" navigationBarHidden="YES" id="oop-z3-bLL" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="Browse" image="hamburger" id="R3B-jy-QzG"/>
+                    <tabBarItem key="tabBarItem" title="إعلانات" image="hamburger" id="R3B-jy-QzG"/>
                     <toolbarItems/>
                     <nil key="simulatedTopBarMetrics"/>
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
@@ -4698,8 +4698,25 @@
                                     <constraint firstAttribute="trailing" secondItem="LtB-YT-dJh" secondAttribute="trailing" constant="15" id="z26-KK-6h3"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="o2i-GH-gAW">
+                                <rect key="frame" x="0.0" y="80" width="450" height="24.5"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="إعلانات" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qZ0-u3-mpd">
+                                        <rect key="frame" x="206.5" y="0.0" width="37" height="14.5"/>
+                                        <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="12"/>
+                                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" red="0.0" green="0.69803921570000005" blue="0.69019607839999997" alpha="1" colorSpace="calibratedRGB"/>
+                                <constraints>
+                                    <constraint firstItem="qZ0-u3-mpd" firstAttribute="top" secondItem="o2i-GH-gAW" secondAttribute="top" id="Mzh-Ak-7KU"/>
+                                    <constraint firstAttribute="bottom" secondItem="qZ0-u3-mpd" secondAttribute="bottom" constant="10" id="Xv4-ny-azN"/>
+                                    <constraint firstItem="qZ0-u3-mpd" firstAttribute="centerX" secondItem="o2i-GH-gAW" secondAttribute="centerX" id="lfc-um-F2W"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zT6-by-yJ9">
-                                <rect key="frame" x="8" y="88" width="434" height="855"/>
+                                <rect key="frame" x="8" y="112.5" width="434" height="830.5"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Njf-OC-Iyf"/>
@@ -4763,13 +4780,16 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="o2i-GH-gAW" firstAttribute="leading" secondItem="5Ku-Lp-KI8" secondAttribute="leading" id="B5I-Zt-7RA"/>
                             <constraint firstItem="95Y-xS-qiO" firstAttribute="leading" secondItem="5Ku-Lp-KI8" secondAttribute="leading" id="CEG-rA-Eib"/>
                             <constraint firstItem="ykB-hP-eid" firstAttribute="top" secondItem="zT6-by-yJ9" secondAttribute="bottom" constant="8" id="Hbg-q2-0T2"/>
                             <constraint firstAttribute="trailing" secondItem="95Y-xS-qiO" secondAttribute="trailing" id="MXx-BM-DWH"/>
                             <constraint firstAttribute="trailing" secondItem="zT6-by-yJ9" secondAttribute="trailing" constant="8" id="OV9-8B-p0s"/>
                             <constraint firstItem="zT6-by-yJ9" firstAttribute="leading" secondItem="5Ku-Lp-KI8" secondAttribute="leading" constant="8" id="ZDc-k7-iPs"/>
+                            <constraint firstAttribute="trailing" secondItem="o2i-GH-gAW" secondAttribute="trailing" id="jEb-Z9-wBm"/>
                             <constraint firstItem="95Y-xS-qiO" firstAttribute="top" secondItem="5Ku-Lp-KI8" secondAttribute="top" id="khc-UC-87C"/>
-                            <constraint firstItem="zT6-by-yJ9" firstAttribute="top" secondItem="95Y-xS-qiO" secondAttribute="bottom" constant="8" id="luZ-PK-bHA"/>
+                            <constraint firstItem="zT6-by-yJ9" firstAttribute="top" secondItem="o2i-GH-gAW" secondAttribute="bottom" constant="8" id="mBk-IJ-apr"/>
+                            <constraint firstItem="o2i-GH-gAW" firstAttribute="top" secondItem="95Y-xS-qiO" secondAttribute="bottom" id="yBN-zM-qYO"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="LD9-tQ-6Dg"/>
