@@ -113,3 +113,8 @@
 "NOTSELLING" = "عدم بيعه بعد الآن";
 "ADOUTDATE" = "الإعلان قديم";
 "OTHER" = "آخر";
+
+//Auctions
+
+"Ads" = "إعلانات";
+"Auctions" = "مزادات";

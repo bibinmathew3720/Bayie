@@ -470,6 +470,19 @@
          location = "group:Tabbar"
          name = "Tabbar">
          <Group
+            location = "group:auction.imageset"
+            name = "auction.imageset">
+            <FileRef
+               location = "group:auction@3x.png">
+            </FileRef>
+            <FileRef
+               location = "group:auction@2x.png">
+            </FileRef>
+            <FileRef
+               location = "group:auction.png">
+            </FileRef>
+         </Group>
+         <Group
             location = "group:camera-active.imageset"
             name = "camera-active.imageset">
             <FileRef

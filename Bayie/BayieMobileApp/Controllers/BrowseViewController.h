@@ -14,6 +14,10 @@
 //#import <GoogleMobileAds/GADInterstitial.h>
 //#import <GoogleMobileAds/GADBannerView.h>
 @import GoogleMobileAds;
+typedef enum pageType{
+    PageTypeAds,
+    PageTypeAuctions
+}PAGETYPE;
 
 @interface BrowseViewController : UIViewController<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
 @property (nonatomic,strong)NSTimer *task;
@@ -21,7 +25,6 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *categoryCollectionView;
 @property (nonatomic, assign) CGFloat categoryCellHeight;
 @property (weak, nonatomic)   NSString *lastCall;
-@property (weak, nonatomic) IBOutlet UILabel *locSelectionLabel;
-
+@property (nonatomic, assign) PAGETYPE pageType;
 
 @end

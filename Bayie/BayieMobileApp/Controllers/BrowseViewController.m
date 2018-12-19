@@ -49,6 +49,13 @@
     
 }
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bannerViewHeightConstraint;
+
+//For Auction
+@property (weak, nonatomic) IBOutlet UILabel *headingLabel;
+@property (weak, nonatomic) IBOutlet UIButton *locationArrowButton;
+@property (weak, nonatomic) IBOutlet UIButton *locationTouchButton;
+@property (weak, nonatomic) IBOutlet UILabel *locSelectionLabel;
+
 @end
 
 @implementation BrowseViewController
@@ -60,7 +67,8 @@
     self.colHeight = -1;
     //To show status bar
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
-    
+    [self setLocationLabels];
+    NSLog(@"Selected index:%d",self.tabBarController.selectedIndex);
     [_categoryCollectionView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     // Adding Google AD
 //    self.bannerView.adUnitID = @"ca-app-pub-3310088406325999/3684441066";
@@ -94,6 +102,20 @@
     [_categoryCollectionView.collectionViewLayout invalidateLayout];
     
     self.view.setNeedsLayout;
+}
+
+-(void)setLocationLabels{
+    if (self.tabBarController.selectedIndex == 0) {
+        self.headingLabel.text = NSLocalizedString(@"Ads", @"Ads");
+        self.pageType = PageTypeAds;
+    }
+    else if (self.tabBarController.selectedIndex == 1) {
+        self.headingLabel.text = NSLocalizedString(@"Auctions", @"Auctions");
+        self.pageType = PageTypeAuctions;
+        self.locationArrowButton.hidden = YES;
+        self.locationTouchButton.hidden = YES;
+        self.locSelectionLabel.hidden = YES;
+    }
 }
 
 -(BOOL)tabBarController:(UITabBarController *)tabBarController shouldSelectViewController:(UIViewController *)viewController{
@@ -246,9 +268,8 @@
     UITabBarItem *postAdTab = [tabBarController.tabBar.items objectAtIndex:2];
     
     [postAdTab setTitleTextAttributes:[NSDictionary dictionaryWithObjectsAndKeys:[UIFont fontWithName:@"Lato-Regular" size:10.0f], NSFontAttributeName,  [UIColor colorWithRed:255.0/255.0 green:255.0/255.0 blue:255.0/255.0 alpha:1.0], NSForegroundColorAttributeName,nil] forState:UIControlStateNormal];
-    
-    postAdTab.image = [[UIImage imageNamed:@"camera-active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
-    postAdTab.selectedImage = [[UIImage imageNamed:@"camera-active"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
+        postAdTab.image = [[UIImage imageNamed:@"camera-active"] imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal ];
+        postAdTab.selectedImage = [[UIImage imageNamed:@"camera-active"]imageWithRenderingMode:UIImageRenderingModeAlwaysOriginal];
 }
 
 -(void)locationUpdate{
@@ -909,13 +930,17 @@
 #pragma mark - Button Actions
 
 - (IBAction)locationButton:(id)sender {
-    SeachLocationViewController *controller = (SeachLocationViewController *)[[self.tabBarController viewControllers]  objectAtIndex:1];
-    [self.tabBarController setSelectedIndex:1];
+//    SeachLocationViewController *controller = (SeachLocationViewController *)[[self.tabBarController viewControllers]  objectAtIndex:1];
+//    [self.tabBarController setSelectedIndex:1];
 }
 
 - (IBAction)locateTempButtonAction:(id)sender {
-    SeachLocationViewController *controller = (SeachLocationViewController *)[[self.tabBarController viewControllers]  objectAtIndex:1];
-    [self.tabBarController setSelectedIndex:1];
+//    SeachLocationViewController *controller = (SeachLocationViewController *)[[self.tabBarController viewControllers]  objectAtIndex:1];
+//    [self.tabBarController setSelectedIndex:1];
+    
+    SeachLocationViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"SeachLocationViewController"];
+    controller.fromList = true;
+    [self.navigationController pushViewController:controller animated:YES];
 }
 @end
 
