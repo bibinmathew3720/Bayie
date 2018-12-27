@@ -10,6 +10,7 @@
 #define CatogoryCellReuseIdentifier @"listingCell"
 
 #import "FilterVC.h"
+#import "AuctionDetailVC.h"
 #import "ListingViewController.h"
 #import "MBProgressHUD.h"
 #import "AFNetworking.h"
@@ -445,13 +446,24 @@
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
-    AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
-    // listing data
-    NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row];
-    NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
-    adDetailsViewController.adId = ad_id;
-    adDetailsViewController.hidesBottomBarWhenPushed = true;
-    [self.navigationController pushViewController:adDetailsViewController animated:YES];
+    
+    if (self.pageType == PageTypeAuctions){
+        NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row];
+        NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
+        
+        AuctionDetailVC *auctionDetailVC = [[AuctionDetailVC alloc] initWithNibName:@"AuctionDetailVC" bundle:nil];
+        auctionDetailVC.adId = ad_id;
+        [self.navigationController pushViewController:auctionDetailVC animated:YES];
+    }
+    else{
+        AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
+        // listing data
+        NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row];
+        NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
+        adDetailsViewController.adId = ad_id;
+        adDetailsViewController.hidesBottomBarWhenPushed = true;
+        [self.navigationController pushViewController:adDetailsViewController animated:YES];
+    }
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{

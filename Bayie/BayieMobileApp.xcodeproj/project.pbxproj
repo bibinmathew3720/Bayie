@@ -150,6 +150,8 @@
 		D02A6FEF1F35B15800BBDDDE /* FilterRightTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02A6FED1F35B15800BBDDDE /* FilterRightTVC.xib */; };
 		D02A6FFA1F36269600BBDDDE /* FilterRightCheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A6FF81F36269600BBDDDE /* FilterRightCheckBoxCell.m */; };
 		D02A6FFB1F36269600BBDDDE /* FilterRightCheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02A6FF91F36269600BBDDDE /* FilterRightCheckBoxCell.xib */; };
+		D03DDBA621D4C9D2000C3AAF /* AuctionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D03DDBA421D4C9D2000C3AAF /* AuctionDetailVC.m */; };
+		D03DDBA721D4C9D2000C3AAF /* AuctionDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03DDBA521D4C9D2000C3AAF /* AuctionDetailVC.xib */; };
 		D0E9F0581FA0FDA5003F96ED /* DeletePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E9F0571FA0FDA5003F96ED /* DeletePopUpView.m */; };
 		D0E9F05A1FA0FDC4003F96ED /* DeletePopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E9F0591FA0FDC4003F96ED /* DeletePopUpView.xib */; };
 		D0E9F0621FA10E74003F96ED /* TeasonTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E9F0601FA10E74003F96ED /* TeasonTVC.m */; };
@@ -429,6 +431,9 @@
 		D02A6FF71F36269600BBDDDE /* FilterRightCheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterRightCheckBoxCell.h; sourceTree = "<group>"; };
 		D02A6FF81F36269600BBDDDE /* FilterRightCheckBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterRightCheckBoxCell.m; sourceTree = "<group>"; };
 		D02A6FF91F36269600BBDDDE /* FilterRightCheckBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterRightCheckBoxCell.xib; sourceTree = "<group>"; };
+		D03DDBA321D4C9D2000C3AAF /* AuctionDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuctionDetailVC.h; sourceTree = "<group>"; };
+		D03DDBA421D4C9D2000C3AAF /* AuctionDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuctionDetailVC.m; sourceTree = "<group>"; };
+		D03DDBA521D4C9D2000C3AAF /* AuctionDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuctionDetailVC.xib; sourceTree = "<group>"; };
 		D0E9F0561FA0FDA5003F96ED /* DeletePopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeletePopUpView.h; sourceTree = "<group>"; };
 		D0E9F0571FA0FDA5003F96ED /* DeletePopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeletePopUpView.m; sourceTree = "<group>"; };
 		D0E9F0591FA0FDC4003F96ED /* DeletePopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeletePopUpView.xib; sourceTree = "<group>"; };
@@ -1303,6 +1308,9 @@
 			children = (
 				D0FBAC2C21CA986400370522 /* Auction.m */,
 				D0FBAC2D21CA986400370522 /* Auction.h */,
+				D03DDBA321D4C9D2000C3AAF /* AuctionDetailVC.h */,
+				D03DDBA421D4C9D2000C3AAF /* AuctionDetailVC.m */,
+				D03DDBA521D4C9D2000C3AAF /* AuctionDetailVC.xib */,
 			);
 			path = Auction;
 			sourceTree = "<group>";
@@ -1391,6 +1399,7 @@
 				18D6337D1F36BFD400F4EED2 /* CategoryViewController.xib in Resources */,
 				3AF7CA7B1EB1EF2100D7E31D /* LanguageSelector˜ipad.xib in Resources */,
 				3A71B4EA1E7BEC8F00E85F3D /* LaunchScreen.storyboard in Resources */,
+				D03DDBA721D4C9D2000C3AAF /* AuctionDetailVC.xib in Resources */,
 				3A2C7A2B1E7FA8D000B4BE85 /* Lato-BoldItalic.ttf in Resources */,
 				3A2C7A291E7FA8D000B4BE85 /* Lato-BlackItalic.ttf in Resources */,
 				487CC5401EE91484004E71EE /* Chat.storyboard in Resources */,
@@ -1627,6 +1636,7 @@
 				485D638F1EE7393700462D4D /* ChatMessageCell.m in Sources */,
 				D0E9F7651F35A916001B1EE3 /* FilterVC.m in Sources */,
 				48246A991EBCFDBF00D01286 /* AdCategory.m in Sources */,
+				D03DDBA621D4C9D2000C3AAF /* AuctionDetailVC.m in Sources */,
 				48246AA31EBCFEB300D01286 /* SubCategory.m in Sources */,
 				48246A891EBCF9EC00D01286 /* AdCategoryTableViewCell.m in Sources */,
 				D02A6FEE1F35B15800BBDDDE /* FilterRightTVC.m in Sources */,
