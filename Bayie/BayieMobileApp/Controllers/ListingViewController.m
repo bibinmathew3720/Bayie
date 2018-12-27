@@ -910,7 +910,8 @@
 #pragma mark - Sort VC Delegate
 
 -(void)sortTypeSelectedDelegate{
-    
+    [subcatArrayList removeAllObjects];
+    [self callingApis];
 }
 
 -(void)callingApis{
