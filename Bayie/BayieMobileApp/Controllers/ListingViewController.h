@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BrowseViewController.h"
 #import "CustomListingTableViewCell.h"
 #import <GoogleMobileAds/GADInterstitial.h>
 #import <GoogleMobileAds/GADBannerView.h>
@@ -37,6 +38,7 @@
 @property (weak, nonatomic)   NSString *lastApiCall;
 
 @property (nonatomic, assign) id <ListingViewControllerDelegate>listingDelegate;
+@property (nonatomic, assign) PAGETYPE pageType;
 //Google Ad
 //@property(nonatomic, strong) GADBannerView *bannerView;
 

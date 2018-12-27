@@ -263,6 +263,7 @@
     listingVC.catID = obj.categoryId ;
     listingVC.catTitle = obj.categoryTitle;
     listingVC.listingDelegate = self;
+    listingVC.pageType = self.pageType;
     [self.navigationController pushViewController:listingVC animated:YES];
 }
 

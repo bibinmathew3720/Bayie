@@ -1788,7 +1788,7 @@
                                         </state>
                                         <connections>
                                             <action selector="sortButton:" destination="LdW-9d-1F4" eventType="touchUpInside" id="NPU-yo-ERc"/>
-                                            <segue destination="fkp-Zg-ZU7" kind="show" id="Dxs-dX-KB4"/>
+                                            <segue destination="fkp-Zg-ZU7" kind="show" identifier="listingToSort" id="Dxs-dX-KB4"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reM-pY-XXe">
@@ -5951,7 +5951,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="xoR-gR-9jb"/>
         <segue reference="D2N-a1-XSZ"/>
-        <segue reference="c1Z-5u-p2Q"/>
+        <segue reference="UTN-Vn-9Ft"/>
         <segue reference="66Q-ev-JoN"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>

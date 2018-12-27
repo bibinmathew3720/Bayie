@@ -113,7 +113,15 @@
             }
             [self listAds:inputContent];
             
-        }else if([methodName isEqualToString:@"savedSearchList"]){
+        }
+        else if([methodName isEqualToString:@"listAuctions"]){
+            if(inputContent == nil ){
+                inputContent =@"";// sanity
+            }
+            [self listAuctions:inputContent];
+            
+        }
+        else if([methodName isEqualToString:@"savedSearchList"]){
             if(inputContent == nil ){
                 inputContent =@"";// sanity
             }
@@ -268,6 +276,12 @@
     NSString *URLString = [[NSString stringWithFormat:NSLocalizedString(@"ADS_MANAGEMENT_URL", nil)] stringByAppendingString:@"listAds"];
     [self sendDataWithUsertoken:post :URLString];
 }
+
+-(void) listAuctions:(NSString *)post{
+    NSString *URLString = [[NSString stringWithFormat:NSLocalizedString(@"AUCTIONS_MANAGEMENT_URL", nil)] stringByAppendingString:@"listAuctions"];
+    [self sendDataWithUsertoken:post :URLString];
+}
+
 -(void) myAds:(NSString *)post{
     NSString *URLString = [[NSString stringWithFormat:NSLocalizedString(@"ADS_MANAGEMENT_URL", nil)] stringByAppendingString:@"myAds"];
     [self sendData:post :URLString];

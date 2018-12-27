@@ -875,6 +875,7 @@
     CategoryViewController * categoryController = [[CategoryViewController alloc]initWithNibName:@"CategoryViewController" bundle:nil];
     categoryController.baseUrl = [data valueForKey:@"baseUrl"];
     categoryController.dataArray = data;
+    categoryController.pageType = self.pageType;
     switch (statusValue) {
         case 0:
             

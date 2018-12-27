@@ -13,6 +13,7 @@
 
 "ADS_MANAGEMENT_URL" = "https://bayie.digiora.com/api/apiAds.php?action=";
 "USER_MANAGEMENT_URL" = "https://bayie.digiora.com/api/apiUser.php?action=";
+"AUCTIONS_MANAGEMENT_URL" = "https://bayie.digiora.com/api/apiAuctions.php?action=";
 
 //Language Selector
 "LOADING" = "Loading";

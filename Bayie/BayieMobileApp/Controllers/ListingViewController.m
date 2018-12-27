@@ -15,7 +15,6 @@
 #import "AFNetworking.h"
 #import "DataClass.h"
 #import "SortViewController.h"
-#import "BrowseViewController.h"
 #import "BayieHub.h"
 #import "SeachLocationViewController.h"
 #import "AdDetailedViewController.h"
@@ -24,7 +23,7 @@
 
 //NSString *adsListImg_Url = @"http://www.productiondemos.com/bayie";
 
-@interface ListingViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout>
+@interface ListingViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,SortViewControllerDelegate,FilterVCDelegate>
 {
     NSMutableArray *subcatArrayList;
     NSDictionary *subcatDic;
@@ -68,12 +67,12 @@
     [self initialisation];
     [self updateLocation];
     DataClass *obj=[DataClass getInstance];
-    
     if(obj.lastKnownLocID != nil){
         lastLoc = obj.lastKnownLocID;
     }else{
         lastLoc = @"";
     }
+    [self apiInitialisation];
     
     /*
      if (obj.isFromSort){
@@ -107,6 +106,14 @@
     self.listingTableView.tableFooterView = [UIView new];
 }
 
+-(void)apiInitialisation{
+    DataClass *obj=[DataClass getInstance];
+    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotBayieAPIDataList:) name:@"BayieResponse" object:nil];
+    [self updateLocation];
+    self.categoryTitle.text = [obj.categoryTitle uppercaseString];
+    [self callingApis];
+}
+
 -(void)initialisation{
     self.saveSearchimagesMutArray = [[NSMutableArray alloc] init];
     self.dataDictimagesMutArray = [[NSMutableArray alloc] init];
@@ -126,11 +133,6 @@
 - (void) gotBayieAPIDataListNotification:(NSNotification *) notification{
     //if at any time notfi.object is error or null hide the HUD
     self.isApiCalling = NO;
-    if([lastApiCall isEqualToString:@"List"]){
-        [self gotBayieAPIDataList:notification];
-    }else if([lastApiCall isEqualToString:@"Sort"] ){
-        [self gotBayieAPIDataSort:notification];
-    }
 }
 - (void)didReceiveMemoryWarning {
     [super didReceiveMemoryWarning];
@@ -139,32 +141,6 @@
 -(void)viewWillAppear:(BOOL)animated
 {
     [super viewWillAppear:animated];
-    DataClass *obj=[DataClass getInstance];
-    self.lastApiCall = @"List";
-    _subCatStart = 0;
-    saveSearchDataArray = [[NSMutableArray alloc] init];
-    _sortStart = 0;
-    subcatArrayList = [[NSMutableArray alloc] init];
-
-    [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotBayieAPIDataListNotification:) name:@"BayieResponse" object:nil];
-    [self updateLocation];
-
-    if (obj.isFromSort){
-        
-        fromSort = true;
-        self.lastApiCall = @"Sort";
-        DataClass *obj=[DataClass getInstance];
-        NSString *uppercase =  [obj.categoryTitle uppercaseString];
-        
-        _categoryTitle.text = uppercase;
-        [self ListSaveSearch];
-        
-    }else{
-        fromSort = false;
-        self.categoryTitle.text = [obj.categoryTitle uppercaseString];
-        [self subCatList];
-        
-    }
     UITabBarController *tabBarController = self.tabBarController;
     tabBarController.tabBar.hidden = false;
 }
@@ -173,147 +149,10 @@
 {
     return NO;
 }
--(void)ListSaveSearch{
-    
-    self.lastApiCall = @"Sort";
-    
-    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
-    hud.mode = MBProgressHUDModeIndeterminate;
-    hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
-    NSError *error;
-    DataClass *obj=[DataClass getInstance];
-    
-    NSString *locName;
-    NSString *catId;
 
-    if(!(obj.filterLoc.length == 0)){
-    
-        locName = obj.filterLoc;
-    }else{
-        
-        if(obj.lastKnownLocID == nil || [obj.lastKnownLocID isEqualToString:@""])
-        {
-            locName = @"";
-        }else{
-        
-            locName = obj.lastKnownLocID;
-        }
-    }
-    
-    if(obj.category != nil){
-        
-        catId = obj.category;
-    }else{
-        catId = obj.categoryId;
-    }
-    
-    NSString *start = [NSString stringWithFormat:@"%d",_sortStart];
-
-    if(start ==0 || (![lastLoc isEqualToString: locName])){
-        NSMutableArray *tmp = [[NSMutableArray alloc] init];
-        saveSearchDataArray = [[NSMutableArray alloc] init];
-    }
-    
-    NSDictionary *parameters =  @{@"language":[DataClass currentLanguageString],@"start":start,@"limit":@"20",@"category":catId,@"sort":obj.sortType,@"location":locName};
-    
-    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
-    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-    
-    [[BayieHub sharedInstance] PostrequestcallServiceWith:jsonString :@"listAds"];
-}
-
-- (void) gotBayieAPIDataSort:(NSNotification *) notification{
-    if ([[notification name] isEqualToString:@"BayieResponse"]){
-        if([notification.object isKindOfClass:[NSError class]]){
-            // manage error here
-            UIAlertController * alert =[UIAlertController
-                                        alertControllerWithTitle:@"Bayie" message: @"Error occurs" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* okButton = [UIAlertAction
-                                       actionWithTitle:@"OK"
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction * action)
-                                       {
-                                           
-                                           //    [self.navigationController popViewControllerAnimated:YES];
-                                           
-                                       }];
-            [alert addAction:okButton];
-            
-            [self presentViewController:alert animated:YES completion:nil];
-            
-            [hud hideAnimated:YES];
-            
-            return;
-        }
-        
-        NSDictionary *responseDict = notification.object;
-        NSString *errormsg = responseDict[@"error"];
-        
-        if ([errormsg isEqualToString:@""]) {
-            
-            NSArray *dataArray = responseDict[@"data"];
-            NSString *listImgURL = responseDict[@"imageBaseUrl"];
-            NSString *defaultAdsListImgUrl = responseDict[@"defaultImage"];
-            
-            totalSortResult =  [[responseDict valueForKey:@"totalResult"] integerValue];
-            
-            if (nil != dataArray && [dataArray isKindOfClass:[NSArray class]] && dataArray.count > 0 && [listImgURL isKindOfClass:[NSString class]] && listImgURL.length > 0 && [defaultAdsListImgUrl isKindOfClass:[NSString class]] && defaultAdsListImgUrl.length > 0)
-            {
-                fromSort = YES;
-              //  saveSearchDataArray = dataArray;
-                
-                
-                NSMutableArray *tmp = [[NSMutableArray alloc] initWithArray: dataArray];
-                if(saveSearchDataArray == nil )
-                    saveSearchDataArray = [[NSMutableArray alloc] init];
-                [saveSearchDataArray addObjectsFromArray:tmp] ;
-
-                adsListImg_Url = listImgURL;
-                default_adsListImg_Url = defaultAdsListImgUrl;
-                 //[self.listingTableView reloadData];
-                  [self.listingTableView reloadData];
-                [self.listingCollectionView reloadData];
-            }
-            [hud hideAnimated:YES];
-            
-            
-            
-        }   else if (![errormsg isEqualToString:@""]){
-            self.noRecordsLabel.hidden = NO;
-            self.noRecordsLabel.text = errormsg;
-            UIAlertController * alert =[UIAlertController
-                                        alertControllerWithTitle:@"Bayie" message:@"No List Found" preferredStyle:UIAlertControllerStyleAlert];
-            
-            UIAlertAction* okButton = [UIAlertAction
-                                       actionWithTitle:@"OK"
-                                       style:UIAlertActionStyleDefault
-                                       handler:^(UIAlertAction * action)
-                                       {
-                                           
-                                           if( !([errormsg rangeOfString: @"No Records Found"].location == NSNotFound  )   ){
-                                               saveSearchDataArray = [[NSMutableArray alloc] init];
-                                               
-                                               [self.listingTableView reloadData];
-                                               [self.listingCollectionView reloadData];
-                                           }
-                                           
-                                           //  [self.navigationController popViewControllerAnimated:YES];
-                                           
-                                       }];
-            [alert addAction:okButton];
-            
-            [self presentViewController:alert animated:YES completion:nil];
-            
-            [hud hideAnimated:YES];
-        }
-        [self.listingTableView reloadData];
-        [self.listingCollectionView reloadData];
-        [hud hideAnimated:YES];
-    }
-}
 - (void) gotBayieAPIDataList:(NSNotification *) notification{
-    
+    [MBProgressHUD hideAllHUDsForView:self.view animated:YES];
+    self.isApiCalling = NO;
     if ([[notification name] isEqualToString:@"BayieResponse"]){
          [self.listingTableView reloadData];
         [self.listingCollectionView reloadData];
@@ -427,12 +266,26 @@
             NSMutableArray *tmp = [[NSMutableArray alloc] init];
             subcatArrayList = [[NSMutableArray alloc] init];
         }
-        NSDictionary *parameters;
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+        
+       // @"sort":obj.sortType
+        
+//        if(obj.attributeDict!=nil){
+//            parameters =  @{@"language":[DataClass currentLanguageString],@"start":start,@"limit":@"20",@"category":obj.categoryId,@"location":locName,@"attributes":obj.attributeDict};
+//        }
+//        else{
+//            parameters =  @{@"language":[DataClass currentLanguageString],@"start":start,@"limit":@"20",@"category":obj.categoryId,@"location":locName};
+//        }
+        [parameters setValue:[DataClass currentLanguageString] forKey:@"language"];
+        [parameters setValue:start forKey:@"start"];
+        [parameters setValue:@"20" forKey:@"limit"];
+        [parameters setValue:obj.categoryId forKey:@"category"];
+        [parameters setValue:locName forKey:@"location"];
         if(obj.attributeDict!=nil){
-            parameters =  @{@"language":[DataClass currentLanguageString],@"start":start,@"limit":@"20",@"category":obj.categoryId,@"location":locName,@"attributes":obj.attributeDict};
+            [parameters setValue:obj.attributeDict forKey:@"attributes"];
         }
-        else{
-            parameters =  @{@"language":[DataClass currentLanguageString],@"start":start,@"limit":@"20",@"category":obj.categoryId,@"location":locName};
+        if (obj.sortType.length>0 && obj.sortType != nil){
+            [parameters setValue:obj.sortType forKey:@"sort"];
         }
         NSLog(@"Parameters:%@",parameters);
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
@@ -442,67 +295,57 @@
     }
 }
 
--(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    
-    if (fromSort){
+//Auction List
+
+-(void)callingAuctionListApi{
+    if(!self.isApiCalling){
+        self.isApiCalling = YES;
+        hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        hud.mode = MBProgressHUDModeIndeterminate;
+        hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
+        NSError *error;
+        DataClass *obj=[DataClass getInstance];
+        NSString *start = [NSString stringWithFormat:@"%d",_subCatStart];
         
-        if(saveSearchDataArray.count > 3){
-            //Google Ad
-            //totalAdRowssort =  ((saveSearchDataArray.count  - 3)/6) + 1;
-            totalCountsort = (saveSearchDataArray.count+totalAdRowssort) ;
-            return totalCountsort;
-            
+        NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+        [parameters setValue:[DataClass currentLanguageString] forKey:@"language"];
+        [parameters setValue:start forKey:@"start"];
+        [parameters setValue:@"20" forKey:@"limit"];
+        [parameters setValue:obj.categoryId forKey:@"category"];
+        if(obj.attributeDict!=nil){
+            [parameters setValue:obj.attributeDict forKey:@"attributes"];
         }
-        totalCountsort = saveSearchDataArray.count;
-        return totalCountsort;
-        
-        //return saveSearchDataArray.count;
-        
-    } else{
-        
-        if(subcatArrayList.count > 3){
-            //Google Ad
-            //totalAdRows =  ((subcatArrayList.count  - 3)/6) + 1;
-            totalCount = (subcatArrayList.count+totalAdRows) ;
-            return totalCount;
-            
+        if (obj.sortType.length>0 && obj.sortType != nil){
+            [parameters setValue:obj.sortType forKey:@"sort"];
         }
-        totalCount = subcatArrayList.count;
-        return totalCount;
+        NSLog(@"Parameters:%@",parameters);
+        NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
+        NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+        [[BayieHub sharedInstance] PostrequestcallServiceWith:jsonString :@"listAuctions"];
     }
+}
+
+-(NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
+    if(subcatArrayList.count > 3){
+        //Google Ad
+        //totalAdRows =  ((subcatArrayList.count  - 3)/6) + 1;
+        totalCount = (subcatArrayList.count+totalAdRows) ;
+        return totalCount;
+        
+    }
+    totalCount = subcatArrayList.count;
+    return totalCount;
 }
 
 
 
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath{
-  AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
-    if(fromSort){
-           // data after sort
+    AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
+    
+    // listing data
+    if(indexPath.row < 3){
         
-        if(indexPath.row < 3){
-       // AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
-        NSDictionary *dataObj = [saveSearchDataArray objectAtIndex:indexPath.row];
-        NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
-        
-        adDetailsViewController.adId = ad_id;
-        adDetailsViewController.hidesBottomBarWhenPushed = true;
-        [self.navigationController pushViewController:adDetailsViewController animated:YES];
-        }else{
-            // handling position change due to google ad
-       //     AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
-            NSDictionary *dataObj = [saveSearchDataArray objectAtIndex:indexPath.row - [self calculateDED:indexPath.row]];
-            NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
-            
-            adDetailsViewController.adId = ad_id;
-            adDetailsViewController.hidesBottomBarWhenPushed = true;
-            [self.navigationController pushViewController:adDetailsViewController animated:YES];
-
-        }
-    }else{
-        
-        // listing data
-        if(indexPath.row < 3){
-
         //  AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
         NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row];
         NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
@@ -510,15 +353,14 @@
         adDetailsViewController.adId = ad_id;
         adDetailsViewController.hidesBottomBarWhenPushed = true;
         [self.navigationController pushViewController:adDetailsViewController animated:YES];
-        }else{
-         //   AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
-            NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row - [self calculateDED:indexPath.row]];
-            NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
-            
-            adDetailsViewController.adId = ad_id;
-            adDetailsViewController.hidesBottomBarWhenPushed = true;
-            [self.navigationController pushViewController:adDetailsViewController animated:YES];
-        }
+    }else{
+        //   AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
+        NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row - [self calculateDED:indexPath.row]];
+        NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
+        
+        adDetailsViewController.adId = ad_id;
+        adDetailsViewController.hidesBottomBarWhenPushed = true;
+        [self.navigationController pushViewController:adDetailsViewController animated:YES];
     }
 }
 
@@ -545,9 +387,6 @@
 #pragma mark - Collection View Datasources
 
 -(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
-    if(fromSort)
-        return saveSearchDataArray.count;
-    else
         return subcatArrayList.count;
     
 }
@@ -558,160 +397,68 @@
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
     ListingCollectionCell *catCell = [collectionView dequeueReusableCellWithReuseIdentifier:CatogoryCellReuseIdentifier
-                                      forIndexPath:indexPath];
+                                                                               forIndexPath:indexPath];
+    subcatDic = [subcatArrayList objectAtIndex:indexPath.row ];
+    NSString *url_Img = [subcatDic valueForKey:@"image_url"];
     
-    // data load after sort
-    if(fromSort){
-        saveSearchDataDict = [saveSearchDataArray objectAtIndex:indexPath.row];
-        NSString *url_savesearchImg = [saveSearchDataDict valueForKey:@"image_url"];
-        NSString *url_savesearchImg_FULL;
-        if (url_savesearchImg ==(id)[NSNull null]) {
-            url_savesearchImg_FULL = default_adsListImg_Url;
-        } else {
-            url_savesearchImg_FULL = [adsListImg_Url stringByAppendingPathComponent:url_savesearchImg];
-        }
-        
-        NSString *dateStr = [saveSearchDataDict valueForKey:@"createdDate"];
-        
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-        NSDate *date = [dateFormat dateFromString:dateStr];
-        [dateFormat setDateFormat:@"MMMM YYYY"];
-        NSString* newDateFormat = [dateFormat stringFromDate:date];
-        dateFormat.doesRelativeDateFormatting = YES;
-        
-        catCell.adNameLabel.text = [NSString stringWithFormat:@"%@",[saveSearchDataDict valueForKey:@"title"]];
-        
-        NSString *loc = [saveSearchDataDict valueForKey:@"location"];
-        NSString *firstWord = [[loc componentsSeparatedByString:@","] objectAtIndex:0];
-        catCell.locationLabel.text = [firstWord stringByAppendingString:newDateFormat];
-        
-        if([[saveSearchDataDict valueForKey:@"price"] isEqual: @""]){
-            
-            catCell.priceView.hidden = true;
-            
-            
-        }else if(![[saveSearchDataDict valueForKey:@"price"] isEqual: @""]){
-            catCell.priceView.hidden = false;
-            catCell.priceLabel.text = [[saveSearchDataDict valueForKey:@"price"]stringByAppendingString:NSLocalizedString(@" OMR", nil)];
-            
-        }
-  
-        
-       
-        
-//        catCell.layer.masksToBounds = NO;
-//        catCell.contentView.layer.masksToBounds = NO;
-//        catCell.bottomView.layer.shadowColor = AppCommonBlueColor.CGColor;
-//        catCell.bottomView.layer.shadowOffset = CGSizeMake(0, 1);
-//        catCell.bottomView.layer.shadowRadius = 1.0;
-//        catCell.bottomView.layer.shadowOpacity = 1.0;
-//        catCell.bottomView.layer.masksToBounds = NO;
-//        [catCell.bottomView.layer setShadowPath:[[UIBezierPath bezierPathWithRect:catCell.bottomView.bounds] CGPath]];
-        
-        [catCell.catImageView sd_setImageWithURL:[NSURL URLWithString:url_savesearchImg_FULL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:image,@"image",[NSString stringWithFormat:@"%ld",(long)indexPath.row],@"indexRow", nil];
-            [self.saveSearchimagesMutArray addObject:dict];
-            [self.listingCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-        }];
-        
-        if(  totalCountsort == indexPath.row+1  ){
-            _sortStart = indexPath.row +1 - [self calculateDED:indexPath.row] ;
-            [self performSelector:@selector(checkAndLoadList:) withObject:self afterDelay:2];
-            
-        }
-        return catCell;
-    }else {
-        subcatDic = [subcatArrayList objectAtIndex:indexPath.row ];
-        NSString *url_Img = [subcatDic valueForKey:@"image_url"];
-        
-        NSString *urlImg_FULL;
-        if (url_Img ==(id)[NSNull null]) {
-            urlImg_FULL = default_Img_Url;
-        }else{
-            urlImg_FULL =[base_Img_Url stringByAppendingPathComponent:url_Img];
-        }
-        
-        NSString *dateStr = [subcatDic valueForKey:@"createdDate"];
-        
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-        NSDate *date = [dateFormat dateFromString:dateStr];
-        [dateFormat setDateFormat:@"MMMM YYYY"];
-        NSString* newDateFormat = [dateFormat stringFromDate:date];
-        dateFormat.doesRelativeDateFormatting = YES;
-        
-        catCell.adNameLabel.text = [NSString stringWithFormat:@"%@",[subcatDic valueForKey:@"title"]];
-        NSString *loc = [subcatDic valueForKey:@"location"];
-        NSString *firstWord = [[loc componentsSeparatedByString:@","] objectAtIndex:0];
-        catCell.locationLabel.text = [firstWord stringByAppendingString:newDateFormat];
-        if([[subcatDic valueForKey:@"price"] isEqual: @""]){
-          catCell.priceView.hidden = true;
-        }else if(![[subcatDic valueForKey:@"price"] isEqual: @""]){
-            catCell.priceView.hidden = false;
-            catCell.priceLabel.text = [[subcatDic valueForKey:@"price"]stringByAppendingString:NSLocalizedString(@" OMR", nil)];
-            }
-//        catCell.layer.masksToBounds = NO;
-//        catCell.contentView.layer.masksToBounds = NO;
-//        catCell.bottomView.layer.shadowColor = AppCommonBlueColor.CGColor;
-//        catCell.bottomView.layer.shadowOffset = CGSizeMake(0, 1);
-//        catCell.bottomView.layer.shadowRadius = 1.0;
-//        catCell.bottomView.layer.shadowOpacity = 1.0;
-//        catCell.bottomView.layer.masksToBounds = NO;
-//        [catCell.bottomView.layer setShadowPath:[[UIBezierPath bezierPathWithRect:CGRectMake(0, 0, catCell.bottomView.frame.size.width,  catCell.bottomView.frame.size.height)] CGPath]];
-        
-        
-        [catCell.catImageView sd_setImageWithURL:[NSURL URLWithString:urlImg_FULL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-            NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:image,@"image",[NSString stringWithFormat:@"%ld",(long)indexPath.row],@"indexRow", nil];
-            [self.dataDictimagesMutArray addObject:dict];
-            [self.listingCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-        }];
-        
-       
-        //
-        if(  totalCount == indexPath.row+1  ){
-            _subCatStart = indexPath.row+1 - [self calculateDED:indexPath.row];
-            [self performSelector:@selector(checkAndLoadList:) withObject:self afterDelay:2];
-            
-        }
-        
-        return catCell;
-        //
+    NSString *urlImg_FULL;
+    if (url_Img ==(id)[NSNull null]) {
+        urlImg_FULL = default_Img_Url;
+    }else{
+        urlImg_FULL =[base_Img_Url stringByAppendingPathComponent:url_Img];
     }
+    
+    NSString *dateStr = [subcatDic valueForKey:@"createdDate"];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSDate *date = [dateFormat dateFromString:dateStr];
+    [dateFormat setDateFormat:@"MMMM YYYY"];
+    NSString* newDateFormat = [dateFormat stringFromDate:date];
+    dateFormat.doesRelativeDateFormatting = YES;
+    
+    catCell.adNameLabel.text = [NSString stringWithFormat:@"%@",[subcatDic valueForKey:@"title"]];
+    NSString *loc = [subcatDic valueForKey:@"location"];
+    NSString *firstWord = [[loc componentsSeparatedByString:@","] objectAtIndex:0];
+    catCell.locationLabel.text = [firstWord stringByAppendingString:newDateFormat];
+    if([[subcatDic valueForKey:@"price"] isEqual: @""]){
+        catCell.priceView.hidden = true;
+    }else if(![[subcatDic valueForKey:@"price"] isEqual: @""]){
+        catCell.priceView.hidden = false;
+        catCell.priceLabel.text = [[subcatDic valueForKey:@"price"]stringByAppendingString:NSLocalizedString(@" OMR", nil)];
+    }
+    [catCell.catImageView sd_setImageWithURL:[NSURL URLWithString:urlImg_FULL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+        NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:image,@"image",[NSString stringWithFormat:@"%ld",(long)indexPath.row],@"indexRow", nil];
+        [self.dataDictimagesMutArray addObject:dict];
+        [self.listingCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+    }];
+    
+    
+    //
+    if(  totalCount == indexPath.row+1  ){
+        _subCatStart = indexPath.row+1 - [self calculateDED:indexPath.row];
+        [self performSelector:@selector(checkAndLoadList:) withObject:self afterDelay:2];
+        
+    }
+    return catCell;
+    //
 }
 
 -(void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
     AdDetailedViewController *adDetailsViewController = [self.storyboard instantiateViewControllerWithIdentifier:@"AdDetailedVC"];
-    if(fromSort){
-        // data after sort
-        NSDictionary *dataObj = [saveSearchDataArray objectAtIndex:indexPath.row];
-        NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
-        
-        adDetailsViewController.adId = ad_id;
-        adDetailsViewController.hidesBottomBarWhenPushed = true;
-        [self.navigationController pushViewController:adDetailsViewController animated:YES];
-    }else{
-        // listing data
-        NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row];
-        NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
-        adDetailsViewController.adId = ad_id;
-        adDetailsViewController.hidesBottomBarWhenPushed = true;
-        [self.navigationController pushViewController:adDetailsViewController animated:YES];
-    }
+    // listing data
+    NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row];
+    NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
+    adDetailsViewController.adId = ad_id;
+    adDetailsViewController.hidesBottomBarWhenPushed = true;
+    [self.navigationController pushViewController:adDetailsViewController animated:YES];
 }
 
 -(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
     NSPredicate *indexPredicate = [NSPredicate predicateWithFormat:@"SELF.indexRow == %@",[NSString stringWithFormat:@"%ld",(long)indexPath.row]];
     NSArray *indexArray;
-    if(fromSort){
-        indexArray  = [self.saveSearchimagesMutArray filteredArrayUsingPredicate:indexPredicate];
-    }
-    else{
-        indexArray  = [self.dataDictimagesMutArray filteredArrayUsingPredicate:indexPredicate];
-    }
-   // ListingCollectionCell *listCell = (ListingCollectionCell *)[self.listingCollectionView cellForItemAtIndexPath:indexPath];
-    
-//    CGFloat labelHeights = listCell.adNameLabel.frame.size.height+listCell.locationLabel.frame.size.height+10;
+    indexArray  = [self.dataDictimagesMutArray filteredArrayUsingPredicate:indexPredicate];
+  
     CGFloat labelHeights = 50;
     if(indexArray.count>0){
         CGFloat cellWidth = (self.view.frame.size.width-3*CellInterItemSpacing)/2;
@@ -1090,20 +837,8 @@
 }
 
 -(void) checkAndLoadList:(id) sender{
-    if(!fromSort){
-
- //   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotBayieAPIDataListNotification:) name:@"BayieResponse" object:nil];
     if(totalSubCatResult > totalCount)
         [self subCatList];
-    }else{
-        
-      //  [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(gotBayieAPIDataListNotification:) name:@"BayieResponse" object:nil];
-       
-        if(totalSortResult > totalCountsort)
-            [self ListSaveSearch];
-        
-    }
-    
 }
 
 -(int)calculateDED:(int)row{
@@ -1137,6 +872,7 @@
 
 -(void)loadFilterVC{
     FilterVC *filterVC = [[FilterVC alloc] initWithNibName:@"FilterVC" bundle:nil];
+    filterVC.filterVcDelegate = self;
     [self.navigationController pushViewController:filterVC animated:YES];
 }
 
@@ -1155,15 +891,42 @@
 
 - (void)viewDidDisappear:(BOOL)animated {
     [super viewDidDisappear:(BOOL)animated];
-    [[NSNotificationCenter defaultCenter]  removeObserver:self];
-    
     [hud hideAnimated:YES];
 }
 
 - (void)viewWillDisappear:(BOOL)animated {
     [super viewWillDisappear:(BOOL)animated];
-    [[NSNotificationCenter defaultCenter]  removeObserver:self];
-    
     [hud hideAnimated:YES];
+}
+
+-(void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender{
+    NSLog(@"%@",segue.identifier);
+    if ([segue.identifier isEqualToString:@"listingToSort"]){
+        SortViewController *sortVC = (SortViewController *)segue.destinationViewController;
+        sortVC.sortDelegate = self;
+    }
+}
+
+#pragma mark - Sort VC Delegate
+
+-(void)sortTypeSelectedDelegate{
+    
+}
+
+-(void)callingApis{
+    _subCatStart = 0;
+    if (self.pageType == PageTypeAuctions) {
+        [self callingAuctionListApi];
+    }
+    else{
+        [self subCatList];
+    }
+}
+
+#pragma mark - Filter VC Delegate
+
+-(void)filterVcItem:(FilterVC *)viewController clickedItem:(id)item{
+    [subcatArrayList removeAllObjects];
+    [self callingApis];
 }
 @end

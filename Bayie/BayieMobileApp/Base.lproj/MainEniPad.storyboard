@@ -1509,7 +1509,7 @@
                                         </state>
                                         <connections>
                                             <action selector="sortButton:" destination="LdW-9d-1F4" eventType="touchUpInside" id="NPU-yo-ERc"/>
-                                            <segue destination="yeO-qK-oaP" kind="show" id="4Ju-DD-6MV"/>
+                                            <segue destination="yeO-qK-oaP" kind="show" identifier="listingToSort" id="4Ju-DD-6MV"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="reM-pY-XXe">

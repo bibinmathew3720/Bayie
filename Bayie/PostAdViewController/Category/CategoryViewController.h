@@ -7,6 +7,7 @@
 //
 
 #import <UIKit/UIKit.h>
+#import "BrowseViewController.h"
 
 @protocol CategoryViewControllerDelegate ;
 
@@ -18,6 +19,8 @@
 @property (nonatomic,strong) NSString * baseUrl;
 @property (nonatomic,strong) NSArray * dataArray;
 @property (nonatomic,strong) id<CategoryViewControllerDelegate>categoryDelegate;
+@property (nonatomic, assign) PAGETYPE pageType;
+
 
 @end
 

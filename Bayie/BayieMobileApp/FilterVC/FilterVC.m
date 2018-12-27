@@ -716,6 +716,9 @@ typedef enum filterType{
             dataObj.lastKnownLocID = [NSString stringWithFormat:@"%@",[selectedLocation valueForKey:@"id"]];
             dataObj.lastKnownLoc = [NSString stringWithFormat:@"%@",[selectedLocation valueForKey:@"location"]];
         }
+        if(self.filterVcDelegate && [self.filterVcDelegate respondsToSelector:@selector(filterVcItem:clickedItem:)]){
+            [self.filterVcDelegate filterVcItem:self clickedItem:self.filterDictionary];
+        }
         [self.navigationController popViewControllerAnimated:YES];
         
 //        if([json objectForKey:@"key"]) {

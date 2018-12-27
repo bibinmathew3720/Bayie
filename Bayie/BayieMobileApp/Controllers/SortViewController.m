@@ -91,7 +91,9 @@
 //    destlist.fromSort = true;
  //   destlist.sortType = sortTypeSelected;
  //   [self dismissViewControllerAnimated:YES completion:nil];
-    
+    if (self.sortDelegate && [self.sortDelegate respondsToSelector:@selector(sortTypeSelectedDelegate)]){
+        [self.sortDelegate sortTypeSelectedDelegate];
+    }
    [self.navigationController popViewControllerAnimated:YES];
 //[self performSegueWithIdentifier:@"FromSort" sender:self];
 
