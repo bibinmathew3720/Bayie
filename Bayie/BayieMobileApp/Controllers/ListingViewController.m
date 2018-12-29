@@ -449,7 +449,7 @@
     
     if (self.pageType == PageTypeAuctions){
         NSDictionary *dataObj = [subcatArrayList objectAtIndex:indexPath.row];
-        NSString *ad_id = [dataObj valueForKey:@"ad_Id"];
+        NSString *ad_id = [dataObj valueForKey:@"slug"];
         
         AuctionDetailVC *auctionDetailVC = [[AuctionDetailVC alloc] initWithNibName:@"AuctionDetailVC" bundle:nil];
         auctionDetailVC.adId = ad_id;

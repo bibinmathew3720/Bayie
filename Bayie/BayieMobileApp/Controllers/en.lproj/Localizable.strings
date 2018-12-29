@@ -127,4 +127,15 @@
 
 "Ads" = "Ads";
 "Auctions" = "Auctions";
+"Description" = "Description";
+"Details" = "Details";
+"Condition" = "Condition";
+"Model" = "Model";
+"Price" = "Price";
+"BrandName" = "Brand Name";
+"BiddingHistory" = "Bidding History";
+"YourBid" = "Your bid";
+"BIDNOW" = "BID NOW";
+"ID" = "ID";
+"Bids" = "Bids";
 

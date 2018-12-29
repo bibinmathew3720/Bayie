@@ -150,8 +150,11 @@
 		D02A6FEF1F35B15800BBDDDE /* FilterRightTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02A6FED1F35B15800BBDDDE /* FilterRightTVC.xib */; };
 		D02A6FFA1F36269600BBDDDE /* FilterRightCheckBoxCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A6FF81F36269600BBDDDE /* FilterRightCheckBoxCell.m */; };
 		D02A6FFB1F36269600BBDDDE /* FilterRightCheckBoxCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D02A6FF91F36269600BBDDDE /* FilterRightCheckBoxCell.xib */; };
-		D03DDBA621D4C9D2000C3AAF /* AuctionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D03DDBA421D4C9D2000C3AAF /* AuctionDetailVC.m */; };
-		D03DDBA721D4C9D2000C3AAF /* AuctionDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03DDBA521D4C9D2000C3AAF /* AuctionDetailVC.xib */; };
+		D03DDBAF21D697AD000C3AAF /* Auction.m in Sources */ = {isa = PBXBuildFile; fileRef = D03DDBAA21D697AD000C3AAF /* Auction.m */; };
+		D03DDBB021D697AD000C3AAF /* AuctionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D03DDBAB21D697AD000C3AAF /* AuctionDetailVC.m */; };
+		D03DDBB121D697AD000C3AAF /* AuctionDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D03DDBAD21D697AD000C3AAF /* AuctionDetailVC.xib */; };
+		D03DDBB421D6F03E000C3AAF /* AdImages.m in Sources */ = {isa = PBXBuildFile; fileRef = D03DDBB321D6F03E000C3AAF /* AdImages.m */; };
+		D03DDBBA21D6F74C000C3AAF /* BidHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D03DDBB921D6F74C000C3AAF /* BidHistory.m */; };
 		D0E9F0581FA0FDA5003F96ED /* DeletePopUpView.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E9F0571FA0FDA5003F96ED /* DeletePopUpView.m */; };
 		D0E9F05A1FA0FDC4003F96ED /* DeletePopUpView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E9F0591FA0FDC4003F96ED /* DeletePopUpView.xib */; };
 		D0E9F0621FA10E74003F96ED /* TeasonTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E9F0601FA10E74003F96ED /* TeasonTVC.m */; };
@@ -161,7 +164,6 @@
 		D0E9F7711F35AE6C001B1EE3 /* FilterLeftTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D0E9F76F1F35AE6C001B1EE3 /* FilterLeftTVC.m */; };
 		D0E9F7721F35AE6C001B1EE3 /* FilterLeftTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D0E9F7701F35AE6C001B1EE3 /* FilterLeftTVC.xib */; };
 		D0F2B45B2042AD1D0034A3D6 /* ListingCollectionCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D0F2B45A2042AD1D0034A3D6 /* ListingCollectionCell.m */; };
-		D0FBAC2E21CA986400370522 /* Auction.m in Sources */ = {isa = PBXBuildFile; fileRef = D0FBAC2C21CA986400370522 /* Auction.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -431,9 +433,15 @@
 		D02A6FF71F36269600BBDDDE /* FilterRightCheckBoxCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = FilterRightCheckBoxCell.h; sourceTree = "<group>"; };
 		D02A6FF81F36269600BBDDDE /* FilterRightCheckBoxCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = FilterRightCheckBoxCell.m; sourceTree = "<group>"; };
 		D02A6FF91F36269600BBDDDE /* FilterRightCheckBoxCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = FilterRightCheckBoxCell.xib; sourceTree = "<group>"; };
-		D03DDBA321D4C9D2000C3AAF /* AuctionDetailVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuctionDetailVC.h; sourceTree = "<group>"; };
-		D03DDBA421D4C9D2000C3AAF /* AuctionDetailVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuctionDetailVC.m; sourceTree = "<group>"; };
-		D03DDBA521D4C9D2000C3AAF /* AuctionDetailVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuctionDetailVC.xib; sourceTree = "<group>"; };
+		D03DDBAA21D697AD000C3AAF /* Auction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auction.m; sourceTree = "<group>"; };
+		D03DDBAB21D697AD000C3AAF /* AuctionDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionDetailVC.m; sourceTree = "<group>"; };
+		D03DDBAC21D697AD000C3AAF /* Auction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auction.h; sourceTree = "<group>"; };
+		D03DDBAD21D697AD000C3AAF /* AuctionDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionDetailVC.xib; sourceTree = "<group>"; };
+		D03DDBAE21D697AD000C3AAF /* AuctionDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionDetailVC.h; sourceTree = "<group>"; };
+		D03DDBB221D6F03E000C3AAF /* AdImages.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AdImages.h; sourceTree = "<group>"; };
+		D03DDBB321D6F03E000C3AAF /* AdImages.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AdImages.m; sourceTree = "<group>"; };
+		D03DDBB821D6F74C000C3AAF /* BidHistory.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidHistory.h; sourceTree = "<group>"; };
+		D03DDBB921D6F74C000C3AAF /* BidHistory.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BidHistory.m; sourceTree = "<group>"; };
 		D0E9F0561FA0FDA5003F96ED /* DeletePopUpView.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = DeletePopUpView.h; sourceTree = "<group>"; };
 		D0E9F0571FA0FDA5003F96ED /* DeletePopUpView.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DeletePopUpView.m; sourceTree = "<group>"; };
 		D0E9F0591FA0FDC4003F96ED /* DeletePopUpView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = DeletePopUpView.xib; sourceTree = "<group>"; };
@@ -449,8 +457,6 @@
 		D0F2B4592042AD1D0034A3D6 /* ListingCollectionCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; name = ListingCollectionCell.h; path = Controllers/ListingCollectionCell.h; sourceTree = "<group>"; };
 		D0F2B45A2042AD1D0034A3D6 /* ListingCollectionCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; name = ListingCollectionCell.m; path = Controllers/ListingCollectionCell.m; sourceTree = "<group>"; };
 		D0F7BF841F57488500F84DDD /* Bayie.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = Bayie.entitlements; sourceTree = "<group>"; };
-		D0FBAC2C21CA986400370522 /* Auction.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = Auction.m; sourceTree = "<group>"; };
-		D0FBAC2D21CA986400370522 /* Auction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auction.h; sourceTree = "<group>"; };
 		D0FF17B91F91EA2000B7BB4B /* AppConstants.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppConstants.h; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -760,6 +766,7 @@
 		3A71B4D91E7BEC8E00E85F3D /* BayieMobileApp */ = {
 			isa = PBXGroup;
 			children = (
+				D03DDBA921D697AD000C3AAF /* Auctions */,
 				D0F7BF841F57488500F84DDD /* Bayie.entitlements */,
 				18A753F71F3416C500D25BF3 /* AlertHandler */,
 				18AE2FE81F20202F00147CFB /* AppDelegate */,
@@ -1166,7 +1173,6 @@
 		48C156681EB754C8009221D9 /* Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				D0FBAC2B21CA986400370522 /* Auction */,
 				D021896B21901445006A064E /* VideoVC */,
 				488AE1121ECCE446005DCA64 /* PostAdViewController */,
 				48246A851EBCF99900D01286 /* AdCategoryViewcotrollers */,
@@ -1273,6 +1279,22 @@
 			path = FilterRightCheckBoxCell;
 			sourceTree = "<group>";
 		};
+		D03DDBA921D697AD000C3AAF /* Auctions */ = {
+			isa = PBXGroup;
+			children = (
+				D03DDBAA21D697AD000C3AAF /* Auction.m */,
+				D03DDBAB21D697AD000C3AAF /* AuctionDetailVC.m */,
+				D03DDBAC21D697AD000C3AAF /* Auction.h */,
+				D03DDBAD21D697AD000C3AAF /* AuctionDetailVC.xib */,
+				D03DDBAE21D697AD000C3AAF /* AuctionDetailVC.h */,
+				D03DDBB221D6F03E000C3AAF /* AdImages.h */,
+				D03DDBB321D6F03E000C3AAF /* AdImages.m */,
+				D03DDBB821D6F74C000C3AAF /* BidHistory.h */,
+				D03DDBB921D6F74C000C3AAF /* BidHistory.m */,
+			);
+			path = Auctions;
+			sourceTree = "<group>";
+		};
 		D0E9F7611F35A8E5001B1EE3 /* FilterVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1301,18 +1323,6 @@
 				D0E9F7701F35AE6C001B1EE3 /* FilterLeftTVC.xib */,
 			);
 			path = FilterLeftTVC;
-			sourceTree = "<group>";
-		};
-		D0FBAC2B21CA986400370522 /* Auction */ = {
-			isa = PBXGroup;
-			children = (
-				D0FBAC2C21CA986400370522 /* Auction.m */,
-				D0FBAC2D21CA986400370522 /* Auction.h */,
-				D03DDBA321D4C9D2000C3AAF /* AuctionDetailVC.h */,
-				D03DDBA421D4C9D2000C3AAF /* AuctionDetailVC.m */,
-				D03DDBA521D4C9D2000C3AAF /* AuctionDetailVC.xib */,
-			);
-			path = Auction;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -1399,7 +1409,7 @@
 				18D6337D1F36BFD400F4EED2 /* CategoryViewController.xib in Resources */,
 				3AF7CA7B1EB1EF2100D7E31D /* LanguageSelector˜ipad.xib in Resources */,
 				3A71B4EA1E7BEC8F00E85F3D /* LaunchScreen.storyboard in Resources */,
-				D03DDBA721D4C9D2000C3AAF /* AuctionDetailVC.xib in Resources */,
+				D03DDBB121D697AD000C3AAF /* AuctionDetailVC.xib in Resources */,
 				3A2C7A2B1E7FA8D000B4BE85 /* Lato-BoldItalic.ttf in Resources */,
 				3A2C7A291E7FA8D000B4BE85 /* Lato-BlackItalic.ttf in Resources */,
 				487CC5401EE91484004E71EE /* Chat.storyboard in Resources */,
@@ -1531,6 +1541,7 @@
 				0B2946B71EF3AC87008B64FC /* DKImagePickerController+BayieDKImagePickerController.m in Sources */,
 				48246A901EBCFA4100D01286 /* AdSubCategoryViewController.m in Sources */,
 				3A366F781EAF30EF00D7BC7A /* CustomFavoritesTableViewCell.m in Sources */,
+				D03DDBB421D6F03E000C3AAF /* AdImages.m in Sources */,
 				D00FAB431F2AA3CE0015C906 /* JTSSimpleImageDownloader.m in Sources */,
 				484F70A61EBA554B007F2FCA /* AdDeatilsHeaderTableViewCell.m in Sources */,
 				484F70AC1EBA619F007F2FCA /* SellerDetailTableViewCell.m in Sources */,
@@ -1615,9 +1626,10 @@
 				48A2BB321EBC7C870040125D /* UINavigationBar+Awesome.m in Sources */,
 				3A17D65F1E9CE06700F6ED82 /* CustomSortTableViewCell.m in Sources */,
 				3A5E588D1EFD389300D63FB7 /* CustomSavedSearchesAdTableViewCell.m in Sources */,
-				D0FBAC2E21CA986400370522 /* Auction.m in Sources */,
+				D03DDBAF21D697AD000C3AAF /* Auction.m in Sources */,
 				48C156671EB754BC009221D9 /* UserProfile.m in Sources */,
 				D0E9F7711F35AE6C001B1EE3 /* FilterLeftTVC.m in Sources */,
+				D03DDBBA21D6F74C000C3AAF /* BidHistory.m in Sources */,
 				3A15239E1EA8BEFF00D56047 /* EditProfileViewController.m in Sources */,
 				3AFE5DD71E94BF1200B42396 /* AdsNearbyViewController.m in Sources */,
 				48C156711EB75512009221D9 /* UserProfileTableViewCell.m in Sources */,
@@ -1636,7 +1648,7 @@
 				485D638F1EE7393700462D4D /* ChatMessageCell.m in Sources */,
 				D0E9F7651F35A916001B1EE3 /* FilterVC.m in Sources */,
 				48246A991EBCFDBF00D01286 /* AdCategory.m in Sources */,
-				D03DDBA621D4C9D2000C3AAF /* AuctionDetailVC.m in Sources */,
+				D03DDBB021D697AD000C3AAF /* AuctionDetailVC.m in Sources */,
 				48246AA31EBCFEB300D01286 /* SubCategory.m in Sources */,
 				48246A891EBCF9EC00D01286 /* AdCategoryTableViewCell.m in Sources */,
 				D02A6FEE1F35B15800BBDDDE /* FilterRightTVC.m in Sources */,

@@ -119,3 +119,14 @@
 
 "Ads" = "إعلانات";
 "Auctions" = "مزادات";
+"Description" = "وصف";
+"Details" = "تفاصيل";
+"Condition" = "شرط";
+"Model" = "نموذج";
+"Price" = "السعر";
+"BrandName" = "اسم العلامة التجارية";
+"BiddingHistory" = "تاريخ المناقصة";
+"YourBid" = "رهانك";
+"BIDNOW" = "حان الآن";
+"ID" = "هوية شخصية";
+"Bids" = "العروض";
