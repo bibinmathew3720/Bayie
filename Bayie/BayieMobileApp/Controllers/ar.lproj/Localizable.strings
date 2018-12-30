@@ -132,3 +132,5 @@
 "Bids" = "العروض";
 "OK" = "حسنا";
 "PleaseEnterbidAmount" = "الرجاء إدخال مبلغ العطاء";
+"BidHistory" = "تاريخ المناقصة";
+"WinHistory" = "اربح التاريخ";

@@ -267,7 +267,7 @@
         if(dataClass.userToken==nil)
             return 0;
         else
-            return 9;
+            return 11;
     }else {
         return 0;
     }
@@ -280,7 +280,7 @@
     if (indexPath.row == 0) {
         return 274;
     }
-    else if (indexPath.row == 8) {
+    else if (indexPath.row == 10) {
         return 103;
     }
     else {
@@ -328,15 +328,20 @@
             case 5:
                 listCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"MY_SAVED_SEARCHES", nil), @(1000000)];
                 break;
-
             case 6:
+                listCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"BidHistory", @"Bid History"), @(1000000)];
+                break;
+            case 7:
+                listCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"WinHistory", @"Win History"), @(1000000)];
+                break;
+            case 8:
                 listCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"FEEDBACK_AND_SUPPORT", nil), @(1000000)];
 
                 break;
-            case 7:
+            case 9:
                 listCell.textLabel.text = [NSString stringWithFormat:NSLocalizedString(@"ABOUT", nil), @(1000000)];
                 break;
-            case 8:
+            case 10:
                 listCell = [self.profileTableView dequeueReusableCellWithIdentifier:@"LogoutCell"];
                 break;
                 
@@ -391,11 +396,19 @@
             //   savdSearch.hidesBottomBarWhenPushed = true;
             //    [self.navigationController.navigationBar setHidden:false];
             [self.navigationController pushViewController:savdSearch animated:true];
-        }if (indexPath.row == 6){
+        }if (indexPath.row == 6){ //Bid History
+            
+//            SavedSearchViewController *savdSearch = [self.storyboard instantiateViewControllerWithIdentifier:@"SavedSearchViewController"];
+//            [self.navigationController pushViewController:savdSearch animated:true];
+        }
+        if (indexPath.row == 7){ //Win History
+        
+        }
+       if (indexPath.row == 8){
             FeedbackAndSupportViewController *feedBack = [self.storyboard instantiateViewControllerWithIdentifier:@"FeedbackAndSupportViewController"];
             [self.navigationController pushViewController:feedBack animated:true];
             
-        }if (indexPath.row == 7){
+        }if (indexPath.row == 9){
             AboutUsViewController *abt = [self.storyboard instantiateViewControllerWithIdentifier:@"AboutUsViewController"];
             abt.webViewType = WebViewTypeAboutUs;
             [self.navigationController pushViewController:abt animated:true];

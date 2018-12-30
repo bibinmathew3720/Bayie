@@ -140,4 +140,6 @@
 "Bids" = "Bids";
 "OK" = "OK";
 "PleaseEnterbidAmount" = "Please enter bid amount";
+"BidHistory" = "Bid History";
+"WinHistory" = "Win History";
 
