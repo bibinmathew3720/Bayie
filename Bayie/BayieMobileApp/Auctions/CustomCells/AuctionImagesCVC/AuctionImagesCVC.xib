@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="auctionImagesCVC" id="gTV-IL-0wX" customClass="AuctionImagesCVC">
+            <rect key="frame" x="0.0" y="0.0" width="197" height="111"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="197" height="111"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="DuK-ja-eap">
+                        <rect key="frame" x="0.0" y="0.0" width="197" height="111"/>
+                    </imageView>
+                    <view hidden="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rIt-p0-KoR">
+                        <rect key="frame" x="0.0" y="0.0" width="197" height="111"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="VNp-Ae-9Kr">
+                                <rect key="frame" x="0.0" y="0.0" width="197" height="111"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </view>
+                            <imageView userInteractionEnabled="NO" contentMode="center" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="playIcon" translatesAutoresizingMaskIntoConstraints="NO" id="yVf-Ja-HAd">
+                                <rect key="frame" x="0.0" y="0.0" width="197" height="111"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="0.0" alpha="0.30107964409999999" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="bottom" secondItem="yVf-Ja-HAd" secondAttribute="bottom" id="2AU-Zn-cgR"/>
+                            <constraint firstAttribute="trailing" secondItem="yVf-Ja-HAd" secondAttribute="trailing" id="8ed-9I-CzN"/>
+                            <constraint firstItem="VNp-Ae-9Kr" firstAttribute="leading" secondItem="rIt-p0-KoR" secondAttribute="leading" id="Pup-75-rIE"/>
+                            <constraint firstItem="yVf-Ja-HAd" firstAttribute="top" secondItem="rIt-p0-KoR" secondAttribute="top" id="Sah-jO-DGx"/>
+                            <constraint firstAttribute="bottom" secondItem="VNp-Ae-9Kr" secondAttribute="bottom" id="VzK-4C-H8Q"/>
+                            <constraint firstAttribute="trailing" secondItem="VNp-Ae-9Kr" secondAttribute="trailing" id="aXS-2p-sQy"/>
+                            <constraint firstItem="yVf-Ja-HAd" firstAttribute="leading" secondItem="rIt-p0-KoR" secondAttribute="leading" id="izU-HZ-naS"/>
+                            <constraint firstItem="VNp-Ae-9Kr" firstAttribute="top" secondItem="rIt-p0-KoR" secondAttribute="top" id="xEb-fZ-obd"/>
+                        </constraints>
+                        <viewLayoutGuide key="safeArea" id="UPF-mc-0Q7"/>
+                    </view>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="SEy-5g-ep8" firstAttribute="top" secondItem="DuK-ja-eap" secondAttribute="top" id="40A-QA-CgA"/>
+                <constraint firstItem="SEy-5g-ep8" firstAttribute="top" secondItem="rIt-p0-KoR" secondAttribute="top" id="BEi-p8-n4y"/>
+                <constraint firstItem="SEy-5g-ep8" firstAttribute="leading" secondItem="rIt-p0-KoR" secondAttribute="leading" id="FgS-6u-5Ol"/>
+                <constraint firstItem="DuK-ja-eap" firstAttribute="trailing" secondItem="SEy-5g-ep8" secondAttribute="trailing" id="GX5-FZ-RPf"/>
+                <constraint firstItem="DuK-ja-eap" firstAttribute="bottom" secondItem="SEy-5g-ep8" secondAttribute="bottom" id="TOh-MF-PyA"/>
+                <constraint firstItem="SEy-5g-ep8" firstAttribute="bottom" secondItem="rIt-p0-KoR" secondAttribute="bottom" id="aEO-iJ-aSM"/>
+                <constraint firstItem="SEy-5g-ep8" firstAttribute="trailing" secondItem="rIt-p0-KoR" secondAttribute="trailing" id="j9p-yk-vK8"/>
+                <constraint firstItem="SEy-5g-ep8" firstAttribute="leading" secondItem="DuK-ja-eap" secondAttribute="leading" id="pkr-lX-w92"/>
+            </constraints>
+            <viewLayoutGuide key="safeArea" id="SEy-5g-ep8"/>
+            <size key="customSize" width="197" height="111"/>
+            <connections>
+                <outlet property="adImagesView" destination="DuK-ja-eap" id="Zxv-g3-Ki7"/>
+                <outlet property="videoView" destination="rIt-p0-KoR" id="B3s-bR-O6g"/>
+            </connections>
+            <point key="canvasLocation" x="39" y="90"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="playIcon" width="75" height="75"/>
+    </resources>
+</document>

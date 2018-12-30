@@ -8,17 +8,22 @@
 
 #import "AuctionDetailVC.h"
 
+#import "VideoVC.h"
 #import "Auction.h"
 #import "DataClass.h"
+#import "JTSImageInfo.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
 #import "BidHistoryTVC.h"
+#import "AuctionImagesCVC.h"
+#import "JTSImageViewController.h"
 
-@interface AuctionDetailVC ()<UITableViewDataSource, UITableViewDelegate>{
+@interface AuctionDetailVC ()<UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout>{
     UIButton *favouriteBtn;
     UILabel *imageCountLbl;
     MBProgressHUD *hud;
 }
+@property (weak, nonatomic) IBOutlet UIImageView *defaultImageView;
 @property (weak, nonatomic) IBOutlet UICollectionView *imagesCollectionView;
 @property (weak, nonatomic) IBOutlet UILabel *adTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *productDetailsLabel;
@@ -61,6 +66,7 @@
     self.bidHistoryCellHeight = 50;
     [self.bidHistoryTableView registerNib:[UINib nibWithNibName:@"BidHistoryTVC" bundle:nil]
          forCellReuseIdentifier:@"bidHistoryCell"];
+    [self.imagesCollectionView registerNib:[UINib nibWithNibName:@"AuctionImagesCVC" bundle:nil] forCellWithReuseIdentifier:@"auctionImagesCVC"];
 }
 
 -(void)localisation{
@@ -186,6 +192,14 @@
 }
 
 -(void)populateAdDetails{
+    if (self.auctionDetails.imagesArray.count>0){
+        NSUInteger count = self.auctionDetails.imagesArray.count;
+        imageCountLbl.text = [NSString stringWithFormat:@"%d/%lu",1, (unsigned long)count];
+    }
+    else{
+        self.imagesCollectionView.hidden = YES;
+        [self.defaultImageView sd_setImageWithURL:[NSURL URLWithString:self.auctionDetails.defaultImageUrl]];
+    }
     self.adTitleLabel.text = self.auctionDetails.adTitle;
     NSString *prodDetailString = [NSString stringWithFormat:@"%@:%d | %@:%d | %@ - %0.2f OMR",NSLocalizedString(@"ID", @"ID"),self.auctionDetails.auctionId,NSLocalizedString(@"Bids", @"Bids"),self.auctionDetails.bidCount,self.auctionDetails.currentBidUser,self.auctionDetails.currentPrice];
     self.currentPriceLabel.text = [NSString stringWithFormat:@"%0.2f OMR",self.auctionDetails.currentBidAmount];
@@ -197,6 +211,12 @@
     //self.brandLabel.text = self.auctionDetails.
     self.bidHistoryTableViewHeightConstraint.constant = self.bidHistoryCellHeight * self.auctionDetails.bidHistory.count;
     [self.bidHistoryTableView reloadData];
+    [self.imagesCollectionView reloadData];
+}
+
+- (void)indexValue:(int)index{
+    NSUInteger count = self.auctionDetails.imagesArray.count;
+    imageCountLbl.text = [NSString stringWithFormat:@"%d/%lu",index + 1, (unsigned long)count];
 }
 
 #pragma mark - Button Actions
@@ -265,6 +285,86 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     
 }
+
+-(NSInteger)numberOfSectionsInCollectionView:(UICollectionView *)collectionView{
+    return 1;
+}
+
+#pragma mark - UICollection View Datasources and Delegates
+
+-(NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section{
+    return self.auctionDetails.imagesArray.count;
+}
+-(UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    AuctionImagesCVC *imageCollectionCell = [collectionView
+                                                    dequeueReusableCellWithReuseIdentifier:@"auctionImagesCVC"
+                                                    forIndexPath:indexPath];
+    imageCollectionCell.adImage = [self.auctionDetails.imagesArray objectAtIndex:indexPath.row];
+    return imageCollectionCell;
+}
+
+- (UIEdgeInsets)collectionView:(UICollectionView*)collectionView layout:(UICollectionViewLayout *)collectionViewLayout insetForSectionAtIndex:(NSInteger)section {
+    return UIEdgeInsetsMake(0, 0, 0,0);
+}
+
+-(CGSize)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout sizeForItemAtIndexPath:(NSIndexPath *)indexPath{
+    return CGSizeMake(( [UIScreen mainScreen].bounds.size.width),240);
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumLineSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+-(CGFloat)collectionView:(UICollectionView *)collectionView layout:(UICollectionViewLayout *)collectionViewLayout minimumInteritemSpacingForSectionAtIndex:(NSInteger)section{
+    return 0;
+}
+
+- (void)scrollViewDidEndDecelerating:(UIScrollView *)scrollView
+{
+    CGFloat pageWidth = self.imagesCollectionView.frame.size.width;
+    int currentPage = self.imagesCollectionView.contentOffset.x / pageWidth;
+    [self indexValue:currentPage];
+}
+- (void)collectionView:(UICollectionView *)collectionView didSelectItemAtIndexPath:(NSIndexPath *)indexPath{
+    AuctionImagesCVC *collectionCell = (AuctionImagesCVC *)[collectionView cellForItemAtIndexPath:indexPath];
+    AdImages *imageItem = [self.auctionDetails.imagesArray objectAtIndex:indexPath.row];
+    if ([imageItem.type isEqualToString:@"image"]){
+        [self imageSelected:indexPath.row images:self.auctionDetails.imagesArray andImageView:collectionCell.adImagesView];
+    }
+    else if ([imageItem.type isEqualToString:@"video"]){
+        NSString *videoUrlString = [imageItem.imageBaseUrl stringByAppendingString:imageItem.videoUrl];
+        [self selectedWithVideo:videoUrlString];
+    }
+}
+
+#pragma mark - Showing Image and Video in Full Screen
+
+-(void)imageSelected:(NSInteger)index images:(NSArray*)imageURLs andImageView:(UIImageView *)imageView{
+    [self addingFullImageControllerWithImagae:imageView.image withImageView:imageView];
+}
+
+-(void)selectedWithVideo:(NSString *)videoUrlString{
+    VideoVC *videoVC = [[VideoVC alloc] initWithNibName:@"VideoVC" bundle:nil
+                        ] ;
+    videoVC.videoUrl = videoUrlString;
+    UINavigationController *videoNavntlr = [[UINavigationController alloc] initWithRootViewController:videoVC];
+    [self presentViewController:videoNavntlr animated:true completion:nil];
+}
+
+-(void)addingFullImageControllerWithImagae:(UIImage *)fullImage withImageView:(UIImageView *)imageView{
+    JTSImageInfo *imageInfo = [[JTSImageInfo alloc] init];
+    imageInfo.image = imageView.image;
+    imageInfo.referenceRect = imageView.frame;
+    imageInfo.referenceView = imageView.superview;
+    imageInfo.referenceContentMode = imageView.contentMode;
+    imageInfo.referenceCornerRadius = imageView.layer.cornerRadius;
+    JTSImageViewController *imageViewer = [[JTSImageViewController alloc]
+                                           initWithImageInfo:imageInfo
+                                           mode:JTSImageViewControllerMode_Image
+                                           backgroundStyle:JTSImageViewControllerBackgroundOption_Blurred];
+    [imageViewer showFromViewController:self transition:JTSImageViewControllerTransition_FromOriginalPosition];
+}
+
 
 
 /*

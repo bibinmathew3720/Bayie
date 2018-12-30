@@ -149,8 +149,10 @@
 		D01EDE3F21D85901009D6D62 /* Auction.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE3721D85901009D6D62 /* Auction.m */; };
 		D01EDE4021D85901009D6D62 /* AdImages.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE3B21D85901009D6D62 /* AdImages.m */; };
 		D01EDE4121D85901009D6D62 /* BidHistory.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE3C21D85901009D6D62 /* BidHistory.m */; };
-		D01EDE4521D85933009D6D62 /* BidHistoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE4321D85933009D6D62 /* BidHistoryTVC.m */; };
-		D01EDE4621D85933009D6D62 /* BidHistoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE4421D85933009D6D62 /* BidHistoryTVC.xib */; };
+		D01EDE4C21D892F5009D6D62 /* BidHistoryTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE4821D892F4009D6D62 /* BidHistoryTVC.m */; };
+		D01EDE4D21D892F5009D6D62 /* BidHistoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE4A21D892F4009D6D62 /* BidHistoryTVC.xib */; };
+		D01EDE5121D8930F009D6D62 /* AuctionImagesCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE4F21D8930F009D6D62 /* AuctionImagesCVC.m */; };
+		D01EDE5221D8930F009D6D62 /* AuctionImagesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE5021D8930F009D6D62 /* AuctionImagesCVC.xib */; };
 		D021896F21901445006A064E /* VideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D021896C21901445006A064E /* VideoVC.xib */; };
 		D021897021901445006A064E /* VideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D021896E21901445006A064E /* VideoVC.m */; };
 		D02A6FEE1F35B15800BBDDDE /* FilterRightTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A6FEC1F35B15800BBDDDE /* FilterRightTVC.m */; };
@@ -435,9 +437,12 @@
 		D01EDE3A21D85901009D6D62 /* Auction.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = Auction.h; sourceTree = "<group>"; };
 		D01EDE3B21D85901009D6D62 /* AdImages.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AdImages.m; sourceTree = "<group>"; };
 		D01EDE3C21D85901009D6D62 /* BidHistory.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidHistory.m; sourceTree = "<group>"; };
-		D01EDE4221D85933009D6D62 /* BidHistoryTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidHistoryTVC.h; sourceTree = "<group>"; };
-		D01EDE4321D85933009D6D62 /* BidHistoryTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BidHistoryTVC.m; sourceTree = "<group>"; };
-		D01EDE4421D85933009D6D62 /* BidHistoryTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidHistoryTVC.xib; sourceTree = "<group>"; };
+		D01EDE4821D892F4009D6D62 /* BidHistoryTVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidHistoryTVC.m; sourceTree = "<group>"; };
+		D01EDE4921D892F4009D6D62 /* BidHistoryTVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidHistoryTVC.h; sourceTree = "<group>"; };
+		D01EDE4A21D892F4009D6D62 /* BidHistoryTVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BidHistoryTVC.xib; sourceTree = "<group>"; };
+		D01EDE4E21D8930F009D6D62 /* AuctionImagesCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuctionImagesCVC.h; sourceTree = "<group>"; };
+		D01EDE4F21D8930F009D6D62 /* AuctionImagesCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuctionImagesCVC.m; sourceTree = "<group>"; };
+		D01EDE5021D8930F009D6D62 /* AuctionImagesCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuctionImagesCVC.xib; sourceTree = "<group>"; };
 		D021896C21901445006A064E /* VideoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoVC.xib; sourceTree = "<group>"; };
 		D021896D21901445006A064E /* VideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVC.h; sourceTree = "<group>"; };
 		D021896E21901445006A064E /* VideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoVC.m; sourceTree = "<group>"; };
@@ -1266,9 +1271,8 @@
 		D01EDE3521D85901009D6D62 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
-				D01EDE4221D85933009D6D62 /* BidHistoryTVC.h */,
-				D01EDE4321D85933009D6D62 /* BidHistoryTVC.m */,
-				D01EDE4421D85933009D6D62 /* BidHistoryTVC.xib */,
+				D01EDE4B21D892F4009D6D62 /* AuctionImagesCVC */,
+				D01EDE4721D892F4009D6D62 /* BidHistoryTVC */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1284,6 +1288,26 @@
 				D01EDE3C21D85901009D6D62 /* BidHistory.m */,
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D01EDE4721D892F4009D6D62 /* BidHistoryTVC */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE4821D892F4009D6D62 /* BidHistoryTVC.m */,
+				D01EDE4921D892F4009D6D62 /* BidHistoryTVC.h */,
+				D01EDE4A21D892F4009D6D62 /* BidHistoryTVC.xib */,
+			);
+			path = BidHistoryTVC;
+			sourceTree = "<group>";
+		};
+		D01EDE4B21D892F4009D6D62 /* AuctionImagesCVC */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE4E21D8930F009D6D62 /* AuctionImagesCVC.h */,
+				D01EDE4F21D8930F009D6D62 /* AuctionImagesCVC.m */,
+				D01EDE5021D8930F009D6D62 /* AuctionImagesCVC.xib */,
+			);
+			path = AuctionImagesCVC;
 			sourceTree = "<group>";
 		};
 		D021896B21901445006A064E /* VideoVC */ = {
@@ -1430,6 +1454,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				3A0EC84C1EDFDD13006D3340 /* MainEniPad.storyboard in Resources */,
+				D01EDE5221D8930F009D6D62 /* AuctionImagesCVC.xib in Resources */,
 				3A2C7A2E1E7FA8D000B4BE85 /* Lato-LightItalic.ttf in Resources */,
 				D0E9F7721F35AE6C001B1EE3 /* FilterLeftTVC.xib in Resources */,
 				3A06B58F1EE2B06800E3A7DF /* Localizable.strings in Resources */,
@@ -1457,7 +1482,7 @@
 				18D6337F1F36BFD400F4EED2 /* BCollectionViewCell.xib in Resources */,
 				3A2C7A281E7FA8D000B4BE85 /* Lato-Black.ttf in Resources */,
 				3A2C7A2C1E7FA8D000B4BE85 /* Lato-Italic.ttf in Resources */,
-				D01EDE4621D85933009D6D62 /* BidHistoryTVC.xib in Resources */,
+				D01EDE4D21D892F5009D6D62 /* BidHistoryTVC.xib in Resources */,
 				487CC53B1EE91475004E71EE /* AdCategory.storyboard in Resources */,
 				D02A6FEF1F35B15800BBDDDE /* FilterRightTVC.xib in Resources */,
 				3A06B58B1EE28FBD00E3A7DF /* MainAriPad.storyboard in Resources */,
@@ -1578,6 +1603,7 @@
 				D00FAB431F2AA3CE0015C906 /* JTSSimpleImageDownloader.m in Sources */,
 				484F70A61EBA554B007F2FCA /* AdDeatilsHeaderTableViewCell.m in Sources */,
 				484F70AC1EBA619F007F2FCA /* SellerDetailTableViewCell.m in Sources */,
+				D01EDE5121D8930F009D6D62 /* AuctionImagesCVC.m in Sources */,
 				484F70A91EBA5A32007F2FCA /* AdReportTableViewCell.m in Sources */,
 				485D63931EE7393700462D4D /* ChatModel.m in Sources */,
 				3ABF92FB1EDBF56600F83D54 /* PostAdCatViewController.m in Sources */,
@@ -1670,7 +1696,7 @@
 				485D637B1EE7390A00462D4D /* JSONModelError.m in Sources */,
 				3A74BD1C1E9F7F90005B8C21 /* SubCategoryViewController.m in Sources */,
 				3AF1DF381E8D2A810042A5FD /* ChangePasswordViewController.m in Sources */,
-				D01EDE4521D85933009D6D62 /* BidHistoryTVC.m in Sources */,
+				D01EDE4C21D892F5009D6D62 /* BidHistoryTVC.m in Sources */,
 				3A74BD191E9F50E9005B8C21 /* CustomPostAdTableViewCell.m in Sources */,
 				3AEBB8841E8B8D3B0068AC81 /* BrowseViewController.m in Sources */,
 				3A5BC38B1EA47E7E00544761 /* CustomSubCategoryTableViewCell.m in Sources */,

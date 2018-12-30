@@ -105,7 +105,7 @@ NSString *const kBidHistory = @"bid_history";
             self.currentBidAmount = [dataDictionary[kCurrentBidAmount] floatValue];
             NSLog(@"Current Bid Amount:%f",self.currentBidAmount);
         }
-        if (![dataDictionary[kCurrentBidUser] isKindOfClass:[NSNull class]]){
+        if (![dataDictionary[kCurrentBidUser] isKindOfClass:[NSNull class]] && dataDictionary[kCurrentBidUser]){
             self.currentBidUser = dataDictionary[kCurrentBidUser];
         }
         if (![dataDictionary[kCurrentPrice] isKindOfClass:[NSNull class]]){
