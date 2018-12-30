@@ -8,6 +8,7 @@
 
 #import "AuctionDetailVC.h"
 
+#import "Utility.h"
 #import "VideoVC.h"
 #import "Auction.h"
 #import "DataClass.h"
@@ -188,7 +189,6 @@
         }
         [hud hideAnimated:YES];
     }]resume];
-    
 }
 
 -(void)populateAdDetails{
@@ -220,6 +220,14 @@
     imageCountLbl.text = [NSString stringWithFormat:@"%d/%lu",index + 1, (unsigned long)count];
 }
 
+-(BOOL)isLoggedIn{
+    DataClass *dataCllas = [DataClass getInstance];
+    if(dataCllas.userToken!=nil)
+        return YES;
+    else
+        return NO;
+}
+
 #pragma mark - Button Actions
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
@@ -240,6 +248,12 @@
 }
 
 - (IBAction)bidButtonAction:(UIButton *)sender {
+    if(![self isLoggedIn]){
+        [Utility showLogInAlertInController:self];
+    }
+    else{
+        
+    }
 }
 
 #pragma mark - UITextField Delegate
