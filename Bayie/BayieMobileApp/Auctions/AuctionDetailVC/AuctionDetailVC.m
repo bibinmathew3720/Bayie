@@ -19,6 +19,9 @@
 #import "AuctionImagesCVC.h"
 #import "JTSImageViewController.h"
 
+#define favoriteImageName @"fav-active"
+#define favoriteSelectedImageName @"fav_selected"
+
 @interface AuctionDetailVC ()<UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout>{
     UIButton *favouriteBtn;
     UILabel *imageCountLbl;
@@ -104,7 +107,7 @@
     self.navigationItem.leftBarButtonItem = myBackButton;
     favouriteBtn = [[UIButton alloc] initWithFrame:CGRectMake(0,-1,44,44)];
     [favouriteBtn setImage:[UIImage
-                            imageNamed:@"fav"] forState:UIControlStateNormal];
+                            imageNamed:favoriteImageName]  forState:UIControlStateNormal];
     favouriteBtn.tag = 0;
     [favouriteBtn addTarget:self action:@selector(favoriteBtnClicked:) forControlEvents:UIControlEventTouchUpInside];
     favouriteBtn.backgroundColor = [UIColor clearColor];
@@ -127,10 +130,6 @@
     self.navigationItem.rightBarButtonItem = favButton;
     self.navigationController.navigationBar.barStyle = UIBarStyleBlack;
     self.navigationController.navigationBar.tintColor = [UIColor whiteColor];
-}
-
-- (void)backBtnClicked{
-    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)didReceiveMemoryWarning {
@@ -192,6 +191,7 @@
 }
 
 -(void)populateAdDetails{
+    [self changeFavouriteBtnImage:self.auctionDetails.isFavorite];
     if (self.auctionDetails.imagesArray.count>0){
         NSUInteger count = self.auctionDetails.imagesArray.count;
         imageCountLbl.text = [NSString stringWithFormat:@"%d/%lu",1, (unsigned long)count];
@@ -228,7 +228,37 @@
         return NO;
 }
 
+- (void)changeFavouriteBtnImage:(BOOL)isFavourite {
+    if (isFavourite == true){
+        [favouriteBtn setImage:[UIImage imageNamed:favoriteSelectedImageName] forState:UIControlStateNormal];
+    }else{
+        [favouriteBtn setImage:[UIImage imageNamed:favoriteImageName] forState:UIControlStateNormal];
+    }
+}
+
 #pragma mark - Button Actions
+
+- (void)backBtnClicked{
+    [self.navigationController popViewControllerAnimated:YES];
+}
+
+- (void)favoriteBtnClicked:(id)sender {
+    if(![self isLoggedIn]){
+        [Utility showLogInAlertInController:self];
+    }
+    else{
+        
+//        if (adDetails.adInfo.idField){
+//            if (favouriteBtn.tag == 0){
+//                [self addOrRemovefavourite:adDetails.adInfo.idField isAdd:true];
+//                [self changeFavouriteBtnImage:true];
+//            }else{
+//                [self addOrRemovefavourite:adDetails.adInfo.idField isAdd:false];
+//                [self changeFavouriteBtnImage:false];
+//            }
+//        }
+    }
+}
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
     NSString *shareData = @"";
