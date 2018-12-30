@@ -34,7 +34,7 @@
                 <outlet property="imagesCollectionView" destination="MZn-fC-8Am" id="Agl-6N-ZqS"/>
                 <outlet property="modelHeadingLabel" destination="gTS-hS-hQQ" id="bq9-bE-01Q"/>
                 <outlet property="modelLabel" destination="7xe-31-sx2" id="7El-lk-mMy"/>
-                <outlet property="myBidPriceLabel" destination="ghN-M5-uTI" id="X93-d6-9lF"/>
+                <outlet property="myBidPriceTF" destination="5MM-Fc-zJr" id="k1G-8Z-Vdb"/>
                 <outlet property="myBidPriceTypeLabel" destination="Mqe-ML-Hhh" id="R4I-Dx-qoS"/>
                 <outlet property="priceHeadingLabel" destination="TZ0-uo-R7i" id="0rQ-gT-obP"/>
                 <outlet property="priceLabel" destination="4ZE-FP-0jU" id="rkD-ik-TtR"/>
@@ -376,11 +376,18 @@
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHP-jN-jC7">
                                     <rect key="frame" x="0.0" y="763.5" width="439" height="38"/>
                                     <subviews>
-                                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="natural" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ghN-M5-uTI">
-                                            <rect key="frame" x="10" y="19" width="0.0" height="0.0"/>
+                                        <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="5MM-Fc-zJr">
+                                            <rect key="frame" x="10" y="0.0" width="200" height="38"/>
+                                            <constraints>
+                                                <constraint firstAttribute="width" constant="200" id="lfa-JP-i6g"/>
+                                            </constraints>
+                                            <nil key="textColor"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
-                                            <nil key="highlightedColor"/>
-                                        </label>
+                                            <textInputTraits key="textInputTraits" autocorrectionType="no" spellCheckingType="no" keyboardType="numberPad" returnKeyType="done"/>
+                                            <connections>
+                                                <outlet property="delegate" destination="-1" id="ZvU-Io-Zta"/>
+                                            </connections>
+                                        </textField>
                                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="OMR" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mqe-ML-Hhh">
                                             <rect key="frame" x="332.5" y="10" width="35.5" height="18"/>
                                             <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
@@ -401,11 +408,12 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="5MM-Fc-zJr" firstAttribute="bottom" secondItem="3ej-Fo-YG2" secondAttribute="bottom" id="5F7-OO-fr1"/>
                                         <constraint firstItem="3ej-Fo-YG2" firstAttribute="top" secondItem="sHP-jN-jC7" secondAttribute="top" id="DRx-qG-6n8"/>
+                                        <constraint firstItem="5MM-Fc-zJr" firstAttribute="top" secondItem="3ej-Fo-YG2" secondAttribute="top" id="KJ2-IS-mTB"/>
                                         <constraint firstItem="Mqe-ML-Hhh" firstAttribute="centerY" secondItem="3ej-Fo-YG2" secondAttribute="centerY" id="Kx6-mX-zvG"/>
                                         <constraint firstItem="3ej-Fo-YG2" firstAttribute="leading" secondItem="Mqe-ML-Hhh" secondAttribute="trailing" constant="5" id="LEW-i7-R5U"/>
-                                        <constraint firstItem="ghN-M5-uTI" firstAttribute="leading" secondItem="sHP-jN-jC7" secondAttribute="leading" constant="10" id="bBp-WF-59Z"/>
-                                        <constraint firstItem="Mqe-ML-Hhh" firstAttribute="centerY" secondItem="ghN-M5-uTI" secondAttribute="centerY" id="hQW-af-K8e"/>
+                                        <constraint firstItem="5MM-Fc-zJr" firstAttribute="leading" secondItem="sHP-jN-jC7" secondAttribute="leading" constant="10" id="kPC-N8-ghk"/>
                                         <constraint firstAttribute="bottom" secondItem="3ej-Fo-YG2" secondAttribute="bottom" id="z0L-Nx-HBf"/>
                                         <constraint firstAttribute="trailing" secondItem="3ej-Fo-YG2" secondAttribute="trailing" id="zj1-Py-8Z0"/>
                                     </constraints>

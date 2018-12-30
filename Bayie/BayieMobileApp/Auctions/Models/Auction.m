@@ -81,19 +81,15 @@ NSString *const kBidHistory = @"bid_history";
         }
         if (![dataDictionary[kAuctionaId] isKindOfClass:[NSNull class]]){
             self.auctionId = [dataDictionary[kAuctionaId] intValue];
-            NSLog(@"Auction Id:%d",self.auctionId);
         }
         if (![dataDictionary[kBasePrice] isKindOfClass:[NSNull class]]){
             self.basePrice = [dataDictionary[kBasePrice] floatValue];
-            NSLog(@"Auction Id:%f",self.basePrice);
         }
         if (![dataDictionary[kBidCount] isKindOfClass:[NSNull class]]){
             self.bidCount = [dataDictionary[kBidCount] intValue];
-            NSLog(@"Bid Count:%d",self.bidCount);
         }
         if (![dataDictionary[kCategoryId] isKindOfClass:[NSNull class]]){
             self.categoryId = [dataDictionary[kCategoryId] intValue];
-            NSLog(@"Category Id:%d",self.categoryId);
         }
         if (![dataDictionary[kCategoryName] isKindOfClass:[NSNull class]]){
             self.categoryName = dataDictionary[kCategoryName];
@@ -103,14 +99,12 @@ NSString *const kBidHistory = @"bid_history";
         }
         if (![dataDictionary[kCurrentBidAmount] isKindOfClass:[NSNull class]]){
             self.currentBidAmount = [dataDictionary[kCurrentBidAmount] floatValue];
-            NSLog(@"Current Bid Amount:%f",self.currentBidAmount);
         }
         if (![dataDictionary[kCurrentBidUser] isKindOfClass:[NSNull class]] && dataDictionary[kCurrentBidUser]){
             self.currentBidUser = dataDictionary[kCurrentBidUser];
         }
         if (![dataDictionary[kCurrentPrice] isKindOfClass:[NSNull class]]){
             self.currentPrice = [dataDictionary[kCurrentPrice] floatValue];
-            NSLog(@"Current Price:%f",self.currentPrice);
         }
         if (![dataDictionary[kAdDescription] isKindOfClass:[NSNull class]]){
             self.adDescription = dataDictionary[kAdDescription];
@@ -133,7 +127,6 @@ NSString *const kBidHistory = @"bid_history";
         }
         if (![dataDictionary[kMinimumBidAmount] isKindOfClass:[NSNull class]]){
             self.minimumBidAmount = [dataDictionary[kMinimumBidAmount] floatValue];
-            NSLog(@"Minimum Amount:%f",self.minimumBidAmount);
         }
         if (![dataDictionary[kSlug] isKindOfClass:[NSNull class]]){
             self.slug = dataDictionary[kSlug];
@@ -153,9 +146,7 @@ NSString *const kBidHistory = @"bid_history";
         }
         if (![dataDictionary[kViewCount] isKindOfClass:[NSNull class]]){
             self.viewCount = [dataDictionary[kViewCount] intValue];
-            NSLog(@"View Count:%d",self.viewCount);
         }
-        
     }
     if(![auctionDictionary[kDefaultImage] isKindOfClass:[NSNull class]]){
         self.defaultImageUrl = auctionDictionary[kDefaultImage];

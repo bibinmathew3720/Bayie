@@ -18,7 +18,7 @@
 #import "AuctionImagesCVC.h"
 #import "JTSImageViewController.h"
 
-@interface AuctionDetailVC ()<UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout>{
+@interface AuctionDetailVC ()<UITextFieldDelegate,UITableViewDataSource, UITableViewDelegate, UICollectionViewDelegateFlowLayout>{
     UIButton *favouriteBtn;
     UILabel *imageCountLbl;
     MBProgressHUD *hud;
@@ -43,7 +43,7 @@
 @property (weak, nonatomic) IBOutlet UITableView *bidHistoryTableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bidHistoryTableViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *yourBidHeadingLabel;
-@property (weak, nonatomic) IBOutlet UILabel *myBidPriceLabel;
+@property (weak, nonatomic) IBOutlet UITextField *myBidPriceTF;
 @property (weak, nonatomic) IBOutlet UILabel *myBidPriceTypeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *bidButton;
 
@@ -209,6 +209,7 @@
     //self.modelLabel.text = self.auctionDetails.
     self.priceLabel.text = [NSString stringWithFormat:@"%0.2f OMR",self.auctionDetails.basePrice];
     //self.brandLabel.text = self.auctionDetails.
+    self.myBidPriceTF.text = [NSString stringWithFormat:@"%0.0f",self.auctionDetails.currentBidAmount];
     self.bidHistoryTableViewHeightConstraint.constant = self.bidHistoryCellHeight * self.auctionDetails.bidHistory.count;
     [self.bidHistoryTableView reloadData];
     [self.imagesCollectionView reloadData];
@@ -239,6 +240,13 @@
 }
 
 - (IBAction)bidButtonAction:(UIButton *)sender {
+}
+
+#pragma mark - UITextField Delegate
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField resignFirstResponder];
+    return YES;
 }
 
 #pragma mark - UITableView  Datasources and Delegates
