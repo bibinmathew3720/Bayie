@@ -157,6 +157,7 @@
 		D01EDE5F21D8D656009D6D62 /* BidHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE5D21D8D656009D6D62 /* BidHistoryVC.xib */; };
 		D01EDE6321D8D66D009D6D62 /* WinHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE6121D8D66D009D6D62 /* WinHistoryVC.m */; };
 		D01EDE6421D8D66D009D6D62 /* WinHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE6221D8D66D009D6D62 /* WinHistoryVC.xib */; };
+		D01EDE6721D8F5C2009D6D62 /* BidHistoryResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE6621D8F5C2009D6D62 /* BidHistoryResponseModel.m */; };
 		D021896F21901445006A064E /* VideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D021896C21901445006A064E /* VideoVC.xib */; };
 		D021897021901445006A064E /* VideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D021896E21901445006A064E /* VideoVC.m */; };
 		D02A6FEE1F35B15800BBDDDE /* FilterRightTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A6FEC1F35B15800BBDDDE /* FilterRightTVC.m */; };
@@ -453,6 +454,8 @@
 		D01EDE6021D8D66D009D6D62 /* WinHistoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WinHistoryVC.h; sourceTree = "<group>"; };
 		D01EDE6121D8D66D009D6D62 /* WinHistoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WinHistoryVC.m; sourceTree = "<group>"; };
 		D01EDE6221D8D66D009D6D62 /* WinHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinHistoryVC.xib; sourceTree = "<group>"; };
+		D01EDE6521D8F5C2009D6D62 /* BidHistoryResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidHistoryResponseModel.h; sourceTree = "<group>"; };
+		D01EDE6621D8F5C2009D6D62 /* BidHistoryResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BidHistoryResponseModel.m; sourceTree = "<group>"; };
 		D021896C21901445006A064E /* VideoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoVC.xib; sourceTree = "<group>"; };
 		D021896D21901445006A064E /* VideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVC.h; sourceTree = "<group>"; };
 		D021896E21901445006A064E /* VideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoVC.m; sourceTree = "<group>"; };
@@ -1340,6 +1343,8 @@
 		D01EDE5521D8D632009D6D62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D01EDE6521D8F5C2009D6D62 /* BidHistoryResponseModel.h */,
+				D01EDE6621D8F5C2009D6D62 /* BidHistoryResponseModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1707,6 +1712,7 @@
 				3A676A611EAE04500077719B /* AboutUsViewController.m in Sources */,
 				D00FAB441F2AA3CE0015C906 /* UIApplication+JTSImageViewController.m in Sources */,
 				488A93601EB8B4DB003C13BC /* DescriptionTableViewCell.m in Sources */,
+				D01EDE6721D8F5C2009D6D62 /* BidHistoryResponseModel.m in Sources */,
 				534D5DB01EFC22770099F092 /* CustomSearchListTableViewCell.m in Sources */,
 				3A037EE81EC47CC200BEDC70 /* BayieHub.m in Sources */,
 				3A27863E1E98B77E00578327 /* VerifyMobileNumberViewController.m in Sources */,

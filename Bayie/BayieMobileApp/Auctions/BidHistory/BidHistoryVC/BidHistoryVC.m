@@ -10,11 +10,15 @@
 #import "AFNetworking.h"
 #import "BidHistoryVC.h"
 #import "MBProgressHUD.h"
+#import "BidHistoryResponseModel.h"
 
 @interface BidHistoryVC (){
     MBProgressHUD *hud;
 }
+@property (nonatomic, strong) NSMutableArray *bidHistoryResponseArray;
 
+
+@property (weak, nonatomic) IBOutlet UITableView *bidHistoryTableView;
 @end
 
 @implementation BidHistoryVC
@@ -76,6 +80,13 @@
                 NSString *messageString = @"";
                 if (statusCode == 200){
                     NSLog(@"Response:%@",responseObject);
+                    if (![responseObject[@"data"] isKindOfClass:[NSNull class]]){
+                        NSArray *historyArray = [responseObject valueForKey:@"data"];
+                        self.bidHistoryResponseArray = [[NSMutableArray alloc] init];
+                        for (NSDictionary *item in historyArray){
+                            [self.bidHistoryResponseArray addObject:[[BidHistoryResponseModel alloc] initWithBidHistoryResponse:item]];
+                        }
+                    }
                 }
                 else if(statusCode == 204){
                     messageString = [responseObject valueForKey:@"error"];
@@ -112,6 +123,10 @@
 - (void)backBtnClicked{
     [self dismissViewControllerAnimated:YES completion:nil];
 }
+
+#pragma mark - UITableView Datasources and Delegates
+
+
 
 /*
 #pragma mark - Navigation
