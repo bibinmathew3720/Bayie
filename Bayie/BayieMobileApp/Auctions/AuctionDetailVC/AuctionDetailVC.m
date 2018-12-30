@@ -98,10 +98,10 @@
     UIBarButtonItem *myBackButton;
     NSString *strSelectedLanguage = [[[NSUserDefaults standardUserDefaults]objectForKey:@"AppleLanguages"] objectAtIndex:0];
     if([strSelectedLanguage isEqualToString:[NSString stringWithFormat: @"ar"]]){
-        myBackButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow-right"] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnClicked)];
+        myBackButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:ArabicBackArrowImageName] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnClicked)];
     }
     else {
-        myBackButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:@"back-arrow"] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnClicked)];
+        myBackButton = [[UIBarButtonItem alloc] initWithImage:[UIImage imageNamed:BackArrowImageName] style:UIBarButtonItemStylePlain target:self action:@selector(backBtnClicked)];
         
     }
     self.navigationItem.leftBarButtonItem = myBackButton;

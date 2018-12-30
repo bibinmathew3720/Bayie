@@ -133,4 +133,6 @@
 "OK" = "حسنا";
 "PleaseEnterbidAmount" = "الرجاء إدخال مبلغ العطاء";
 "BidHistory" = "تاريخ المناقصة";
+"AUCTIONHISTORY" = "تاريخ المزاد";
 "WinHistory" = "اربح التاريخ";
+"AUCTIONWINS" = "فوز بالمزاد";

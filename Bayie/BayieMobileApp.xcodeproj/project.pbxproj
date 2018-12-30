@@ -153,6 +153,10 @@
 		D01EDE4D21D892F5009D6D62 /* BidHistoryTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE4A21D892F4009D6D62 /* BidHistoryTVC.xib */; };
 		D01EDE5121D8930F009D6D62 /* AuctionImagesCVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE4F21D8930F009D6D62 /* AuctionImagesCVC.m */; };
 		D01EDE5221D8930F009D6D62 /* AuctionImagesCVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE5021D8930F009D6D62 /* AuctionImagesCVC.xib */; };
+		D01EDE5E21D8D656009D6D62 /* BidHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE5C21D8D656009D6D62 /* BidHistoryVC.m */; };
+		D01EDE5F21D8D656009D6D62 /* BidHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE5D21D8D656009D6D62 /* BidHistoryVC.xib */; };
+		D01EDE6321D8D66D009D6D62 /* WinHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE6121D8D66D009D6D62 /* WinHistoryVC.m */; };
+		D01EDE6421D8D66D009D6D62 /* WinHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE6221D8D66D009D6D62 /* WinHistoryVC.xib */; };
 		D021896F21901445006A064E /* VideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D021896C21901445006A064E /* VideoVC.xib */; };
 		D021897021901445006A064E /* VideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D021896E21901445006A064E /* VideoVC.m */; };
 		D02A6FEE1F35B15800BBDDDE /* FilterRightTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A6FEC1F35B15800BBDDDE /* FilterRightTVC.m */; };
@@ -443,6 +447,12 @@
 		D01EDE4E21D8930F009D6D62 /* AuctionImagesCVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AuctionImagesCVC.h; sourceTree = "<group>"; };
 		D01EDE4F21D8930F009D6D62 /* AuctionImagesCVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AuctionImagesCVC.m; sourceTree = "<group>"; };
 		D01EDE5021D8930F009D6D62 /* AuctionImagesCVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AuctionImagesCVC.xib; sourceTree = "<group>"; };
+		D01EDE5B21D8D656009D6D62 /* BidHistoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidHistoryVC.h; sourceTree = "<group>"; };
+		D01EDE5C21D8D656009D6D62 /* BidHistoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BidHistoryVC.m; sourceTree = "<group>"; };
+		D01EDE5D21D8D656009D6D62 /* BidHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidHistoryVC.xib; sourceTree = "<group>"; };
+		D01EDE6021D8D66D009D6D62 /* WinHistoryVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WinHistoryVC.h; sourceTree = "<group>"; };
+		D01EDE6121D8D66D009D6D62 /* WinHistoryVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WinHistoryVC.m; sourceTree = "<group>"; };
+		D01EDE6221D8D66D009D6D62 /* WinHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinHistoryVC.xib; sourceTree = "<group>"; };
 		D021896C21901445006A064E /* VideoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoVC.xib; sourceTree = "<group>"; };
 		D021896D21901445006A064E /* VideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVC.h; sourceTree = "<group>"; };
 		D021896E21901445006A064E /* VideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoVC.m; sourceTree = "<group>"; };
@@ -1310,6 +1320,74 @@
 			path = AuctionImagesCVC;
 			sourceTree = "<group>";
 		};
+		D01EDE5321D8D632009D6D62 /* BidHistory */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE5421D8D632009D6D62 /* CustomCells */,
+				D01EDE5521D8D632009D6D62 /* Models */,
+				D01EDE5621D8D632009D6D62 /* BidHistoryVC */,
+			);
+			path = BidHistory;
+			sourceTree = "<group>";
+		};
+		D01EDE5421D8D632009D6D62 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		D01EDE5521D8D632009D6D62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		D01EDE5621D8D632009D6D62 /* BidHistoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE5B21D8D656009D6D62 /* BidHistoryVC.h */,
+				D01EDE5C21D8D656009D6D62 /* BidHistoryVC.m */,
+				D01EDE5D21D8D656009D6D62 /* BidHistoryVC.xib */,
+			);
+			path = BidHistoryVC;
+			sourceTree = "<group>";
+		};
+		D01EDE5721D8D632009D6D62 /* WinHistory */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE5821D8D632009D6D62 /* WinHistoryVC */,
+				D01EDE5921D8D632009D6D62 /* CustomCells */,
+				D01EDE5A21D8D632009D6D62 /* Models */,
+			);
+			path = WinHistory;
+			sourceTree = "<group>";
+		};
+		D01EDE5821D8D632009D6D62 /* WinHistoryVC */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE6021D8D66D009D6D62 /* WinHistoryVC.h */,
+				D01EDE6121D8D66D009D6D62 /* WinHistoryVC.m */,
+				D01EDE6221D8D66D009D6D62 /* WinHistoryVC.xib */,
+			);
+			path = WinHistoryVC;
+			sourceTree = "<group>";
+		};
+		D01EDE5921D8D632009D6D62 /* CustomCells */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = CustomCells;
+			sourceTree = "<group>";
+		};
+		D01EDE5A21D8D632009D6D62 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
 		D021896B21901445006A064E /* VideoVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1344,6 +1422,8 @@
 		D03DDBA921D697AD000C3AAF /* Auctions */ = {
 			isa = PBXGroup;
 			children = (
+				D01EDE5321D8D632009D6D62 /* BidHistory */,
+				D01EDE5721D8D632009D6D62 /* WinHistory */,
 				D01EDE3121D85900009D6D62 /* AuctionDetailVC */,
 				D01EDE3521D85901009D6D62 /* CustomCells */,
 				D01EDE3621D85901009D6D62 /* Models */,
@@ -1478,6 +1558,8 @@
 				3A2C7A2F1E7FA8D000B4BE85 /* Lato-Regular.ttf in Resources */,
 				3A2871461ECC503800CD06E6 /* GoogleService-Info.plist in Resources */,
 				3AF7CA7F1EB1FD5500D7E31D /* LoginDetails.xib in Resources */,
+				D01EDE6421D8D66D009D6D62 /* WinHistoryVC.xib in Resources */,
+				D01EDE5F21D8D656009D6D62 /* BidHistoryVC.xib in Resources */,
 				3A71B4E71E7BEC8F00E85F3D /* Assets.xcassets in Resources */,
 				18D6337F1F36BFD400F4EED2 /* BCollectionViewCell.xib in Resources */,
 				3A2C7A281E7FA8D000B4BE85 /* Lato-Black.ttf in Resources */,
@@ -1613,6 +1695,7 @@
 				3A2567161E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.m in Sources */,
 				485D63811EE7390A00462D4D /* JSONValueTransformer.m in Sources */,
 				484F70A11EBA40E8007F2FCA /* AdAttribute.m in Sources */,
+				D01EDE6321D8D66D009D6D62 /* WinHistoryVC.m in Sources */,
 				3AEBB8871E8BC6780068AC81 /* CustomCategoryCollectionViewCell.m in Sources */,
 				485D63941EE7393700462D4D /* MyChatsViewController.m in Sources */,
 				18D6337C1F36BFD400F4EED2 /* CategoryViewController.m in Sources */,
@@ -1681,6 +1764,7 @@
 				484F709A1EBA40D8007F2FCA /* ImageItem.m in Sources */,
 				3A01EECA1E93A0B500A5F5B3 /* TrendingAdsListTableViewCell.m in Sources */,
 				3A20CD571EE935C500B1F9F0 /* Localization.m in Sources */,
+				D01EDE5E21D8D656009D6D62 /* BidHistoryVC.m in Sources */,
 				D0F2B45B2042AD1D0034A3D6 /* ListingCollectionCell.m in Sources */,
 				48A2BB321EBC7C870040125D /* UINavigationBar+Awesome.m in Sources */,
 				3A17D65F1E9CE06700F6ED82 /* CustomSortTableViewCell.m in Sources */,

@@ -27,6 +27,9 @@
 #import "FeedbackAndSupportViewController.h"
 #import "AppDelegate.h"
 
+#import "BidHistoryVC.h"
+#import "WinHistoryVC.h"
+
 
 @interface UserProfileViewController (){
 
@@ -397,12 +400,12 @@
             //    [self.navigationController.navigationBar setHidden:false];
             [self.navigationController pushViewController:savdSearch animated:true];
         }if (indexPath.row == 6){ //Bid History
-            
-//            SavedSearchViewController *savdSearch = [self.storyboard instantiateViewControllerWithIdentifier:@"SavedSearchViewController"];
-//            [self.navigationController pushViewController:savdSearch animated:true];
+            BidHistoryVC *bidHistoryVC = [[BidHistoryVC alloc] initWithNibName:@"BidHistoryVC" bundle:nil];
+            [self.navigationController pushViewController:bidHistoryVC animated:YES];
         }
         if (indexPath.row == 7){ //Win History
-        
+            WinHistoryVC *winHistoryVC = [[WinHistoryVC alloc] initWithNibName:@"WinHistoryVC" bundle:nil];
+            [self.navigationController pushViewController:winHistoryVC animated:YES];
         }
        if (indexPath.row == 8){
             FeedbackAndSupportViewController *feedBack = [self.storyboard instantiateViewControllerWithIdentifier:@"FeedbackAndSupportViewController"];

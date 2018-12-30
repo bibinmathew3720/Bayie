@@ -141,5 +141,7 @@
 "OK" = "OK";
 "PleaseEnterbidAmount" = "Please enter bid amount";
 "BidHistory" = "Bid History";
+"AUCTIONHISTORY" = "AUCTION HISTORY";
 "WinHistory" = "Win History";
+"AUCTIONWINS" = "AUCTION WINS";
 
