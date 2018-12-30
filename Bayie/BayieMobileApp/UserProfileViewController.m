@@ -401,11 +401,13 @@
             [self.navigationController pushViewController:savdSearch animated:true];
         }if (indexPath.row == 6){ //Bid History
             BidHistoryVC *bidHistoryVC = [[BidHistoryVC alloc] initWithNibName:@"BidHistoryVC" bundle:nil];
-            [self.navigationController pushViewController:bidHistoryVC animated:YES];
+            UINavigationController *bidHistoryNavVC = [[UINavigationController alloc] initWithRootViewController:bidHistoryVC];
+            [self presentViewController:bidHistoryNavVC animated:true completion:nil];
         }
         if (indexPath.row == 7){ //Win History
             WinHistoryVC *winHistoryVC = [[WinHistoryVC alloc] initWithNibName:@"WinHistoryVC" bundle:nil];
-            [self.navigationController pushViewController:winHistoryVC animated:YES];
+            UINavigationController *winHistoryNavVC = [[UINavigationController alloc] initWithRootViewController:winHistoryVC];
+            [self presentViewController:winHistoryNavVC animated:true completion:nil];
         }
        if (indexPath.row == 8){
             FeedbackAndSupportViewController *feedBack = [self.storyboard instantiateViewControllerWithIdentifier:@"FeedbackAndSupportViewController"];
