@@ -247,16 +247,12 @@
         [Utility showLogInAlertInController:self];
     }
     else{
-        
-//        if (adDetails.adInfo.idField){
-//            if (favouriteBtn.tag == 0){
-//                [self addOrRemovefavourite:adDetails.adInfo.idField isAdd:true];
-//                [self changeFavouriteBtnImage:true];
-//            }else{
-//                [self addOrRemovefavourite:adDetails.adInfo.idField isAdd:false];
-//                [self changeFavouriteBtnImage:false];
-//            }
-//        }
+        if (self.auctionDetails.isFavorite){
+            [self callingRemoveFromFavoriteApi];
+        }
+        else{
+           [self callingAddToFavoriteApi];
+        }
     }
 }
 
@@ -339,6 +335,121 @@
                 NSString *messageString = @"";
                 if (statusCode == 200){
                     messageString = [[responseObject valueForKey:@"data"] valueForKey:@"msg"];
+                }
+                else{
+                    if ([responseObject valueForKey:@"error"]){
+                        messageString = [responseObject valueForKey:@"error"];
+                    }
+                }
+                if (messageString.length>0){
+                    [Utility showAlertInController:self withMessageString:messageString withCompletion:^(BOOL isCompleted) {
+                        
+                    }];
+                }
+            }
+        } else {
+            
+            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+        }
+        [hud hideAnimated:YES];
+    }]resume];
+}
+
+#pragma mark - Calling Add to Favorite Api
+
+-(void)callingAddToFavoriteApi{
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
+//    NSString *URLString = [NSLocalizedString(@"ADS_MANAGEMENT_URL", nil) stringByAppendingString:@"favouriteAdsList"];
+    NSString *URLString = @"http://www.productiondemos.com/bayie/api/apiAds.php?action=favouriteAdsList";
+    DataClass *obj=[DataClass getInstance];
+    NSDictionary *parameters =  @{@"adId":[NSString stringWithFormat:@"%d",self.auctionDetails.adId],@"language":[DataClass currentLanguageString],@"userid":obj.userId};
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:nil error:nil];
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:AuthValue forHTTPHeaderField:@"Authentication"];
+    [req setValue:obj.userToken forHTTPHeaderField:@"userToken"];
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (error.code == NSURLErrorTimedOut) {
+            //time out error here
+            NSLog(@"Trigger TIME OUT");
+        }
+        if (!error) {
+            NSLog(@"Reply JSON: %@", responseObject);
+            if ([responseObject isKindOfClass:[NSArray class]]) {
+                NSLog(@"Response == %@",responseObject);
+            }else if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                int statusCode = [[responseObject valueForKey:@"status"] intValue];
+                NSString *messageString = @"";
+                if (statusCode == 200){
+                    self.auctionDetails.isFavorite = YES;
+                    [self populateAdDetails];
+                    //messageString = [[responseObject valueForKey:@"data"] valueForKey:@"msg"];
+                }
+                else{
+                    if ([responseObject valueForKey:@"error"]){
+                        messageString = [responseObject valueForKey:@"error"];
+                    }
+                }
+                if (messageString.length>0){
+                    [Utility showAlertInController:self withMessageString:messageString withCompletion:^(BOOL isCompleted) {
+                        
+                    }];
+                }
+            }
+        } else {
+            
+            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+        }
+        [hud hideAnimated:YES];
+    }]resume];
+    
+}
+
+#pragma mark - Calling Remove From favorite api
+
+-(void)callingRemoveFromFavoriteApi{
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
+    //    NSString *URLString = [NSLocalizedString(@"ADS_MANAGEMENT_URL", nil) stringByAppendingString:@"favouriteAdsList"];
+    NSString *URLString = @"http://www.productiondemos.com/bayie/api/apiAds.php?action=removeFavourite";
+    DataClass *obj=[DataClass getInstance];
+    NSDictionary *parameters =  @{@"adId":[NSString stringWithFormat:@"%d",self.auctionDetails.adId],@"language":[DataClass currentLanguageString],@"userid":obj.userId};
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:nil error:nil];
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:AuthValue forHTTPHeaderField:@"Authentication"];
+    [req setValue:obj.userToken forHTTPHeaderField:@"userToken"];
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (error.code == NSURLErrorTimedOut) {
+            //time out error here
+            NSLog(@"Trigger TIME OUT");
+        }
+        if (!error) {
+            NSLog(@"Reply JSON: %@", responseObject);
+            if ([responseObject isKindOfClass:[NSArray class]]) {
+                NSLog(@"Response == %@",responseObject);
+            }else if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                int statusCode = [[responseObject valueForKey:@"status"] intValue];
+                NSString *messageString = @"";
+                if (statusCode == 200){
+                    self.auctionDetails.isFavorite = NO;
+                    [self populateAdDetails];
+                    //messageString = [[responseObject valueForKey:@"data"] valueForKey:@"msg"];
                 }
                 else{
                     if ([responseObject valueForKey:@"error"]){
