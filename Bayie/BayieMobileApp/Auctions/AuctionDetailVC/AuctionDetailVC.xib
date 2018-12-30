@@ -87,8 +87,12 @@
                                             <color key="textColor" red="0.0039215686274509803" green="0.69411764705882351" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PG-YP-DDP">
-                                            <rect key="frame" x="404" y="-2.5" width="25" height="25"/>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PG-YP-DDP">
+                                            <rect key="frame" x="379" y="-15" width="50" height="50"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="50" id="Fnw-0u-dik"/>
+                                                <constraint firstAttribute="width" constant="50" id="Zj0-gh-QEg"/>
+                                            </constraints>
                                             <state key="normal" image="camera-hover"/>
                                             <connections>
                                                 <action selector="shareButtonAction:" destination="-1" eventType="touchUpInside" id="B5u-lQ-XA8"/>
@@ -323,12 +327,16 @@
                                         <constraint firstItem="aIY-eW-He4" firstAttribute="top" secondItem="n7K-9u-DMF" secondAttribute="top" constant="10" id="zs5-VM-Ow2"/>
                                     </constraints>
                                 </view>
-                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bhv-AT-aFk">
+                                <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="bhv-AT-aFk">
                                     <rect key="frame" x="0.0" y="551.5" width="439" height="148"/>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="148" id="CBz-fZ-5Aq"/>
                                     </constraints>
+                                    <connections>
+                                        <outlet property="dataSource" destination="-1" id="TJM-Qd-zrD"/>
+                                        <outlet property="delegate" destination="-1" id="Jv7-6y-LGs"/>
+                                    </connections>
                                 </tableView>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Io-8u-zOM">
                                     <rect key="frame" x="0.0" y="699.5" width="439" height="39.5"/>

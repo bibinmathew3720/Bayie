@@ -12,8 +12,9 @@
 #import "DataClass.h"
 #import "AFNetworking.h"
 #import "MBProgressHUD.h"
+#import "BidHistoryTVC.h"
 
-@interface AuctionDetailVC (){
+@interface AuctionDetailVC ()<UITableViewDataSource, UITableViewDelegate>{
     UIButton *favouriteBtn;
     UILabel *imageCountLbl;
     MBProgressHUD *hud;
@@ -42,7 +43,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *bidButton;
 
 @property (nonatomic, strong) Auction *auctionDetails;
-
+@property (nonatomic, assign) CGFloat bidHistoryCellHeight;
 @end
 
 @implementation AuctionDetailVC
@@ -50,9 +51,16 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self localisation];
+    [self initialisation];
     [self customiseNavigationBar];
     [self getAdDetailsFromServer];
     // Do any additional setup after loading the view from its nib.
+}
+
+-(void)initialisation{
+    self.bidHistoryCellHeight = 50;
+    [self.bidHistoryTableView registerNib:[UINib nibWithNibName:@"BidHistoryTVC" bundle:nil]
+         forCellReuseIdentifier:@"bidHistoryCell"];
 }
 
 -(void)localisation{
@@ -187,14 +195,75 @@
     //self.modelLabel.text = self.auctionDetails.
     self.priceLabel.text = [NSString stringWithFormat:@"%0.2f OMR",self.auctionDetails.basePrice];
     //self.brandLabel.text = self.auctionDetails.
+    self.bidHistoryTableViewHeightConstraint.constant = self.bidHistoryCellHeight * self.auctionDetails.bidHistory.count;
+    [self.bidHistoryTableView reloadData];
 }
 
 #pragma mark - Button Actions
 
 - (IBAction)shareButtonAction:(UIButton *)sender {
+    NSString *shareData = @"";
+    if (self.auctionDetails.shareUrl){
+        shareData = self.auctionDetails.shareUrl;
+    }
+    
+    NSArray *items = @[shareData];
+    
+    // build an activity view controller
+    UIActivityViewController *controller = [[UIActivityViewController alloc]initWithActivityItems:items applicationActivities:nil];
+    
+    // and present it
+    [self presentViewController:controller animated:YES completion:^{
+        // executes after the user selects something
+    }];
 }
 
 - (IBAction)bidButtonAction:(UIButton *)sender {
+}
+
+#pragma mark - UITableView  Datasources and Delegates
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 1;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    return self.auctionDetails.bidHistory.count;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BidHistoryTVC *cell = (BidHistoryTVC *)[tableView dequeueReusableCellWithIdentifier:@"bidHistoryCell"];
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BidHistoryTVC" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    cell.bidHistory = [self.auctionDetails.bidHistory objectAtIndex:indexPath.row];
+    return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return self.bidHistoryCellHeight;
+}
+
+//- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+//    return 1;
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+//    return nil;
+//}
+//
+//- (CGFloat)tableView:(UITableView *)tableView heightForFooterInSection:(NSInteger)section {
+//    return 1;
+//}
+//
+//- (UIView *)tableView:(UITableView *)tableView viewForFooterInSection:(NSInteger)section {
+//    return [UIView new];
+//}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    
 }
 
 
