@@ -14,4 +14,5 @@ static NSString *BayieShowHome = @"com.bayie.showHome";
 +(BOOL) isValidDataObject:(id )param;
 + (NSString *) tripJSONResidue:(NSString *) string;
 +(void)showLogInAlertInController:(UIViewController *)viewController;
++(void)showAlertInController:(UIViewController *)viewController withMessageString:(NSString *)messageString withCompletion:(void(^)(BOOL isCompleted))completed;
 @end

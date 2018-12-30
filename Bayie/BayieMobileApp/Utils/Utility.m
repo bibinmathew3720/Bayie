@@ -64,4 +64,15 @@
     [logInAlert addAction:cancelAction];
     [viewController presentViewController:logInAlert animated:YES completion:nil];
 }
+
++(void)showAlertInController:(UIViewController *)viewController withMessageString:(NSString *)messageString withCompletion:(void(^)(BOOL isCompleted))completed{
+    NSString *headingString = @"Bayie";
+    NSString *okString = NSLocalizedString(@"OK", @"OK");
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:headingString message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:okString style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        completed(YES);
+    }];
+    [alert addAction:okAction];
+    [viewController presentViewController:alert animated:YES completion:nil];
+}
 @end

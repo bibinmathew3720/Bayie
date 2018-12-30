@@ -252,8 +252,82 @@
         [Utility showLogInAlertInController:self];
     }
     else{
-        
+        if ([self isValidBidAmount]){
+            [self callingBidNowApi];
+        }
     }
+}
+
+-(BOOL)isValidBidAmount{
+    BOOL isValid = YES;
+    NSString *messageString = @"";
+    if (self.myBidPriceTF.text.length == 0){
+        isValid = NO;
+        messageString = NSLocalizedString(@"PleaseEnterbidAmount", @"Please enter bid amount");
+    }
+    if (!isValid){
+        [Utility showAlertInController:self withMessageString:messageString withCompletion:^(BOOL isCompleted) {
+            
+        }];
+    }
+    return isValid;
+}
+
+#pragma mark - Calling Bid Now Api
+
+-(void)callingBidNowApi{
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
+    
+    NSString *URLString = [NSLocalizedString(@"AUCTIONS_MANAGEMENT_URL", nil) stringByAppendingString:@"bidNow"];
+    
+    NSDictionary *parameters =  @{@"auction_id":[NSString stringWithFormat:@"%d",self.auctionDetails.auctionId],@"language":[DataClass currentLanguageString],@"bid_amount":self.myBidPriceTF.text};
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    AFURLSessionManager *manager = [[AFURLSessionManager alloc] initWithSessionConfiguration:[NSURLSessionConfiguration defaultSessionConfiguration]];
+    NSMutableURLRequest *req = [[AFJSONRequestSerializer serializer] requestWithMethod:@"POST" URLString:URLString parameters:nil error:nil];
+    req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
+    [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
+    [req setValue:AuthValue forHTTPHeaderField:@"Authentication"];
+    DataClass *obj=[DataClass getInstance];
+    [req setValue:obj.userToken forHTTPHeaderField:@"userToken"];
+    [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
+    [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
+        if (error.code == NSURLErrorTimedOut) {
+            //time out error here
+            NSLog(@"Trigger TIME OUT");
+        }
+        if (!error) {
+            NSLog(@"Reply JSON: %@", responseObject);
+            if ([responseObject isKindOfClass:[NSArray class]]) {
+                NSLog(@"Response == %@",responseObject);
+            }else if ([responseObject isKindOfClass:[NSDictionary class]]) {
+                int statusCode = [[responseObject valueForKey:@"status"] intValue];
+                NSString *messageString = @"";
+                if (statusCode == 200){
+                    messageString = [[responseObject valueForKey:@"data"] valueForKey:@"msg"];
+                }
+                else{
+                    if ([responseObject valueForKey:@"error"]){
+                        messageString = [responseObject valueForKey:@"error"];
+                    }
+                }
+                if (messageString.length>0){
+                    [Utility showAlertInController:self withMessageString:messageString withCompletion:^(BOOL isCompleted) {
+                        
+                    }];
+                }
+            }
+        } else {
+            
+            NSLog(@"Error: %@, %@, %@", error, response, responseObject);
+        }
+        [hud hideAnimated:YES];
+    }]resume];
+    
 }
 
 #pragma mark - UITextField Delegate

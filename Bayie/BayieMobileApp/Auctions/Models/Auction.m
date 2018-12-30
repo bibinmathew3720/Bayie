@@ -11,6 +11,7 @@
 #import "BidHistory.h"
 
 NSString *const kData = @"data";
+NSString *const kAdId = @"id";
 NSString *const kTitle = @"title";
 NSString *const kTime = @"adTime";
 NSString *const kAuctionaId = @"auctions_id";
@@ -43,7 +44,7 @@ NSString *const kBidHistory = @"bid_history";
 -(id)initWithAuctionDictionary:(NSDictionary *)auctionDictionary{
     self = [super init];
     if (self) {
-        self.adId = 1;
+        self.adId = 0;
         self.adTitle = @"";
         self.adTime = @"";
         self.auctionId = 0;
@@ -73,6 +74,9 @@ NSString *const kBidHistory = @"bid_history";
     
     if(![auctionDictionary[kData] isKindOfClass:[NSNull class]]){
         NSDictionary *dataDictionary = auctionDictionary[kData];
+        if (![dataDictionary[kAdId] isKindOfClass:[NSNull class]]){
+            self.adId = [dataDictionary[kAdId] intValue];
+        }
         if (![dataDictionary[kTitle] isKindOfClass:[NSNull class]]){
             self.adTitle = dataDictionary[kTitle];
         }
