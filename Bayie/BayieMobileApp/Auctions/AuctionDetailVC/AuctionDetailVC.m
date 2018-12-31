@@ -32,6 +32,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *adTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *productDetailsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPriceLabel;
+@property (weak, nonatomic) IBOutlet UIButton *timerButton;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionHeadingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *descriptionLabel;
 @property (weak, nonatomic) IBOutlet UILabel *detailsHeadingLabel;

@@ -39,6 +39,7 @@
                 <outlet property="priceHeadingLabel" destination="TZ0-uo-R7i" id="0rQ-gT-obP"/>
                 <outlet property="priceLabel" destination="4ZE-FP-0jU" id="rkD-ik-TtR"/>
                 <outlet property="productDetailsLabel" destination="ZBS-i6-RMP" id="xtt-Xi-nI5"/>
+                <outlet property="timerButton" destination="QNf-Ue-0Qz" id="CdM-qs-DSh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yourBidHeadingLabel" destination="Inj-BQ-GYV" id="EbA-D0-ahr"/>
             </connections>
@@ -95,13 +96,25 @@
                                             <color key="textColor" red="0.0039215686274509803" green="0.69411764705882351" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
+                                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNf-Ue-0Qz">
+                                            <rect key="frame" x="376" y="6.5" width="53" height="27"/>
+                                            <color key="backgroundColor" red="0.0039215686274509803" green="0.69411764705882351" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                            <inset key="contentEdgeInsets" minX="5" minY="5" maxX="5" maxY="5"/>
+                                            <state key="normal" title="Button">
+                                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                            </state>
+                                        </button>
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="right" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2PG-YP-DDP">
                                             <rect key="frame" x="379" y="-15" width="50" height="50"/>
                                             <constraints>
                                                 <constraint firstAttribute="height" constant="50" id="Fnw-0u-dik"/>
                                                 <constraint firstAttribute="width" constant="50" id="Zj0-gh-QEg"/>
                                             </constraints>
-                                            <state key="normal" image="camera-hover"/>
+                                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
+                                            <state key="normal" image="camera-hover">
+                                                <color key="titleColor" red="0.0039215686274509803" green="0.69411764705882351" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                            </state>
                                             <connections>
                                                 <action selector="shareButtonAction:" destination="-1" eventType="touchUpInside" id="B5u-lQ-XA8"/>
                                             </connections>
@@ -116,8 +129,10 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
+                                        <constraint firstItem="QNf-Ue-0Qz" firstAttribute="centerY" secondItem="MV9-n4-UQk" secondAttribute="centerY" id="0Yt-QX-7Sz"/>
                                         <constraint firstAttribute="bottom" secondItem="SA4-tQ-jVO" secondAttribute="bottom" id="4ZN-Ho-08z"/>
                                         <constraint firstItem="MV9-n4-UQk" firstAttribute="leading" secondItem="ZBS-i6-RMP" secondAttribute="leading" id="4zk-a0-RHw"/>
+                                        <constraint firstAttribute="trailing" secondItem="QNf-Ue-0Qz" secondAttribute="trailing" constant="10" id="52W-l2-Q5p"/>
                                         <constraint firstItem="ZBS-i6-RMP" firstAttribute="top" secondItem="w34-80-A2b" secondAttribute="bottom" constant="5" id="EAU-QI-5ZV"/>
                                         <constraint firstItem="2PG-YP-DDP" firstAttribute="centerY" secondItem="w34-80-A2b" secondAttribute="centerY" id="EPo-Hx-ZIY"/>
                                         <constraint firstAttribute="bottom" secondItem="MV9-n4-UQk" secondAttribute="bottom" constant="10" id="I2U-qL-eBq"/>
