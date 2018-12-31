@@ -8,7 +8,6 @@
 #import "BidHistory.h"
 #import "BidHistoryResponseModel.h"
 
-NSString *const kBidHistoryData = @"data";
 NSString *const kBidHistoryId = @"id";
 NSString *const kBidHistoryAuctionId = @"auctions_id";
 NSString *const kBidHistoryTitle = @"title";

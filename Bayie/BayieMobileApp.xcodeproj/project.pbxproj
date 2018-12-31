@@ -164,6 +164,7 @@
 		D01EDE7821D982E6009D6D62 /* BidHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE7621D982E6009D6D62 /* BidHistoryCell.xib */; };
 		D01EDE7E21D99318009D6D62 /* BidHistoryHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE7C21D99318009D6D62 /* BidHistoryHeaderCell.m */; };
 		D01EDE7F21D99318009D6D62 /* BidHistoryHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE7D21D99318009D6D62 /* BidHistoryHeaderCell.xib */; };
+		D01EDE8221D9C60F009D6D62 /* WinHistoryResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE8121D9C60F009D6D62 /* WinHistoryResponseModel.m */; };
 		D021896F21901445006A064E /* VideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D021896C21901445006A064E /* VideoVC.xib */; };
 		D021897021901445006A064E /* VideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D021896E21901445006A064E /* VideoVC.m */; };
 		D02A6FEE1F35B15800BBDDDE /* FilterRightTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A6FEC1F35B15800BBDDDE /* FilterRightTVC.m */; };
@@ -471,6 +472,8 @@
 		D01EDE7B21D99318009D6D62 /* BidHistoryHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidHistoryHeaderCell.h; sourceTree = "<group>"; };
 		D01EDE7C21D99318009D6D62 /* BidHistoryHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BidHistoryHeaderCell.m; sourceTree = "<group>"; };
 		D01EDE7D21D99318009D6D62 /* BidHistoryHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidHistoryHeaderCell.xib; sourceTree = "<group>"; };
+		D01EDE8021D9C60F009D6D62 /* WinHistoryResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = WinHistoryResponseModel.h; sourceTree = "<group>"; };
+		D01EDE8121D9C60F009D6D62 /* WinHistoryResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = WinHistoryResponseModel.m; sourceTree = "<group>"; };
 		D021896C21901445006A064E /* VideoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoVC.xib; sourceTree = "<group>"; };
 		D021896D21901445006A064E /* VideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVC.h; sourceTree = "<group>"; };
 		D021896E21901445006A064E /* VideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoVC.m; sourceTree = "<group>"; };
@@ -1407,6 +1410,8 @@
 		D01EDE5A21D8D632009D6D62 /* Models */ = {
 			isa = PBXGroup;
 			children = (
+				D01EDE8021D9C60F009D6D62 /* WinHistoryResponseModel.h */,
+				D01EDE8121D9C60F009D6D62 /* WinHistoryResponseModel.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -1842,6 +1847,7 @@
 				D01EDE4C21D892F5009D6D62 /* BidHistoryTVC.m in Sources */,
 				3A74BD191E9F50E9005B8C21 /* CustomPostAdTableViewCell.m in Sources */,
 				3AEBB8841E8B8D3B0068AC81 /* BrowseViewController.m in Sources */,
+				D01EDE8221D9C60F009D6D62 /* WinHistoryResponseModel.m in Sources */,
 				3A5BC38B1EA47E7E00544761 /* CustomSubCategoryTableViewCell.m in Sources */,
 				3A71B4DC1E7BEC8E00E85F3D /* main.m in Sources */,
 				0B2946AB1EF29CEA008B64FC /* TabBarViewController.m in Sources */,

@@ -29,6 +29,11 @@
     self.productNameLabel.text = bisHistoryResponse.productName;
 }
 
+-(void)setWinHistoryResponse:(WinHistoryResponseModel *)winHistoryResponse{
+    self.idLabel.text = [NSString stringWithFormat:@"%d",winHistoryResponse.auctionId];
+    self.productNameLabel.text = winHistoryResponse.productName;
+}
+
 - (IBAction)viewHistoryButtonAction:(UIButton *)sender {
     if (self.bidHistoryHeaderDelegate && [self.bidHistoryHeaderDelegate respondsToSelector:@selector(viewHistoryButtonActionDelegateWithTag:)]){
         [self.bidHistoryHeaderDelegate viewHistoryButtonActionDelegateWithTag:self.tag];

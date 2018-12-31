@@ -8,6 +8,7 @@
 
 #import <UIKit/UIKit.h>
 #import "BidHistoryResponseModel.h"
+#import "WinHistoryResponseModel.h"
 typedef enum{
     PageTypeBidHistory,
     PageTypeWinHistory
@@ -18,6 +19,7 @@ typedef enum{
 @property (weak, nonatomic) IBOutlet UILabel *productNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *viewistoryButton;
 @property (nonatomic, strong) BidHistoryResponseModel *bisHistoryResponse;
+@property (nonatomic, strong) WinHistoryResponseModel *winHistoryResponse;
 
 @property (nonatomic, assign) PageType pageType;
 @property (nonatomic, assign) id <BidHistoryHeaderViewDelegate>bidHistoryHeaderDelegate;

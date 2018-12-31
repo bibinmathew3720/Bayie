@@ -11,6 +11,7 @@
 #import "AFNetworking.h"
 #import "WinHistoryVC.h"
 #import "MBProgressHUD.h"
+#import "WinHistoryResponseModel.h"
 
 #import "BidHistoryCell.h"
 #import "BidHistoryHeaderView.h"
@@ -24,6 +25,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *productheadingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *historyHeadingLabel;
 @property (nonatomic, assign) NSInteger selectedSectionIndex;
+
+@property (nonatomic, strong) NSMutableArray *winHistoryResponseArray;
 @end
 
 @implementation WinHistoryVC
@@ -95,7 +98,14 @@
                 int statusCode = [[responseObject valueForKey:@"status"] intValue];
                 NSString *messageString = @"";
                 if (statusCode == 200){
-                    
+                    if (![responseObject[@"data"] isKindOfClass:[NSNull class]]){
+                        NSArray *historyArray = [responseObject valueForKey:@"data"];
+                        self.winHistoryResponseArray = [[NSMutableArray alloc] init];
+                        for (NSDictionary *item in historyArray){
+                            [self.winHistoryResponseArray addObject:[[WinHistoryResponseModel alloc] initWithWinHistoryResponse:item]];
+                        }
+                        [self.winHistoryTableView reloadData];
+                    }
                 }
                 else if(statusCode == 204){
                     messageString = [responseObject valueForKey:@"error"];
@@ -168,7 +178,7 @@
 
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     BidHistoryHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"BidHistoryHeaderView" owner:self options:nil] firstObject];
-    //headerView.bisHistoryResponse = [self.bidHistoryResponseArray objectAtIndex:section];
+    headerView.winHistoryResponse = [self.winHistoryResponseArray objectAtIndex:section];
     headerView.bidHistoryHeaderDelegate = self;
     headerView.tag = section;
     headerView.pageType = PageTypeWinHistory;
