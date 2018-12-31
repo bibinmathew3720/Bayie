@@ -15,13 +15,16 @@
 #import "BidHistoryHeaderView.h"
 #import "BidHistoryResponseModel.h"
 
-@interface BidHistoryVC (){
+@interface BidHistoryVC ()<BidHistoryHeaderViewDelegate>{
     MBProgressHUD *hud;
 }
 @property (nonatomic, strong) NSMutableArray *bidHistoryResponseArray;
-
+@property (nonatomic, assign) NSInteger selectedSectionIndex;
 
 @property (weak, nonatomic) IBOutlet UITableView *bidHistoryTableView;
+@property (weak, nonatomic) IBOutlet UILabel *idHeadingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *productheadingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *historyHeadingLabel;
 @end
 
 @implementation BidHistoryVC
@@ -29,11 +32,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initialisation];
+    [self localisation];
     [self callinGetBidHistoryApi];
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)initialisation{
+    self.selectedSectionIndex = -1;
     UIBarButtonItem *myBackButton;
     NSString *strSelectedLanguage = [[[NSUserDefaults standardUserDefaults]objectForKey:@"AppleLanguages"] objectAtIndex:0];
     if([strSelectedLanguage isEqualToString:[NSString stringWithFormat: @"ar"]]){
@@ -47,6 +52,12 @@
     self.navigationItem.leftBarButtonItem = myBackButton;
     self.title = NSLocalizedString(@"AUCTIONHISTORY", @"AUCTION HISTORY");
     [self tableInitialisation];
+}
+
+-(void)localisation{
+    self.idHeadingLabel.text = NSLocalizedString(@"ID", @"ID");
+    self.productheadingLabel.text = NSLocalizedString(@"Product", @"Product");
+    self.historyHeadingLabel.text = NSLocalizedString(@"History", @"History");
 }
 
 -(void)tableInitialisation{
@@ -142,7 +153,10 @@
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
     BidHistoryResponseModel *model = self.bidHistoryResponseArray[section];
-    return model.bidHistoryarray.count+1;
+    if (section == self.selectedSectionIndex)
+        return model.bidHistoryarray.count+1;
+    else
+        return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -179,10 +193,24 @@
 - (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
     BidHistoryHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"BidHistoryHeaderView" owner:self options:nil] firstObject];
     headerView.bisHistoryResponse = [self.bidHistoryResponseArray objectAtIndex:section];
+    headerView.bidHistoryHeaderDelegate = self;
+    headerView.tag = section;
     return headerView;
 }
 
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+#pragma mark - Bid History Header View Delegates
+
+-(void)viewHistoryButtonActionDelegateWithTag:(NSInteger)tag{
+    if (tag == self.selectedSectionIndex){
+        self.selectedSectionIndex = -1;
+    }
+    else{
+        self.selectedSectionIndex = tag;
+    }
+    [self.bidHistoryTableView reloadData];
 }
 
 

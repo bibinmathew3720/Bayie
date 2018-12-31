@@ -30,6 +30,9 @@
 }
 
 - (IBAction)viewHistoryButtonAction:(UIButton *)sender {
+    if (self.bidHistoryHeaderDelegate && [self.bidHistoryHeaderDelegate respondsToSelector:@selector(viewHistoryButtonActionDelegateWithTag:)]){
+        [self.bidHistoryHeaderDelegate viewHistoryButtonActionDelegateWithTag:self.tag];
+    }
 }
 /*
 // Only override drawRect: if you perform custom drawing.

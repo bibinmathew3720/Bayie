@@ -9,10 +9,18 @@
         <capability name="Safe area layout guides" minToolsVersion="9.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="BidHistoryVC">
             <connections>
                 <outlet property="bidHistoryTableView" destination="rgK-mY-fCj" id="WZb-YF-1tt"/>
+                <outlet property="historyHeadingLabel" destination="ruq-e3-iUv" id="gh2-SU-G2S"/>
+                <outlet property="idHeadingLabel" destination="4Ak-tP-IpD" id="hQ8-z6-ktL"/>
+                <outlet property="productheadingLabel" destination="iCm-oW-u1U" id="e91-jw-QF0"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
             </connections>
         </placeholder>
@@ -23,9 +31,41 @@
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="UDe-EP-udr">
                     <rect key="frame" x="10" y="30" width="355" height="50"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4Ak-tP-IpD">
+                            <rect key="frame" x="0.0" y="16" width="80" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="48O-33-RMG"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="iCm-oW-u1U">
+                            <rect key="frame" x="80" y="16" width="120" height="18"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="120" id="X9e-Ex-E1s"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ruq-e3-iUv">
+                            <rect key="frame" x="200" y="16" width="35.5" height="18"/>
+                            <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
+                        <constraint firstItem="ruq-e3-iUv" firstAttribute="centerY" secondItem="iCm-oW-u1U" secondAttribute="centerY" id="5eO-Ps-s8w"/>
                         <constraint firstAttribute="height" constant="50" id="Cf1-ue-564"/>
+                        <constraint firstItem="4Ak-tP-IpD" firstAttribute="leading" secondItem="UDe-EP-udr" secondAttribute="leading" id="JOg-wp-R5J"/>
+                        <constraint firstItem="ruq-e3-iUv" firstAttribute="leading" secondItem="iCm-oW-u1U" secondAttribute="trailing" id="KNt-2e-pGq"/>
+                        <constraint firstItem="4Ak-tP-IpD" firstAttribute="centerY" secondItem="UDe-EP-udr" secondAttribute="centerY" id="Lab-a8-Leb"/>
+                        <constraint firstItem="iCm-oW-u1U" firstAttribute="centerY" secondItem="4Ak-tP-IpD" secondAttribute="centerY" id="Lxu-lL-vhy"/>
+                        <constraint firstItem="iCm-oW-u1U" firstAttribute="leading" secondItem="4Ak-tP-IpD" secondAttribute="trailing" id="PYf-jq-Gf4"/>
                     </constraints>
                 </view>
                 <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rgK-mY-fCj">
@@ -48,6 +88,7 @@
                 <constraint firstItem="UDe-EP-udr" firstAttribute="top" secondItem="Q5M-cg-NOt" secondAttribute="top" constant="10" id="y33-sp-B3V"/>
             </constraints>
             <viewLayoutGuide key="safeArea" id="Q5M-cg-NOt"/>
+            <point key="canvasLocation" x="70.5" y="159.5"/>
         </view>
     </objects>
 </document>
