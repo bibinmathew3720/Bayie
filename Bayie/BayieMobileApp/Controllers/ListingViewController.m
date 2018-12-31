@@ -322,7 +322,6 @@
         NSLog(@"Parameters:%@",parameters);
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
         NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         [[BayieHub sharedInstance] PostrequestcallServiceWith:jsonString :@"listAuctions"];
     }
 }
