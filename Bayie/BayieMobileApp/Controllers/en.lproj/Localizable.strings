@@ -145,3 +145,9 @@
 "WinHistory" = "Win History";
 "AUCTIONWINS" = "AUCTION WINS";
 
+//Bid History
+
+"VIEWHISTORY" = "VIEW HISTORY";
+"Amount" = "Amount";
+"DateAndTime" = "Date and Time";
+

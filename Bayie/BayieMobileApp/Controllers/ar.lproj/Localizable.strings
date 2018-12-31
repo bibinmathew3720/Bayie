@@ -136,3 +136,9 @@
 "AUCTIONHISTORY" = "تاريخ المزاد";
 "WinHistory" = "اربح التاريخ";
 "AUCTIONWINS" = "فوز بالمزاد";
+
+//Bid History
+
+"VIEWHISTORY" = "عرض السجل";
+"Amount" = "كمية";
+"DateAndTime" = "التاريخ و الوقت";

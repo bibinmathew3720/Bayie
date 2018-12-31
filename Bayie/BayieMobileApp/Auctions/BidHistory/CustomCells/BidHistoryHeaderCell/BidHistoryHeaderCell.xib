@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <customFonts key="customFonts">
+        <array key="Lato-Regular.ttf">
+            <string>Lato-Regular</string>
+        </array>
+    </customFonts>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="none" indentationWidth="10" reuseIdentifier="bidHistoryHeaderCell" id="KGk-i7-Jjw" customClass="BidHistoryHeaderCell">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="44"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="43.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="CSO-1G-UVm">
+                        <rect key="frame" x="10" y="14" width="80" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="80" id="M8O-ES-vqN"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dM4-GQ-o9x">
+                        <rect key="frame" x="90" y="14" width="200" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="200" id="up0-xb-J98"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="m6g-1w-HPc">
+                        <rect key="frame" x="10" y="42.5" width="300" height="1"/>
+                        <color key="backgroundColor" red="0.60392156860000001" green="0.60392156860000001" blue="0.60392156860000001" alpha="0.40394422740000002" colorSpace="calibratedRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="0.5" id="bAR-Ep-csA"/>
+                        </constraints>
+                    </view>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="dM4-GQ-o9x" firstAttribute="leading" secondItem="CSO-1G-UVm" secondAttribute="trailing" id="3AA-W7-o7w"/>
+                    <constraint firstAttribute="bottom" secondItem="m6g-1w-HPc" secondAttribute="bottom" id="3ST-D6-0TH"/>
+                    <constraint firstItem="CSO-1G-UVm" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="5Ly-e0-8Pf"/>
+                    <constraint firstItem="CSO-1G-UVm" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="TKg-Pk-Nni"/>
+                    <constraint firstItem="dM4-GQ-o9x" firstAttribute="centerY" secondItem="CSO-1G-UVm" secondAttribute="centerY" id="YRW-4g-KIh"/>
+                    <constraint firstItem="m6g-1w-HPc" firstAttribute="leading" secondItem="CSO-1G-UVm" secondAttribute="leading" id="cF8-JE-MRq"/>
+                    <constraint firstAttribute="trailing" secondItem="m6g-1w-HPc" secondAttribute="trailing" constant="10" id="qoH-eY-04v"/>
+                </constraints>
+            </tableViewCellContentView>
+            <viewLayoutGuide key="safeArea" id="aW0-zy-SZf"/>
+            <connections>
+                <outlet property="amountHeadingLabel" destination="CSO-1G-UVm" id="v4X-dH-HHH"/>
+                <outlet property="timeHeadingLabel" destination="dM4-GQ-o9x" id="aZM-tK-7et"/>
+            </connections>
+        </tableViewCell>
+    </objects>
+</document>

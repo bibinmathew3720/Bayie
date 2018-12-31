@@ -10,6 +10,9 @@
 #import "AFNetworking.h"
 #import "BidHistoryVC.h"
 #import "MBProgressHUD.h"
+#import "BidHistoryCell.h"
+#import "BidHistoryHeaderCell.h"
+#import "BidHistoryHeaderView.h"
 #import "BidHistoryResponseModel.h"
 
 @interface BidHistoryVC (){
@@ -43,6 +46,12 @@
     [myBackButton setTintColor:[UIColor whiteColor]];
     self.navigationItem.leftBarButtonItem = myBackButton;
     self.title = NSLocalizedString(@"AUCTIONHISTORY", @"AUCTION HISTORY");
+    [self tableInitialisation];
+}
+
+-(void)tableInitialisation{
+    [self.bidHistoryTableView registerNib:[UINib nibWithNibName:@"BidHistoryCell" bundle:nil] forCellReuseIdentifier:@"bidHistory"];
+    [self.bidHistoryTableView registerNib:[UINib nibWithNibName:@"BidHistoryHeaderCell" bundle:nil] forCellReuseIdentifier:@"bidHistoryHeaderCell"];
 }
 
 -(void)callinGetBidHistoryApi{
@@ -86,6 +95,7 @@
                         for (NSDictionary *item in historyArray){
                             [self.bidHistoryResponseArray addObject:[[BidHistoryResponseModel alloc] initWithBidHistoryResponse:item]];
                         }
+                        [self.bidHistoryTableView reloadData];
                     }
                 }
                 else if(statusCode == 204){
@@ -126,6 +136,54 @@
 
 #pragma mark - UITableView Datasources and Delegates
 
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return self.bidHistoryResponseArray.count;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    BidHistoryResponseModel *model = self.bidHistoryResponseArray[section];
+    return model.bidHistoryarray.count+1;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    if (indexPath.row == 0){
+        BidHistoryHeaderCell *cell = (BidHistoryHeaderCell *)[tableView dequeueReusableCellWithIdentifier:@"bidHistoryHeaderCell"];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BidHistoryHeaderCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        return cell;
+    }
+    else{
+        BidHistoryCell *cell = (BidHistoryCell *)[tableView dequeueReusableCellWithIdentifier:@"bidHistory"];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BidHistoryCell" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        BidHistoryResponseModel *bidHistoryResponse = [self.bidHistoryResponseArray objectAtIndex:indexPath.section];
+        cell.bidHistory = [bidHistoryResponse.bidHistoryarray objectAtIndex:(indexPath.row-1)];
+        return cell;
+    }
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 40;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 50;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    BidHistoryHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"BidHistoryHeaderView" owner:self options:nil] firstObject];
+    headerView.bisHistoryResponse = [self.bidHistoryResponseArray objectAtIndex:section];
+    return headerView;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
 
 
 /*

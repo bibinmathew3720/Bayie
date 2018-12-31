@@ -158,6 +158,12 @@
 		D01EDE6321D8D66D009D6D62 /* WinHistoryVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE6121D8D66D009D6D62 /* WinHistoryVC.m */; };
 		D01EDE6421D8D66D009D6D62 /* WinHistoryVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE6221D8D66D009D6D62 /* WinHistoryVC.xib */; };
 		D01EDE6721D8F5C2009D6D62 /* BidHistoryResponseModel.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE6621D8F5C2009D6D62 /* BidHistoryResponseModel.m */; };
+		D01EDE7221D982BD009D6D62 /* BidHistoryHeaderView.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE6F21D982BC009D6D62 /* BidHistoryHeaderView.m */; };
+		D01EDE7321D982BD009D6D62 /* BidHistoryHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE7021D982BC009D6D62 /* BidHistoryHeaderView.xib */; };
+		D01EDE7721D982E6009D6D62 /* BidHistoryCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE7521D982E6009D6D62 /* BidHistoryCell.m */; };
+		D01EDE7821D982E6009D6D62 /* BidHistoryCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE7621D982E6009D6D62 /* BidHistoryCell.xib */; };
+		D01EDE7E21D99318009D6D62 /* BidHistoryHeaderCell.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE7C21D99318009D6D62 /* BidHistoryHeaderCell.m */; };
+		D01EDE7F21D99318009D6D62 /* BidHistoryHeaderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE7D21D99318009D6D62 /* BidHistoryHeaderCell.xib */; };
 		D021896F21901445006A064E /* VideoVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D021896C21901445006A064E /* VideoVC.xib */; };
 		D021897021901445006A064E /* VideoVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D021896E21901445006A064E /* VideoVC.m */; };
 		D02A6FEE1F35B15800BBDDDE /* FilterRightTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D02A6FEC1F35B15800BBDDDE /* FilterRightTVC.m */; };
@@ -456,6 +462,15 @@
 		D01EDE6221D8D66D009D6D62 /* WinHistoryVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WinHistoryVC.xib; sourceTree = "<group>"; };
 		D01EDE6521D8F5C2009D6D62 /* BidHistoryResponseModel.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidHistoryResponseModel.h; sourceTree = "<group>"; };
 		D01EDE6621D8F5C2009D6D62 /* BidHistoryResponseModel.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BidHistoryResponseModel.m; sourceTree = "<group>"; };
+		D01EDE6E21D982BC009D6D62 /* BidHistoryHeaderView.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = BidHistoryHeaderView.h; sourceTree = "<group>"; };
+		D01EDE6F21D982BC009D6D62 /* BidHistoryHeaderView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = BidHistoryHeaderView.m; sourceTree = "<group>"; };
+		D01EDE7021D982BC009D6D62 /* BidHistoryHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = BidHistoryHeaderView.xib; sourceTree = "<group>"; };
+		D01EDE7421D982E6009D6D62 /* BidHistoryCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidHistoryCell.h; sourceTree = "<group>"; };
+		D01EDE7521D982E6009D6D62 /* BidHistoryCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BidHistoryCell.m; sourceTree = "<group>"; };
+		D01EDE7621D982E6009D6D62 /* BidHistoryCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidHistoryCell.xib; sourceTree = "<group>"; };
+		D01EDE7B21D99318009D6D62 /* BidHistoryHeaderCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = BidHistoryHeaderCell.h; sourceTree = "<group>"; };
+		D01EDE7C21D99318009D6D62 /* BidHistoryHeaderCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = BidHistoryHeaderCell.m; sourceTree = "<group>"; };
+		D01EDE7D21D99318009D6D62 /* BidHistoryHeaderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BidHistoryHeaderCell.xib; sourceTree = "<group>"; };
 		D021896C21901445006A064E /* VideoVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoVC.xib; sourceTree = "<group>"; };
 		D021896D21901445006A064E /* VideoVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = VideoVC.h; sourceTree = "<group>"; };
 		D021896E21901445006A064E /* VideoVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = VideoVC.m; sourceTree = "<group>"; };
@@ -1336,6 +1351,9 @@
 		D01EDE5421D8D632009D6D62 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				D01EDE7A21D99301009D6D62 /* BidHistoryHeaderCell */,
+				D01EDE7121D982BD009D6D62 /* BidHistoryCell */,
+				D01EDE6D21D982BC009D6D62 /* BidHistoryHeader */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1391,6 +1409,36 @@
 			children = (
 			);
 			path = Models;
+			sourceTree = "<group>";
+		};
+		D01EDE6D21D982BC009D6D62 /* BidHistoryHeader */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE6E21D982BC009D6D62 /* BidHistoryHeaderView.h */,
+				D01EDE6F21D982BC009D6D62 /* BidHistoryHeaderView.m */,
+				D01EDE7021D982BC009D6D62 /* BidHistoryHeaderView.xib */,
+			);
+			path = BidHistoryHeader;
+			sourceTree = "<group>";
+		};
+		D01EDE7121D982BD009D6D62 /* BidHistoryCell */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE7421D982E6009D6D62 /* BidHistoryCell.h */,
+				D01EDE7521D982E6009D6D62 /* BidHistoryCell.m */,
+				D01EDE7621D982E6009D6D62 /* BidHistoryCell.xib */,
+			);
+			path = BidHistoryCell;
+			sourceTree = "<group>";
+		};
+		D01EDE7A21D99301009D6D62 /* BidHistoryHeaderCell */ = {
+			isa = PBXGroup;
+			children = (
+				D01EDE7B21D99318009D6D62 /* BidHistoryHeaderCell.h */,
+				D01EDE7C21D99318009D6D62 /* BidHistoryHeaderCell.m */,
+				D01EDE7D21D99318009D6D62 /* BidHistoryHeaderCell.xib */,
+			);
+			path = BidHistoryHeaderCell;
 			sourceTree = "<group>";
 		};
 		D021896B21901445006A064E /* VideoVC */ = {
@@ -1546,6 +1594,7 @@
 				189CD3DE1F3184C400CD5DED /* PostBAdViewController.xib in Resources */,
 				3A00B5F41EB2F9B20072017E /* Register.xib in Resources */,
 				D0E9F05A1FA0FDC4003F96ED /* DeletePopUpView.xib in Resources */,
+				D01EDE7821D982E6009D6D62 /* BidHistoryCell.xib in Resources */,
 				3A06B5881EE28FAD00E3A7DF /* MainAr.storyboard in Resources */,
 				3A2C7A2A1E7FA8D000B4BE85 /* Lato-Bold.ttf in Resources */,
 				18D6337D1F36BFD400F4EED2 /* CategoryViewController.xib in Resources */,
@@ -1560,6 +1609,7 @@
 				3A0F16871EED893200083953 /* MainEn.storyboard in Resources */,
 				3A2C74FE1EE3E1EA003D3B03 /* LanguageSelector.xib in Resources */,
 				D0E9F7661F35A916001B1EE3 /* FilterVC.xib in Resources */,
+				D01EDE7F21D99318009D6D62 /* BidHistoryHeaderCell.xib in Resources */,
 				3A2C7A2F1E7FA8D000B4BE85 /* Lato-Regular.ttf in Resources */,
 				3A2871461ECC503800CD06E6 /* GoogleService-Info.plist in Resources */,
 				3AF7CA7F1EB1FD5500D7E31D /* LoginDetails.xib in Resources */,
@@ -1576,6 +1626,7 @@
 				3AF7CA7D1EB1F97000D7E31D /* Login.xib in Resources */,
 				18D6337B1F36BFD400F4EED2 /* CategoryTableViewCell.xib in Resources */,
 				D0E9F0631FA10E74003F96ED /* TeasonTVC.xib in Resources */,
+				D01EDE7321D982BD009D6D62 /* BidHistoryHeaderView.xib in Resources */,
 				D02A6FFB1F36269600BBDDDE /* FilterRightCheckBoxCell.xib in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1692,6 +1743,7 @@
 				484F70AC1EBA619F007F2FCA /* SellerDetailTableViewCell.m in Sources */,
 				D01EDE5121D8930F009D6D62 /* AuctionImagesCVC.m in Sources */,
 				484F70A91EBA5A32007F2FCA /* AdReportTableViewCell.m in Sources */,
+				D01EDE7221D982BD009D6D62 /* BidHistoryHeaderView.m in Sources */,
 				485D63931EE7393700462D4D /* ChatModel.m in Sources */,
 				3ABF92FB1EDBF56600F83D54 /* PostAdCatViewController.m in Sources */,
 				3A0C22C31E9B62CD0086AB2C /* ListingViewController.m in Sources */,
@@ -1769,6 +1821,7 @@
 				3A676A651EAE22040077719B /* SeachLocationViewController.m in Sources */,
 				484F709A1EBA40D8007F2FCA /* ImageItem.m in Sources */,
 				3A01EECA1E93A0B500A5F5B3 /* TrendingAdsListTableViewCell.m in Sources */,
+				D01EDE7721D982E6009D6D62 /* BidHistoryCell.m in Sources */,
 				3A20CD571EE935C500B1F9F0 /* Localization.m in Sources */,
 				D01EDE5E21D8D656009D6D62 /* BidHistoryVC.m in Sources */,
 				D0F2B45B2042AD1D0034A3D6 /* ListingCollectionCell.m in Sources */,
@@ -1799,6 +1852,7 @@
 				D01EDE3F21D85901009D6D62 /* Auction.m in Sources */,
 				48246A991EBCFDBF00D01286 /* AdCategory.m in Sources */,
 				48246AA31EBCFEB300D01286 /* SubCategory.m in Sources */,
+				D01EDE7E21D99318009D6D62 /* BidHistoryHeaderCell.m in Sources */,
 				D01EDE3D21D85901009D6D62 /* AuctionDetailVC.m in Sources */,
 				48246A891EBCF9EC00D01286 /* AdCategoryTableViewCell.m in Sources */,
 				D02A6FEE1F35B15800BBDDDE /* FilterRightTVC.m in Sources */,
