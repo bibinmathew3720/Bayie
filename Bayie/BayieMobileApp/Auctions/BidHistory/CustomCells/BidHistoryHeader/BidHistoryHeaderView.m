@@ -10,7 +10,8 @@
 #import "BidHistoryHeaderView.h"
 
 #define LightGrayColor [UIColor colorWithRed:0.60 green:0.64 blue:0.69 alpha:1.0]
-
+@interface BidHistoryHeaderView()
+@end
 @implementation BidHistoryHeaderView
 
 -(void)awakeFromNib{
@@ -19,7 +20,6 @@
 }
 
 -(void)initialisation{
-    [self.viewistoryButton setTitle:NSLocalizedString(@"VIEWHISTORY", @"VIEW HISTORY") forState:UIControlStateNormal];
     self.viewistoryButton.layer.borderColor = LightGrayColor.CGColor;
     self.viewistoryButton.layer.borderWidth = 1;
 }
@@ -32,6 +32,17 @@
 - (IBAction)viewHistoryButtonAction:(UIButton *)sender {
     if (self.bidHistoryHeaderDelegate && [self.bidHistoryHeaderDelegate respondsToSelector:@selector(viewHistoryButtonActionDelegateWithTag:)]){
         [self.bidHistoryHeaderDelegate viewHistoryButtonActionDelegateWithTag:self.tag];
+    }
+}
+
+-(void)setPageType:(PageType)pageType{
+    if (pageType == PageTypeBidHistory){
+        [self.viewistoryButton setTitle:NSLocalizedString(@"VIEWHISTORY", @"VIEW HISTORY")
+                               forState:UIControlStateNormal];
+    }
+    else if (pageType == PageTypeWinHistory){
+        [self.viewistoryButton setTitle:NSLocalizedString(@"VIEWDETAILS", @"VIEW DETAILS")
+                               forState:UIControlStateNormal];
     }
 }
 /*

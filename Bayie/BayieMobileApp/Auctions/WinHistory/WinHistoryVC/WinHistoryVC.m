@@ -12,10 +12,18 @@
 #import "WinHistoryVC.h"
 #import "MBProgressHUD.h"
 
-@interface WinHistoryVC (){
+#import "BidHistoryCell.h"
+#import "BidHistoryHeaderView.h"
+
+@interface WinHistoryVC ()<UITableViewDataSource,UITableViewDelegate,BidHistoryHeaderViewDelegate>{
     MBProgressHUD *hud;
 }
 
+@property (weak, nonatomic) IBOutlet UITableView *winHistoryTableView;
+@property (weak, nonatomic) IBOutlet UILabel *idHeadingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *productheadingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *historyHeadingLabel;
+@property (nonatomic, assign) NSInteger selectedSectionIndex;
 @end
 
 @implementation WinHistoryVC
@@ -23,11 +31,13 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     [self initialisation];
+    [self localisation];
     [self callinGetWinHistoryApi];
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)initialisation{
+    self.selectedSectionIndex = -1;
     UIBarButtonItem *myBackButton;
     NSString *strSelectedLanguage = [[[NSUserDefaults standardUserDefaults]objectForKey:@"AppleLanguages"] objectAtIndex:0];
     if([strSelectedLanguage isEqualToString:[NSString stringWithFormat: @"ar"]]){
@@ -41,6 +51,13 @@
     self.navigationItem.leftBarButtonItem = myBackButton;
     self.title = NSLocalizedString(@"AUCTIONWINS", @"AUCTION WINS");
 }
+
+-(void)localisation{
+    self.idHeadingLabel.text = NSLocalizedString(@"ID", @"ID");
+    self.productheadingLabel.text = NSLocalizedString(@"Product", @"Product");
+    self.historyHeadingLabel.text = NSLocalizedString(@"History", @"History");
+}
+
 
 #pragma mark - Calling Win History Api
 
@@ -113,6 +130,64 @@
 
 - (void)backBtnClicked{
     [self dismissViewControllerAnimated:YES completion:nil];
+}
+
+#pragma mark - UITableView Datasources and Delegates
+
+- (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
+    return 10;
+}
+
+- (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
+    if (section == self.selectedSectionIndex)
+        return 1;
+    else
+        return 0;
+}
+
+- (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
+    BidHistoryCell *cell = (BidHistoryCell *)[tableView dequeueReusableCellWithIdentifier:@"bidHistory"];
+    if (cell == nil) {
+        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BidHistoryCell" owner:self options:nil];
+        cell = [nib objectAtIndex:0];
+    }
+    //        BidHistoryResponseModel *bidHistoryResponse = [self.bidHistoryResponseArray objectAtIndex:indexPath.section];
+    //        cell.bidHistory = [bidHistoryResponse.bidHistoryarray objectAtIndex:(indexPath.row-1)];
+    return cell;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
+    return 40;
+}
+
+
+- (CGFloat)tableView:(UITableView *)tableView heightForHeaderInSection:(NSInteger)section {
+    return 50;
+}
+
+- (UIView *)tableView:(UITableView *)tableView viewForHeaderInSection:(NSInteger)section {
+    BidHistoryHeaderView *headerView = [[[NSBundle mainBundle] loadNibNamed:@"BidHistoryHeaderView" owner:self options:nil] firstObject];
+    //headerView.bisHistoryResponse = [self.bidHistoryResponseArray objectAtIndex:section];
+    headerView.bidHistoryHeaderDelegate = self;
+    headerView.tag = section;
+    headerView.pageType = PageTypeWinHistory;
+    return headerView;
+}
+
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+}
+
+#pragma mark - Bid History Header View Delegates
+
+-(void)viewHistoryButtonActionDelegateWithTag:(NSInteger)tag{
+    if (tag == self.selectedSectionIndex){
+        self.selectedSectionIndex = -1;
+    }
+    else{
+        self.selectedSectionIndex = tag;
+    }
+    [self.winHistoryTableView reloadData];
 }
 
 /*

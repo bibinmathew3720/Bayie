@@ -195,6 +195,7 @@
     headerView.bisHistoryResponse = [self.bidHistoryResponseArray objectAtIndex:section];
     headerView.bidHistoryHeaderDelegate = self;
     headerView.tag = section;
+    headerView.pageType = PageTypeBidHistory;
     return headerView;
 }
 
