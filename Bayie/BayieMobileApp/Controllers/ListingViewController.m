@@ -20,6 +20,7 @@
 #import "SeachLocationViewController.h"
 #import "AdDetailedViewController.h"
 
+#import "AuctionListingCVC.h"
 #import "ListingCollectionCell.h"
 
 //NSString *adsListImg_Url = @"http://www.productiondemos.com/bayie";
@@ -105,6 +106,13 @@
      */
     
     self.listingTableView.tableFooterView = [UIView new];
+    if (self.pageType == PageTypeAuctions){
+        [self registeringAuctionListCVC];
+    }
+}
+
+-(void)registeringAuctionListCVC{
+    [self.listingCollectionView registerNib:[UINib nibWithNibName:@"AuctionListingCVC" bundle:nil] forCellWithReuseIdentifier:@"auctionListingCVC"];
 }
 
 -(void)apiInitialisation{
@@ -396,51 +404,57 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    ListingCollectionCell *catCell = [collectionView dequeueReusableCellWithReuseIdentifier:CatogoryCellReuseIdentifier
-                                                                               forIndexPath:indexPath];
-    subcatDic = [subcatArrayList objectAtIndex:indexPath.row ];
-    NSString *url_Img = [subcatDic valueForKey:@"image_url"];
-    
-    NSString *urlImg_FULL;
-    if (url_Img ==(id)[NSNull null]) {
-        urlImg_FULL = default_Img_Url;
-    }else{
-        urlImg_FULL =[base_Img_Url stringByAppendingPathComponent:url_Img];
+    if (self.pageType == PageTypeAuctions){
+        AuctionListingCVC *auctionListingCVC = [collectionView dequeueReusableCellWithReuseIdentifier:@"auctionListingCVC" forIndexPath:indexPath];
+        return auctionListingCVC;
     }
-    
-    NSString *dateStr = [subcatDic valueForKey:@"createdDate"];
-    
-    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-    [dateFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-    NSDate *date = [dateFormat dateFromString:dateStr];
-    [dateFormat setDateFormat:@"MMMM YYYY"];
-    NSString* newDateFormat = [dateFormat stringFromDate:date];
-    dateFormat.doesRelativeDateFormatting = YES;
-    
-    catCell.adNameLabel.text = [NSString stringWithFormat:@"%@",[subcatDic valueForKey:@"title"]];
-    NSString *loc = [subcatDic valueForKey:@"location"];
-    NSString *firstWord = [[loc componentsSeparatedByString:@","] objectAtIndex:0];
-    catCell.locationLabel.text = [firstWord stringByAppendingString:newDateFormat];
-    if([[subcatDic valueForKey:@"price"] isEqual: @""]){
-        catCell.priceView.hidden = true;
-    }else if(![[subcatDic valueForKey:@"price"] isEqual: @""]){
-        catCell.priceView.hidden = false;
-        catCell.priceLabel.text = [[subcatDic valueForKey:@"price"]stringByAppendingString:NSLocalizedString(@" OMR", nil)];
-    }
-    [catCell.catImageView sd_setImageWithURL:[NSURL URLWithString:urlImg_FULL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
-        NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:image,@"image",[NSString stringWithFormat:@"%ld",(long)indexPath.row],@"indexRow", nil];
-        [self.dataDictimagesMutArray addObject:dict];
-        [self.listingCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
-    }];
-    
-    
-    //
-    if(  totalCount == indexPath.row+1  ){
-        _subCatStart = indexPath.row+1 - [self calculateDED:indexPath.row];
-        [self performSelector:@selector(checkAndLoadList:) withObject:self afterDelay:2];
+    else{
+        ListingCollectionCell *catCell = [collectionView dequeueReusableCellWithReuseIdentifier:CatogoryCellReuseIdentifier
+                                                                                   forIndexPath:indexPath];
+        subcatDic = [subcatArrayList objectAtIndex:indexPath.row ];
+        NSString *url_Img = [subcatDic valueForKey:@"image_url"];
         
+        NSString *urlImg_FULL;
+        if (url_Img ==(id)[NSNull null]) {
+            urlImg_FULL = default_Img_Url;
+        }else{
+            urlImg_FULL =[base_Img_Url stringByAppendingPathComponent:url_Img];
+        }
+        
+        NSString *dateStr = [subcatDic valueForKey:@"createdDate"];
+        
+        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+        [dateFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+        NSDate *date = [dateFormat dateFromString:dateStr];
+        [dateFormat setDateFormat:@"MMMM YYYY"];
+        NSString* newDateFormat = [dateFormat stringFromDate:date];
+        dateFormat.doesRelativeDateFormatting = YES;
+        
+        catCell.adNameLabel.text = [NSString stringWithFormat:@"%@",[subcatDic valueForKey:@"title"]];
+        NSString *loc = [subcatDic valueForKey:@"location"];
+        NSString *firstWord = [[loc componentsSeparatedByString:@","] objectAtIndex:0];
+        catCell.locationLabel.text = [firstWord stringByAppendingString:newDateFormat];
+        if([[subcatDic valueForKey:@"price"] isEqual: @""]){
+            catCell.priceView.hidden = true;
+        }else if(![[subcatDic valueForKey:@"price"] isEqual: @""]){
+            catCell.priceView.hidden = false;
+            catCell.priceLabel.text = [[subcatDic valueForKey:@"price"]stringByAppendingString:NSLocalizedString(@" OMR", nil)];
+        }
+        [catCell.catImageView sd_setImageWithURL:[NSURL URLWithString:urlImg_FULL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:image,@"image",[NSString stringWithFormat:@"%ld",(long)indexPath.row],@"indexRow", nil];
+            [self.dataDictimagesMutArray addObject:dict];
+            [self.listingCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+        }];
+        
+        
+        //
+        if(  totalCount == indexPath.row+1  ){
+            _subCatStart = indexPath.row+1 - [self calculateDED:indexPath.row];
+            [self performSelector:@selector(checkAndLoadList:) withObject:self afterDelay:2];
+            
+        }
+        return catCell;
     }
-    return catCell;
     //
 }
 
