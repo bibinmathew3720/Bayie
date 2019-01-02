@@ -9,5 +9,13 @@
 #import <UIKit/UIKit.h>
 
 @interface AuctionListingCVC : UICollectionViewCell
+@property (weak, nonatomic) IBOutlet UIView *bottomView;
+
+@property (weak, nonatomic) IBOutlet UILabel *adNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *timerButton;
+@property (weak, nonatomic) IBOutlet UILabel *priceLabel;
+@property (weak, nonatomic) IBOutlet UIImageView *adImageView;
+@property (weak, nonatomic) IBOutlet UIButton *bidNowButton;
 
 @end

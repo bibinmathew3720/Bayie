@@ -404,35 +404,45 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
+    subcatDic = [subcatArrayList objectAtIndex:indexPath.row ];
+    NSString *url_Img = [subcatDic valueForKey:@"image_url"];
+    NSString *urlImg_FULL;
+    if (url_Img ==(id)[NSNull null]) {
+        urlImg_FULL = default_Img_Url;
+    }else{
+        urlImg_FULL =[base_Img_Url stringByAppendingPathComponent:url_Img];
+    }
+    NSString *dateStr = [subcatDic valueForKey:@"createdDate"];
+    
+    NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
+    [dateFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
+    NSDate *date = [dateFormat dateFromString:dateStr];
+    [dateFormat setDateFormat:@"MMMM YYYY"];
+    NSString* newDateFormat = [dateFormat stringFromDate:date];
+    dateFormat.doesRelativeDateFormatting = YES;
+    NSString *loc = [subcatDic valueForKey:@"location"];
+    NSString *firstWord = [[loc componentsSeparatedByString:@","] objectAtIndex:0];
     if (self.pageType == PageTypeAuctions){
         AuctionListingCVC *auctionListingCVC = [collectionView dequeueReusableCellWithReuseIdentifier:@"auctionListingCVC" forIndexPath:indexPath];
+        auctionListingCVC.adNameLabel.text = [NSString stringWithFormat:@"%@",[subcatDic valueForKey:@"title"]];
+        auctionListingCVC.locationNameLabel.text = [firstWord stringByAppendingString:newDateFormat];
+        if(![[subcatDic valueForKey:@"base_price"] isEqual: @""]){
+            auctionListingCVC.priceLabel.text = [[subcatDic valueForKey:@"base_price"]stringByAppendingString:NSLocalizedString(@" OMR", nil)];
+        }
+        else{
+            auctionListingCVC.priceLabel.text = @"";
+        }
+        [auctionListingCVC.adImageView sd_setImageWithURL:[NSURL URLWithString:urlImg_FULL] completed:^(UIImage *image, NSError *error, SDImageCacheType cacheType, NSURL *imageURL) {
+            NSDictionary *dict = [[NSDictionary alloc] initWithObjectsAndKeys:image,@"image",[NSString stringWithFormat:@"%ld",(long)indexPath.row],@"indexRow", nil];
+            [self.dataDictimagesMutArray addObject:dict];
+            [self.listingCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
+        }];
         return auctionListingCVC;
     }
     else{
         ListingCollectionCell *catCell = [collectionView dequeueReusableCellWithReuseIdentifier:CatogoryCellReuseIdentifier
                                                                                    forIndexPath:indexPath];
-        subcatDic = [subcatArrayList objectAtIndex:indexPath.row ];
-        NSString *url_Img = [subcatDic valueForKey:@"image_url"];
-        
-        NSString *urlImg_FULL;
-        if (url_Img ==(id)[NSNull null]) {
-            urlImg_FULL = default_Img_Url;
-        }else{
-            urlImg_FULL =[base_Img_Url stringByAppendingPathComponent:url_Img];
-        }
-        
-        NSString *dateStr = [subcatDic valueForKey:@"createdDate"];
-        
-        NSDateFormatter *dateFormat = [[NSDateFormatter alloc] init];
-        [dateFormat setDateFormat:@"YYYY-MM-dd HH:mm:ss"];
-        NSDate *date = [dateFormat dateFromString:dateStr];
-        [dateFormat setDateFormat:@"MMMM YYYY"];
-        NSString* newDateFormat = [dateFormat stringFromDate:date];
-        dateFormat.doesRelativeDateFormatting = YES;
-        
         catCell.adNameLabel.text = [NSString stringWithFormat:@"%@",[subcatDic valueForKey:@"title"]];
-        NSString *loc = [subcatDic valueForKey:@"location"];
-        NSString *firstWord = [[loc componentsSeparatedByString:@","] objectAtIndex:0];
         catCell.locationLabel.text = [firstWord stringByAppendingString:newDateFormat];
         if([[subcatDic valueForKey:@"price"] isEqual: @""]){
             catCell.priceView.hidden = true;
@@ -484,7 +494,13 @@
     NSArray *indexArray;
     indexArray  = [self.dataDictimagesMutArray filteredArrayUsingPredicate:indexPredicate];
   
-    CGFloat labelHeights = 50;
+    CGFloat labelHeights = 0;
+    if (self.pageType == PageTypeAuctions){
+        labelHeights = 70;
+    }
+    else{
+        labelHeights = 50;
+    }
     if(indexArray.count>0){
         CGFloat cellWidth = (self.view.frame.size.width-3*CellInterItemSpacing)/2;
         UIImage *imag = [[indexArray firstObject] valueForKey:@"image"];
