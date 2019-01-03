@@ -161,4 +161,6 @@
 "ShippingLocation" = "Shipping Location";
 "ShippingZipcode" = "Shipping Zipcode";
 "EDIT" = "EDIT";
+"SAVE" = "SAVE";
+"CLOSE" = "CLOSE";
 

@@ -153,3 +153,5 @@
 "ShippingLocation" = "مكان الشحن";
 "ShippingZipcode" = "الشحن الرمز البريدي";
 "EDIT" = "تصحيح";
+"SAVE" = "حفظ";
+"CLOSE" = "أغلق";

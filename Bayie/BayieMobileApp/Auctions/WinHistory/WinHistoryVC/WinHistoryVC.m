@@ -17,7 +17,7 @@
 #import "ShippingAddressTVC.h"
 #import "ShippingAddressEditTVC.h"
 
-@interface WinHistoryVC ()<UITableViewDataSource,UITableViewDelegate,BidHistoryHeaderViewDelegate,ShippingAddressTVCDelegate>{
+@interface WinHistoryVC ()<UITableViewDataSource,UITableViewDelegate,BidHistoryHeaderViewDelegate,ShippingAddressTVCDelegate,ShippingAddressEditTVCDelegate>{
     MBProgressHUD *hud;
 }
 
@@ -192,6 +192,7 @@
         }
         cell.winHistoryModel = [self.winHistoryResponseArray objectAtIndex:self.selectedSectionIndex];
         cell.tag = indexPath.section;
+        cell.delegate = self;
         return cell;
     }
 }
@@ -235,6 +236,17 @@
 -(void)editButtonActionWithTag:(NSInteger)tag{
     self.selectedEditSection = tag;
     [self.winHistoryTableView reloadData];
+}
+
+#pragma mark - Shipping Address Edit TableViewCell Delegates
+
+-(void)closeButtonActionDelegateWithTag:(NSInteger)tag{
+    self.selectedEditSection = -1;
+    [self.winHistoryTableView reloadData];
+}
+
+-(void)saveBUttonActionDelegateWithTag:(NSInteger)tag andWinHistoryModel:(WinHistoryResponseModel *)model{
+    
 }
 
 /*
