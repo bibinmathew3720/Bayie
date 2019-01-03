@@ -8,7 +8,7 @@
 
 #import "ShippingAddressEditTVC.h"
 
-@interface ShippingAddressEditTVC()
+@interface ShippingAddressEditTVC()<UITextViewDelegate>
 @property (nonatomic, strong) WinHistoryResponseModel *currentModel;
 @end
 @implementation ShippingAddressEditTVC
@@ -29,6 +29,9 @@
 }
 
 -(void)initialisation{
+    self.shippingAddressTV.delegate = self;
+    self.shippingLocationTV.delegate = self;
+    self.shippingZipCodeTV.delegate = self;
     [self settingBorderToView:self.shippingAddressView];
     [self settingBorderToView:self.shippingLocationView];
     [self settingBorderToView:self.shippingZipCodeView];
@@ -61,6 +64,20 @@
 - (IBAction)closeButtonAction:(UIButton *)sender {
     if (self.delegate && [self.delegate respondsToSelector:@selector(closeButtonActionDelegateWithTag:)]){
         [self.delegate closeButtonActionDelegateWithTag:self.tag];
+    }
+}
+
+#pragma mark - TextView Delegates
+
+-(void)textViewDidChange:(UITextView *)textView{
+    if (textView == self.shippingAddressTV){
+        self.currentModel.shippingAddress = textView.text;
+    }
+    else if (textView == self.shippingLocationTV){
+        self.currentModel.shippingCity = textView.text;
+    }
+    else if (textView == self.shippingZipCodeTV){
+        self.currentModel.shippingZipCode = textView.text;
     }
 }
 
