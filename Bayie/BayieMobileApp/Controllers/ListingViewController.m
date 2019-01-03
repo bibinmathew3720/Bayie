@@ -437,6 +437,8 @@
             [self.dataDictimagesMutArray addObject:dict];
             [self.listingCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
         }];
+        NSString *timeString = NSLocalizedString(@"Expired", @"Expired");
+        [auctionListingCVC.timerButton setTitle:timeString forState:UIControlStateNormal];
         return auctionListingCVC;
     }
     else{

@@ -192,6 +192,8 @@
 }
 
 -(void)populateAdDetails{
+    NSString *timeString = NSLocalizedString(@"Expired", @"Expired");
+    [self.timerButton setTitle:timeString forState:UIControlStateNormal];
     [self changeFavouriteBtnImage:self.auctionDetails.isFavorite];
     if (self.auctionDetails.imagesArray.count>0){
         NSUInteger count = self.auctionDetails.imagesArray.count;
