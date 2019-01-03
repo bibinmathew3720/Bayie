@@ -142,11 +142,11 @@
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
-    
+    DataClass *obj=[DataClass getInstance];
     NSString *URLString = [NSLocalizedString(@"AUCTIONS_MANAGEMENT_URL", nil) stringByAppendingString:@"auctionDetails"];
     //    DataClass *obj=[DataClass getInstance];
     
-    NSDictionary *parameters =  @{@"slug":self.adId,@"language":[DataClass currentLanguageString]};
+    NSDictionary *parameters =  @{@"slug":self.adId,@"language":[DataClass currentLanguageString],@"userToken":obj.userToken};
     NSError *error;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
@@ -158,7 +158,7 @@
     req.timeoutInterval= [[[NSUserDefaults standardUserDefaults] valueForKey:@"timeoutInterval"] longValue];
     [req setValue:@"application/json" forHTTPHeaderField:@"Content-Type"];
     [req setValue:AuthValue forHTTPHeaderField:@"Authentication"];
-    DataClass *obj=[DataClass getInstance];
+    
     [req setValue:obj.userToken forHTTPHeaderField:@"userToken"];
     [req setHTTPBody:[jsonString dataUsingEncoding:NSUTF8StringEncoding]];
     [[manager dataTaskWithRequest:req completionHandler:^(NSURLResponse * _Nonnull response, id  _Nullable responseObject, NSError * _Nullable error) {
@@ -362,10 +362,9 @@
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
-//    NSString *URLString = [NSLocalizedString(@"ADS_MANAGEMENT_URL", nil) stringByAppendingString:@"favouriteAdsList"];
-    NSString *URLString = @"http://www.productiondemos.com/bayie/api/apiAds.php?action=favouriteAdsList";
+    NSString *URLString = [NSLocalizedString(@"AUCTIONS_MANAGEMENT_URL", nil) stringByAppendingString:@"addToFavourite"];
     DataClass *obj=[DataClass getInstance];
-    NSDictionary *parameters =  @{@"adId":[NSString stringWithFormat:@"%d",self.auctionDetails.adId],@"language":[DataClass currentLanguageString],@"userid":obj.userId};
+    NSDictionary *parameters =  @{@"adId":[NSString stringWithFormat:@"%d",self.auctionDetails.adId],@"language":[DataClass currentLanguageString]};
     NSError *error;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
@@ -420,10 +419,9 @@
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
-    //    NSString *URLString = [NSLocalizedString(@"ADS_MANAGEMENT_URL", nil) stringByAppendingString:@"favouriteAdsList"];
-    NSString *URLString = @"http://www.productiondemos.com/bayie/api/apiAds.php?action=removeFavourite";
+    NSString *URLString = [NSLocalizedString(@"AUCTIONS_MANAGEMENT_URL", nil) stringByAppendingString:@"removeFavourite"];
     DataClass *obj=[DataClass getInstance];
-    NSDictionary *parameters =  @{@"adId":[NSString stringWithFormat:@"%d",self.auctionDetails.adId],@"language":[DataClass currentLanguageString],@"userid":obj.userId};
+    NSDictionary *parameters =  @{@"adId":[NSString stringWithFormat:@"%d",self.auctionDetails.adId],@"language":[DataClass currentLanguageString],@"userToken":obj.userToken};
     NSError *error;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
