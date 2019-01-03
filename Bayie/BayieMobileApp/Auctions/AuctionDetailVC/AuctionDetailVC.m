@@ -364,7 +364,7 @@
     hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
     NSString *URLString = [NSLocalizedString(@"AUCTIONS_MANAGEMENT_URL", nil) stringByAppendingString:@"addToFavourite"];
     DataClass *obj=[DataClass getInstance];
-    NSDictionary *parameters =  @{@"adId":[NSString stringWithFormat:@"%d",self.auctionDetails.adId],@"language":[DataClass currentLanguageString]};
+    NSDictionary *parameters =  @{@"adId":[NSString stringWithFormat:@"%d",self.auctionDetails.adId],@"language":[DataClass currentLanguageString],@"userToken":obj.userToken};
     NSError *error;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
