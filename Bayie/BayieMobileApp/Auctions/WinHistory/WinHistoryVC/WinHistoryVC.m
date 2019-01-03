@@ -286,11 +286,15 @@
                 NSString *messageString = @"";
                 if (statusCode == 200){
                     if (![responseObject[@"data"] isKindOfClass:[NSNull class]]){
-                        NSArray *historyArray = [responseObject valueForKey:@"data"];
-                        self.winHistoryResponseArray = [[NSMutableArray alloc] init];
-                        for (NSDictionary *item in historyArray){
-                            [self.winHistoryResponseArray addObject:[[WinHistoryResponseModel alloc] initWithWinHistoryResponse:item]];
-                        }
+//                        NSArray *historyArray = [responseObject valueForKey:@"data"];
+//                        self.winHistoryResponseArray = [[NSMutableArray alloc] init];
+//                        for (NSDictionary *item in historyArray){
+//                            [self.winHistoryResponseArray addObject:[[WinHistoryResponseModel alloc] initWithWinHistoryResponse:item]];
+//                        }
+                        WinHistoryResponseModel *winModel = [self.winHistoryResponseArray objectAtIndex:index];
+                        winModel.shippingAddress = model.shippingAddress;
+                        winModel.shippingCity = model.shippingCity;
+                        winModel.shippingZipCode = model.shippingZipCode;
                         self.selectedEditSection = -1;
                         [self.winHistoryTableView reloadData];
                         messageString = NSLocalizedString(@"ShippingAddressUpdatedSuccessfully", @"Shipping address updated successfully");
