@@ -144,6 +144,10 @@
 		D00FAB431F2AA3CE0015C906 /* JTSSimpleImageDownloader.m in Sources */ = {isa = PBXBuildFile; fileRef = D00FAB3B1F2AA3CE0015C906 /* JTSSimpleImageDownloader.m */; };
 		D00FAB441F2AA3CE0015C906 /* UIApplication+JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00FAB3D1F2AA3CE0015C906 /* UIApplication+JTSImageViewController.m */; };
 		D00FAB451F2AA3CE0015C906 /* UIImage+JTSImageEffects.m in Sources */ = {isa = PBXBuildFile; fileRef = D00FAB3F1F2AA3CE0015C906 /* UIImage+JTSImageEffects.m */; };
+		D017A7FF21DDFAD00051916A /* ShippingAddressTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D017A7FD21DDFAD00051916A /* ShippingAddressTVC.m */; };
+		D017A80021DDFAD00051916A /* ShippingAddressTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D017A7FE21DDFAD00051916A /* ShippingAddressTVC.xib */; };
+		D017A80421DDFAEB0051916A /* ShippingAddressEditTVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D017A80221DDFAEB0051916A /* ShippingAddressEditTVC.m */; };
+		D017A80521DDFAEB0051916A /* ShippingAddressEditTVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D017A80321DDFAEB0051916A /* ShippingAddressEditTVC.xib */; };
 		D01EDE3D21D85901009D6D62 /* AuctionDetailVC.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE3221D85900009D6D62 /* AuctionDetailVC.m */; };
 		D01EDE3E21D85901009D6D62 /* AuctionDetailVC.xib in Resources */ = {isa = PBXBuildFile; fileRef = D01EDE3321D85900009D6D62 /* AuctionDetailVC.xib */; };
 		D01EDE3F21D85901009D6D62 /* Auction.m in Sources */ = {isa = PBXBuildFile; fileRef = D01EDE3721D85901009D6D62 /* Auction.m */; };
@@ -442,6 +446,12 @@
 		D00FAB3D1F2AA3CE0015C906 /* UIApplication+JTSImageViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIApplication+JTSImageViewController.m"; sourceTree = "<group>"; };
 		D00FAB3E1F2AA3CE0015C906 /* UIImage+JTSImageEffects.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = "UIImage+JTSImageEffects.h"; sourceTree = "<group>"; };
 		D00FAB3F1F2AA3CE0015C906 /* UIImage+JTSImageEffects.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = "UIImage+JTSImageEffects.m"; sourceTree = "<group>"; };
+		D017A7FC21DDFAD00051916A /* ShippingAddressTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShippingAddressTVC.h; sourceTree = "<group>"; };
+		D017A7FD21DDFAD00051916A /* ShippingAddressTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShippingAddressTVC.m; sourceTree = "<group>"; };
+		D017A7FE21DDFAD00051916A /* ShippingAddressTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingAddressTVC.xib; sourceTree = "<group>"; };
+		D017A80121DDFAEB0051916A /* ShippingAddressEditTVC.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ShippingAddressEditTVC.h; sourceTree = "<group>"; };
+		D017A80221DDFAEB0051916A /* ShippingAddressEditTVC.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ShippingAddressEditTVC.m; sourceTree = "<group>"; };
+		D017A80321DDFAEB0051916A /* ShippingAddressEditTVC.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShippingAddressEditTVC.xib; sourceTree = "<group>"; };
 		D01EDE3221D85900009D6D62 /* AuctionDetailVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AuctionDetailVC.m; sourceTree = "<group>"; };
 		D01EDE3321D85900009D6D62 /* AuctionDetailVC.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = AuctionDetailVC.xib; sourceTree = "<group>"; };
 		D01EDE3421D85900009D6D62 /* AuctionDetailVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AuctionDetailVC.h; sourceTree = "<group>"; };
@@ -1294,6 +1304,26 @@
 			path = ImageViewLibary;
 			sourceTree = "<group>";
 		};
+		D017A7FA21DDFAB60051916A /* ShippingAddressTVC */ = {
+			isa = PBXGroup;
+			children = (
+				D017A7FC21DDFAD00051916A /* ShippingAddressTVC.h */,
+				D017A7FD21DDFAD00051916A /* ShippingAddressTVC.m */,
+				D017A7FE21DDFAD00051916A /* ShippingAddressTVC.xib */,
+			);
+			path = ShippingAddressTVC;
+			sourceTree = "<group>";
+		};
+		D017A7FB21DDFAB60051916A /* ShippingAddressEditTVC */ = {
+			isa = PBXGroup;
+			children = (
+				D017A80121DDFAEB0051916A /* ShippingAddressEditTVC.h */,
+				D017A80221DDFAEB0051916A /* ShippingAddressEditTVC.m */,
+				D017A80321DDFAEB0051916A /* ShippingAddressEditTVC.xib */,
+			);
+			path = ShippingAddressEditTVC;
+			sourceTree = "<group>";
+		};
 		D01EDE3121D85900009D6D62 /* AuctionDetailVC */ = {
 			isa = PBXGroup;
 			children = (
@@ -1380,6 +1410,8 @@
 		D01EDE5921D8D632009D6D62 /* CustomCells */ = {
 			isa = PBXGroup;
 			children = (
+				D017A7FB21DDFAB60051916A /* ShippingAddressEditTVC */,
+				D017A7FA21DDFAB60051916A /* ShippingAddressTVC */,
 			);
 			path = CustomCells;
 			sourceTree = "<group>";
@@ -1603,6 +1635,7 @@
 				3A2C7A2E1E7FA8D000B4BE85 /* Lato-LightItalic.ttf in Resources */,
 				D0E9F7721F35AE6C001B1EE3 /* FilterLeftTVC.xib in Resources */,
 				3A06B58F1EE2B06800E3A7DF /* Localizable.strings in Resources */,
+				D017A80521DDFAEB0051916A /* ShippingAddressEditTVC.xib in Resources */,
 				189CD3DE1F3184C400CD5DED /* PostBAdViewController.xib in Resources */,
 				3A00B5F41EB2F9B20072017E /* Register.xib in Resources */,
 				D0E9F05A1FA0FDC4003F96ED /* DeletePopUpView.xib in Resources */,
@@ -1639,6 +1672,7 @@
 				18D6337B1F36BFD400F4EED2 /* CategoryTableViewCell.xib in Resources */,
 				D0E9F0631FA10E74003F96ED /* TeasonTVC.xib in Resources */,
 				D01EDE7321D982BD009D6D62 /* BidHistoryHeaderView.xib in Resources */,
+				D017A80021DDFAD00051916A /* ShippingAddressTVC.xib in Resources */,
 				D01EDEB921DB717C009D6D62 /* BidHistoryTVC.xib in Resources */,
 				D02A6FFB1F36269600BBDDDE /* FilterRightCheckBoxCell.xib in Resources */,
 				D01EDEC321DB71F4009D6D62 /* AuctionListingCVC.xib in Resources */,
@@ -1761,6 +1795,7 @@
 				3ABF92FB1EDBF56600F83D54 /* PostAdCatViewController.m in Sources */,
 				3A0C22C31E9B62CD0086AB2C /* ListingViewController.m in Sources */,
 				18AE2FEB1F20202F00147CFB /* AppDelegate.m in Sources */,
+				D017A80421DDFAEB0051916A /* ShippingAddressEditTVC.m in Sources */,
 				3A3A768E1E7FE30700B94DB3 /* LoginViewController.m in Sources */,
 				3A2567161E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.m in Sources */,
 				485D63811EE7390A00462D4D /* JSONValueTransformer.m in Sources */,
@@ -1792,6 +1827,7 @@
 				3A01EEC71E93A03700A5F5B3 /* TrendingAdsListViewController.m in Sources */,
 				3A7D54F81EF2A16D0002A145 /* FeedbackAndSupportViewController.m in Sources */,
 				3A676A591EADF8080077719B /* SavedSearchViewController.m in Sources */,
+				D017A7FF21DDFAD00051916A /* ShippingAddressTVC.m in Sources */,
 				488A93631EB8B4F2003C13BC /* ImageCollectionViewCell.m in Sources */,
 				485D637F1EE7390A00462D4D /* JSONModel+networking.m in Sources */,
 				D01EDEB621DB717C009D6D62 /* AuctionImagesCVC.m in Sources */,

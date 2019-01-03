@@ -148,3 +148,8 @@
 //Win History
 
 "VIEWDETAILS" = "عرض التفاصيل";
+"Status" = "الحالة";
+"ShippingAddress" = "عنوان الشحن";
+"ShippingLocation" = "مكان الشحن";
+"ShippingZipcode" = "الشحن الرمز البريدي";
+"EDIT" = "تصحيح";

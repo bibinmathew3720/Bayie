@@ -23,10 +23,10 @@ NSString *const kWinHistoryShippingStatus = @"status";
         self.auctionId = 0;
         self.productId = 0;
         self.productName = @"";
-        self.shippingAddress = @"";
-        self.shippingCity = @"";
-        self.shippingZipCode = @"";
-        self.shippingStatus = @"";
+        self.shippingAddress = @"-";
+        self.shippingCity = @"-";
+        self.shippingZipCode = @"-";
+        self.shippingStatus = @"-";
     }
     if (![dataDictionary[kWinHistoryId] isKindOfClass:[NSNull class]]){
         self.productId = [dataDictionary[kWinHistoryId] intValue];

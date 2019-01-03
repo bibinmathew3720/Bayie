@@ -156,4 +156,9 @@
 //Win History
 
 "VIEWDETAILS" = "VIEW DETAILS";
+"Status" = "Status";
+"ShippingAddress" = "Shipping Address";
+"ShippingLocation" = "Shipping Location";
+"ShippingZipcode" = "Shipping Zipcode";
+"EDIT" = "EDIT";
 

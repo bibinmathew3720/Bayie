@@ -13,10 +13,11 @@
 #import "MBProgressHUD.h"
 #import "WinHistoryResponseModel.h"
 
-#import "BidHistoryCell.h"
 #import "BidHistoryHeaderView.h"
+#import "ShippingAddressTVC.h"
+#import "ShippingAddressEditTVC.h"
 
-@interface WinHistoryVC ()<UITableViewDataSource,UITableViewDelegate,BidHistoryHeaderViewDelegate>{
+@interface WinHistoryVC ()<UITableViewDataSource,UITableViewDelegate,BidHistoryHeaderViewDelegate,ShippingAddressTVCDelegate>{
     MBProgressHUD *hud;
 }
 
@@ -25,6 +26,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *productheadingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *historyHeadingLabel;
 @property (nonatomic, assign) NSInteger selectedSectionIndex;
+@property (nonatomic, assign) NSInteger selectedEditSection;
 
 @property (nonatomic, strong) NSMutableArray *winHistoryResponseArray;
 @end
@@ -35,12 +37,16 @@
     [super viewDidLoad];
     [self initialisation];
     [self localisation];
+    [self tableCellRegistration];
     [self callinGetWinHistoryApi];
     // Do any additional setup after loading the view from its nib.
 }
 
 -(void)initialisation{
+    self.winHistoryTableView.estimatedRowHeight = 100;
+    self.winHistoryTableView.rowHeight = UITableViewAutomaticDimension;
     self.selectedSectionIndex = -1;
+    self.selectedEditSection = -1;
     UIBarButtonItem *myBackButton;
     NSString *strSelectedLanguage = [[[NSUserDefaults standardUserDefaults]objectForKey:@"AppleLanguages"] objectAtIndex:0];
     if([strSelectedLanguage isEqualToString:[NSString stringWithFormat: @"ar"]]){
@@ -53,6 +59,13 @@
     [myBackButton setTintColor:[UIColor whiteColor]];
     self.navigationItem.leftBarButtonItem = myBackButton;
     self.title = NSLocalizedString(@"AUCTIONWINS", @"AUCTION WINS");
+}
+
+-(void)tableCellRegistration{
+    [self.winHistoryTableView registerNib:[UINib nibWithNibName:@"ShippingAddressTVC" bundle:nil]
+                   forCellReuseIdentifier:@"shippingAddCell"];
+    [self.winHistoryTableView registerNib:[UINib nibWithNibName:@"ShippingAddressEditTVC" bundle:nil]
+                   forCellReuseIdentifier:@"shippingAddresEditCell"];
 }
 
 -(void)localisation{
@@ -145,30 +158,47 @@
 #pragma mark - UITableView Datasources and Delegates
 
 - (NSInteger)numberOfSectionsInTableView:(UITableView *)tableView {
-    return 10;
+    return self.winHistoryResponseArray.count;
 }
 
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section {
-    if (section == self.selectedSectionIndex)
+    if (section == self.selectedSectionIndex){
+        if (section == self.selectedEditSection){
+            return 2;
+        }
         return 1;
+    }
     else
         return 0;
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
-    BidHistoryCell *cell = (BidHistoryCell *)[tableView dequeueReusableCellWithIdentifier:@"bidHistory"];
-    if (cell == nil) {
-        NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"BidHistoryCell" owner:self options:nil];
-        cell = [nib objectAtIndex:0];
+    if (indexPath.row == 0){
+        ShippingAddressTVC *cell = (ShippingAddressTVC *)[tableView dequeueReusableCellWithIdentifier:@"shippingAddCell"];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ShippingAddressTVC" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        cell.winHistoryModel = [self.winHistoryResponseArray objectAtIndex:self.selectedSectionIndex];
+        cell.shippingAddressTVCDelegate = self;
+        cell.tag = indexPath.section;
+        return cell;
     }
-    //        BidHistoryResponseModel *bidHistoryResponse = [self.bidHistoryResponseArray objectAtIndex:indexPath.section];
-    //        cell.bidHistory = [bidHistoryResponse.bidHistoryarray objectAtIndex:(indexPath.row-1)];
-    return cell;
+    else{
+        ShippingAddressEditTVC *cell = (ShippingAddressEditTVC *)[tableView dequeueReusableCellWithIdentifier:@"shippingAddresEditCell"];
+        if (cell == nil) {
+            NSArray *nib = [[NSBundle mainBundle] loadNibNamed:@"ShippingAddressEditTVC" owner:self options:nil];
+            cell = [nib objectAtIndex:0];
+        }
+        cell.winHistoryModel = [self.winHistoryResponseArray objectAtIndex:self.selectedSectionIndex];
+        cell.tag = indexPath.section;
+        return cell;
+    }
 }
 
 
 - (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 40;
+    return UITableViewAutomaticDimension;
 }
 
 
@@ -197,6 +227,13 @@
     else{
         self.selectedSectionIndex = tag;
     }
+    [self.winHistoryTableView reloadData];
+}
+
+#pragma mark - Shipping Address TableViewCell Delegate
+
+-(void)editButtonActionWithTag:(NSInteger)tag{
+    self.selectedEditSection = tag;
     [self.winHistoryTableView reloadData];
 }
 
