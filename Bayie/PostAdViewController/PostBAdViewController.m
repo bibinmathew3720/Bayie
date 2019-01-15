@@ -6,6 +6,7 @@
 //  Copyright © 2017 Abbie. All rights reserved.
 //
 #import "AFNetworking.h"
+#import <AVFoundation/AVFoundation.h>
 
 #import "Utility.h"
 #import "PostBAdViewController.h"
@@ -252,8 +253,17 @@
                     for (id item  in self.imagesArray){
                         if ([item isKindOfClass:[NSURL class]]){
                             NSURL *videoURL = item;
-                            NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
-                            [self uploadVideoWithData:videoData];
+                           // NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
+                            
+                            [self compress:videoURL completionBlock:^(id data, BOOL result) {
+                                AVAssetExportSession *exportSession = (AVAssetExportSession *)data;
+                                
+                                NSData *videoData = [NSData dataWithContentsOfURL:exportSession.outputURL];
+                                NSLog(@"Output video length:%lu",(unsigned long)videoData.length);
+                                [self uploadVideoWithData:videoData];
+                            }];
+                            
+                            //[self uploadVideoWithData:videoData];
                         }
                     }
                 }
@@ -279,8 +289,13 @@
                     for (id item  in self.imagesArray){
                         if ([item isKindOfClass:[NSURL class]]){
                             NSURL *videoURL = item;
-                            NSData *videoData = [NSData dataWithContentsOfURL:videoURL];
-                            [self uploadVideoWithData:videoData];
+                            [self compress:videoURL completionBlock:^(id data, BOOL result) {
+                                AVAssetExportSession *exportSession = (AVAssetExportSession *)data;
+                                NSData *videoData = [NSData dataWithContentsOfURL:exportSession.outputURL];
+                                NSLog(@"Output video length:%lu",(unsigned long)videoData.length);
+                                [self uploadVideoWithData:videoData];
+                            }];
+                            
                         }
                     }
                 }
@@ -289,6 +304,29 @@
                 }
             }
         }
+}
+
+- (void)compress:(NSURL *)videoPath completionBlock:(void(^)(id data, BOOL result))block{
+    NSString *outputFilePath = [[NSString alloc] initWithFormat:@"%@%@", NSTemporaryDirectory(), @"output.mov"];
+    NSURL *outputURL = [NSURL fileURLWithPath:outputFilePath];
+    [self compressVideoWithURL:videoPath outputURL:outputURL handler:^(AVAssetExportSession *exportSession) {
+        block(exportSession,YES);
+    }];
+}
+
+- (void)compressVideoWithURL:(NSURL*)inputURL
+                   outputURL:(NSURL*)outputURL
+                     handler:(void (^)(AVAssetExportSession*))handler {
+    
+    AVURLAsset *asset = [AVURLAsset assetWithURL:inputURL];
+    AVAssetExportSession *exportSession = [[AVAssetExportSession alloc] initWithAsset:asset presetName:AVAssetExportPresetMediumQuality];
+    exportSession.fileLengthLimit = 3000000;
+    exportSession.outputURL = outputURL;
+    exportSession.outputFileType = AVFileTypeQuickTimeMovie;
+    exportSession.shouldOptimizeForNetworkUse = YES;
+    [exportSession exportAsynchronouslyWithCompletionHandler:^{
+        handler(exportSession);
+    }];
 }
 
 -(BOOL)checkVideo{
@@ -745,7 +783,10 @@
 -(void)uploadVideoWithData:(NSData *)videoData{
      _bgTask = [[UIApplication sharedApplication] beginBackgroundTaskWithExpirationHandler:^{
     }];
+    dispatch_async(dispatch_get_main_queue(), ^{
         [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    });
+    
         NSString *URLString = [@"https://bayie.digiora.com/api/apiAds.php?action=" stringByAppendingString:@"uploadVideo"];
         NSMutableURLRequest *request = [[AFHTTPRequestSerializer serializer] multipartFormRequestWithMethod:@"POST" URLString:URLString parameters:nil constructingBodyWithBlock:^(id<AFMultipartFormData> formData) {
             [formData appendPartWithFileData:videoData name:@"file" fileName:@"fileName.mp4" mimeType:@"video/mp4"];
