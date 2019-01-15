@@ -515,19 +515,16 @@
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    if(self.isFromEditAd){
-        if(self.imagesArray.count == 0){
-            self.addMoreView.hidden = NO;
-            self.collectionView.hidden = YES;
-        }
-        else{
-            self.addMoreView.hidden = YES;
-            self.collectionView.hidden = NO;
-        }
-        return self.imagesArray.count;
+    
+    if(self.imagesArray.count == 0){
+        self.addMoreView.hidden = NO;
+        self.collectionView.hidden = YES;
     }
-    else
-        return self.imagesArray.count;
+    else{
+        self.addMoreView.hidden = YES;
+        self.collectionView.hidden = NO;
+    }
+    return self.imagesArray.count;
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
