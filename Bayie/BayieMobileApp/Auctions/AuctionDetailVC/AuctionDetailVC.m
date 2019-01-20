@@ -17,6 +17,7 @@
 #import "MBProgressHUD.h"
 #import "BidHistoryTVC.h"
 #import "AuctionImagesCVC.h"
+#import "NSString+Extension.h"
 #import "JTSImageViewController.h"
 
 #define favoriteImageName @"fav-active"
@@ -207,7 +208,7 @@
     NSString *prodDetailString = [NSString stringWithFormat:@"%@:%d | %@:%d | %@ - %0.2f OMR",NSLocalizedString(@"ID", @"ID"),self.auctionDetails.auctionId,NSLocalizedString(@"Bids", @"Bids"),self.auctionDetails.bidCount,self.auctionDetails.currentBidUser,self.auctionDetails.currentPrice];
     self.currentPriceLabel.text = [NSString stringWithFormat:@"%0.2f OMR",self.auctionDetails.currentBidAmount];
     self.productDetailsLabel.text = prodDetailString;
-    self.descriptionLabel.text = self.auctionDetails.adDescription;
+    self.descriptionLabel.text = [self.auctionDetails.adDescription removeBrTag];
     self.conditionLabel.text = self.auctionDetails.itemCondition;
     //self.modelLabel.text = self.auctionDetails.
     self.priceLabel.text = [NSString stringWithFormat:@"%0.2f OMR",self.auctionDetails.basePrice];
@@ -604,7 +605,6 @@
 }
 
 
-
 /*
 #pragma mark - Navigation
 
@@ -616,3 +616,4 @@
 */
 
 @end
+

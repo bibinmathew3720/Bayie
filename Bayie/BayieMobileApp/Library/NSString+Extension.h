@@ -22,5 +22,6 @@
 - (int) noOfLowerCaseCharacters;
 - (int) noOfDigits;
 - (int) noOfSpecialCharacters;
+- (NSString *) removeBrTag;
 
 @end

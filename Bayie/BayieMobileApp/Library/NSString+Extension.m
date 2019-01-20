@@ -129,4 +129,10 @@
     
 }
 
+-(NSString *)removeBrTag{
+    NSString *outputString = [self stringByReplacingOccurrencesOfString:@"<br />" withString:@" "];
+    return outputString;
+}
+
+
 @end
