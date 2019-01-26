@@ -29,6 +29,13 @@
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 @property (weak, nonatomic) IBOutlet UIButton *locationButton;
 @property (weak, nonatomic) IBOutlet UIImageView *downArrowIcon;
+@property (weak, nonatomic) IBOutlet UIButton *downArrowButton; // only in iPad
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sortFilterHeiCnstraint;
+@property (weak, nonatomic) IBOutlet UIButton *sortButton;
+@property (weak, nonatomic) IBOutlet UIButton *filterButton;
+@property (weak, nonatomic) IBOutlet UIView *middleBorderView;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *categoryTopConstraint;
+
 @property (weak, nonatomic) IBOutlet NSString *lastLoc;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *sortViewheightConstraint;
 @property (weak, nonatomic) IBOutlet UIView *topView;

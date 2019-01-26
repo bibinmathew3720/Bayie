@@ -2058,13 +2058,18 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="categoryTitle" destination="5v2-AQ-Hf7" id="09M-IA-bQn"/>
+                        <outlet property="categoryTopConstraint" destination="gZF-VL-wlq" id="fqz-Yn-w4A"/>
                         <outlet property="downArrowIcon" destination="RD7-7u-sDn" id="DAb-QS-baV"/>
+                        <outlet property="filterButton" destination="reM-pY-XXe" id="e2A-zr-DX7"/>
                         <outlet property="listingCollectionView" destination="9SE-UZ-S6A" id="yER-qh-06r"/>
                         <outlet property="listingTableView" destination="SeL-Jt-2or" id="mjK-IN-hfd"/>
                         <outlet property="location" destination="Xmj-I7-o0X" id="k4N-zk-BK6"/>
                         <outlet property="locationButton" destination="Hzs-i5-Hq3" id="XZI-b0-Nom"/>
+                        <outlet property="middleBorderView" destination="fGk-ki-SU3" id="IRk-Mz-O0R"/>
                         <outlet property="noRecordsLabel" destination="Eim-h6-Jbj" id="iC4-4k-wiq"/>
                         <outlet property="searchButton" destination="jXi-9n-81h" id="Vsb-OK-EOM"/>
+                        <outlet property="sortButton" destination="e5p-kH-whr" id="ddn-3A-Vm9"/>
+                        <outlet property="sortFilterHeiCnstraint" destination="sTf-2W-Mlp" id="G99-Vs-uSg"/>
                         <outlet property="sortViewheightConstraint" destination="sTf-2W-Mlp" id="rNl-KY-Twy"/>
                         <outlet property="topView" destination="hEK-xs-9nh" id="GeB-e8-dlg"/>
                     </connections>
@@ -5511,6 +5516,7 @@
                         <outlet property="locSelectionLabel" destination="8wm-bN-MKa" id="6X3-Ka-uSh"/>
                         <outlet property="locationArrowButton" destination="RGa-S9-VKh" id="QH2-zl-9lQ"/>
                         <outlet property="locationTouchButton" destination="mDM-Bg-OCF" id="O7w-YH-E8f"/>
+                        <outlet property="searchButton" destination="VY5-kM-6E4" id="UOV-IX-qDJ"/>
                         <segue destination="LdW-9d-1F4" kind="show" identifier="Subcategory" id="A5p-Mk-dNY"/>
                     </connections>
                 </viewController>

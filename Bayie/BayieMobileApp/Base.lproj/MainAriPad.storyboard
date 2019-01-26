@@ -1853,10 +1853,16 @@
                     <size key="freeformSize" width="375" height="800"/>
                     <connections>
                         <outlet property="categoryTitle" destination="5v2-AQ-Hf7" id="09M-IA-bQn"/>
+                        <outlet property="downArrowButton" destination="Hzs-i5-Hq3" id="5nI-6D-MeP"/>
+                        <outlet property="filterButton" destination="reM-pY-XXe" id="gx1-sj-kyU"/>
                         <outlet property="listingCollectionView" destination="yQG-bS-zmq" id="qWj-0L-PzB"/>
                         <outlet property="listingTableView" destination="SeL-Jt-2or" id="mjK-IN-hfd"/>
-                        <outlet property="location" destination="Xmj-I7-o0X" id="k4N-zk-BK6"/>
+                        <outlet property="location" destination="Xmj-I7-o0X" id="we2-R9-vTw"/>
+                        <outlet property="middleBorderView" destination="fGk-ki-SU3" id="RyK-za-gZ6"/>
                         <outlet property="noRecordsLabel" destination="yZ9-lf-d5h" id="MCK-Be-d2E"/>
+                        <outlet property="searchButton" destination="jXi-9n-81h" id="R40-j2-EBy"/>
+                        <outlet property="sortButton" destination="e5p-kH-whr" id="YXq-lf-jwL"/>
+                        <outlet property="sortFilterHeiCnstraint" destination="sTf-2W-Mlp" id="FcY-UB-nWf"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="GZv-DU-Uve" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -4815,6 +4821,7 @@
                         <outlet property="locSelectionLabel" destination="kHX-wi-0KQ" id="TeJ-o5-rV9"/>
                         <outlet property="locationArrowButton" destination="d0U-wk-RrM" id="UCE-O8-CV0"/>
                         <outlet property="locationTouchButton" destination="5eQ-hg-TWi" id="4cf-Qd-aI3"/>
+                        <outlet property="searchButton" destination="LtB-YT-dJh" id="88Y-Kh-4Aq"/>
                         <segue destination="LdW-9d-1F4" kind="show" identifier="Subcategory" id="3N2-eV-zye"/>
                     </connections>
                 </viewController>
@@ -5716,7 +5723,7 @@
     </scenes>
     <resources>
         <image name="arrow-right" width="8" height="12"/>
-        <image name="auction" width="25" height="25"/>
+        <image name="auction" width="25" height="20"/>
         <image name="back-arrow-right" width="22" height="22"/>
         <image name="backArrowArabicWhite" width="22" height="22"/>
         <image name="bayie-logo-main" width="242" height="66"/>

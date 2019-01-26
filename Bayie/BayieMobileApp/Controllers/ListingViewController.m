@@ -126,6 +126,18 @@
 -(void)initialisation{
     self.saveSearchimagesMutArray = [[NSMutableArray alloc] init];
     self.dataDictimagesMutArray = [[NSMutableArray alloc] init];
+    if (self.pageType == PageTypeAuctions){
+        self.location.hidden = YES;
+        self.locationButton.hidden = YES;
+        self.downArrowIcon.hidden = YES;
+        self.downArrowButton.hidden = YES;
+        self.searchButton.hidden = YES;
+        self.sortFilterHeiCnstraint.constant = 0.0;
+        self.sortButton.hidden = YES;
+        self.filterButton.hidden = YES;
+        self.middleBorderView.hidden = YES;
+        //self.categoryTopConstraint.constant = 0;
+    }
 }
 
 -(void)updateLocation{

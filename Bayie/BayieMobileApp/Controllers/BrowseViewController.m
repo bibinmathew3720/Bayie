@@ -55,6 +55,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *locationArrowButton;
 @property (weak, nonatomic) IBOutlet UIButton *locationTouchButton;
 @property (weak, nonatomic) IBOutlet UILabel *locSelectionLabel;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
 @end
 
@@ -115,6 +116,7 @@
         self.locationArrowButton.hidden = YES;
         self.locationTouchButton.hidden = YES;
         self.locSelectionLabel.hidden = YES;
+        self.searchButton.hidden = YES;
     }
 }
 
