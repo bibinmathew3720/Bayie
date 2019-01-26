@@ -81,6 +81,7 @@
 "PHOTOLIMIT" = "تم الوصول إلى الحد الأقصى لعدد الصور";
 //MY ADS
 "MY_ADS" = "ماي أدس";
+"PHOTOLIMIT" = "تم بلوغ الحد الأقصى للصور";
 //MY Chat
 "MY_CHAT" = "دردشاتي";
 
@@ -114,6 +115,19 @@
 "NOTSELLING" = "عدم بيعه بعد الآن";
 "ADOUTDATE" = "الإعلان قديم";
 "OTHER" = "آخر";
+
+//Video Upload
+
+"VIDEOLIMIT" = "You can upload only one video";
+"Remove" = "إزالة";
+"AddMore" = "أضف المزيد";
+"Camera" = "الة تصوير";
+"Gallery" = "صالة عرض";
+"ChooseVideoType" = "اختر نوع الفيديو";
+"ChooseFileType" = "اختر نوع الملف";
+"Cancel" = "إلغاء";
+"Photo" = "صورة فوتوغرافية";
+"Video" = "فيديو";
 
 //Auctions
 

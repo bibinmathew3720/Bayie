@@ -110,10 +110,12 @@
             </constraints>
             <size key="customSize" width="222" height="149"/>
             <connections>
+                <outlet property="addMoreLabel" destination="ksU-85-g1a" id="PbL-hk-Td1"/>
                 <outlet property="bottomView" destination="7kl-N0-ZeA" id="j2F-K7-Wcm"/>
                 <outlet property="bottomViewheightConstraint" destination="YHx-XJ-UCb" id="ToZ-dc-edJ"/>
                 <outlet property="collectionImageView" destination="kgd-Hr-sBY" id="aOW-aJ-oJa"/>
                 <outlet property="playButton" destination="hdv-uE-cVj" id="nay-2W-3Ja"/>
+                <outlet property="removeLabel" destination="Evt-kY-zcv" id="qjc-nu-gEi"/>
             </connections>
             <point key="canvasLocation" x="111" y="101.5"/>
         </collectionViewCell>

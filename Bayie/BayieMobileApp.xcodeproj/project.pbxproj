@@ -1562,9 +1562,9 @@
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
-		3A71B4D61E7BEC8E00E85F3D /* BayieMobileApp */ = {
+		3A71B4D61E7BEC8E00E85F3D /*   */ = {
 			isa = PBXNativeTarget;
-			buildConfigurationList = 3A71B4EE1E7BEC8F00E85F3D /* Build configuration list for PBXNativeTarget "BayieMobileApp" */;
+			buildConfigurationList = 3A71B4EE1E7BEC8F00E85F3D /* Build configuration list for PBXNativeTarget " " */;
 			buildPhases = (
 				F55B392F50F32CB356C376F2 /* [CP] Check Pods Manifest.lock */,
 				3A71B4D31E7BEC8E00E85F3D /* Sources */,
@@ -1577,7 +1577,7 @@
 			);
 			dependencies = (
 			);
-			name = BayieMobileApp;
+			name = " ";
 			productName = BayieMobileApp;
 			productReference = 3A71B4D71E7BEC8E00E85F3D /* Bayie.app */;
 			productType = "com.apple.product-type.application";
@@ -1593,9 +1593,9 @@
 				TargetAttributes = {
 					3A71B4D61E7BEC8E00E85F3D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = WVYK59KXPF;
+						DevelopmentTeam = Q7MDZVUYK6;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1621,7 +1621,7 @@
 			projectDirPath = "";
 			projectRoot = "";
 			targets = (
-				3A71B4D61E7BEC8E00E85F3D /* BayieMobileApp */,
+				3A71B4D61E7BEC8E00E85F3D /*   */,
 			);
 		};
 /* End PBXProject section */
@@ -2101,8 +2101,8 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WVYK59KXPF;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Q7MDZVUYK6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-4",
@@ -2121,8 +2121,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.bayie.BayieMobileApp;
 				PRODUCT_NAME = Bayie;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "d3457555-621f-4ccb-b471-9eb94f081d86";
+				PROVISIONING_PROFILE_SPECIFIER = "Bayie Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "BayieMobileApp/Library/BayieMobileApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2138,8 +2138,8 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WVYK59KXPF;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Q7MDZVUYK6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-4",
@@ -2158,8 +2158,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.bayie.BayieMobileApp;
 				PRODUCT_NAME = Bayie;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "16fba629-43b5-4b7b-9303-447587e26188";
+				PROVISIONING_PROFILE_SPECIFIER = adhoc_bayie_new;
 				SWIFT_OBJC_BRIDGING_HEADER = "BayieMobileApp/Library/BayieMobileApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
@@ -2177,7 +2177,7 @@
 			defaultConfigurationIsVisible = 0;
 			defaultConfigurationName = Release;
 		};
-		3A71B4EE1E7BEC8F00E85F3D /* Build configuration list for PBXNativeTarget "BayieMobileApp" */ = {
+		3A71B4EE1E7BEC8F00E85F3D /* Build configuration list for PBXNativeTarget " " */ = {
 			isa = XCConfigurationList;
 			buildConfigurations = (
 				3A71B4EF1E7BEC8F00E85F3D /* Debug */,

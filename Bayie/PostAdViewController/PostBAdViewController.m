@@ -67,6 +67,7 @@
 @property (nonatomic, strong) NSString *defaultImageUrlString;
 @property (weak, nonatomic) IBOutlet UIView *addMoreView;
 @property (weak, nonatomic) IBOutlet UIImageView *addMoreImageView;
+@property (weak, nonatomic) IBOutlet UILabel *addMoreLabel;
 
 @property (weak, nonatomic) IBOutlet UIButton *videoPlayButton;
 @property (weak, nonatomic) IBOutlet UIButton *videoDeleteButton;
@@ -89,6 +90,7 @@
     [super viewDidLoad];
     self.selectedCategory = nil;
     self.filterDictionary = nil;
+    [self localisation];
     [self customisation];
     [self customisCollectionView];
     self.uploadedUrlArray = [[NSMutableArray alloc]init];
@@ -104,6 +106,10 @@
         [self populateUserDetails];
        // [self populateVideoDetails];
     }
+}
+
+-(void)localisation{
+    self.addMoreLabel.text = NSLocalizedString(@"AddMore", @"Add More");
 }
 
 -(void)populateUserDetails{
@@ -1092,7 +1098,7 @@
     }
     if(imagesMutarray.count>=6){
         UIAlertController *alertCntlr = [UIAlertController alertControllerWithTitle:@"Bayie" message:NSLocalizedString(@"PHOTOLIMIT", @"Photo Limit") preferredStyle:UIAlertControllerStyleAlert];
-        UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+        UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
             
         }];
         [alertCntlr addAction:okAction];

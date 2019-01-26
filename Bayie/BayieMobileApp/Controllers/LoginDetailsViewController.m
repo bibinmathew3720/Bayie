@@ -11,11 +11,13 @@
 #import "MBProgressHUD.h"
 #import "BrowseViewController.h"
 #import "BayieHub.h"
+#import "UserProfile.h"
 
 @interface LoginDetailsViewController ()
 {
     MBProgressHUD *hud;
     CLLocation *loc;
+    UserProfile *myProfile;
 }
 @end
 
@@ -300,6 +302,95 @@
 
         
         
+    }
+}
+
+-(void)getProfileDataFromServer{
+    
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
+    DataClass *obj=[DataClass getInstance];
+    
+    NSDictionary *parameters =  @{@"userToken":obj.userToken};
+    
+    NSError *error;
+    
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    [[BayieHub sharedInstance] PostrequestcallServiceWith:jsonString :@"profileData"];
+}
+
+- (void) gotBayieAPIDataProfileLoad:(NSNotification *) notification{
+    
+    if ([[notification name] isEqualToString:@"BayieResponse"]){
+        
+        NSLog (@"Successfully received the test notification!");
+        
+        if([notification.object isKindOfClass:[NSError class]]){
+            // manage error here
+            UIAlertController * alert =[UIAlertController
+                                        alertControllerWithTitle:@"Bayie" message: @"Error occurs" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okButton = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           
+                                           //    [self.navigationController popViewControllerAnimated:YES];
+                                           
+                                       }];
+            [alert addAction:okButton];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            [hud hideAnimated:YES];
+            
+            return;
+        }
+        
+        NSDictionary *responseDict = notification.object;
+        NSLog(@"%@", responseDict);
+        NSString *errormsg = responseDict[@"error"];
+        
+        if ([errormsg isEqualToString:@""]) {
+            myProfile = [[UserProfile alloc] initWithDictionary:responseDict[@"data"]];
+            DataClass *dataObj1=[DataClass getInstance];
+            dataObj1.userId = myProfile.idField;
+            dataObj1.userName = myProfile.name;
+            dataObj1.userEmail = myProfile.emailId;
+            dataObj1.userMobile = myProfile.phoneNumber;
+            if (myProfile.profileImage){
+                
+            }else{
+                if([responseDict[@"profileDefualtImg"] isKindOfClass:[NSString class]]){
+                    myProfile.profileImage = [responseDict objectForKey:@"profileDefualtImg"];
+                }
+            }
+            [hud hideAnimated:YES];
+            
+        }   else if (![errormsg isEqualToString:@""]){
+            
+            UIAlertController * alert =[UIAlertController
+                                        alertControllerWithTitle:@"Bayie" message: errormsg preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okButton = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           
+                                           //    [self.navigationController popViewControllerAnimated:YES];
+                                           
+                                       }];
+            [alert addAction:okButton];
+            
+            [self presentViewController:alert animated:YES completion:nil];
+            
+            [hud hideAnimated:YES];
+        }
+        [hud hideAnimated:YES];
     }
 }
 

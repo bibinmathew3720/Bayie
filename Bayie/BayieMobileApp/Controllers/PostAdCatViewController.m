@@ -56,12 +56,12 @@
 }
 
 -(void) addingActionSheetForPhotoAndVideo{
-    UIAlertController *alertCntrlr = [UIAlertController alertControllerWithTitle:@"Bayie" message:@"Choose File Type" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:@"Photo" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alertCntrlr = [UIAlertController alertControllerWithTitle:@"Bayie" message:NSLocalizedString(@"ChooseFileType", @"Choose File Type") preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *photoAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Photo", @"Photo") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
          [self showImagePicker];
         [pickerDelegate.doneButton.titleLabel addObserver:self forKeyPath:@"text" options:NSKeyValueObservingOptionNew | NSKeyValueObservingOptionOld context:nil];
     }];
-    UIAlertAction *videoAction = [UIAlertAction actionWithTitle:@"Video" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *videoAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Video", @"Video") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         if (!self.isFromEditAd){
             if([self checkVideosCount]){
                 [self addingAlertControllerForCameraAndGallery];
@@ -75,7 +75,7 @@
         }
     }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         self.tabBarController.selectedIndex = 0;
        // if (self.isFromEditAd){
             [self dismissViewControllerAnimated:true completion:nil];
@@ -122,16 +122,16 @@
 }
 
 -(void)addingAlertControllerForCameraAndGallery{
-    UIAlertController *alertCntrlr = [UIAlertController alertControllerWithTitle:@"Bayie" message:@"Choose Video Type" preferredStyle:UIAlertControllerStyleActionSheet];
-    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:@"Camera" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertController *alertCntrlr = [UIAlertController alertControllerWithTitle:@"Bayie" message:NSLocalizedString(@"ChooseVideoType", @"Choose Video Type") preferredStyle:UIAlertControllerStyleActionSheet];
+    UIAlertAction *cameraAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Camera", @"Camera") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self addingVideoViewControllerWithSourceType:UIImagePickerControllerSourceTypeCamera];
        
     }];
-    UIAlertAction *galleryAction = [UIAlertAction actionWithTitle:@"Gallery" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *galleryAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Gallery", @"Gallery") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         [self addingVideoViewControllerWithSourceType:UIImagePickerControllerSourceTypePhotoLibrary];
     }];
     
-    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel" style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
+    UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"Cancel", @"Cancel") style:UIAlertActionStyleCancel handler:^(UIAlertAction * _Nonnull action) {
         self.tabBarController.selectedIndex = 0;
         //if (self.isFromEditAd){
             [self dismissViewControllerAnimated:true completion:nil];

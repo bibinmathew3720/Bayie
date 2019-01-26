@@ -16,12 +16,22 @@
 @property (nonatomic, strong) NSString *currentImageBaseUrl;
 @property (weak, nonatomic) IBOutlet UIView *bottomView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bottomViewheightConstraint;
+
+@property (weak, nonatomic) IBOutlet UILabel *addMoreLabel;
+@property (weak, nonatomic) IBOutlet UILabel *removeLabel;
+
 @end
 @implementation BCollectionViewCell
 
 - (void)awakeFromNib {
     [super awakeFromNib];
+    [self localisation];
     // Initialization code
+}
+
+-(void)localisation{
+    self.addMoreLabel.text = NSLocalizedString(@"AddMore", @"Add More");
+    self.removeLabel.text = NSLocalizedString(@"Remove", @"Remove");
 }
 
 - (void)setAsset:(DKAsset *)asset {

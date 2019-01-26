@@ -21,6 +21,7 @@
             <connections>
                 <outlet property="adDetailHeadingLabel" destination="5Jq-iM-kGf" id="Ngl-cT-bcJ"/>
                 <outlet property="addMoreImageView" destination="XLc-Gj-lHK" id="rwO-17-dzE"/>
+                <outlet property="addMoreLabel" destination="eKP-Ff-2Qm" id="Jtq-9k-Yal"/>
                 <outlet property="addMoreView" destination="PBh-MS-597" id="RWh-F1-wRv"/>
                 <outlet property="additionalDetailLabel" destination="pUV-me-G8r" id="WI7-sW-sDR"/>
                 <outlet property="categoryDetailsLabel" destination="BJC-lr-t3x" id="SQs-8c-XhB"/>

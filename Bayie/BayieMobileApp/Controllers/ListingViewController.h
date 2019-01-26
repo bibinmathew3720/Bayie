@@ -26,7 +26,12 @@
 
 @property (weak, nonatomic) IBOutlet UILabel *categoryTitle;
 @property (weak, nonatomic) IBOutlet UILabel *location;
+@property (weak, nonatomic) IBOutlet UIButton *searchButton;
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
+@property (weak, nonatomic) IBOutlet UIImageView *downArrowIcon;
 @property (weak, nonatomic) IBOutlet NSString *lastLoc;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *sortViewheightConstraint;
+@property (weak, nonatomic) IBOutlet UIView *topView;
 
 
 @property (nonatomic,assign) int subCatStart;

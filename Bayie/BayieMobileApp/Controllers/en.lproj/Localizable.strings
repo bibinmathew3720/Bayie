@@ -122,6 +122,15 @@
 //Video Upload
 
 "VIDEOLIMIT" = "You can upload only one video";
+"Remove" = "Remove";
+"AddMore" = "Add More";
+"Camera" = "Camera";
+"Gallery" = "Gallery";
+"ChooseVideoType" = "Choose Video Type";
+"ChooseFileType" = "Choose File Type";
+"Cancel" = "Cancel";
+"Photo" = "Photo";
+"Video" = "Video";
 
 //Auctions
 
