@@ -18,4 +18,6 @@
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
 @property (weak, nonatomic) IBOutlet UIButton *bidNowButton;
 
+@property (nonatomic, strong) id auctionDetails;
+
 @end

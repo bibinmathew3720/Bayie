@@ -134,5 +134,13 @@
     return outputString;
 }
 
+-(NSDate *)convertToDate{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    NSDate *date = [dateFormatter dateFromString:self];
+    return date;
+}
+
 
 @end

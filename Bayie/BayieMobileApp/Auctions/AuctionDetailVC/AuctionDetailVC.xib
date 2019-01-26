@@ -24,6 +24,8 @@
                 <outlet property="bidButton" destination="3ej-Fo-YG2" id="ffV-B3-1z4"/>
                 <outlet property="bidHistoryTableView" destination="bhv-AT-aFk" id="W6T-sd-U88"/>
                 <outlet property="bidHistoryTableViewHeightConstraint" destination="CBz-fZ-5Aq" id="Hcc-QM-GOF"/>
+                <outlet property="bidNowButtonHeightConstraint" destination="ANA-pP-gV8" id="WCc-l8-RFE"/>
+                <outlet property="bidNowSeparatorHeiConstraint" destination="AXS-TF-oxh" id="SmL-Bb-KdP"/>
                 <outlet property="biddingHistoryHeadingLabel" destination="aIY-eW-He4" id="sRl-7L-xdm"/>
                 <outlet property="brandLabel" destination="n4Z-tQ-Wei" id="vCZ-eB-sui"/>
                 <outlet property="brandNameHeadingLabel" destination="3ab-Uq-x4D" id="0Nl-f1-0aA"/>
@@ -45,6 +47,7 @@
                 <outlet property="timerButton" destination="QNf-Ue-0Qz" id="CdM-qs-DSh"/>
                 <outlet property="view" destination="i5M-Pr-FkT" id="sfx-zR-JGt"/>
                 <outlet property="yourBidHeadingLabel" destination="Inj-BQ-GYV" id="EbA-D0-ahr"/>
+                <outlet property="yourBidViewHeiCnstaint" destination="oNr-di-PBG" id="XNj-ue-h1y"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
@@ -383,12 +386,12 @@
                                     </subviews>
                                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <constraints>
-                                        <constraint firstItem="Inj-BQ-GYV" firstAttribute="top" secondItem="0Io-8u-zOM" secondAttribute="top" constant="10" id="6qt-3S-Cbu"/>
+                                        <constraint firstItem="Inj-BQ-GYV" firstAttribute="centerY" secondItem="0Io-8u-zOM" secondAttribute="centerY" id="HjI-b6-1RL"/>
                                         <constraint firstAttribute="trailing" secondItem="uh6-65-FOS" secondAttribute="trailing" id="P91-6Y-F5E"/>
                                         <constraint firstItem="Inj-BQ-GYV" firstAttribute="centerX" secondItem="0Io-8u-zOM" secondAttribute="centerX" id="R4C-sf-Pt3"/>
                                         <constraint firstItem="uh6-65-FOS" firstAttribute="leading" secondItem="0Io-8u-zOM" secondAttribute="leading" id="R5f-jn-NFM"/>
                                         <constraint firstAttribute="bottom" secondItem="uh6-65-FOS" secondAttribute="bottom" id="S5w-3c-SBP"/>
-                                        <constraint firstAttribute="bottom" secondItem="Inj-BQ-GYV" secondAttribute="bottom" constant="10" id="e0i-xx-Muj"/>
+                                        <constraint firstAttribute="height" constant="39.5" id="oNr-di-PBG"/>
                                     </constraints>
                                 </view>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="sHP-jN-jC7">
@@ -415,7 +418,10 @@
                                         <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3ej-Fo-YG2">
                                             <rect key="frame" x="373" y="0.0" width="66" height="38"/>
                                             <color key="backgroundColor" red="0.0039215686274509803" green="0.69411764705882351" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                            <inset key="contentEdgeInsets" minX="10" minY="10" maxX="10" maxY="10"/>
+                                            <constraints>
+                                                <constraint firstAttribute="height" constant="38" id="ANA-pP-gV8"/>
+                                            </constraints>
+                                            <inset key="contentEdgeInsets" minX="10" minY="0.0" maxX="10" maxY="0.0"/>
                                             <state key="normal" title="Button">
                                                 <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                             </state>

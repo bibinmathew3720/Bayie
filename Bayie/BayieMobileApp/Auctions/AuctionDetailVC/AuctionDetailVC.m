@@ -52,9 +52,12 @@
 @property (weak, nonatomic) IBOutlet UITextField *myBidPriceTF;
 @property (weak, nonatomic) IBOutlet UILabel *myBidPriceTypeLabel;
 @property (weak, nonatomic) IBOutlet UIButton *bidButton;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bidNowButtonHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *yourBidViewHeiCnstaint;
 
 @property (nonatomic, strong) Auction *auctionDetails;
 @property (nonatomic, assign) CGFloat bidHistoryCellHeight;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *bidNowSeparatorHeiConstraint;
 @end
 
 @implementation AuctionDetailVC
@@ -147,7 +150,16 @@
     NSString *URLString = [NSLocalizedString(@"AUCTIONS_MANAGEMENT_URL", nil) stringByAppendingString:@"auctionDetails"];
     //    DataClass *obj=[DataClass getInstance];
     
-    NSDictionary *parameters =  @{@"slug":self.adId,@"language":[DataClass currentLanguageString],@"userToken":obj.userToken};
+   // NSDictionary *parameters =  @{@"slug":self.adId,@"language":[DataClass currentLanguageString],@"userToken":obj.userToken};
+    
+    NSMutableDictionary *parameters =  [[NSMutableDictionary alloc]init];
+    [parameters setValue:self.adId forKey:@"slug"];
+    [parameters setValue:[DataClass currentLanguageString] forKey:@"language"];
+    if (obj.userToken != nil){
+        [parameters setValue:obj.userToken forKey:@"userToken"];
+    }
+
+    
     NSError *error;
     
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
@@ -193,8 +205,20 @@
 }
 
 -(void)populateAdDetails{
-    NSString *timeString = NSLocalizedString(@"Expired", @"Expired");
-    [self.timerButton setTitle:timeString forState:UIControlStateNormal];
+    if (self.auctionDetails.isExpired){
+        NSString *expiredString = NSLocalizedString(@"Expired", @"Expired");
+        [self.timerButton setTitle:expiredString forState:UIControlStateNormal];
+        self.bidNowButtonHeightConstraint.constant = 0;
+        self.yourBidViewHeiCnstaint.constant = 0;
+        self.bidNowSeparatorHeiConstraint.constant = 0;
+        self.myBidPriceTF.hidden = YES;
+        self.myBidPriceTypeLabel.hidden = YES;
+        self.yourBidHeadingLabel.hidden = YES;
+        self.bidButton.hidden = YES;
+    }
+    else{
+        [self.timerButton setTitle:self.auctionDetails.expiredOn forState:UIControlStateNormal];
+    }
     [self changeFavouriteBtnImage:self.auctionDetails.isFavorite];
     if (self.auctionDetails.imagesArray.count>0){
         NSUInteger count = self.auctionDetails.imagesArray.count;

@@ -23,5 +23,6 @@
 - (int) noOfDigits;
 - (int) noOfSpecialCharacters;
 - (NSString *) removeBrTag;
+- (NSDate *)convertToDate;
 
 @end

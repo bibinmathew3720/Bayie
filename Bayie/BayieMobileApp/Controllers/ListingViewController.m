@@ -439,6 +439,7 @@
         }];
         NSString *timeString = NSLocalizedString(@"Expired", @"Expired");
         [auctionListingCVC.timerButton setTitle:timeString forState:UIControlStateNormal];
+        auctionListingCVC.auctionDetails = subcatDic;
         return auctionListingCVC;
     }
     else{

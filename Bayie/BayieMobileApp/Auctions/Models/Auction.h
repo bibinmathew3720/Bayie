@@ -23,12 +23,15 @@
 @property (nonatomic, assign) CGFloat currentPrice;
 @property (nonatomic, strong) NSString *adDescription;
 @property (nonatomic, strong) NSString *expiredOn;
+@property (nonatomic, strong) NSDate *expiredOnDate;
+@property (nonatomic, assign) BOOL isExpired;
 @property (nonatomic, assign) BOOL isFavorite;
 @property (nonatomic, strong) NSString *itemCondition;
 @property (nonatomic, strong) NSString *location;
 @property (nonatomic, assign) CGFloat minimumBidAmount;
 @property (nonatomic, strong) NSString *slug;
 @property (nonatomic, strong) NSString *startsOn;
+@property (nonatomic, strong) NSDate *startsOnDate;
 @property (nonatomic, assign) BOOL isActive;
 @property (nonatomic, assign) NSString *type;
 @property (nonatomic, assign) int viewCount;

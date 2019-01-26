@@ -6,6 +6,8 @@
 //  Copyright © 2019 Abbie. All rights reserved.
 //
 
+#import "Auction.h"
+
 #import "AuctionListingCVC.h"
 
 @implementation AuctionListingCVC
@@ -18,6 +20,20 @@
 
 -(void)initialisation {
     [self.bidNowButton setTitle:NSLocalizedString(@"BIDNOW", @"BID NOW") forState:UIControlStateNormal];
+}
+
+-(void)setAuctionDetails:(id)auctionDetails{
+    Auction *auction = [[Auction alloc] initWithAuctionDictionary:[NSDictionary dictionaryWithObject:auctionDetails forKey:@"data"]];
+    
+    if (auction.isExpired ){
+        NSString *timeString = NSLocalizedString(@"Expired", @"Expired");
+        [self.timerButton setTitle:timeString forState:UIControlStateNormal];
+        self.bidNowButton.hidden = YES;
+    }
+    else{
+       [self.timerButton setTitle:auction.expiredOn forState:UIControlStateNormal];
+    }
+   
 }
 
 -(void)layoutSubviews{

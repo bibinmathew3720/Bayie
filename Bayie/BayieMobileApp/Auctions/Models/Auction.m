@@ -9,6 +9,7 @@
 #import "Auction.h"
 #import "AdImages.h"
 #import "BidHistory.h"
+#import "NSString+Extension.h"
 
 NSString *const kData = @"data";
 NSString *const kAdId = @"id";
@@ -58,6 +59,7 @@ NSString *const kBidHistory = @"bid_history";
         self.currentBidUser = @"";
         self.adDescription = @"";
         self.expiredOn = @"";
+        self.isExpired = NO;
         self.isFavorite = false;
         self.itemCondition = @"";
         self.location = @"";
@@ -115,6 +117,8 @@ NSString *const kBidHistory = @"bid_history";
         }
         if (![dataDictionary[kAdExpiredOn] isKindOfClass:[NSNull class]]){
             self.expiredOn = dataDictionary[kAdExpiredOn];
+            self.expiredOnDate = [self.expiredOn convertToDate];
+            self.isExpired = [self isDateExpired:self.expiredOnDate];
         }
         if (![dataDictionary[kFavorite] isKindOfClass:[NSNull class]]){
             NSString *favorite = dataDictionary[kFavorite];
@@ -137,6 +141,7 @@ NSString *const kBidHistory = @"bid_history";
         }
         if (![dataDictionary[kStartsOn] isKindOfClass:[NSNull class]]){
             self.startsOn = dataDictionary[kStartsOn];
+            self.startsOnDate = [self.startsOn convertToDate];
         }
         if (![dataDictionary[kStatus] isKindOfClass:[NSNull class]]){
             NSString *status = dataDictionary[kStatus];
@@ -184,5 +189,19 @@ NSString *const kBidHistory = @"bid_history";
         }
     }
     return self;
+}
+
+
+
+-(BOOL) isDateExpired:(NSDate *)compDate{
+    NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
+    [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
+    NSString *currentDate = [dateFormatter stringFromDate:[NSDate date]];
+    NSDate *today = [currentDate convertToDate];
+    if ([today compare:compDate] == NSOrderedDescending){
+        return YES;
+    }
+    return NO;
 }
 @end
