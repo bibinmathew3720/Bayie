@@ -437,9 +437,10 @@
     if (self.pageType == PageTypeAuctions){
         AuctionListingCVC *auctionListingCVC = [collectionView dequeueReusableCellWithReuseIdentifier:@"auctionListingCVC" forIndexPath:indexPath];
         auctionListingCVC.adNameLabel.text = [NSString stringWithFormat:@"%@",[subcatDic valueForKey:@"title"]];
-        auctionListingCVC.locationNameLabel.text = [firstWord stringByAppendingString:newDateFormat];
-        if(![[subcatDic valueForKey:@"base_price"] isEqual: @""]){
-            auctionListingCVC.priceLabel.text = [[subcatDic valueForKey:@"base_price"]stringByAppendingString:NSLocalizedString(@" OMR", nil)];
+        //auctionListingCVC.locationNameLabel.text = [firstWord stringByAppendingString:newDateFormat];
+        auctionListingCVC.locationNameLabel.text = [NSString stringWithFormat:@"%@",[subcatDic valueForKey:@"description"]];
+        if(![[subcatDic valueForKey:@"current_bid_amount"] isEqual: @""]){
+            auctionListingCVC.priceLabel.text = [[subcatDic valueForKey:@"current_bid_amount"]stringByAppendingString:NSLocalizedString(@" OMR", nil)];
         }
         else{
             auctionListingCVC.priceLabel.text = @"";
