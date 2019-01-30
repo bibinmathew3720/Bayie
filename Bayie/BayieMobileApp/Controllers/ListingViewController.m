@@ -512,7 +512,7 @@
   
     CGFloat labelHeights = 0;
     if (self.pageType == PageTypeAuctions){
-        labelHeights = 70;
+        labelHeights = 100;
     }
     else{
         labelHeights = 50;
