@@ -46,6 +46,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *brandNameHeadingLabel;
 @property (weak, nonatomic) IBOutlet UILabel *brandLabel;
 @property (weak, nonatomic) IBOutlet UILabel *biddingHistoryHeadingLabel;
+@property (weak, nonatomic) IBOutlet UILabel *noBidHistoryLabel;
 @property (weak, nonatomic) IBOutlet UITableView *bidHistoryTableView;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bidHistoryTableViewHeightConstraint;
 @property (weak, nonatomic) IBOutlet UILabel *yourBidHeadingLabel;
@@ -86,6 +87,7 @@
     self.priceHeadingLabel.text = NSLocalizedString(@"Price", @"Price");
     self.brandNameHeadingLabel.text = NSLocalizedString(@"BrandName", @"Brand Name");
     self.biddingHistoryHeadingLabel.text = NSLocalizedString(@"BiddingHistory", @"Bidding History");
+    self.noBidHistoryLabel.text = NSLocalizedString(@"NoBidHistoryAvailable", @"No Bid History Available");
     self.yourBidHeadingLabel.text = NSLocalizedString(@"YourBid", @"Your bid");
     [self.bidButton setTitle:NSLocalizedString(@"BIDNOW", @"BID NOW") forState:UIControlStateNormal];
 }
@@ -239,6 +241,14 @@
     //self.brandLabel.text = self.auctionDetails.
     self.myBidPriceTF.text = [NSString stringWithFormat:@"%0.0f",self.auctionDetails.currentBidAmount];
     self.bidHistoryTableViewHeightConstraint.constant = self.bidHistoryCellHeight * self.auctionDetails.bidHistory.count;
+    if (self.auctionDetails.bidHistory.count == 0){
+        self.noBidHistoryLabel.hidden = NO;
+        self.bidHistoryTableView.hidden = YES;
+    }
+    else{
+        self.noBidHistoryLabel.hidden = YES;
+        self.bidHistoryTableView.hidden = NO;
+    }
     [self.bidHistoryTableView reloadData];
     [self.imagesCollectionView reloadData];
 }

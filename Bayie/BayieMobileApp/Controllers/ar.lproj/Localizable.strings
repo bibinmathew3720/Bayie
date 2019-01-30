@@ -146,6 +146,7 @@
 "Bids" = "العروض";
 "OK" = "حسنا";
 "PleaseEnterbidAmount" = "الرجاء إدخال مبلغ العطاء";
+"NoBidHistoryAvailable" = "لا يوجد محفوظات المزايدة";
 "BidHistory" = "تاريخ المناقصة";
 "AUCTIONHISTORY" = "تاريخ المزاد";
 "WinHistory" = "اربح التاريخ";

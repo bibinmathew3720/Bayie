@@ -13,6 +13,9 @@
         <array key="Lato-Bold.ttf">
             <string>Lato-Bold</string>
         </array>
+        <array key="Lato-Light.ttf">
+            <string>Lato-Light</string>
+        </array>
         <array key="Lato-Regular.ttf">
             <string>Lato-Regular</string>
         </array>
@@ -41,6 +44,7 @@
                 <outlet property="modelLabel" destination="7xe-31-sx2" id="7El-lk-mMy"/>
                 <outlet property="myBidPriceTF" destination="5MM-Fc-zJr" id="k1G-8Z-Vdb"/>
                 <outlet property="myBidPriceTypeLabel" destination="Mqe-ML-Hhh" id="R4I-Dx-qoS"/>
+                <outlet property="noBidHistoryLabel" destination="QOn-7k-3qB" id="g2E-s3-a6E"/>
                 <outlet property="priceHeadingLabel" destination="TZ0-uo-R7i" id="0rQ-gT-obP"/>
                 <outlet property="priceLabel" destination="4ZE-FP-0jU" id="rkD-ik-TtR"/>
                 <outlet property="productDetailsLabel" destination="ZBS-i6-RMP" id="xtt-Xi-nI5"/>
@@ -367,6 +371,15 @@
                                         <outlet property="delegate" destination="-1" id="Jv7-6y-LGs"/>
                                     </connections>
                                 </tableView>
+                                <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="QOn-7k-3qB">
+                                    <rect key="frame" x="204" y="561.5" width="32.5" height="30"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="30" id="OiB-kK-ebH"/>
+                                    </constraints>
+                                    <fontDescription key="fontDescription" name="Lato-Light" family="Lato" pointSize="14"/>
+                                    <color key="textColor" red="0.59607843140000005" green="0.64313725489999995" blue="0.69411764710000001" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="0Io-8u-zOM">
                                     <rect key="frame" x="0.0" y="699.5" width="439" height="39.5"/>
                                     <subviews>
@@ -464,7 +477,10 @@
                                 <constraint firstItem="2CV-du-oYI" firstAttribute="top" secondItem="hSB-bi-ntb" secondAttribute="bottom" constant="5.5" id="Uwd-8B-Qhs"/>
                                 <constraint firstItem="sHP-jN-jC7" firstAttribute="trailing" secondItem="0Io-8u-zOM" secondAttribute="trailing" id="W5x-AD-cwa"/>
                                 <constraint firstItem="n7K-9u-DMF" firstAttribute="top" secondItem="nSv-XS-Wxg" secondAttribute="bottom" constant="8" id="WV8-U6-WNe"/>
+                                <constraint firstItem="0Io-8u-zOM" firstAttribute="top" relation="greaterThanOrEqual" secondItem="QOn-7k-3qB" secondAttribute="bottom" constant="10" id="WwB-xx-0HY"/>
                                 <constraint firstItem="2CV-du-oYI" firstAttribute="trailing" secondItem="hSB-bi-ntb" secondAttribute="trailing" id="YXF-08-uQ5"/>
+                                <constraint firstItem="QOn-7k-3qB" firstAttribute="centerX" secondItem="aP4-mx-pNg" secondAttribute="centerX" id="Ys2-y4-Eg8"/>
+                                <constraint firstItem="QOn-7k-3qB" firstAttribute="top" secondItem="n7K-9u-DMF" secondAttribute="bottom" constant="10" id="dxe-Nw-YXX"/>
                                 <constraint firstAttribute="trailing" secondItem="MZn-fC-8Am" secondAttribute="trailing" id="gvs-Ui-WiM"/>
                                 <constraint firstItem="n7K-9u-DMF" firstAttribute="leading" secondItem="nSv-XS-Wxg" secondAttribute="leading" id="kHa-6V-wnE"/>
                                 <constraint firstItem="0Io-8u-zOM" firstAttribute="trailing" secondItem="bhv-AT-aFk" secondAttribute="trailing" id="lTr-Tr-E2k"/>
