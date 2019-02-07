@@ -15,7 +15,7 @@
 "2aY-Wd-bb4.text" = "Migrate hdt speaker ";
 
 /* Class = "UILabel"; text = "Condition"; ObjectID = "3n8-vt-YOe"; */
-"3n8-vt-YOe.text" = "شرط";
+"3n8-vt-YOe.text" = "الحالة";
 
 /* Class = "UILabel"; text = "Trending Ads"; ObjectID = "3te-2I-3i3"; */
 "3te-2I-3i3.text" = "الإعلانات الشائعة";
@@ -81,7 +81,7 @@
 "BSb-fi-tJX.text" = "هل نسيت كلمة المرور؟";
 
 /* Class = "UILabel"; text = "Ad Details"; ObjectID = "Bu6-zN-OFp"; */
-"Bu6-zN-OFp.text" = "تفاصيل الإعلان";
+"Bu6-zN-OFp.text" = "التفاصيل الإعلان";
 
 /* Class = "UILabel"; text = "Electronics and appliances"; ObjectID = "BvG-pF-Y8D"; */
 "BvG-pF-Y8D.text" = "Electronics and appliances";
@@ -246,7 +246,7 @@
 "c9G-0z-YhD.text" = "تغيير كلمة السر";
 
 /* Class = "UILabel"; text = "Description"; ObjectID = "caz-n9-kiX"; */
-"caz-n9-kiX.text" = "وصف";
+"caz-n9-kiX.text" = "الوصف";
 
 /* Class = "UILabel"; text = "Mirage hdt speaker"; ObjectID = "dGZ-Xm-EuT"; */
 "dGZ-Xm-EuT.text" = "Mirage hdt speaker";
@@ -444,7 +444,7 @@
 "uzW-No-RK6.title" = "نشر إعلان";
 
 /* Class = "UILabel"; text = "Seller Detail"; ObjectID = "v3p-k9-RPZ"; */
-"v3p-k9-RPZ.text" = "تفاصيل البائع";
+"v3p-k9-RPZ.text" = "التفاصيل البائع";
 
 /* Class = "UILabel"; text = "A3"; ObjectID = "vCj-dI-awO"; */
 "vCj-dI-awO.text" = "تم البحث في";

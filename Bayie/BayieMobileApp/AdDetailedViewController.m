@@ -648,7 +648,7 @@
                 {
                     AdPropertyTableViewCell *propertyCell = [tableView dequeueReusableCellWithIdentifier:@"PropertyCell"];
                     if([strSelectedLanguage isEqualToString:[NSString stringWithFormat: @"ar"]]) {
-                        propertyCell.titleLbl.text = @"اسم العلامة التجارية";
+                        propertyCell.titleLbl.text = @"اسم الشركة (العلامة التجارية)";
                     }else {
                         propertyCell.titleLbl.text = @"Brand Name";
                     }

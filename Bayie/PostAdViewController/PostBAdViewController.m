@@ -142,16 +142,16 @@
     if([strSelectedLanguage isEqualToString:[NSString stringWithFormat: @"ar"]]){
         self.isArabic = YES;
         self.title = @"نشر إعلان";
-        self.categoryDetailsLabel.text = @"تفاصيل الفئة";
+        self.categoryDetailsLabel.text = @"التفاصيل الفئة";
         self.categoryLabel.text = @"الفئة";
         self.selectedCategoryLabel.text = @"اخترالفئة";
         self.subCategoryHeadingLabel.text = @"الفئة الفرعية";
         self.subCategoryLabel.text = @"حدد الفئة الفرعية";
-        self.adDetailHeadingLabel.text =@"تفاصيل الإعلان";
+        self.adDetailHeadingLabel.text =@"التفاصيل الإعلان";
         self.postAdTitleTextFeild.placeholder = @"عنوان";
-        self.descriptionTextView.text = @"أدخل وصفا لإعلانك";
+        self.descriptionTextView.text = @"أدخل الوصفا لإعلانك";
         self.priceTextField.placeholder = @"السعر";
-        self.additionalDetailLabel.text = @"تفاصيل اضافية";
+        self.additionalDetailLabel.text = @"التفاصيل اضافية";
         self.contactDetailLabel.text = @"بيانات المتصل";
         self.nameTextField.placeholder = @"اسم";
         self.emailTextField.placeholder = @"البريد الإلكتروني";
@@ -424,7 +424,7 @@
         message = self.isArabic?@"يرجى إضافة عنوان":@"Please add a title.";
     }else if([self.postAdTitleTextFeild.text length] < 10) {
         message = self.isArabic?@"أدخل عنوان الإعلان بحد أدنى 10 أحرف.":@"Enter title for ad with minimum 10 characters.";
-    }else if([self.descriptionTextView.text length] == 0 || [self.descriptionTextView.text isEqualToString:@"Enter a description for your ad"] ||[self.descriptionTextView.text isEqualToString:@"أدخل وصفا لإعلانك"]) {
+    }else if([self.descriptionTextView.text length] == 0 || [self.descriptionTextView.text isEqualToString:@"Enter a description for your ad"] ||[self.descriptionTextView.text isEqualToString:@"أدخل الوصفا لإعلانك"]) {
         message = self.isArabic?@"يرجى إضافة تنقيح لإعلانك.":@"Please add descrition for your ad.";
     }else if([self.priceTextField.text length] == 0) {
         message = self.isArabic?@"يرجى إضافة سعر.":@"Please add a price.";
@@ -481,7 +481,7 @@
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView {
-    if([textView.text isEqualToString:@"أدخل وصفا لإعلانك"]||[textView.text isEqualToString:@"Enter a description for your ad"]){
+    if([textView.text isEqualToString:@"أدخل الوصفا لإعلانك"]||[textView.text isEqualToString:@"Enter a description for your ad"]){
         textView.text = @"";
         textView.textColor = [UIColor blackColor];
     }
@@ -490,7 +490,7 @@
 - (void)textViewDidEndEditing:(UITextView *)textView {
     if([textView.text  length] == 0) {
         textView.textColor = [UIColor lightGrayColor];
-        textView.text = self.isArabic?@"أدخل وصفا لإعلانك": @"Enter a description for your ad";
+        textView.text = self.isArabic?@"أدخل الوصفا لإعلانك": @"Enter a description for your ad";
     }
 }
 

@@ -20,8 +20,8 @@
 "PROFILE_APP_LANGUAGE" = "Profile > App Language";
 // LOGIN
 "LOGIN" = "تسجيل الدخول";
-"CONNECT_WITH_FACEBOOK"  = "تواصل مع الفيسبوك";
-"CONNECT_WITH_GOOGLE" = "تواصل مع غوغل";
+"CONNECT_WITH_FACEBOOK"  = "تسجيل دخول بواسطة فيس بوك";
+"CONNECT_WITH_GOOGLE" = "تواصل مع جوجل";
 "BUY_AND_SELL_ANYTHING_AT_YOUR_CONVENIENCE" = "شراء وبيع أي شيء على راحتك! ";
 "EMAIL_OR_MOBILE "= "البريد الإلكتروني أو الجوال";
 "PASSWORD" = "كلمه السر";
@@ -133,22 +133,22 @@
 
 "Ads" = "إعلانات";
 "Auctions" = "مزادات";
-"Description" = "وصف";
-"Details" = "تفاصيل";
-"Condition" = "شرط";
-"Model" = "نموذج";
+"Description" = "الوصف";
+"Details" = "التفاصيل";
+"Condition" = "الحالة";
+"Model" = "الطراز";
 "Price" = "السعر";
-"BrandName" = "اسم العلامة التجارية";
-"BiddingHistory" = "تاريخ المناقصة";
-"YourBid" = "رهانك";
+"BrandName" = "اسم الشركة (العلامة التجارية)";
+"BiddingHistory" = "تاريخ المزايدات";
+"YourBid" = "مزايدتك";
 "BIDNOW" = "حان الآن";
 "ID" = "هوية شخصية";
 "Bids" = "العروض";
 "OK" = "حسنا";
 "PleaseEnterbidAmount" = "الرجاء إدخال مبلغ العطاء";
 "NoBidHistoryAvailable" = "لا يوجد محفوظات المزايدة";
-"BidHistory" = "تاريخ المناقصة";
-"AUCTIONHISTORY" = "تاريخ المزاد";
+"BidHistory" = "تاريخ المزايدات";
+"AUCTIONHISTORY" = "تاريخ المزادات";
 "WinHistory" = "اربح التاريخ";
 "AUCTIONWINS" = "فوز بالمزاد";
 
@@ -162,7 +162,7 @@
 
 //Win History
 
-"VIEWDETAILS" = "عرض التفاصيل";
+"VIEWDETAILS" = "عرض الالتفاصيل";
 "Status" = "الحالة";
 "ShippingAddress" = "عنوان الشحن";
 "ShippingLocation" = "مكان الشحن";
