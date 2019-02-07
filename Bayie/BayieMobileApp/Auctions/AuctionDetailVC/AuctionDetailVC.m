@@ -30,6 +30,7 @@
 }
 @property (weak, nonatomic) IBOutlet UIImageView *defaultImageView;
 @property (weak, nonatomic) IBOutlet UICollectionView *imagesCollectionView;
+@property (weak, nonatomic) IBOutlet UIPageControl *pageControl;
 @property (weak, nonatomic) IBOutlet UILabel *adTitleLabel;
 @property (weak, nonatomic) IBOutlet UILabel *productDetailsLabel;
 @property (weak, nonatomic) IBOutlet UILabel *currentPriceLabel;
@@ -227,10 +228,12 @@
     if (self.auctionDetails.imagesArray.count>0){
         NSUInteger count = self.auctionDetails.imagesArray.count;
         imageCountLbl.text = [NSString stringWithFormat:@"%d/%lu",1, (unsigned long)count];
+        self.pageControl.numberOfPages = count;
     }
     else{
         self.imagesCollectionView.hidden = YES;
         [self.defaultImageView sd_setImageWithURL:[NSURL URLWithString:self.auctionDetails.defaultImageUrl]];
+        self.pageControl.hidden = YES;
     }
     self.adTitleLabel.text = self.auctionDetails.adTitle;
     NSString *prodDetailString = [NSString stringWithFormat:@"%@:%d | %@:%d | %@ - %0.2f OMR",NSLocalizedString(@"ID", @"ID"),self.auctionDetails.auctionId,NSLocalizedString(@"Bids", @"Bids"),self.auctionDetails.bidCount,self.auctionDetails.currentBidUser,self.auctionDetails.currentPrice];
@@ -258,6 +261,7 @@
 - (void)indexValue:(int)index{
     NSUInteger count = self.auctionDetails.imagesArray.count;
     imageCountLbl.text = [NSString stringWithFormat:@"%d/%lu",index + 1, (unsigned long)count];
+    self.pageControl.currentPage = index;
 }
 
 -(BOOL)isLoggedIn{
