@@ -25,7 +25,7 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="BuI-bF-WlS">
-                        <rect key="frame" x="10" y="14" width="80" height="16"/>
+                        <rect key="frame" x="10" y="14.5" width="80" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="80" id="VZj-z2-Tg5"/>
                         </constraints>
@@ -34,7 +34,7 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="F9a-Fo-3b1">
-                        <rect key="frame" x="90" y="13.5" width="200" height="16"/>
+                        <rect key="frame" x="90" y="14" width="200" height="16"/>
                         <constraints>
                             <constraint firstAttribute="width" constant="200" id="Nta-0I-wwi"/>
                         </constraints>

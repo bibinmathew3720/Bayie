@@ -89,6 +89,7 @@
     self.biddingHistoryHeadingLabel.text = NSLocalizedString(@"BiddingHistory", @"Bidding History");
     self.noBidHistoryLabel.text = NSLocalizedString(@"NoBidHistoryAvailable", @"No Bid History Available");
     self.yourBidHeadingLabel.text = NSLocalizedString(@"YourBid", @"Your bid");
+    self.myBidPriceTF.placeholder = NSLocalizedString(@"YourBid", @"Your bid");
     [self.bidButton setTitle:NSLocalizedString(@"BIDNOW", @"BID NOW") forState:UIControlStateNormal];
 }
 
@@ -239,7 +240,7 @@
     //self.modelLabel.text = self.auctionDetails.
     self.priceLabel.text = [NSString stringWithFormat:@"%0.2f OMR",self.auctionDetails.basePrice];
     //self.brandLabel.text = self.auctionDetails.
-    self.myBidPriceTF.text = [NSString stringWithFormat:@"%0.0f",self.auctionDetails.currentBidAmount];
+    //self.myBidPriceTF.text = [NSString stringWithFormat:@"%0.0f",self.auctionDetails.currentBidAmount];
     self.bidHistoryTableViewHeightConstraint.constant = self.bidHistoryCellHeight * self.auctionDetails.bidHistory.count;
     if (self.auctionDetails.bidHistory.count == 0){
         self.noBidHistoryLabel.hidden = NO;
@@ -372,6 +373,7 @@
                 int statusCode = [[responseObject valueForKey:@"status"] intValue];
                 NSString *messageString = @"";
                 if (statusCode == 200){
+                    _myBidPriceTF.text = @"";
                     messageString = [[responseObject valueForKey:@"data"] valueForKey:@"msg"];
                 }
                 else{
@@ -381,7 +383,7 @@
                 }
                 if (messageString.length>0){
                     [Utility showAlertInController:self withMessageString:messageString withCompletion:^(BOOL isCompleted) {
-                        
+                        [self getAdDetailsFromServer];
                     }];
                 }
             }
