@@ -59,6 +59,7 @@
 @property (nonatomic, strong) Auction *auctionDetails;
 @property (nonatomic, assign) CGFloat bidHistoryCellHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bidNowSeparatorHeiConstraint;
+@property (nonatomic, assign) BOOL isBidded;
 @end
 
 @implementation AuctionDetailVC
@@ -278,6 +279,11 @@
 #pragma mark - Button Actions
 
 - (void)backBtnClicked{
+    if (self.isBidded){
+        if (self.auctionDetailDelegate && [self.auctionDetailDelegate respondsToSelector:@selector(bidDetailsModifiedDelegate)]){
+            [self.auctionDetailDelegate bidDetailsModifiedDelegate];
+        }
+    }
     [self.navigationController popViewControllerAnimated:YES];
 }
 
@@ -373,6 +379,7 @@
                 int statusCode = [[responseObject valueForKey:@"status"] intValue];
                 NSString *messageString = @"";
                 if (statusCode == 200){
+                    self.isBidded = YES;
                     _myBidPriceTF.text = @"";
                     messageString = [[responseObject valueForKey:@"data"] valueForKey:@"msg"];
                 }

@@ -25,7 +25,7 @@
 
 //NSString *adsListImg_Url = @"http://www.productiondemos.com/bayie";
 
-@interface ListingViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,SortViewControllerDelegate,FilterVCDelegate>
+@interface ListingViewController ()<UICollectionViewDataSource,UICollectionViewDelegate,UICollectionViewDelegateFlowLayout,SortViewControllerDelegate,FilterVCDelegate,AuctionDetailVCDelegate>
 {
     NSMutableArray *subcatArrayList;
     NSDictionary *subcatDic;
@@ -453,6 +453,11 @@
         NSString *timeString = NSLocalizedString(@"Expired", @"Expired");
         [auctionListingCVC.timerButton setTitle:timeString forState:UIControlStateNormal];
         auctionListingCVC.auctionDetails = subcatDic;
+        if(  totalCount == indexPath.row+1  ){
+            _subCatStart = indexPath.row+1 - [self calculateDED:indexPath.row];
+            [self performSelector:@selector(checkAndLoadList:) withObject:self afterDelay:2];
+            
+        }
         return auctionListingCVC;
     }
     else{
@@ -491,6 +496,7 @@
         NSString *ad_id = [dataObj valueForKey:@"slug"];
         
         AuctionDetailVC *auctionDetailVC = [[AuctionDetailVC alloc] initWithNibName:@"AuctionDetailVC" bundle:nil];
+        auctionDetailVC.auctionDetailDelegate = self;
         auctionDetailVC.adId = ad_id;
         [self.navigationController pushViewController:auctionDetailVC animated:YES];
     }
@@ -894,8 +900,14 @@
 }
 
 -(void) checkAndLoadList:(id) sender{
-    if(totalSubCatResult > totalCount)
-        [self subCatList];
+    if(totalSubCatResult > totalCount){
+        if (self.pageType == PageTypeAuctions) {
+            [self callingAuctionListApi];
+        }
+        else{
+            [self subCatList];
+        }
+    }
 }
 
 -(int)calculateDED:(int)row{
@@ -987,4 +999,12 @@
     [subcatArrayList removeAllObjects];
     [self callingApis];
 }
+
+#pragma mark - Auction Detail Page Delegate
+
+-(void)bidDetailsModifiedDelegate{
+    [subcatArrayList removeAllObjects];
+    [self callingApis];
+}
+
 @end
