@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="13196" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14109" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="13173"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14088"/>
         <capability name="Constraints to layout margins" minToolsVersion="6.0"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
@@ -24,15 +24,18 @@
                 <outlet property="attributeTextField" destination="bPq-C8-hfU" id="mH6-kq-KPf"/>
                 <outlet property="backArrowImageView" destination="DKq-fv-23d" id="UQ2-6q-ukG"/>
                 <outlet property="bottomFilterButton" destination="aU0-Zg-v0X" id="vjI-55-HTT"/>
+                <outlet property="categoriesTopConstraint" destination="g56-C1-MCL" id="PXv-AB-b3R"/>
                 <outlet property="categoryArrowImageView" destination="AEQ-Ag-KEP" id="HKp-pq-Rec"/>
                 <outlet property="categoryLabel" destination="LJD-TP-m9c" id="wUk-2d-nhV"/>
                 <outlet property="clearButton" destination="Yha-Hh-Kwv" id="adZ-xo-s2k"/>
                 <outlet property="headingLabel" destination="mTz-tc-Xpz" id="GUJ-Ka-nWq"/>
                 <outlet property="leftTableView" destination="G4i-QA-F2j" id="aWJ-y9-BPG"/>
-                <outlet property="leftTableViewTopConstarint" destination="WAl-WA-0Mq" id="0Aa-ah-5ht"/>
+                <outlet property="leftTableViewTopConstarint" destination="WAl-WA-0Mq" id="P5T-YJ-I6G"/>
+                <outlet property="locationButton" destination="1Ea-2J-mSM" id="0fg-aQ-2Fs"/>
                 <outlet property="locationLabel" destination="S8h-V3-QBu" id="k7w-DX-w91"/>
                 <outlet property="locationRightArrow" destination="fJ3-4X-sel" id="G2q-ml-scW"/>
                 <outlet property="locationView" destination="cfv-Va-rke" id="2ab-Ya-nhq"/>
+                <outlet property="locationViewHeightConstraint" destination="Xh9-si-nfc" id="mb1-wt-5gI"/>
                 <outlet property="rightTableView" destination="EbW-zk-r17" id="WxB-xj-5xx"/>
                 <outlet property="selctButtonCategory" destination="TvW-Lm-WHU" id="OZR-Ij-DoJ"/>
                 <outlet property="topView" destination="6Ht-2g-zlj" id="Rau-h7-eAA"/>
@@ -58,7 +61,7 @@
                             <rect key="frame" x="10" y="26" width="22" height="22"/>
                         </imageView>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="FILTER" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mTz-tc-Xpz">
-                            <rect key="frame" x="159.5" y="26.5" width="57" height="21"/>
+                            <rect key="frame" x="159.5" y="26" width="57" height="22"/>
                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="18"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                             <nil key="highlightedColor"/>
@@ -92,30 +95,30 @@
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="KM7-KO-TBg">
                     <rect key="frame" x="0.0" y="64" width="128" height="553"/>
                     <subviews>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="cfv-Va-rke">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="cfv-Va-rke">
                             <rect key="frame" x="0.0" y="0.0" width="128" height="61"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Select Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8h-V3-QBu">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Location" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S8h-V3-QBu">
                                     <rect key="frame" x="5" y="10" width="107" height="41"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                     <color key="textColor" red="0.0" green="0.69411764705882351" blue="0.69019607843137254" alpha="1" colorSpace="calibratedRGB"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="fJ3-4X-sel">
+                                <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="fJ3-4X-sel">
                                     <rect key="frame" x="117" y="24.5" width="8" height="12"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="App-Dk-3de"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ea-2J-mSM">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1Ea-2J-mSM">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="61"/>
                                     <connections>
                                         <action selector="categoryButtonAction:" destination="-1" eventType="touchUpInside" id="MyU-KM-ANt"/>
                                         <action selector="locationButtonAction:" destination="-1" eventType="touchUpInside" id="8NS-Qj-DgR"/>
                                     </connections>
                                 </button>
-                                <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="XRM-KB-U8C">
+                                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XRM-KB-U8C">
                                     <rect key="frame" x="0.0" y="60.5" width="128" height="0.5"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
@@ -141,29 +144,29 @@
                                 <constraint firstItem="fJ3-4X-sel" firstAttribute="centerY" secondItem="cfv-Va-rke" secondAttribute="centerY" id="yc0-t4-Aw0"/>
                             </constraints>
                         </view>
-                        <view contentMode="scaleToFill" ambiguous="YES" translatesAutoresizingMaskIntoConstraints="NO" id="6Ht-2g-zlj">
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="6Ht-2g-zlj">
                             <rect key="frame" x="0.0" y="61" width="128" height="61"/>
                             <subviews>
-                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" text="Select Categories" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJD-TP-m9c">
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Select Categories" lineBreakMode="tailTruncation" numberOfLines="0" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LJD-TP-m9c">
                                     <rect key="frame" x="5" y="10" width="107" height="41"/>
                                     <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="calibratedWhite"/>
                                     <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="17"/>
                                     <nil key="highlightedColor"/>
                                 </label>
-                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" ambiguous="YES" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="AEQ-Ag-KEP">
+                                <imageView hidden="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="arrow-right" translatesAutoresizingMaskIntoConstraints="NO" id="AEQ-Ag-KEP">
                                     <rect key="frame" x="117" y="24.5" width="8" height="12"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="8" id="Z6Z-Xw-JEi"/>
                                     </constraints>
                                 </imageView>
-                                <button opaque="NO" contentMode="scaleToFill" ambiguous="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvW-Lm-WHU">
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TvW-Lm-WHU">
                                     <rect key="frame" x="0.0" y="0.0" width="128" height="61"/>
                                     <connections>
                                         <action selector="categoryButtonAction:" destination="-1" eventType="touchUpInside" id="mlb-Vk-iF8"/>
                                     </connections>
                                 </button>
                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qo3-Ee-JGJ">
-                                    <rect key="frame" x="0.0" y="61.5" width="128" height="0.5"/>
+                                    <rect key="frame" x="0.0" y="60.5" width="128" height="0.5"/>
                                     <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
                                     <constraints>
                                         <constraint firstAttribute="height" constant="0.5" id="yAI-Dl-7zt"/>

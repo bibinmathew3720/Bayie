@@ -131,12 +131,11 @@
         self.locationButton.hidden = YES;
         self.downArrowIcon.hidden = YES;
         self.downArrowButton.hidden = YES;
-        self.searchButton.hidden = YES;
-        self.sortFilterHeiCnstraint.constant = 0.0;
-        self.sortButton.hidden = YES;
-        self.filterButton.hidden = YES;
-        self.middleBorderView.hidden = YES;
-        //self.categoryTopConstraint.constant = 0;
+       // self.searchButton.hidden = YES;
+       // self.sortFilterHeiCnstraint.constant = 0.0;
+       // self.sortButton.hidden = YES;
+       // self.filterButton.hidden = YES;
+      //  self.middleBorderView.hidden = YES;
     }
 }
 
@@ -942,6 +941,9 @@
 -(void)loadFilterVC{
     FilterVC *filterVC = [[FilterVC alloc] initWithNibName:@"FilterVC" bundle:nil];
     filterVC.filterVcDelegate = self;
+    if (self.pageType == PageTypeAuctions){
+        filterVC.isFromAuction = YES;
+    }
     [self.navigationController pushViewController:filterVC animated:YES];
 }
 
@@ -997,6 +999,7 @@
 
 -(void)filterVcItem:(FilterVC *)viewController clickedItem:(id)item{
     [subcatArrayList removeAllObjects];
+    [self.listingTableView reloadData];
     [self callingApis];
 }
 

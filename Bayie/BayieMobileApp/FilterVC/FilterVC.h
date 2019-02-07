@@ -29,7 +29,7 @@
 @property (nonatomic, strong) NSMutableDictionary *filterDictionary;
 @property (nonatomic, strong) id adDetails;
 @property (nonatomic,strong) id<FilterVCDelegate>filterVcDelegate;
-
+@property (nonatomic, assign) BOOL isFromAuction;
 @end
 
 @protocol FilterVCDelegate <NSObject>

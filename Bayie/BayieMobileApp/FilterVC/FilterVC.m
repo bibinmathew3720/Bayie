@@ -59,6 +59,10 @@ typedef enum filterType{
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *leftTableViewTopConstarint;
 @property (weak, nonatomic) IBOutlet UIImageView *backArrowImageView;
 
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *locationViewHeightConstraint;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *categoriesTopConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *locationButton;
+
 
 @end
 
@@ -91,14 +95,25 @@ typedef enum filterType{
         self.leftTableViewTopConstarint.active = YES;
         self.leftTableViewTopConstarint.constant = 0;
     }
-    selectedType = FilterTypeLocation;
     
     curreSelAttrArray = [[NSMutableArray alloc] init];
     self.filterDictionary = [[NSMutableDictionary alloc] init];
     if((self.selectedFilterDictionary!=nil) && self.selectedFilterDictionary.count!=0){
         [self.filterDictionary addEntriesFromDictionary:self.selectedFilterDictionary];
     }
-    
+    if (_isFromAuction){
+        selectedType = FilterTypeCategory;
+        [self removingUnwantedItemsForAuction];
+    }
+    else{
+       selectedType = FilterTypeLocation;
+    }
+}
+
+-(void)removingUnwantedItemsForAuction{
+       _locationLabel.text = @"";
+    self.locationButton.hidden = YES;
+    self.categoriesTopConstraint.constant = -50;
 }
 
 -(void)populatingDetails{
@@ -346,55 +361,7 @@ typedef enum filterType{
 -(void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath
 {
     if(tableView == self.leftTableView){
-        [self.view endEditing:YES];
-        self.categoryArrowImageView.hidden = YES;
-        self.categoryLabel.textColor = [UIColor blackColor];
-        self.topView.backgroundColor = [UIColor clearColor];
-        self.locationRightArrow.hidden = YES;
-        self.locationLabel.textColor = [UIColor blackColor];
-        self.locationView.backgroundColor = [UIColor clearColor];
-        id attributeItem = [attributesArray objectAtIndex:indexPath.row];
-        curreSelAttrArray = [[NSMutableArray alloc] init];
-        self.categoryLabel.textColor = [UIColor blackColor];
-        [self settingUnSelectedColorOfSelectedCellofLeftTableView];
-        previousIndex = indexPath;
-        FilterLeftTVC *cell = [tableView cellForRowAtIndexPath:indexPath];
-        cell.nameLabel.textColor = AppCommonBlueColor
-        cell.backgroundColor = [UIColor whiteColor];
-        cell.rightArrowIMageView.hidden = NO;
-        if([[attributeItem valueForKey:@"type"] isEqualToString:@"Numerical Values"]||[[attributeItem valueForKey:@"type"] isEqualToString:@"Text fields"] || [[attributeItem valueForKey:@"type"] isEqualToString:@"Text Fields"]){
-            self.attributeTextField.hidden = NO;
-            self.rightTableView.hidden = YES;
-            selAttrId = [NSString stringWithFormat:@"%@",[attributeItem valueForKey:@"attribId"]];
-            self.attributeTextField.placeholder = [NSString stringWithFormat:@"%@",[attributeItem valueForKey:@"attribute_name"]];
-            
-            if([[self.filterDictionary valueForKey:selAttrId] isKindOfClass:[NSArray class]]){
-                if([[self.filterDictionary valueForKey:selAttrId] count]>0){
-                    NSString *atrValue = [[self.filterDictionary valueForKey:selAttrId] firstObject];
-                    self.attributeTextField.text = atrValue;
-                }
-            }
-            else if([self.filterDictionary valueForKey:selAttrId]){
-                    NSString *atrValue = [self.filterDictionary valueForKey:selAttrId];
-                    self.attributeTextField.text = atrValue;
-            }
-            else{
-                 self.attributeTextField.text = @"";
-            }
-        }
-        else{
-            self.rightTableView.hidden = NO;
-            self.attributeTextField.hidden = YES;
-            selAttrId = [NSString stringWithFormat:@"%@",[attributeItem valueForKey:@"attribId"]];
-            if([self.filterDictionary valueForKey:selAttrId]){
-                NSArray *array = [self.filterDictionary valueForKey:selAttrId];
-                [curreSelAttrArray addObjectsFromArray:array];
-            }
-            selectedType = FilterTypeCheckBox;
-            attributesValuesArray = [attributeItem valueForKey:@"category_attrib_values"];
-            [self.rightTableView reloadData];
-        }
-        NSLog(@"Attribute Item:%@",attributeItem);
+        [self settingCategoryViewWithIndexPath:indexPath];
     }
     else if (tableView == self.rightTableView){
         if(selectedType == FilterTypeCategory){
@@ -459,6 +426,60 @@ typedef enum filterType{
             self.locationLabel.text = [NSString stringWithFormat:@"%@",[selectedLocation valueForKey:@"location"]];
         }
         
+    }
+}
+
+-(void)settingCategoryViewWithIndexPath:(NSIndexPath *)indexPath{
+    {
+        [self.view endEditing:YES];
+        self.categoryArrowImageView.hidden = YES;
+        self.categoryLabel.textColor = [UIColor blackColor];
+        self.topView.backgroundColor = [UIColor clearColor];
+        self.locationRightArrow.hidden = YES;
+        self.locationLabel.textColor = [UIColor blackColor];
+        self.locationView.backgroundColor = [UIColor clearColor];
+        id attributeItem = [attributesArray objectAtIndex:indexPath.row];
+        curreSelAttrArray = [[NSMutableArray alloc] init];
+        self.categoryLabel.textColor = [UIColor blackColor];
+        [self settingUnSelectedColorOfSelectedCellofLeftTableView];
+        previousIndex = indexPath;
+        FilterLeftTVC *cell = [self.leftTableView cellForRowAtIndexPath:indexPath];
+        cell.nameLabel.textColor = AppCommonBlueColor
+        cell.backgroundColor = [UIColor whiteColor];
+        cell.rightArrowIMageView.hidden = NO;
+        if([[attributeItem valueForKey:@"type"] isEqualToString:@"Numerical Values"]||[[attributeItem valueForKey:@"type"] isEqualToString:@"Text fields"] || [[attributeItem valueForKey:@"type"] isEqualToString:@"Text Fields"]){
+            self.attributeTextField.hidden = NO;
+            self.rightTableView.hidden = YES;
+            selAttrId = [NSString stringWithFormat:@"%@",[attributeItem valueForKey:@"attribId"]];
+            self.attributeTextField.placeholder = [NSString stringWithFormat:@"%@",[attributeItem valueForKey:@"attribute_name"]];
+            
+            if([[self.filterDictionary valueForKey:selAttrId] isKindOfClass:[NSArray class]]){
+                if([[self.filterDictionary valueForKey:selAttrId] count]>0){
+                    NSString *atrValue = [[self.filterDictionary valueForKey:selAttrId] firstObject];
+                    self.attributeTextField.text = atrValue;
+                }
+            }
+            else if([self.filterDictionary valueForKey:selAttrId]){
+                NSString *atrValue = [self.filterDictionary valueForKey:selAttrId];
+                self.attributeTextField.text = atrValue;
+            }
+            else{
+                self.attributeTextField.text = @"";
+            }
+        }
+        else{
+            self.rightTableView.hidden = NO;
+            self.attributeTextField.hidden = YES;
+            selAttrId = [NSString stringWithFormat:@"%@",[attributeItem valueForKey:@"attribId"]];
+            if([self.filterDictionary valueForKey:selAttrId]){
+                NSArray *array = [self.filterDictionary valueForKey:selAttrId];
+                [curreSelAttrArray addObjectsFromArray:array];
+            }
+            selectedType = FilterTypeCheckBox;
+            attributesValuesArray = [attributeItem valueForKey:@"category_attrib_values"];
+            [self.rightTableView reloadData];
+        }
+        NSLog(@"Attribute Item:%@",attributeItem);
     }
 }
 
