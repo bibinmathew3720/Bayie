@@ -449,7 +449,7 @@
             [self.dataDictimagesMutArray addObject:dict];
             [self.listingCollectionView reloadItemsAtIndexPaths:[NSArray arrayWithObject:indexPath]];
         }];
-        NSString *timeString = NSLocalizedString(@"Expired", @"Expired");
+        NSString *timeString = NSLocalizedString(@"BiddingClosed", @"Bidding closed");
         [auctionListingCVC.timerButton setTitle:timeString forState:UIControlStateNormal];
         auctionListingCVC.auctionDetails = subcatDic;
         if(  totalCount == indexPath.row+1  ){

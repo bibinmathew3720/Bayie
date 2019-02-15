@@ -211,7 +211,7 @@
 
 -(void)populateAdDetails{
     if (self.auctionDetails.isExpired){
-        NSString *expiredString = NSLocalizedString(@"Expired", @"Expired");
+        NSString *expiredString = NSLocalizedString(@"BiddingClosed", @"Bidding closed");
         [self.timerButton setTitle:expiredString forState:UIControlStateNormal];
         self.bidNowButtonHeightConstraint.constant = 0;
         self.yourBidViewHeiCnstaint.constant = 0;

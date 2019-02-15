@@ -154,6 +154,7 @@
 "AUCTIONHISTORY" = "AUCTION HISTORY";
 "WinHistory" = "Win History";
 "AUCTIONWINS" = "AUCTION WINS";
+"BiddingClosed" = "Bidding closed";
 
 //Bid History
 
@@ -174,5 +175,4 @@
 "SAVE" = "SAVE";
 "CLOSE" = "CLOSE";
 "ShippingAddressUpdatedSuccessfully" = "Shipping address updated successfully";
-"Expired" = "Expired";
 

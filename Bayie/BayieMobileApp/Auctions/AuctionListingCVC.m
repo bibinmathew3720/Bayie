@@ -26,7 +26,7 @@
     Auction *auction = [[Auction alloc] initWithAuctionDictionary:[NSDictionary dictionaryWithObject:auctionDetails forKey:@"data"]];
     
     if (auction.isExpired ){
-        NSString *timeString = NSLocalizedString(@"Expired", @"Expired");
+        NSString *timeString = NSLocalizedString(@"BiddingClosed", @"Bidding closed");
         [self.timerButton setTitle:timeString forState:UIControlStateNormal];
         self.bidNowButton.hidden = YES;
     }
