@@ -236,7 +236,7 @@
         self.pageControl.hidden = YES;
     }
     self.adTitleLabel.text = self.auctionDetails.adTitle;
-    NSString *prodDetailString = [NSString stringWithFormat:@"%@:%d | %@:%d | %@ - %0.2f OMR",NSLocalizedString(@"ID", @"ID"),self.auctionDetails.auctionId,NSLocalizedString(@"Bids", @"Bids"),self.auctionDetails.bidCount,self.auctionDetails.currentBidUser,self.auctionDetails.currentPrice];
+    NSString *prodDetailString = [NSString stringWithFormat:@"%@:%d | %@ - %0.2f OMR",NSLocalizedString(@"Bids", @"Bids"),self.auctionDetails.bidCount,self.auctionDetails.currentBidUser,self.auctionDetails.currentPrice];
     self.currentPriceLabel.text = [NSString stringWithFormat:@"%0.2f OMR",self.auctionDetails.currentBidAmount];
     self.productDetailsLabel.text = prodDetailString;
     self.descriptionLabel.text = [self.auctionDetails.adDescription removeBrTag];
