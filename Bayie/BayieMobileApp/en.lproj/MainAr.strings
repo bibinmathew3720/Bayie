@@ -453,7 +453,7 @@
 "xoD-PE-Dyd.placeholder" = "Mobile";
 
 /* Class = "UINavigationItem"; title = "Verify OTP"; ObjectID = "xtZ-Y6-E9s"; */
-"xtZ-Y6-E9s.title" = "Verify OTP";
+"xtZ-Y6-E9s.title" = "تحقق من كلمة مرور مرة واحدة";
 
 /* Class = "UILabel"; text = "Muscat,march 2017"; ObjectID = "xtd-17-rbd"; */
 "xtd-17-rbd.text" = "Muscat,march 2017";
