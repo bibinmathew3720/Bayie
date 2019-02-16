@@ -429,6 +429,7 @@
     if ([segue.identifier isEqualToString:@"OTPVerification"]) {
         UINavigationController *nav = segue.destinationViewController;
         VerifyOTPViewController *dest = (VerifyOTPViewController *)nav.topViewController;
+        dest.otpType = OTPTypeMobile;
         dest.mobileNo =_mobileTextField.text;
     }
 }

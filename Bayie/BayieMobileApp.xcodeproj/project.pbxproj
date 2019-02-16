@@ -44,7 +44,6 @@
 		3A251C2C1F0E71A200BD2B68 /* FavoritesViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A251C2B1F0E71A200BD2B68 /* FavoritesViewController.m */; };
 		3A2567131E9232DB009667C3 /* CustomAdsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2567121E9232DB009667C3 /* CustomAdsCollectionViewCell.m */; };
 		3A2567161E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2567151E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.m */; };
-		3A27863E1E98B77E00578327 /* VerifyMobileNumberViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A27863D1E98B77E00578327 /* VerifyMobileNumberViewController.m */; };
 		3A2786411E98D37700578327 /* VerifyOTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2786401E98D37700578327 /* VerifyOTPViewController.m */; };
 		3A2871461ECC503800CD06E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A2871451ECC503800CD06E6 /* GoogleService-Info.plist */; };
 		3A2C74FE1EE3E1EA003D3B03 /* LanguageSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C75001EE3E1EA003D3B03 /* LanguageSelector.xib */; };
@@ -254,8 +253,6 @@
 		3A2567121E9232DB009667C3 /* CustomAdsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomAdsCollectionViewCell.m; path = Controllers/CustomAdsCollectionViewCell.m; sourceTree = "<group>"; };
 		3A2567141E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = CustomTrendingAdsCollectionViewCell.h; path = Controllers/CustomTrendingAdsCollectionViewCell.h; sourceTree = "<group>"; };
 		3A2567151E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTrendingAdsCollectionViewCell.m; path = Controllers/CustomTrendingAdsCollectionViewCell.m; sourceTree = "<group>"; };
-		3A27863C1E98B77E00578327 /* VerifyMobileNumberViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerifyMobileNumberViewController.h; path = Controllers/VerifyMobileNumberViewController.h; sourceTree = "<group>"; };
-		3A27863D1E98B77E00578327 /* VerifyMobileNumberViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerifyMobileNumberViewController.m; path = Controllers/VerifyMobileNumberViewController.m; sourceTree = "<group>"; };
 		3A27863F1E98D37700578327 /* VerifyOTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerifyOTPViewController.h; path = Controllers/VerifyOTPViewController.h; sourceTree = "<group>"; };
 		3A2786401E98D37700578327 /* VerifyOTPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerifyOTPViewController.m; path = Controllers/VerifyOTPViewController.m; sourceTree = "<group>"; };
 		3A2871451ECC503800CD06E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
@@ -876,8 +873,6 @@
 				3AF1DF371E8D2A810042A5FD /* ChangePasswordViewController.m */,
 				3A16FA111E8E3B9000604C35 /* DataClass.h */,
 				3A16FA121E8E3B9000604C35 /* DataClass.m */,
-				3A27863C1E98B77E00578327 /* VerifyMobileNumberViewController.h */,
-				3A27863D1E98B77E00578327 /* VerifyMobileNumberViewController.m */,
 				3A06B5911EE2B06800E3A7DF /* Localizable.strings */,
 				3AF7CA7A1EB1EF2100D7E31D /* LanguageSelector˜ipad.xib */,
 				3AF7CA7C1EB1F97000D7E31D /* Login.xib */,
@@ -1593,9 +1588,9 @@
 				TargetAttributes = {
 					3A71B4D61E7BEC8E00E85F3D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = Q7MDZVUYK6;
+						DevelopmentTeam = WVYK59KXPF;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Manual;
+						ProvisioningStyle = Automatic;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -1816,7 +1811,6 @@
 				D01EDE6721D8F5C2009D6D62 /* BidHistoryResponseModel.m in Sources */,
 				534D5DB01EFC22770099F092 /* CustomSearchListTableViewCell.m in Sources */,
 				3A037EE81EC47CC200BEDC70 /* BayieHub.m in Sources */,
-				3A27863E1E98B77E00578327 /* VerifyMobileNumberViewController.m in Sources */,
 				484F70A21EBA40E8007F2FCA /* AdInfo.m in Sources */,
 				48C1565F1EB75484009221D9 /* Constant.m in Sources */,
 				3A2786411E98D37700578327 /* VerifyOTPViewController.m in Sources */,
@@ -2101,8 +2095,8 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Q7MDZVUYK6;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WVYK59KXPF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-4",
@@ -2121,8 +2115,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.bayie.BayieMobileApp;
 				PRODUCT_NAME = Bayie;
-				PROVISIONING_PROFILE = "d3457555-621f-4ccb-b471-9eb94f081d86";
-				PROVISIONING_PROFILE_SPECIFIER = "Bayie Development";
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BayieMobileApp/Library/BayieMobileApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2138,8 +2132,8 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = Q7MDZVUYK6;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = WVYK59KXPF;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-4",
@@ -2158,8 +2152,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.bayie.BayieMobileApp;
 				PRODUCT_NAME = Bayie;
-				PROVISIONING_PROFILE = "16fba629-43b5-4b7b-9303-447587e26188";
-				PROVISIONING_PROFILE_SPECIFIER = adhoc_bayie_new;
+				PROVISIONING_PROFILE = "";
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "BayieMobileApp/Library/BayieMobileApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};

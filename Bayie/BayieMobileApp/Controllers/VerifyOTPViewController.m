@@ -448,7 +448,7 @@
     DataClass *objt=[DataClass getInstance];
     NSLog(@"%@", objt.mobleToken);
     
-     NSDictionary *parameters =  @{@"mobileToken":objt.mobleToken};
+     NSDictionary *parameters =  @{@"mobileToken":objt.mobleToken,@"language" :[DataClass currentLanguageString]};
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];

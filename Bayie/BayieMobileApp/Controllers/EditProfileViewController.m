@@ -194,7 +194,7 @@
     }
     DataClass *tknobj=[DataClass getInstance];
     NSLog(@"%@", tknobj.userToken);
-    NSDictionary *parameters =  @{@"userToken":tknobj.userToken,@"name":_nameTextField.text,@"mobile":_phoneTextField.text,@"email":_emailTextField.text,@"location":_locationTextField.text,@"language":lan};
+    NSDictionary *parameters =  @{@"userToken":tknobj.userToken,@"name":_nameTextField.text,@"mobile":_phoneTextField.text,@"email":_emailTextField.text,@"location":_locationTextField.text,@"language" :[DataClass currentLanguageString]};
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -447,6 +447,7 @@
     if ([segue.identifier isEqualToString:@"VerificationFromUpdateProfile"]) {
         UINavigationController *nav = segue.destinationViewController;
         VerifyOTPViewController *dest = (VerifyOTPViewController *)nav.topViewController;
+        dest.otpType = OTPTypeMobile;
         dest.mobileNo = _phoneTextField.text;
     }
      if ([segue.identifier isEqualToString:@"ChangePassword"]) {

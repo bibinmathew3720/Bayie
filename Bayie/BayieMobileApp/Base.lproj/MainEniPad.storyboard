@@ -597,68 +597,6 @@
             </objects>
             <point key="canvasLocation" x="-2826.0869565217395" y="-3900.0000000000005"/>
         </scene>
-        <!--Verify Mobile Number-->
-        <scene sceneID="FCX-Fa-ZK2">
-            <objects>
-                <viewController storyboardIdentifier="VerifyMobileNumber" id="8KV-kl-LYi" customClass="VerifyMobileNumberViewController" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="enR-I6-PWk"/>
-                        <viewControllerLayoutGuide type="bottom" id="twj-Jm-Tla"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="VLf-5l-nQo">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="736"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="Mobile Number" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="mrj-EP-8H1">
-                                <rect key="frame" x="148" y="164" width="200" height="35"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="35" id="c4e-w5-Cs7"/>
-                                    <constraint firstAttribute="width" constant="200" id="rcR-Wo-5n1"/>
-                                </constraints>
-                                <nil key="textColor"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <textInputTraits key="textInputTraits"/>
-                            </textField>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="+968" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S9W-iO-iON">
-                                <rect key="frame" x="98" y="164" width="42" height="35"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bIH-PF-niC" userLabel="BorderView">
-                                <rect key="frame" x="20" y="201" width="374" height="2"/>
-                                <color key="backgroundColor" white="0.66666666666666663" alpha="1" colorSpace="calibratedWhite"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="2" id="Fvx-7l-wgB"/>
-                                </constraints>
-                            </view>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                        <constraints>
-                            <constraint firstItem="S9W-iO-iON" firstAttribute="top" secondItem="mrj-EP-8H1" secondAttribute="top" id="1dX-02-TNF"/>
-                            <constraint firstItem="mrj-EP-8H1" firstAttribute="top" secondItem="enR-I6-PWk" secondAttribute="bottom" constant="100" id="3mh-su-Gon"/>
-                            <constraint firstItem="bIH-PF-niC" firstAttribute="leading" secondItem="VLf-5l-nQo" secondAttribute="leading" constant="20" id="FkB-bB-YaO"/>
-                            <constraint firstItem="bIH-PF-niC" firstAttribute="top" secondItem="mrj-EP-8H1" secondAttribute="bottom" constant="2" id="RNc-de-tjx"/>
-                            <constraint firstItem="mrj-EP-8H1" firstAttribute="leading" secondItem="S9W-iO-iON" secondAttribute="trailing" constant="8" id="RZE-AA-719"/>
-                            <constraint firstItem="S9W-iO-iON" firstAttribute="height" secondItem="mrj-EP-8H1" secondAttribute="height" id="erh-z1-WNT"/>
-                            <constraint firstAttribute="trailing" secondItem="bIH-PF-niC" secondAttribute="trailing" constant="20" id="tJd-wn-NCa"/>
-                            <constraint firstItem="mrj-EP-8H1" firstAttribute="centerX" secondItem="VLf-5l-nQo" secondAttribute="centerX" multiplier="1.2" id="wph-1m-BoR"/>
-                        </constraints>
-                    </view>
-                    <navigationItem key="navigationItem" title="Verify Mobile Number" id="mWJ-25-YnR">
-                        <barButtonItem key="leftBarButtonItem" image="back-arrow" id="uq0-8d-nin">
-                            <color key="tintColor" white="0.0" alpha="1" colorSpace="calibratedWhite"/>
-                        </barButtonItem>
-                        <barButtonItem key="rightBarButtonItem" title="Get OTP" id="5od-Y7-SdF">
-                            <color key="tintColor" red="0.0" green="0.47843137250000001" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        </barButtonItem>
-                    </navigationItem>
-                    <simulatedNavigationBarMetrics key="simulatedTopBarMetrics" prompted="NO"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="bhv-dF-hCs" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1998.75" y="-1130"/>
-        </scene>
         <!--Favorites-->
         <scene sceneID="2v6-0T-Jnv">
             <objects>
