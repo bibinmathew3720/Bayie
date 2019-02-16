@@ -14,6 +14,7 @@
 #import "BayieHub.h"
 #import "UserProfile.h"
 #import "ChangePasswordViewController.h"
+#import "Utility.h"
 
 @interface EditProfileViewController ()
 {
@@ -29,6 +30,9 @@
   //  DownPicker *dp;
 
 }
+
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *changePasswordheightConstraint;
+@property (weak, nonatomic) IBOutlet UIButton *chnagePasswordArrowButton;
 @end
 
 @implementation EditProfileViewController
@@ -72,6 +76,16 @@
     [self.downPicker showArrowImage:true];
     [self.downPicker setPlaceholder:[DataClass currentLanguageString]];
     [self loadProfile];
+    if (self.isFromSocialLogin){
+        [self removoChangePassword];
+    }
+}
+
+-(void)removoChangePassword{
+    self.changePasswordheightConstraint.constant = 0;
+    self.changePasswordLabel.hidden = YES;
+    self.chnagePasswordArrowButton.hidden = YES;
+    
 }
 
 -(void)lan_Selected:(id)dp {
@@ -139,10 +153,31 @@
 
 
 - (IBAction)updateProfileButton:(id)sender {
-    
-    self.lastapiCallPro = @"updateProfile";
+    if (self.isFromSocialLogin){
+        if ([self isValidDetails]){
+            self.lastapiCallPro = @"updateProfile";
+            [self profileUpdate];
+        }
+    }
+    else{
+        self.lastapiCallPro = @"updateProfile";
+        [self profileUpdate];
+    }
+}
 
-    [self profileUpdate];
+-(BOOL)isValidDetails{
+    BOOL isValid = YES;
+    NSString *messageString = @"";
+    if((_phoneTextField.text.length > 8) ||_phoneTextField.text.length < 8 ){
+        messageString = NSLocalizedString(@"InvalidMobileNumber", @"Invalid mobile number");
+        isValid = NO;
+    }
+    if (messageString.length>0){
+        [Utility showAlertInController:self withMessageString:messageString withCompletion:^(BOOL isCompleted) {
+            
+        }];
+    }
+    return isValid;
 }
 
 -(void)profileUpdate{

@@ -14,6 +14,7 @@
 #import "BrowseViewController.h"
 #import <FBSDKLoginKit/FBSDKLoginKit.h>
 #import <FBSDKCoreKit/FBSDKCoreKit.h>
+#import "EditProfileViewController.h"
 
 @interface LoginViewController ()
 {
@@ -95,18 +96,18 @@
     [defaults synchronize];
     DataClass *userObj = [DataClass getInstance];
     userObj.userToken= obj.userToken;
+    [self loadEditProfilePage];
+//    self.hidesBottomBarWhenPushed  = NO;
+//    UITabBarController *tbc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
+//    [self.navigationController pushViewController:tbc animated:YES];
+}
 
-    self.hidesBottomBarWhenPushed  = NO;
-    
-    
-    UITabBarController *tbc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
-    
-    //[tbc.navigationController pushViewController:tbc animated:YES];
-    //[self showViewController:tbc sender:self];
-    //[self presentViewController:tbc animated:YES completion:nil];
-    
-    
-    [self.navigationController pushViewController:tbc animated:YES];
+-(void)loadEditProfilePage{
+    EditProfileViewController *editPro = [self.storyboard instantiateViewControllerWithIdentifier:@"EditProfileViewController"];
+    editPro.isFromSocialLogin = YES;
+    //   editPro.hidesBottomBarWhenPushed = true;
+    //  [self.navigationController.navigationBar setHidden:false];
+    [self.navigationController pushViewController:editPro animated:true];
 }
 
 - (void) gotBayieAPIDatafb:(NSNotification *) notification{

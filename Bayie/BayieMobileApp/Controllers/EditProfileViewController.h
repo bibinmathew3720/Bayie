@@ -31,5 +31,6 @@
 
 
 @property (strong, nonatomic) DownPicker *downPicker;
+@property (nonatomic, assign) BOOL isFromSocialLogin;
 
 @end

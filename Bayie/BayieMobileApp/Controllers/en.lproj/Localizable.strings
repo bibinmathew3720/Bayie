@@ -176,3 +176,7 @@
 "CLOSE" = "CLOSE";
 "ShippingAddressUpdatedSuccessfully" = "Shipping address updated successfully";
 
+//OTP Module
+
+"InvalidMobileNumber" = "Invalid mobile number";
+

@@ -4533,6 +4533,8 @@
                     <connections>
                         <outlet property="appLangLabel" destination="htP-zo-g77" id="XGx-2b-7Rm"/>
                         <outlet property="changePasswordLabel" destination="c9G-0z-YhD" id="2dp-hj-HsN"/>
+                        <outlet property="changePasswordheightConstraint" destination="7FP-7m-iYh" id="cqK-2M-k5f"/>
+                        <outlet property="chnagePasswordArrowButton" destination="CHB-uJ-mmd" id="wHW-aB-TPR"/>
                         <outlet property="editProfileImage" destination="E0v-gI-JE6" id="Hma-vs-EJZ"/>
                         <outlet property="emailLabel" destination="YWi-6y-mNU" id="TjB-NX-UPe"/>
                         <outlet property="emailTextField" destination="MKN-h8-v2d" id="Avj-WA-BqI"/>

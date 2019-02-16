@@ -180,7 +180,7 @@
 "S9W-iO-iON.text" = "+968";
 
 /* Class = "UITextField"; placeholder = "Phone Number"; ObjectID = "SHy-uG-NQr"; */
-"SHy-uG-NQr.placeholder" = "Phone Number";
+"SHy-uG-NQr.placeholder" = "رقم الهاتف";
 
 /* Class = "UIButton"; normalTitle = "LOGIN"; ObjectID = "TdD-MZ-9yR"; */
 "TdD-MZ-9yR.normalTitle" = "LOGIN";
