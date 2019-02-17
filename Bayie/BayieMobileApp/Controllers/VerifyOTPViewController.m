@@ -194,6 +194,11 @@
                                                    
                                                }];
                                            }
+                                           else if(self.otpType == OTPTypeSocialLogin){
+                                               UITabBarController *tbc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
+                                                       tbc.selectedIndex=0;
+                                                [self presentViewController:tbc animated:YES completion:nil];
+                                           }
                                            else{
                                                LoginDetailsViewController *controller = [self.storyboard instantiateViewControllerWithIdentifier:@"LoginDetailsViewController"];
                                                //   controller.fromverification = TRUE;
@@ -391,24 +396,24 @@
     }
     else{
         self.lastapiCall = @"Otp";
-        
+
         hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
         hud.mode = MBProgressHUDModeIndeterminate;
         hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
-        
+
         DataClass *objt=[DataClass getInstance];
         NSLog(@"%@", objt.mobleToken);
-        
+
         NSLog(@"%@", _digitArray);
         token = [NSString stringWithFormat:@"%@%@%@%@%@%@",_digitArray[_firstDigitTextField.tag],_digitArray[_secondDigitTextField.tag],_digitArray[_thirdDigitTextField.tag],_digitArray[_fourthDigitTextField.tag],_digitArray[_fifthDigitTextField.tag],_digitArray[_sixthDigitTextField.tag]];
-        
+
         NSLog(@"%@", token);
-        
+
         NSDictionary *parameters =  @{@"mobileToken":objt.mobleToken,@"otp":token};
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
         NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
-        
+
         [[BayieHub sharedInstance] PostrequestcallServiceWith:jsonString :@"verifyOtp"];
     }
 }

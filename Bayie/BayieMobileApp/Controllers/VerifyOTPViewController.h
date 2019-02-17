@@ -9,7 +9,9 @@
 #import <UIKit/UIKit.h>
 typedef enum{
   OTPTypePostAd,
-  OTPTypeMobile
+  OTPTypeMobile,
+  OTPTypeSocialLogin
+  
 } OTPType;
 
 @interface VerifyOTPViewController : UIViewController<UITextFieldDelegate>

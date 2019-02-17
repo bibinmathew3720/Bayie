@@ -447,7 +447,7 @@
     if ([segue.identifier isEqualToString:@"VerificationFromUpdateProfile"]) {
         UINavigationController *nav = segue.destinationViewController;
         VerifyOTPViewController *dest = (VerifyOTPViewController *)nav.topViewController;
-        dest.otpType = OTPTypeMobile;
+        dest.otpType = OTPTypeSocialLogin;
         dest.mobileNo = _phoneTextField.text;
     }
      if ([segue.identifier isEqualToString:@"ChangePassword"]) {
