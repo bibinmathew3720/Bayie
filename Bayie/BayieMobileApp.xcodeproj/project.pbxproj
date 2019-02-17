@@ -1588,9 +1588,9 @@
 				TargetAttributes = {
 					3A71B4D61E7BEC8E00E85F3D = {
 						CreatedOnToolsVersion = 8.2.1;
-						DevelopmentTeam = WVYK59KXPF;
+						DevelopmentTeam = Q7MDZVUYK6;
 						LastSwiftMigration = 0820;
-						ProvisioningStyle = Automatic;
+						ProvisioningStyle = Manual;
 						SystemCapabilities = {
 							com.apple.BackgroundModes = {
 								enabled = 1;
@@ -2095,8 +2095,8 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WVYK59KXPF;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Q7MDZVUYK6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-4",
@@ -2115,8 +2115,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.bayie.BayieMobileApp;
 				PRODUCT_NAME = Bayie;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "9335f6de-2c64-4848-9d19-235317eb42d1";
+				PROVISIONING_PROFILE_SPECIFIER = "Bayie Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "BayieMobileApp/Library/BayieMobileApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 3.0;
@@ -2132,8 +2132,8 @@
 				CODE_SIGN_ENTITLEMENTS = "";
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = WVYK59KXPF;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = Q7MDZVUYK6;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/FacebookSDKs-iOS-4",
@@ -2152,8 +2152,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.bayie.BayieMobileApp;
 				PRODUCT_NAME = Bayie;
-				PROVISIONING_PROFILE = "";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE = "1d637561-9727-4230-af63-808d5520786e";
+				PROVISIONING_PROFILE_SPECIFIER = adhoc_bayie_new;
 				SWIFT_OBJC_BRIDGING_HEADER = "BayieMobileApp/Library/BayieMobileApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
 			};
