@@ -145,11 +145,11 @@
                                            handler:^(UIAlertAction * action)
                                            {
                                                [hud hideAnimated:YES];
-
-                                               UITabBarController *tbc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
-                                               tbc.selectedIndex=0;
-                                               
-                                               [self.navigationController pushViewController:tbc animated:YES];
+                                                [self loadEditProfilePage];
+//                                               UITabBarController *tbc = [self.storyboard instantiateViewControllerWithIdentifier:@"MainTabBar"];
+//                                               tbc.selectedIndex=0;
+//
+//                                               [self.navigationController pushViewController:tbc animated:YES];
                                                
                                            }];
                 [alert addAction:okButton];
