@@ -57,6 +57,11 @@
 @property (weak, nonatomic) IBOutlet UILabel *locSelectionLabel;
 @property (weak, nonatomic) IBOutlet UIButton *searchButton;
 
+@property (weak, nonatomic) IBOutlet UILabel *liveAuctionsLabel;
+@property (weak, nonatomic) IBOutlet UICollectionView *auctionListingCV;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *liveAuctionViewHeightConstraint;
+
+
 @end
 
 @implementation BrowseViewController
@@ -108,10 +113,13 @@
 -(void)setLocationLabels{
     if (self.tabBarController.selectedIndex == 0) {
         self.headingLabel.text = NSLocalizedString(@"Ads", @"Ads");
+        self.liveAuctionViewHeightConstraint.constant = 0;
         self.pageType = PageTypeAds;
     }
     else if (self.tabBarController.selectedIndex == 1) {
         self.headingLabel.text = NSLocalizedString(@"Auctions", @"Auctions");
+        self.liveAuctionsLabel.text = NSLocalizedString(@"LiveAuctions", @"Live Auctions");
+        self.liveAuctionViewHeightConstraint.constant = 139;
         self.pageType = PageTypeAuctions;
         self.locationArrowButton.hidden = YES;
         self.locationTouchButton.hidden = YES;
