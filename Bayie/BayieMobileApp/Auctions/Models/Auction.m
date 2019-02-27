@@ -141,6 +141,9 @@ NSString *const kImage_Url = @"image_url";
         if (![dataDictionary[kSlug] isKindOfClass:[NSNull class]]){
             self.slug = dataDictionary[kSlug];
         }
+        if(![dataDictionary[kImage_Url] isKindOfClass:[NSNull class]]){
+            self.imageUrl = dataDictionary[kImage_Url];
+        }
         if (![dataDictionary[kStartsOn] isKindOfClass:[NSNull class]]){
             self.startsOn = dataDictionary[kStartsOn];
             self.startsOnDate = [self.startsOn convertToDate];
@@ -167,9 +170,6 @@ NSString *const kImage_Url = @"image_url";
     }
     if(![auctionDictionary[kShareUrl] isKindOfClass:[NSNull class]]){
         self.shareUrl = auctionDictionary[kShareUrl];
-    }
-    if(![auctionDictionary[kImage_Url] isKindOfClass:[NSNull class]]){
-        self.imageUrl = auctionDictionary[kImage_Url];
     }
     if(![auctionDictionary[kImages] isKindOfClass:[NSNull class]]){
         NSArray *imagesArray = auctionDictionary[kImages];

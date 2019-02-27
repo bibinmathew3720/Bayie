@@ -5362,7 +5362,7 @@
                                 </constraints>
                             </view>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="pBU-jH-94T">
-                                <rect key="frame" x="8" y="104" width="359" height="140"/>
+                                <rect key="frame" x="8" y="104" width="359" height="220"/>
                                 <subviews>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="da2-1z-XbR">
                                         <rect key="frame" x="0.0" y="5" width="33.333333333333336" height="30"/>
@@ -5371,10 +5371,10 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="ejp-T8-r09">
-                                        <rect key="frame" x="0.0" y="40" width="359" height="100"/>
+                                        <rect key="frame" x="0.0" y="40" width="359" height="180"/>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="100" id="hiD-gY-hYg"/>
+                                            <constraint firstAttribute="height" constant="180" id="hiD-gY-hYg"/>
                                         </constraints>
                                         <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="5aA-Tu-lTv">
                                             <size key="itemSize" width="178" height="99"/>
@@ -5391,7 +5391,7 @@
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="140" id="1u1-ct-KLQ"/>
+                                    <constraint firstAttribute="height" constant="220" id="1u1-ct-KLQ"/>
                                     <constraint firstItem="da2-1z-XbR" firstAttribute="top" secondItem="pBU-jH-94T" secondAttribute="top" constant="5" id="9wf-Uf-RiW"/>
                                     <constraint firstItem="da2-1z-XbR" firstAttribute="leading" secondItem="pBU-jH-94T" secondAttribute="leading" id="Cbr-K3-0zb"/>
                                     <constraint firstItem="ejp-T8-r09" firstAttribute="top" secondItem="da2-1z-XbR" secondAttribute="bottom" constant="5" id="O4b-CQ-87R"/>
@@ -5401,7 +5401,7 @@
                                 </constraints>
                             </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Nt0-2G-kt5">
-                                <rect key="frame" x="8" y="252" width="359" height="571"/>
+                                <rect key="frame" x="8" y="332" width="359" height="491"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="b2D-IT-eJX"/>
