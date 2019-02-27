@@ -350,19 +350,28 @@
     
     if([lastCall isEqualToString:@"catList"]){
         [self gotBayieAPIDataCategory:notification];
-        
-        DataClass *locOb=[DataClass getInstance];
-        
-        if(locOb.lastKnownLoc == nil){
-            lastCall = @"locationList";
-            [self locationUpdate];
-        }else{
-            lastCall = @"ProfileData";
-            [self profileDataLoad];
-            //  _locSelectionLabel.text = locOb.lastKnownLoc;
+        if (self.pageType == PageTypeAuctions){
+            lastCall = @"liveAuctions";
+            [self getLiveAuctions];
+        }
+        else{
+            DataClass *locOb=[DataClass getInstance];
+            
+            if(locOb.lastKnownLoc == nil){
+                lastCall = @"locationList";
+                [self locationUpdate];
+            }else{
+                lastCall = @"ProfileData";
+                [self profileDataLoad];
+                //  _locSelectionLabel.text = locOb.lastKnownLoc;
+            }
         }
         
-    }else if([lastCall isEqualToString:@"locationList"] ){
+    }
+    else if([lastCall isEqualToString:@"liveAuctions"]){
+        
+    }
+    else if([lastCall isEqualToString:@"locationList"] ){
         
         [self gotBayieAPIDataLocation:notification];
         lastCall = @"ProfileData";
@@ -484,6 +493,24 @@
         
         [[BayieHub sharedInstance] PostrequestcallServiceWith:jsonString :@"profileData"];
     }
+}
+
+-(void)getLiveAuctions{
+    hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
+    hud.mode = MBProgressHUDModeIndeterminate;
+    hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
+    NSError *error;
+    NSString *start = [NSString stringWithFormat:@"%d",0];
+    NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
+    [parameters setValue:@"" forKey:@"keyword"];
+     [parameters setValue:start forKey:@"start"];
+    [parameters setValue:@"20" forKey:@"limit"];
+    [parameters setValue:@"created_desc" forKey:@"sort"];
+    [parameters setValue:[DataClass currentLanguageString] forKey:@"language"];
+    [parameters setValue:@"live" forKey:@"liveAuctions"];
+    NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
+    NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
+    [[BayieHub sharedInstance] PostrequestcallServiceWith:jsonString :@"listAuctions"];
 }
 
 - (void) gotBayieAPIDataProfile:(NSNotification *) notification{
