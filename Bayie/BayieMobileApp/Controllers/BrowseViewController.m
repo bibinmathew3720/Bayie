@@ -65,6 +65,8 @@
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *liveAuctionViewHeightConstraint;
 
 @property (nonatomic, strong) NSMutableArray *liveAuctionsArray;
+@property (nonatomic, assign) NSUInteger liveAuctionsTotalCount;
+@property (nonatomic, assign) NSUInteger liveAuctionsIndex;
 @end
 
 @implementation BrowseViewController
@@ -110,7 +112,8 @@
     [self updateUI];
     [self googleLocationUpdate];
     [_categoryCollectionView.collectionViewLayout invalidateLayout];
-    
+    self.liveAuctionsTotalCount = 0;
+    self.liveAuctionsIndex = 0;
     self.view.setNeedsLayout;
 }
 
@@ -127,7 +130,12 @@
     else if (self.tabBarController.selectedIndex == 1) {
         self.headingLabel.text = NSLocalizedString(@"Auctions", @"Auctions");
         self.liveAuctionsLabel.text = NSLocalizedString(@"LiveAuctions", @"Live Auctions");
-        self.liveAuctionViewHeightConstraint.constant = 139;
+        if([DataClass isiPad]){
+            
+        }
+        else{
+            self.liveAuctionViewHeightConstraint.constant = 180;
+        }
         self.pageType = PageTypeAuctions;
         self.locationArrowButton.hidden = YES;
         self.locationTouchButton.hidden = YES;
@@ -357,6 +365,7 @@
     }
     
     if([lastCall isEqualToString:@"catList"]){
+        self.liveAuctionsIndex = 0;
         [self gotBayieAPIDataCategory:notification];
         if (self.pageType == PageTypeAuctions){
             lastCall = @"liveAuctions";
@@ -508,7 +517,7 @@
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
     NSError *error;
-    NSString *start = [NSString stringWithFormat:@"%d",0];
+    NSString *start = [NSString stringWithFormat:@"%ld",self.liveAuctionsIndex];
     NSMutableDictionary *parameters = [[NSMutableDictionary alloc] init];
     [parameters setValue:@"" forKey:@"keyword"];
      [parameters setValue:start forKey:@"start"];
@@ -549,15 +558,26 @@
         
         if ([errormsg isEqualToString:@""]) {
             //self.noRecordsLabel.hidden = YES;
-            NSArray *dataArray = [responseDict[@"live"] valueForKey:@"data"];
-            if (self.liveAuctionsArray == nil)
-                self.liveAuctionsArray = [[NSMutableArray alloc] init];
-            for (NSDictionary *item in dataArray){
-                NSMutableDictionary *dataTempDict = [[NSMutableDictionary alloc] initWithDictionary:responseDict];
-                [dataTempDict setValue:item forKey:@"data"];
-                [self.liveAuctionsArray addObject:[[Auction alloc] initWithAuctionDictionary:dataTempDict]];
+            NSDictionary *liveDict = responseDict[@"live"];
+            if(liveDict!=nil){
+                NSArray *dataArray = [liveDict valueForKey:@"data"];
+                if ([liveDict valueForKey:@"totalResult"]){
+                    NSString *totalCountString = [NSString stringWithFormat:@"%@",[liveDict valueForKey:@"totalResult"]];
+                    self.liveAuctionsTotalCount = [totalCountString longLongValue];;
+                }
+                if (self.liveAuctionsArray == nil)
+                    self.liveAuctionsArray = [[NSMutableArray alloc] init];
+                if(self.liveAuctionsIndex == 0){
+                    [self.liveAuctionsArray removeAllObjects];
+                    
+                }
+                for (NSDictionary *item in dataArray){
+                    NSMutableDictionary *dataTempDict = [[NSMutableDictionary alloc] initWithDictionary:responseDict];
+                    [dataTempDict setValue:item forKey:@"data"];
+                    [self.liveAuctionsArray addObject:[[Auction alloc] initWithAuctionDictionary:dataTempDict]];
+                }
+                [self.auctionListingCV reloadData];
             }
-            [self.auctionListingCV reloadData];
             //totalSubCatResult =  [[responseDict valueForKey:@"totalResult"] integerValue];
             
         }   else if (![errormsg isEqualToString:@""]){
@@ -854,6 +874,21 @@
         return auctionListingCVC;
     }
     return nil;
+}
+
+-(void)collectionView:(UICollectionView *)collectionView willDisplayCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    
+}
+
+-(void)collectionView:(UICollectionView *)collectionView didEndDisplayingCell:(UICollectionViewCell *)cell forItemAtIndexPath:(NSIndexPath *)indexPath{
+    if (collectionView == self.auctionListingCV){
+        if (indexPath.row == (self.liveAuctionsArray.count-1)){
+            if (self.liveAuctionsTotalCount > self.liveAuctionsArray.count){
+                self.liveAuctionsIndex = indexPath.row+1;
+                [self getLiveAuctions];
+            }
+        }
+    }
 }
 
 
