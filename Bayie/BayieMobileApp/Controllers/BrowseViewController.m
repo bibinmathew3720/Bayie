@@ -20,7 +20,8 @@
 #import "Utility.h"
 #import "CategoryViewController.h"
 #import "Auction.h"
-#import "AuctionListingCVC.h"
+#import "LiveAuctionsCVC.h"
+#import "AuctionDetailVC.h"
 
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
@@ -114,7 +115,7 @@
 }
 
 -(void)registeringAuctionListCVC{
-    [self.auctionListingCV registerNib:[UINib nibWithNibName:@"AuctionListingCVC" bundle:nil] forCellWithReuseIdentifier:@"auctionListingCVC"];
+    [self.auctionListingCV registerNib:[UINib nibWithNibName:@"LiveAuctionsCVC" bundle:nil] forCellWithReuseIdentifier:@"liveAuctionCell"];
 }
 
 -(void)setLocationLabels{
@@ -848,7 +849,8 @@
         
     }
     else if (collectionView == self.auctionListingCV){
-        AuctionListingCVC *auctionListingCVC = [collectionView dequeueReusableCellWithReuseIdentifier:@"auctionListingCVC" forIndexPath:indexPath];
+        LiveAuctionsCVC *auctionListingCVC = [collectionView dequeueReusableCellWithReuseIdentifier:@"liveAuctionCell" forIndexPath:indexPath];
+        auctionListingCVC.auction = [self.liveAuctionsArray objectAtIndex:indexPath.row];
         return auctionListingCVC;
     }
     return nil;
@@ -942,6 +944,12 @@
         
        
         //[self performSegueWithIdentifier:@"Subcategory" sender:self];
+    }
+    else if (collectionView == self.auctionListingCV){
+        Auction *auction = [self.liveAuctionsArray objectAtIndex:indexPath.row];
+        AuctionDetailVC *auctionDetailVC = [[AuctionDetailVC alloc] initWithNibName:@"AuctionDetailVC" bundle:nil];
+        auctionDetailVC.adId = auction.slug;
+        [self.navigationController pushViewController:auctionDetailVC animated:YES];
     }
 }
 

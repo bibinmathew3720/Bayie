@@ -7,7 +7,6 @@
 //
 
 #import "Auction.h"
-
 #import "AuctionListingCVC.h"
 
 @implementation AuctionListingCVC
@@ -56,5 +55,8 @@
     [self.bottomView.layer addSublayer:leftBorder];
     
 }
+
+
+
 
 @end

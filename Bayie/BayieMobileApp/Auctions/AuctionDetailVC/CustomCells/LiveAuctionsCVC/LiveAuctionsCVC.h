@@ -1,15 +1,15 @@
 //
-//  AuctionListingCVC.h
-//  BayieMobileApp
+//  LiveAuctionsCVC.h
+//   
 //
-//  Created by Bibin Mathew on 1/1/19.
+//  Created by Bibin Mathew on 2/27/19.
 //  Copyright © 2019 Abbie. All rights reserved.
 //
+
 #import <UIKit/UIKit.h>
+#import "Auction.h"
 
-@interface AuctionListingCVC : UICollectionViewCell
-@property (weak, nonatomic) IBOutlet UIView *bottomView;
-
+@interface LiveAuctionsCVC : UICollectionViewCell
 @property (weak, nonatomic) IBOutlet UILabel *adNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *locationNameLabel;
 @property (weak, nonatomic) IBOutlet UIButton *timerButton;
@@ -17,5 +17,5 @@
 @property (weak, nonatomic) IBOutlet UIImageView *adImageView;
 @property (weak, nonatomic) IBOutlet UIButton *bidNowButton;
 
-@property (nonatomic, strong) id auctionDetails;
+@property (nonatomic, strong) Auction *auction;
 @end
