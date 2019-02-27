@@ -38,6 +38,7 @@
 @property (nonatomic, strong) NSString *defaultImageUrl;
 @property (nonatomic, strong) NSString *imageBaseUrl;
 @property (nonatomic, strong) NSString *shareUrl;
+@property (nonatomic, strong) NSString *imageUrl;
 @property (nonatomic, strong) NSMutableArray *imagesArray;
 @property (nonatomic, strong) NSMutableArray *bidHistory;
 

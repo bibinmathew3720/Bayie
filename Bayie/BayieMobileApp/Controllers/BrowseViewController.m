@@ -19,6 +19,8 @@
 #import "UserProfile.h"
 #import "Utility.h"
 #import "CategoryViewController.h"
+#import "Auction.h"
+#import "AuctionListingCVC.h"
 
 
 #define IS_IPHONE (UI_USER_INTERFACE_IDIOM() == UIUserInterfaceIdiomPhone)
@@ -61,7 +63,7 @@
 @property (weak, nonatomic) IBOutlet UICollectionView *auctionListingCV;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *liveAuctionViewHeightConstraint;
 
-
+@property (nonatomic, strong) NSMutableArray *liveAuctionsArray;
 @end
 
 @implementation BrowseViewController
@@ -74,6 +76,7 @@
     //To show status bar
     [[UIApplication sharedApplication] setStatusBarHidden:NO];
     [self setLocationLabels];
+    [self registeringAuctionListCVC];
     NSLog(@"Selected index:%d",self.tabBarController.selectedIndex);
     [_categoryCollectionView scrollRectToVisible:CGRectMake(0, 0, 1, 1) animated:YES];
     // Adding Google AD
@@ -108,6 +111,10 @@
     [_categoryCollectionView.collectionViewLayout invalidateLayout];
     
     self.view.setNeedsLayout;
+}
+
+-(void)registeringAuctionListCVC{
+    [self.auctionListingCV registerNib:[UINib nibWithNibName:@"AuctionListingCVC" bundle:nil] forCellWithReuseIdentifier:@"auctionListingCVC"];
 }
 
 -(void)setLocationLabels{
@@ -541,20 +548,16 @@
         
         if ([errormsg isEqualToString:@""]) {
             //self.noRecordsLabel.hidden = YES;
-            NSArray *dataArray = responseDict[@"data"];
-            NSString *baseURL = responseDict[@"imageBaseUrl"];
-            NSString *defaultImageURL = responseDict[@"defaultImage"];
-            //totalSubCatResult =  [[responseDict valueForKey:@"totalResult"] integerValue];
-            if (nil != dataArray && [dataArray isKindOfClass:[NSArray class]] && dataArray.count > 0 && [baseURL isKindOfClass:[NSString class]] && baseURL.length > 0 && [defaultImageURL isKindOfClass:[NSString class]] && defaultImageURL.length > 0 ) {
-                NSMutableArray *tmp = [[NSMutableArray alloc] initWithArray: dataArray];
-//                if(subcatArrayList == nil )
-//                    subcatArrayList = [[NSMutableArray alloc] init];
-//                [subcatArrayList addObjectsFromArray:tmp] ;
-//                default_Img_Url =  defaultImageURL;
-//                base_Img_Url = baseURL;
-//                [self.listingTableView reloadData];
-//                [self.listingCollectionView reloadData];
+            NSArray *dataArray = [responseDict[@"live"] valueForKey:@"data"];
+            if (self.liveAuctionsArray == nil)
+                self.liveAuctionsArray = [[NSMutableArray alloc] init];
+            for (NSDictionary *item in dataArray){
+                NSMutableDictionary *dataTempDict = [[NSMutableDictionary alloc] initWithDictionary:responseDict];
+                [dataTempDict setValue:item forKey:@"data"];
+                [self.liveAuctionsArray addObject:[[Auction alloc] initWithAuctionDictionary:dataTempDict]];
             }
+            [self.auctionListingCV reloadData];
+            //totalSubCatResult =  [[responseDict valueForKey:@"totalResult"] integerValue];
             
         }   else if (![errormsg isEqualToString:@""]){
             if([errormsg isEqualToString:@"Location not mentioned"]){
@@ -801,6 +804,9 @@
     if (collectionView == self.categoryCollectionView) {
             return catDataArray.count;
     }
+    else if (collectionView == self.auctionListingCV){
+        return self.liveAuctionsArray.count;
+    }
     else
         return 0;
 }
@@ -810,7 +816,6 @@
 }
 
 - (UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath{
-    long row = [indexPath row];
     if (collectionView == self.categoryCollectionView) {
         
         catDataDict = [catDataArray objectAtIndex:indexPath.row];
@@ -841,6 +846,10 @@
         [catCell.categoryImage sd_setImageWithURL:[NSURL URLWithString:url_Img_FULL]];
         return catCell;
         
+    }
+    else if (collectionView == self.auctionListingCV){
+        AuctionListingCVC *auctionListingCVC = [collectionView dequeueReusableCellWithReuseIdentifier:@"auctionListingCVC" forIndexPath:indexPath];
+        return auctionListingCVC;
     }
     return nil;
 }
@@ -885,6 +894,9 @@
         CGFloat cellWidth = ([UIScreen mainScreen].bounds.size.width - horizontalGap*4)/3;
         CGSize cellSize = CGSizeMake(cellWidth,cellWidth);
         return cellSize;
+    }
+    else if (collectionView == self.auctionListingCV){
+        return CGSizeMake(100, collectionView.frame.size.height);
     }
     else{
        return CGSizeMake(0,0);

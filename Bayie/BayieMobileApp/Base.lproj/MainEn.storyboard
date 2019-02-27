@@ -5382,77 +5382,7 @@
                                             <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                             <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                         </collectionViewFlowLayout>
-                                        <cells>
-                                            <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="jXa-Kd-V1s">
-                                                <rect key="frame" x="90.666666666666671" y="0.0" width="178" height="99"/>
-                                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                                <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                                    <rect key="frame" x="0.0" y="0.0" width="178" height="99"/>
-                                                    <autoresizingMask key="autoresizingMask"/>
-                                                    <subviews>
-                                                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="xCF-Ji-o8K">
-                                                            <rect key="frame" x="0.0" y="0.0" width="178" height="57"/>
-                                                        </imageView>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="HNj-aF-sn9">
-                                                            <rect key="frame" x="0.0" y="36" width="38" height="21"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NdF-JQ-nNc">
-                                                                    <rect key="frame" x="2" y="2" width="34" height="17"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="14"/>
-                                                                    <color key="textColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" red="0.20000000000000001" green="0.85098039219999999" blue="0.85882352939999995" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                                            <constraints>
-                                                                <constraint firstItem="NdF-JQ-nNc" firstAttribute="leading" secondItem="HNj-aF-sn9" secondAttribute="leading" constant="2" id="148-b6-Co9"/>
-                                                                <constraint firstAttribute="trailing" secondItem="NdF-JQ-nNc" secondAttribute="trailing" constant="2" id="1b6-9W-j3s"/>
-                                                                <constraint firstItem="NdF-JQ-nNc" firstAttribute="top" secondItem="HNj-aF-sn9" secondAttribute="top" constant="2" id="DC8-4d-TDh"/>
-                                                                <constraint firstAttribute="bottom" secondItem="NdF-JQ-nNc" secondAttribute="bottom" constant="2" id="GWd-fT-7Ug"/>
-                                                            </constraints>
-                                                        </view>
-                                                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="oAG-uz-YXe">
-                                                            <rect key="frame" x="0.0" y="57" width="178" height="42"/>
-                                                            <subviews>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gHi-xX-NMC">
-                                                                    <rect key="frame" x="5" y="5" width="168" height="18"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="15"/>
-                                                                    <nil key="textColor"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="6VY-Ul-PBZ">
-                                                                    <rect key="frame" x="5" y="23" width="168" height="14"/>
-                                                                    <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="12"/>
-                                                                    <color key="textColor" white="0.66666666669999997" alpha="1" colorSpace="calibratedWhite"/>
-                                                                    <nil key="highlightedColor"/>
-                                                                </label>
-                                                            </subviews>
-                                                            <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
-                                                            <constraints>
-                                                                <constraint firstItem="6VY-Ul-PBZ" firstAttribute="trailing" secondItem="gHi-xX-NMC" secondAttribute="trailing" id="4xh-H3-7pW"/>
-                                                                <constraint firstItem="6VY-Ul-PBZ" firstAttribute="leading" secondItem="gHi-xX-NMC" secondAttribute="leading" id="963-z6-EVl"/>
-                                                                <constraint firstItem="6VY-Ul-PBZ" firstAttribute="top" secondItem="gHi-xX-NMC" secondAttribute="bottom" id="OFb-SH-d6w"/>
-                                                                <constraint firstAttribute="trailing" secondItem="gHi-xX-NMC" secondAttribute="trailing" constant="5" id="Tki-G8-4Si"/>
-                                                                <constraint firstItem="gHi-xX-NMC" firstAttribute="leading" secondItem="oAG-uz-YXe" secondAttribute="leading" constant="5" id="coA-pq-CZT"/>
-                                                                <constraint firstItem="gHi-xX-NMC" firstAttribute="top" secondItem="oAG-uz-YXe" secondAttribute="top" constant="5" id="rpK-dQ-1g0"/>
-                                                                <constraint firstAttribute="bottom" secondItem="6VY-Ul-PBZ" secondAttribute="bottom" constant="5" id="xqU-Ql-n2D"/>
-                                                            </constraints>
-                                                        </view>
-                                                    </subviews>
-                                                </view>
-                                                <constraints>
-                                                    <constraint firstItem="xCF-Ji-o8K" firstAttribute="leading" secondItem="jXa-Kd-V1s" secondAttribute="leading" id="8k0-lz-97H"/>
-                                                    <constraint firstAttribute="trailing" secondItem="oAG-uz-YXe" secondAttribute="trailing" id="9cw-tS-psP"/>
-                                                    <constraint firstItem="xCF-Ji-o8K" firstAttribute="top" secondItem="jXa-Kd-V1s" secondAttribute="top" id="BVp-Qq-0fm"/>
-                                                    <constraint firstItem="oAG-uz-YXe" firstAttribute="leading" secondItem="jXa-Kd-V1s" secondAttribute="leading" id="H2G-iO-I4q"/>
-                                                    <constraint firstItem="HNj-aF-sn9" firstAttribute="leading" secondItem="xCF-Ji-o8K" secondAttribute="leading" id="HW9-g5-GOR"/>
-                                                    <constraint firstAttribute="bottom" secondItem="oAG-uz-YXe" secondAttribute="bottom" id="O5V-iK-1qS"/>
-                                                    <constraint firstItem="oAG-uz-YXe" firstAttribute="top" secondItem="xCF-Ji-o8K" secondAttribute="bottom" id="dWa-tv-0zh"/>
-                                                    <constraint firstItem="HNj-aF-sn9" firstAttribute="bottom" secondItem="xCF-Ji-o8K" secondAttribute="bottom" id="myd-9i-3k4"/>
-                                                    <constraint firstAttribute="trailing" secondItem="xCF-Ji-o8K" secondAttribute="trailing" id="qUq-eG-vvj"/>
-                                                </constraints>
-                                            </collectionViewCell>
-                                        </cells>
+                                        <cells/>
                                         <connections>
                                             <outlet property="dataSource" destination="bnH-Vw-odm" id="y3C-RC-Y3A"/>
                                             <outlet property="delegate" destination="bnH-Vw-odm" id="FH6-Ew-ptP"/>

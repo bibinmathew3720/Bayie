@@ -40,6 +40,7 @@ NSString *const kImageBaseUrl = @"imageBaseUrl";
 NSString *const kShareUrl = @"shareUrl";
 NSString *const kImages = @"images";
 NSString *const kBidHistory = @"bid_history";
+NSString *const kImage_Url = @"image_url";
 
 @implementation Auction
 -(id)initWithAuctionDictionary:(NSDictionary *)auctionDictionary{
@@ -72,6 +73,7 @@ NSString *const kBidHistory = @"bid_history";
         self.defaultImageUrl = @"";
         self.imageBaseUrl = @"";
         self.shareUrl = @"";
+        self.imageUrl = @"";
     }
     
     if(![auctionDictionary[kData] isKindOfClass:[NSNull class]]){
@@ -165,6 +167,9 @@ NSString *const kBidHistory = @"bid_history";
     }
     if(![auctionDictionary[kShareUrl] isKindOfClass:[NSNull class]]){
         self.shareUrl = auctionDictionary[kShareUrl];
+    }
+    if(![auctionDictionary[kImage_Url] isKindOfClass:[NSNull class]]){
+        self.imageUrl = auctionDictionary[kImage_Url];
     }
     if(![auctionDictionary[kImages] isKindOfClass:[NSNull class]]){
         NSArray *imagesArray = auctionDictionary[kImages];
