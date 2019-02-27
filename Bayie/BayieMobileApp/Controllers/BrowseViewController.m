@@ -369,7 +369,7 @@
         
     }
     else if([lastCall isEqualToString:@"liveAuctions"]){
-        
+        [self gotBayieAPILiveAuctions:notification];
     }
     else if([lastCall isEqualToString:@"locationList"] ){
         
@@ -512,6 +512,82 @@
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
     [[BayieHub sharedInstance] PostrequestcallServiceWith:jsonString :@"listAuctions"];
 }
+
+- (void) gotBayieAPILiveAuctions:(NSNotification *) notification{
+    [MBProgressHUD hideHUDForView:self.view animated:YES];
+    if ([[notification name] isEqualToString:@"BayieResponse"]){
+        if([notification.object isKindOfClass:[NSError class]]){
+            // manage error here
+            UIAlertController * alert =[UIAlertController
+                                        alertControllerWithTitle:@"Bayie" message: @"Error occurs" preferredStyle:UIAlertControllerStyleAlert];
+            
+            UIAlertAction* okButton = [UIAlertAction
+                                       actionWithTitle:@"OK"
+                                       style:UIAlertActionStyleDefault
+                                       handler:^(UIAlertAction * action)
+                                       {
+                                           
+                                           //    [self.navigationController popViewControllerAnimated:YES];
+                                           
+                                       }];
+            [alert addAction:okButton];
+            [self presentViewController:alert animated:YES completion:nil];
+            [hud hideAnimated:YES];
+            return;
+        }
+        
+        NSDictionary *responseDict = notification.object;
+        NSString *errormsg = responseDict[@"error"];
+        
+        if ([errormsg isEqualToString:@""]) {
+            //self.noRecordsLabel.hidden = YES;
+            NSArray *dataArray = responseDict[@"data"];
+            NSString *baseURL = responseDict[@"imageBaseUrl"];
+            NSString *defaultImageURL = responseDict[@"defaultImage"];
+            //totalSubCatResult =  [[responseDict valueForKey:@"totalResult"] integerValue];
+            if (nil != dataArray && [dataArray isKindOfClass:[NSArray class]] && dataArray.count > 0 && [baseURL isKindOfClass:[NSString class]] && baseURL.length > 0 && [defaultImageURL isKindOfClass:[NSString class]] && defaultImageURL.length > 0 ) {
+                NSMutableArray *tmp = [[NSMutableArray alloc] initWithArray: dataArray];
+//                if(subcatArrayList == nil )
+//                    subcatArrayList = [[NSMutableArray alloc] init];
+//                [subcatArrayList addObjectsFromArray:tmp] ;
+//                default_Img_Url =  defaultImageURL;
+//                base_Img_Url = baseURL;
+//                [self.listingTableView reloadData];
+//                [self.listingCollectionView reloadData];
+            }
+            
+        }   else if (![errormsg isEqualToString:@""]){
+            if([errormsg isEqualToString:@"Location not mentioned"]){
+                NSLog(@"Location not mentioned case ");
+            }
+            else{
+                UIAlertController * alert =[UIAlertController
+                                            alertControllerWithTitle:@"Bayie" message: errormsg preferredStyle:UIAlertControllerStyleAlert];
+               // self.noRecordsLabel.hidden = NO;
+               // self.noRecordsLabel.text = errormsg;
+                UIAlertAction* okButton = [UIAlertAction
+                                           actionWithTitle:@"OK"
+                                           style:UIAlertActionStyleDefault
+                                           handler:^(UIAlertAction * action)
+                                           {
+                                               if( !([errormsg rangeOfString: @"No Records Found"].location == NSNotFound  )   ){
+                                                   //subcatArrayList = [[NSMutableArray alloc] init];
+                                                  // [self.listingTableView reloadData];
+                                                   //[self.listingCollectionView reloadData];
+                                               }
+                                               
+                                           }];
+                [alert addAction:okButton];
+                
+                [self presentViewController:alert animated:YES completion:nil];
+            }
+            
+            [hud hideAnimated:YES];
+        }
+        [hud hideAnimated:YES];
+    }
+}
+
 
 - (void) gotBayieAPIDataProfile:(NSNotification *) notification{
     if ([[notification name] isEqualToString:@"BayieResponse"]){
