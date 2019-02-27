@@ -4788,8 +4788,47 @@
                                     <constraint firstItem="ia7-5R-75d" firstAttribute="centerX" secondItem="eSk-ZT-Xzi" secondAttribute="centerX" id="nBh-2d-ABd"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="R5E-iL-vhC">
+                                <rect key="frame" x="8" y="104.66666666666669" width="434" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJb-rQ-WgD">
+                                        <rect key="frame" x="0.0" y="5" width="33.333333333333336" height="30"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="AkL-8p-eoa">
+                                        <rect key="frame" x="0.0" y="39.999999999999986" width="434" height="160"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="ppN-bg-rJz"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="gno-kg-B2z">
+                                            <size key="itemSize" width="178" height="99"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="UQG-a8-6qq" id="BwO-O4-ach"/>
+                                            <outlet property="delegate" destination="UQG-a8-6qq" id="Co4-Kn-kfl"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="RJb-rQ-WgD" firstAttribute="top" secondItem="R5E-iL-vhC" secondAttribute="top" constant="5" id="ZGu-W8-eji"/>
+                                    <constraint firstAttribute="height" constant="200" id="cPU-FA-TUd"/>
+                                    <constraint firstAttribute="trailing" secondItem="AkL-8p-eoa" secondAttribute="trailing" id="dUD-kw-9c5"/>
+                                    <constraint firstAttribute="bottom" secondItem="AkL-8p-eoa" secondAttribute="bottom" id="dvE-Ku-iak"/>
+                                    <constraint firstItem="AkL-8p-eoa" firstAttribute="top" secondItem="RJb-rQ-WgD" secondAttribute="bottom" constant="5" id="iDW-Qg-XvT"/>
+                                    <constraint firstItem="AkL-8p-eoa" firstAttribute="leading" secondItem="R5E-iL-vhC" secondAttribute="leading" id="rJ8-F0-Zw0"/>
+                                    <constraint firstItem="RJb-rQ-WgD" firstAttribute="leading" secondItem="R5E-iL-vhC" secondAttribute="leading" id="zlY-Gl-Qw5"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tg7-T0-yYZ">
-                                <rect key="frame" x="8" y="112.66666666666669" width="434" height="830.33333333333326"/>
+                                <rect key="frame" x="8" y="312.66666666666669" width="434" height="630.33333333333326"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="oos-B5-cPC"/>
@@ -4857,12 +4896,15 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="tg7-T0-yYZ" firstAttribute="top" secondItem="R5E-iL-vhC" secondAttribute="bottom" constant="7.9999999999999432" id="0fO-eZ-Mz5"/>
+                            <constraint firstItem="R5E-iL-vhC" firstAttribute="trailing" secondItem="tg7-T0-yYZ" secondAttribute="trailing" id="4Wx-6B-n9b"/>
+                            <constraint firstItem="R5E-iL-vhC" firstAttribute="top" secondItem="eSk-ZT-Xzi" secondAttribute="bottom" id="Eta-my-R4n"/>
                             <constraint firstAttribute="trailing" secondItem="tg7-T0-yYZ" secondAttribute="trailing" constant="8" id="Fgu-2h-GZi"/>
-                            <constraint firstItem="tg7-T0-yYZ" firstAttribute="top" secondItem="eSk-ZT-Xzi" secondAttribute="bottom" constant="8" id="PJt-wv-RNo"/>
                             <constraint firstAttribute="trailing" secondItem="GjJ-5e-P6B" secondAttribute="trailing" id="T5t-Y3-1kv"/>
                             <constraint firstItem="GjJ-5e-P6B" firstAttribute="top" secondItem="Jwy-vM-mwY" secondAttribute="top" id="XVW-X3-ZCj"/>
                             <constraint firstItem="tg7-T0-yYZ" firstAttribute="leading" secondItem="Jwy-vM-mwY" secondAttribute="leading" constant="8" id="YWU-T7-K9O"/>
                             <constraint firstItem="GjJ-5e-P6B" firstAttribute="leading" secondItem="Jwy-vM-mwY" secondAttribute="leading" id="YgM-8L-4yY"/>
+                            <constraint firstItem="R5E-iL-vhC" firstAttribute="leading" secondItem="tg7-T0-yYZ" secondAttribute="leading" id="aeP-Fd-5C2"/>
                             <constraint firstItem="eSk-ZT-Xzi" firstAttribute="leading" secondItem="Jwy-vM-mwY" secondAttribute="leading" id="ch1-2J-SBY"/>
                             <constraint firstItem="JVn-DW-KMg" firstAttribute="top" secondItem="tg7-T0-yYZ" secondAttribute="bottom" constant="8" id="iTf-cL-IdA"/>
                             <constraint firstAttribute="trailing" secondItem="eSk-ZT-Xzi" secondAttribute="trailing" id="nA2-WK-nFA"/>
@@ -4874,8 +4916,11 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="450" height="1000"/>
                     <connections>
+                        <outlet property="auctionListingCV" destination="AkL-8p-eoa" id="kHC-s8-YX0"/>
                         <outlet property="categoryCollectionView" destination="tg7-T0-yYZ" id="QBa-sL-jrg"/>
                         <outlet property="headingLabel" destination="ia7-5R-75d" id="Fr4-c5-zaq"/>
+                        <outlet property="liveAuctionViewHeightConstraint" destination="cPU-FA-TUd" id="MCG-lB-yUc"/>
+                        <outlet property="liveAuctionsLabel" destination="RJb-rQ-WgD" id="Jge-8P-O05"/>
                         <outlet property="locSelectionLabel" destination="cAh-Xi-ChA" id="Tyz-8H-5jc"/>
                         <outlet property="locationArrowButton" destination="Env-4O-gJn" id="RAm-kP-cHn"/>
                         <outlet property="locationTouchButton" destination="xa7-i1-ZyQ" id="e2O-ZA-5lr"/>

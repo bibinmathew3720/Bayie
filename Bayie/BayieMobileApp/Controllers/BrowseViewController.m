@@ -896,7 +896,7 @@
         return cellSize;
     }
     else if (collectionView == self.auctionListingCV){
-        return CGSizeMake(100, collectionView.frame.size.height);
+        return CGSizeMake(collectionView.frame.size.height, collectionView.frame.size.height);
     }
     else{
        return CGSizeMake(0,0);

@@ -4674,8 +4674,47 @@
                                     <constraint firstItem="qZ0-u3-mpd" firstAttribute="centerX" secondItem="o2i-GH-gAW" secondAttribute="centerX" id="lfc-um-F2W"/>
                                 </constraints>
                             </view>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="1ia-C7-7NW">
+                                <rect key="frame" x="8" y="104" width="434" height="200"/>
+                                <subviews>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="puC-Mp-5nK">
+                                        <rect key="frame" x="0.0" y="5" width="33.5" height="30"/>
+                                        <fontDescription key="fontDescription" name="Lato-Regular" family="Lato" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="tq5-kq-W5C">
+                                        <rect key="frame" x="0.0" y="40" width="434" height="160"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="160" id="PjV-Iw-S8Z"/>
+                                        </constraints>
+                                        <collectionViewFlowLayout key="collectionViewLayout" scrollDirection="horizontal" minimumLineSpacing="10" minimumInteritemSpacing="10" id="3mu-dS-iN1">
+                                            <size key="itemSize" width="178" height="99"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                        <cells/>
+                                        <connections>
+                                            <outlet property="dataSource" destination="xYq-39-9o3" id="mJe-Wj-PMr"/>
+                                            <outlet property="delegate" destination="xYq-39-9o3" id="W7c-r1-Pg4"/>
+                                        </connections>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="200" id="JQh-Y6-u4K"/>
+                                    <constraint firstItem="puC-Mp-5nK" firstAttribute="top" secondItem="1ia-C7-7NW" secondAttribute="top" constant="5" id="NO0-qo-2UH"/>
+                                    <constraint firstAttribute="bottom" secondItem="tq5-kq-W5C" secondAttribute="bottom" id="P6R-RJ-MIk"/>
+                                    <constraint firstItem="tq5-kq-W5C" firstAttribute="leading" secondItem="1ia-C7-7NW" secondAttribute="leading" id="PQr-aF-Ydy"/>
+                                    <constraint firstItem="tq5-kq-W5C" firstAttribute="top" secondItem="puC-Mp-5nK" secondAttribute="bottom" constant="5" id="TSx-1L-dcN"/>
+                                    <constraint firstItem="puC-Mp-5nK" firstAttribute="leading" secondItem="1ia-C7-7NW" secondAttribute="leading" id="qf4-Tj-qFy"/>
+                                    <constraint firstAttribute="trailing" secondItem="tq5-kq-W5C" secondAttribute="trailing" id="quc-mJ-Fcn"/>
+                                </constraints>
+                            </view>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="zT6-by-yJ9">
-                                <rect key="frame" x="8" y="112" width="434" height="831"/>
+                                <rect key="frame" x="8" y="312" width="434" height="631"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="300" id="Njf-OC-Iyf"/>
@@ -4739,15 +4778,18 @@
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                         <constraints>
+                            <constraint firstItem="zT6-by-yJ9" firstAttribute="top" secondItem="1ia-C7-7NW" secondAttribute="bottom" constant="8" id="3FX-EK-fIx"/>
+                            <constraint firstItem="1ia-C7-7NW" firstAttribute="trailing" secondItem="zT6-by-yJ9" secondAttribute="trailing" id="9Zp-WP-sYL"/>
                             <constraint firstItem="o2i-GH-gAW" firstAttribute="leading" secondItem="5Ku-Lp-KI8" secondAttribute="leading" id="B5I-Zt-7RA"/>
                             <constraint firstItem="95Y-xS-qiO" firstAttribute="leading" secondItem="5Ku-Lp-KI8" secondAttribute="leading" id="CEG-rA-Eib"/>
+                            <constraint firstItem="1ia-C7-7NW" firstAttribute="leading" secondItem="zT6-by-yJ9" secondAttribute="leading" id="Edm-Fx-PoJ"/>
                             <constraint firstItem="ykB-hP-eid" firstAttribute="top" secondItem="zT6-by-yJ9" secondAttribute="bottom" constant="8" id="Hbg-q2-0T2"/>
                             <constraint firstAttribute="trailing" secondItem="95Y-xS-qiO" secondAttribute="trailing" id="MXx-BM-DWH"/>
                             <constraint firstAttribute="trailing" secondItem="zT6-by-yJ9" secondAttribute="trailing" constant="8" id="OV9-8B-p0s"/>
+                            <constraint firstItem="1ia-C7-7NW" firstAttribute="top" secondItem="o2i-GH-gAW" secondAttribute="bottom" id="PTv-tu-fyn"/>
                             <constraint firstItem="zT6-by-yJ9" firstAttribute="leading" secondItem="5Ku-Lp-KI8" secondAttribute="leading" constant="8" id="ZDc-k7-iPs"/>
                             <constraint firstAttribute="trailing" secondItem="o2i-GH-gAW" secondAttribute="trailing" id="jEb-Z9-wBm"/>
                             <constraint firstItem="95Y-xS-qiO" firstAttribute="top" secondItem="5Ku-Lp-KI8" secondAttribute="top" id="khc-UC-87C"/>
-                            <constraint firstItem="zT6-by-yJ9" firstAttribute="top" secondItem="o2i-GH-gAW" secondAttribute="bottom" constant="8" id="mBk-IJ-apr"/>
                             <constraint firstItem="o2i-GH-gAW" firstAttribute="top" secondItem="95Y-xS-qiO" secondAttribute="bottom" id="yBN-zM-qYO"/>
                         </constraints>
                     </view>
@@ -4757,7 +4799,10 @@
                     <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
                     <size key="freeformSize" width="450" height="1000"/>
                     <connections>
+                        <outlet property="auctionListingCV" destination="tq5-kq-W5C" id="dl6-SB-iga"/>
                         <outlet property="categoryCollectionView" destination="zT6-by-yJ9" id="V1i-pf-Abe"/>
+                        <outlet property="liveAuctionViewHeightConstraint" destination="JQh-Y6-u4K" id="Ig1-hu-ZGE"/>
+                        <outlet property="liveAuctionsLabel" destination="puC-Mp-5nK" id="068-6g-KnI"/>
                         <outlet property="locSelectionLabel" destination="kHX-wi-0KQ" id="TeJ-o5-rV9"/>
                         <outlet property="locationArrowButton" destination="d0U-wk-RrM" id="UCE-O8-CV0"/>
                         <outlet property="locationTouchButton" destination="5eQ-hg-TWi" id="4cf-Qd-aI3"/>
@@ -5697,7 +5742,7 @@
         <segue reference="ZiM-vo-mUd"/>
         <segue reference="U5o-43-pTu"/>
         <segue reference="66Q-ev-JoN"/>
-        <segue reference="j6F-U3-3aU"/>
+        <segue reference="3N2-eV-zye"/>
     </inferredMetricsTieBreakers>
     <color key="tintColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
 </document>
