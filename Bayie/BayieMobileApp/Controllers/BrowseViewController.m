@@ -131,7 +131,7 @@
         self.headingLabel.text = NSLocalizedString(@"Auctions", @"Auctions");
         self.liveAuctionsLabel.text = NSLocalizedString(@"LiveAuctions", @"Live Auctions");
         if([DataClass isiPad]){
-            
+            self.liveAuctionViewHeightConstraint.constant = 200;
         }
         else{
             self.liveAuctionViewHeightConstraint.constant = 180;
