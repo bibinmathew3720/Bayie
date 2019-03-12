@@ -112,7 +112,7 @@
                                             <color key="textColor" red="0.0039215686274509803" green="0.69411764705882351" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <nil key="highlightedColor"/>
                                         </label>
-                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNf-Ue-0Qz">
+                                        <button opaque="NO" contentMode="scaleToFill" enabled="NO" contentHorizontalAlignment="trailing" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="QNf-Ue-0Qz">
                                             <rect key="frame" x="424" y="9" width="6" height="22"/>
                                             <color key="backgroundColor" red="0.0039215686274509803" green="0.69411764705882351" blue="0.69019607843137254" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                             <fontDescription key="fontDescription" name="Lato-Bold" family="Lato" pointSize="13"/>

@@ -232,7 +232,7 @@ NSString *const kImage_Url = @"image_url";
         //            }
         //        }
         //        else{
-        dateString = [NSString stringWithFormat:@"%ld:%ld:%ld:%ld",(long)components.day,(long)components.hour,(long)components.minute,(long)components.second];
+        dateString = [NSString stringWithFormat:@"%ld:%.2ld:%.2ld:%.2ld",(long)components.day,(long)components.hour,(long)components.minute,(long)components.second];
         return dateString;
         // }
         
