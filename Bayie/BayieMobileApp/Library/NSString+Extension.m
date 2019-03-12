@@ -137,7 +137,8 @@
 -(NSDate *)convertToDate{
     NSDateFormatter *dateFormatter = [[NSDateFormatter alloc] init];
     [dateFormatter setDateFormat:@"yyyy-MM-dd HH:mm:ss"];
-    [dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    //[dateFormatter setTimeZone:[NSTimeZone timeZoneWithName:@"UTC"]];
+    [dateFormatter setTimeZone:[NSTimeZone systemTimeZone]];
     NSDate *date = [dateFormatter dateFromString:self];
     return date;
 }

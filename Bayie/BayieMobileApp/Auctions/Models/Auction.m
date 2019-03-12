@@ -193,6 +193,7 @@ NSString *const kImage_Url = @"image_url";
             [self.bidHistory addObject:bidHistory];
         }
     }
+    [self calculateTimeDifference];
     return self;
 }
 
@@ -209,4 +210,32 @@ NSString *const kImage_Url = @"image_url";
     }
     return NO;
 }
+
+-(NSString *)calculateTimeDifference{
+    if ([self isDateExpired:self.expiredOnDate]){
+        NSString *expiredString = NSLocalizedString(@"BiddingClosed", @"Bidding closed");
+        return expiredString;
+    }
+    else{
+        NSDateComponents *components;
+        components = [[NSCalendar currentCalendar] components:NSDayCalendarUnit|NSHourCalendarUnit|NSMinuteCalendarUnit|NSSecondCalendarUnit
+                                                     fromDate: [NSDate date] toDate: self.expiredOnDate options: 0];
+        NSString *dateString = @"";
+        //        if (components.month>0){
+        //            if (components.month == 1){
+        //                dateString = [NSString stringWithFormat:@"%ld %@",components.month,NSLocalizedString(@"Month", @"month")];
+        //            }
+        //            else{
+        //                dateString = [NSString stringWithFormat:@"%ld %@",components.month,NSLocalizedString(@"Months", @"months")];
+        //            }
+        //        }
+        //        else{
+        dateString = [NSString stringWithFormat:@"%ld:%ld:%ld:%ld",(long)components.day,(long)components.hour,(long)components.minute,(long)components.second];
+        return dateString;
+        // }
+        
+    }
+}
+
+
 @end

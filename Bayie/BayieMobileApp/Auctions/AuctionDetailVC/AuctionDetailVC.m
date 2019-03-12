@@ -61,6 +61,7 @@
 @property (nonatomic, assign) CGFloat bidHistoryCellHeight;
 @property (weak, nonatomic) IBOutlet NSLayoutConstraint *bidNowSeparatorHeiConstraint;
 @property (nonatomic, assign) BOOL isBidded;
+@property (nonatomic, strong) NSTimer *timer;
 @end
 
 @implementation AuctionDetailVC
@@ -79,6 +80,27 @@
     [self.bidHistoryTableView registerNib:[UINib nibWithNibName:@"BidHistoryTVC" bundle:nil]
          forCellReuseIdentifier:@"bidHistoryCell"];
     [self.imagesCollectionView registerNib:[UINib nibWithNibName:@"AuctionImagesCVC" bundle:nil] forCellWithReuseIdentifier:@"auctionImagesCVC"];
+}
+
+-(void)addingTimer{
+    if (self.timer == nil){
+        self.timer = [NSTimer scheduledTimerWithTimeInterval:1.0
+                                                      target:self
+                                                    selector:@selector(timerAction:)
+                                                    userInfo:nil
+                                                     repeats:YES];
+    }
+}
+
+-(void)timerAction:(NSTimer *)timer{
+    NSLog(@"Timer Action");
+    if (self.auctionDetails != nil){
+        NSString *expDate = [self.auctionDetails calculateTimeDifference];
+        [self.timerButton setTitle:expDate forState:UIControlStateNormal];
+        if ([expDate isEqualToString:NSLocalizedString(@"BiddingClosed", @"")]){
+            [self processAfterExpiration];
+        }
+    }
 }
 
 -(void)localisation{
@@ -101,6 +123,13 @@
 
 -(void)viewWillDisappear:(BOOL)animated{
      [self.navigationController setNavigationBarHidden:true];
+}
+
+-(void)viewDidDisappear:(BOOL)animated{
+    if (self.timer != nil){
+        [self.timer invalidate];
+        self.timer = nil;
+    }
 }
 
 -(void)customiseNavigationBar{
@@ -210,20 +239,7 @@
 }
 
 -(void)populateAdDetails{
-    if (self.auctionDetails.isExpired){
-        NSString *expiredString = NSLocalizedString(@"BiddingClosed", @"Bidding closed");
-        [self.timerButton setTitle:expiredString forState:UIControlStateNormal];
-        self.bidNowButtonHeightConstraint.constant = 0;
-        self.yourBidViewHeiCnstaint.constant = 0;
-        self.bidNowSeparatorHeiConstraint.constant = 0;
-        self.myBidPriceTF.hidden = YES;
-        self.myBidPriceTypeLabel.hidden = YES;
-        self.yourBidHeadingLabel.hidden = YES;
-        self.bidButton.hidden = YES;
-    }
-    else{
-        [self.timerButton setTitle:self.auctionDetails.expiredOn forState:UIControlStateNormal];
-    }
+    [self addingTimer];
     [self changeFavouriteBtnImage:self.auctionDetails.isFavorite];
     if (self.auctionDetails.imagesArray.count>0){
         NSUInteger count = self.auctionDetails.imagesArray.count;
@@ -256,6 +272,18 @@
     }
     [self.bidHistoryTableView reloadData];
     [self.imagesCollectionView reloadData];
+}
+
+-(void)processAfterExpiration{
+    NSString *expiredString = NSLocalizedString(@"BiddingClosed", @"Bidding closed");
+    [self.timerButton setTitle:expiredString forState:UIControlStateNormal];
+    self.bidNowButtonHeightConstraint.constant = 0;
+    self.yourBidViewHeiCnstaint.constant = 0;
+    self.bidNowSeparatorHeiConstraint.constant = 0;
+    self.myBidPriceTF.hidden = YES;
+    self.myBidPriceTypeLabel.hidden = YES;
+    self.yourBidHeadingLabel.hidden = YES;
+    self.bidButton.hidden = YES;
 }
 
 - (void)indexValue:(int)index{

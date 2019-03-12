@@ -43,4 +43,5 @@
 @property (nonatomic, strong) NSMutableArray *bidHistory;
 
 -(id)initWithAuctionDictionary:(NSDictionary *)auctionDictionary;
+-(NSString *)calculateTimeDifference;
 @end
