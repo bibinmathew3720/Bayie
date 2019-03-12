@@ -61,6 +61,7 @@ NSString *const kImage_Url = @"image_url";
         self.adDescription = @"";
         self.expiredOn = @"";
         self.isExpired = NO;
+        self.expirationTime = @"";
         self.isFavorite = false;
         self.itemCondition = @"";
         self.location = @"";
@@ -121,6 +122,7 @@ NSString *const kImage_Url = @"image_url";
             self.expiredOn = dataDictionary[kAdExpiredOn];
             self.expiredOnDate = [self.expiredOn convertToDate];
             self.isExpired = [self isDateExpired:self.expiredOnDate];
+            self.expirationTime = [self calculateTimeDifference];
         }
         if (![dataDictionary[kFavorite] isKindOfClass:[NSNull class]]){
             NSString *favorite = dataDictionary[kFavorite];

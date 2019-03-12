@@ -24,6 +24,7 @@
 @property (nonatomic, strong) NSString *adDescription;
 @property (nonatomic, strong) NSString *expiredOn;
 @property (nonatomic, strong) NSDate *expiredOnDate;
+@property (nonatomic, strong) NSString *expirationTime;
 @property (nonatomic, assign) BOOL isExpired;
 @property (nonatomic, assign) BOOL isFavorite;
 @property (nonatomic, strong) NSString *itemCondition;

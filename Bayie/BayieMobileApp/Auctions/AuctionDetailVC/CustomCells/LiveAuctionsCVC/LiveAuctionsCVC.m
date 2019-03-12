@@ -46,7 +46,8 @@
         self.bidNowButton.hidden = YES;
     }
     else{
-        [self.timerButton setTitle:auction.expiredOn forState:UIControlStateNormal];
+        //[self.timerButton setTitle:auction.expiredOn forState:UIControlStateNormal];
+         [self.timerButton setTitle:auction.expirationTime forState:UIControlStateNormal];
     }
 }
 
