@@ -10,6 +10,7 @@
 @protocol AuctionDetailVCDelegate;
 @interface AuctionDetailVC : UIViewController
 @property(nonatomic,strong) NSString *adId;
+@property(nonatomic, assign) BOOL isFromNotification;
 @property (nonatomic, assign) id <AuctionDetailVCDelegate>auctionDetailDelegate;
 @end
 @protocol AuctionDetailVCDelegate <NSObject>

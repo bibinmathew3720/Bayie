@@ -21,6 +21,7 @@
 #import "DataClass.h"
 #import <UserNotifications/UserNotifications.h>
 #import "MyChatsViewController.h"
+#import "AuctionDetailVC.h"
 @import GoogleMobileAds;
 
 @interface AppDelegate ()<UNUserNotificationCenterDelegate,FIRMessagingDelegate>
@@ -37,7 +38,10 @@
     [self addObserver];
     // Adding Google AD
     //[GADMobileAds configureWithApplicationID:@"ca-app-pub-3310088406325999~8779278669"];
-    [self registerForFCM];
+    [self registerForFCM:application];
+    [FIRMessaging messaging].remoteMessageDelegate = self;
+//    [FIRMessaging messaging].delegate = self;
+    
     [self initNavigationBarAppearence];
     [self initWindow];
     //[self registerPushNotification];
@@ -126,31 +130,32 @@
     }
 }
 
--(void)registerForFCM{
-    if (floor(NSFoundationVersionNumber) <= NSFoundationVersionNumber_iOS_9_x_Max) {
+-(void)registerForFCM:(UIApplication *)application{
+    if ([UNUserNotificationCenter class] != nil) {
+        // iOS 10 or later
+        // For iOS 10 display notification (sent via APNS)
+        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
+        UNAuthorizationOptions authOptions = UNAuthorizationOptionAlert |
+        UNAuthorizationOptionSound | UNAuthorizationOptionBadge;
+        [[UNUserNotificationCenter currentNotificationCenter]
+         requestAuthorizationWithOptions:authOptions
+         completionHandler:^(BOOL granted, NSError * _Nullable error) {
+             // ...
+         }];
+    } else {
+        // iOS 10 notifications aren't available; fall back to iOS 8-9 notifications.
         UIUserNotificationType allNotificationTypes =
         (UIUserNotificationTypeSound | UIUserNotificationTypeAlert | UIUserNotificationTypeBadge);
         UIUserNotificationSettings *settings =
         [UIUserNotificationSettings settingsForTypes:allNotificationTypes categories:nil];
-        [[UIApplication sharedApplication] registerUserNotificationSettings:settings];
-    } else {
-        // iOS 10 or later
-#if defined(__IPHONE_10_0) && __IPHONE_OS_VERSION_MAX_ALLOWED >= __IPHONE_10_0
-        // For iOS 10 display notification (sent via APNS)
-        [UNUserNotificationCenter currentNotificationCenter].delegate = self;
-        UNAuthorizationOptions authOptions =
-        UNAuthorizationOptionAlert
-        | UNAuthorizationOptionSound
-        | UNAuthorizationOptionBadge;
-        [[UNUserNotificationCenter currentNotificationCenter] requestAuthorizationWithOptions:authOptions completionHandler:^(BOOL granted, NSError * _Nullable error) {
-        }];
-        [FIRMessaging messaging].remoteMessageDelegate = self;
-        [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tokenRefreshNotification:)
-                                                     name:kFIRInstanceIDTokenRefreshNotification object:nil];
-#endif
+        [application registerUserNotificationSettings:settings];
     }
     
-    [[UIApplication sharedApplication] registerForRemoteNotifications];
+    [application registerForRemoteNotifications];
+    
+   [[NSNotificationCenter defaultCenter] addObserver:self selector:@selector(tokenRefreshNotification:)                                                name:kFIRInstanceIDTokenRefreshNotification object:nil];
+    
+   // [[UIApplication sharedApplication] registerForRemoteNotifications];
 }
 
 #pragma mark - Delegate for FCM Notifications
@@ -315,6 +320,16 @@
 
 #pragma mark - FCM Delegates
 
+- (void)messaging:(FIRMessaging *)messaging didReceiveRegistrationToken:(NSString *)fcmToken {
+    NSLog(@"FCM registration token: %@", fcmToken);
+    // Notify about received token.
+    NSDictionary *dataDict = [NSDictionary dictionaryWithObject:fcmToken forKey:@"token"];
+    [[NSNotificationCenter defaultCenter] postNotificationName:
+     @"FCMToken" object:nil userInfo:dataDict];
+    // TODO: If necessary send token to application server.
+    // Note: This callback is fired at each app startup and whenever a new token is generated.
+}
+
 - (void)messaging:(nonnull FIRMessaging *)messaging didRefreshRegistrationToken:(nonnull NSString *)fcmToken {
     // Note that this callback will be fired everytime a new token is generated, including the first
     // time. So if you need to retrieve the token as soon as it is available this is where that
@@ -359,19 +374,44 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     NSUserDefaults * pref = [NSUserDefaults standardUserDefaults];
     logo = [pref objectForKey:@"logout"];
     if(logo ==nil ){
-        if(application.applicationState == UIApplicationStateActive){
-            [self showAlert];
+        if ([userInfo valueForKey:@"gcm.notification.action"]){
+            if ([[userInfo valueForKey:@"gcm.notification.action"] isEqualToString:@"bid"]){
+                [self handleAuctionWithUserInfo:userInfo forApplication:application];
+            }
+            else{
+                [self handleChatWithUserInfo:userInfo forApplication:application];
+            }
         }
         else{
-            [self settingChatScreenWithPushNotificationInfo:userInfo];
+             [self handleChatWithUserInfo:userInfo forApplication:application];
         }
     }
     completionHandler(UIBackgroundFetchResultNewData);
 }
 
--(void)showAlert{
-    UIAlertController *messageAlert = [UIAlertController alertControllerWithTitle:@"MyChats" message:@"You have a new message" preferredStyle:UIAlertControllerStyleAlert];
-    UIAlertAction *okAction = [UIAlertAction actionWithTitle:@"OK" style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
+-(void)handleChatWithUserInfo:(id)userInfo forApplication:(UIApplication *)application{
+    if(application.applicationState == UIApplicationStateActive){
+        [self showAlertWithTitle:NSLocalizedString(@"MyChats", @"My Chats") andMessage:NSLocalizedString(@"YouHaveANewMessage", @"You have a new message")];
+    }
+    else{
+        [self settingChatScreenWithPushNotificationInfo:userInfo];
+    }
+    
+}
+
+-(void)handleAuctionWithUserInfo:(id)userInfo forApplication:(UIApplication *)application{
+    if(application.applicationState == UIApplicationStateActive){
+        [self showAlertWithTitle:NSLocalizedString(@"Auctions", @"Auctions") andMessage:NSLocalizedString(@"YouHaveANewBid", @"You have a new bid")];
+    }
+    else{
+        [self settingAuctionDetailScreenWithInfo:userInfo];
+    }
+}
+
+
+-(void)showAlertWithTitle:(NSString *)title andMessage:(NSString *)messageString{
+    UIAlertController *messageAlert = [UIAlertController alertControllerWithTitle:title message:messageString preferredStyle:UIAlertControllerStyleAlert];
+    UIAlertAction *okAction = [UIAlertAction actionWithTitle:NSLocalizedString(@"OK", @"OK") style:UIAlertActionStyleDefault handler:^(UIAlertAction * _Nonnull action) {
         
     }];
     [messageAlert addAction:okAction];
@@ -394,6 +434,15 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     [viewController presentViewController:myChatsNavCnlr animated:NO completion:nil];
 }
 
+-(void)settingAuctionDetailScreenWithInfo:(id)userInfo{
+    AuctionDetailVC *auctionDetailVC = [[AuctionDetailVC alloc] initWithNibName:@"AuctionDetailVC" bundle:nil];
+    auctionDetailVC.adId = [NSString stringWithFormat:@"%@",[userInfo valueForKey:@"gcm.notification.auction_id"]];
+    auctionDetailVC.isFromNotification = YES;
+    UINavigationController *auctionDetailNavCnlr = [[UINavigationController alloc] initWithRootViewController:auctionDetailVC];
+    UIViewController *viewController = self.window.rootViewController;
+    [viewController presentViewController:auctionDetailNavCnlr animated:NO completion:nil];
+}
+
 - (void)connectToFcm {
     // Won't connect since there is no token
     if (![[FIRInstanceID instanceID] token]) {
@@ -411,5 +460,9 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
     }];
 }
 
+
+- (void)applicationReceivedRemoteMessage:(nonnull FIRMessagingRemoteMessage *)remoteMessage {
+    
+}
 
 @end

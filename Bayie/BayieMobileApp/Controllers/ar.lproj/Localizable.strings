@@ -179,3 +179,9 @@
 //OTP Module
 
 "InvalidMobileNumber" = "رقم الجوال غير صالح";
+
+//Push Notification
+
+"MyChats" = "دردشاتي";
+"YouHaveANewMessage" = "لديك رسالة جديدة";
+"YouHaveANewBid" = "لديك عرض جديد";

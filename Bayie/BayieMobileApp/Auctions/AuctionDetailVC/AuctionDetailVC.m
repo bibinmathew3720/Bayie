@@ -311,12 +311,17 @@
 #pragma mark - Button Actions
 
 - (void)backBtnClicked{
-    if (self.isBidded){
-        if (self.auctionDetailDelegate && [self.auctionDetailDelegate respondsToSelector:@selector(bidDetailsModifiedDelegate)]){
-            [self.auctionDetailDelegate bidDetailsModifiedDelegate];
-        }
+    if (self.isFromNotification){
+        [self dismissViewControllerAnimated:YES completion:nil];
     }
-    [self.navigationController popViewControllerAnimated:YES];
+    else{
+        if (self.isBidded){
+            if (self.auctionDetailDelegate && [self.auctionDetailDelegate respondsToSelector:@selector(bidDetailsModifiedDelegate)]){
+                [self.auctionDetailDelegate bidDetailsModifiedDelegate];
+            }
+        }
+        [self.navigationController popViewControllerAnimated:YES];
+    }
 }
 
 - (void)favoriteBtnClicked:(id)sender {

@@ -183,3 +183,9 @@
 
 "InvalidMobileNumber" = "Invalid mobile number";
 
+//Push Notification
+
+"MyChats" = "My Chats";
+"YouHaveANewMessage" = "You have a new message";
+"YouHaveANewBid" = "You have a new bid";
+
