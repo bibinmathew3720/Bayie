@@ -374,14 +374,14 @@
         else{
             DataClass *locOb=[DataClass getInstance];
             
-            if(locOb.lastKnownLoc == nil){
-                lastCall = @"locationList";
-                [self locationUpdate];
-            }else{
+//            if(locOb.lastKnownLoc == nil){
+//                lastCall = @"locationList";
+//                [self locationUpdate];
+//            }else{
                 lastCall = @"ProfileData";
                 [self profileDataLoad];
                 //  _locSelectionLabel.text = locOb.lastKnownLoc;
-            }
+            //}
         }
         
     }
