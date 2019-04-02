@@ -45,7 +45,6 @@
 		3A2567131E9232DB009667C3 /* CustomAdsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2567121E9232DB009667C3 /* CustomAdsCollectionViewCell.m */; };
 		3A2567161E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2567151E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.m */; };
 		3A2786411E98D37700578327 /* VerifyOTPViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 3A2786401E98D37700578327 /* VerifyOTPViewController.m */; };
-		3A2871461ECC503800CD06E6 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = 3A2871451ECC503800CD06E6 /* GoogleService-Info.plist */; };
 		3A2C74FE1EE3E1EA003D3B03 /* LanguageSelector.xib in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C75001EE3E1EA003D3B03 /* LanguageSelector.xib */; };
 		3A2C7A281E7FA8D000B4BE85 /* Lato-Black.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C7A201E7FA8D000B4BE85 /* Lato-Black.ttf */; };
 		3A2C7A291E7FA8D000B4BE85 /* Lato-BlackItalic.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 3A2C7A211E7FA8D000B4BE85 /* Lato-BlackItalic.ttf */; };
@@ -137,6 +136,7 @@
 		534D5DB21EFC22770099F092 /* CustomSeeAllAdsTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D5DA91EFC22770099F092 /* CustomSeeAllAdsTableViewCell.m */; };
 		534D5DB41EFC22770099F092 /* searchListViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D5DAD1EFC22770099F092 /* searchListViewController.m */; };
 		534D5DB51EFC22770099F092 /* SeeAllAdsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 534D5DAF1EFC22770099F092 /* SeeAllAdsViewController.m */; };
+		D00F2A15225333F4007174F8 /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = D00F2A14225333F3007174F8 /* GoogleService-Info.plist */; };
 		D00FAB401F2AA3CE0015C906 /* JTSAnimatedGIFUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = D00FAB351F2AA3CE0015C906 /* JTSAnimatedGIFUtility.m */; };
 		D00FAB411F2AA3CE0015C906 /* JTSImageInfo.m in Sources */ = {isa = PBXBuildFile; fileRef = D00FAB371F2AA3CE0015C906 /* JTSImageInfo.m */; };
 		D00FAB421F2AA3CE0015C906 /* JTSImageViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D00FAB391F2AA3CE0015C906 /* JTSImageViewController.m */; };
@@ -257,7 +257,6 @@
 		3A2567151E9235AE009667C3 /* CustomTrendingAdsCollectionViewCell.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = CustomTrendingAdsCollectionViewCell.m; path = Controllers/CustomTrendingAdsCollectionViewCell.m; sourceTree = "<group>"; };
 		3A27863F1E98D37700578327 /* VerifyOTPViewController.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; name = VerifyOTPViewController.h; path = Controllers/VerifyOTPViewController.h; sourceTree = "<group>"; };
 		3A2786401E98D37700578327 /* VerifyOTPViewController.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; name = VerifyOTPViewController.m; path = Controllers/VerifyOTPViewController.m; sourceTree = "<group>"; };
-		3A2871451ECC503800CD06E6 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		3A2C74FF1EE3E1EA003D3B03 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.xib; name = Base; path = Base.lproj/LanguageSelector.xib; sourceTree = "<group>"; };
 		3A2C7A201E7FA8D000B4BE85 /* Lato-Black.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Black.ttf"; sourceTree = "<group>"; };
 		3A2C7A211E7FA8D000B4BE85 /* Lato-BlackItalic.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-BlackItalic.ttf"; sourceTree = "<group>"; };
@@ -433,6 +432,7 @@
 		538F8E1F1F10E4050042E36B /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Chat.storyboard; sourceTree = "<group>"; };
 		6FF5C70D19425E60F2426861 /* Pods_BayieMobileApp.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_BayieMobileApp.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		9FAB701346D3A0D3857E74F6 /* Pods-BayieMobileApp.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-BayieMobileApp.release.xcconfig"; path = "Pods/Target Support Files/Pods-BayieMobileApp/Pods-BayieMobileApp.release.xcconfig"; sourceTree = "<group>"; };
+		D00F2A14225333F3007174F8 /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
 		D00FAB341F2AA3CE0015C906 /* JTSAnimatedGIFUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSAnimatedGIFUtility.h; sourceTree = "<group>"; };
 		D00FAB351F2AA3CE0015C906 /* JTSAnimatedGIFUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = JTSAnimatedGIFUtility.m; sourceTree = "<group>"; };
 		D00FAB361F2AA3CE0015C906 /* JTSImageInfo.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = JTSImageInfo.h; sourceTree = "<group>"; };
@@ -805,7 +805,7 @@
 		3A71B4CE1E7BEC8E00E85F3D = {
 			isa = PBXGroup;
 			children = (
-				3A2871451ECC503800CD06E6 /* GoogleService-Info.plist */,
+				D00F2A14225333F3007174F8 /* GoogleService-Info.plist */,
 				3A71B4D91E7BEC8E00E85F3D /* BayieMobileApp */,
 				3A71B4D81E7BEC8E00E85F3D /* Products */,
 				3932287081CC306C1C49EB24 /* Pods */,
@@ -1661,6 +1661,7 @@
 				3A2C7A2B1E7FA8D000B4BE85 /* Lato-BoldItalic.ttf in Resources */,
 				3A2C7A291E7FA8D000B4BE85 /* Lato-BlackItalic.ttf in Resources */,
 				487CC5401EE91484004E71EE /* Chat.storyboard in Resources */,
+				D00F2A15225333F4007174F8 /* GoogleService-Info.plist in Resources */,
 				3A2C7A2D1E7FA8D000B4BE85 /* Lato-Light.ttf in Resources */,
 				D021896F21901445006A064E /* VideoVC.xib in Resources */,
 				3A0F16871EED893200083953 /* MainEn.storyboard in Resources */,
@@ -1668,7 +1669,6 @@
 				D0E9F7661F35A916001B1EE3 /* FilterVC.xib in Resources */,
 				D01EDE7F21D99318009D6D62 /* BidHistoryHeaderCell.xib in Resources */,
 				3A2C7A2F1E7FA8D000B4BE85 /* Lato-Regular.ttf in Resources */,
-				3A2871461ECC503800CD06E6 /* GoogleService-Info.plist in Resources */,
 				3AF7CA7F1EB1FD5500D7E31D /* LoginDetails.xib in Resources */,
 				D01EDE6421D8D66D009D6D62 /* WinHistoryVC.xib in Resources */,
 				D01EDE5F21D8D656009D6D62 /* BidHistoryVC.xib in Resources */,
@@ -2110,7 +2110,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = BayieMobileApp/Bayie.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Developer";
 				CODE_SIGN_STYLE = Manual;
@@ -2133,7 +2133,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.bayie.BayieMobileApp;
 				PRODUCT_NAME = Bayie;
-				PROVISIONING_PROFILE = "452513b1-c3bc-430c-b34c-3367401c73fd";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = "Bayie Development";
 				SWIFT_OBJC_BRIDGING_HEADER = "BayieMobileApp/Library/BayieMobileApp-Bridging-Header.h";
 				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
@@ -2147,7 +2147,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CLANG_ENABLE_MODULES = YES;
-				CODE_SIGN_ENTITLEMENTS = "";
+				CODE_SIGN_ENTITLEMENTS = BayieMobileApp/Bayie.entitlements;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				"CODE_SIGN_IDENTITY[sdk=iphoneos*]" = "iPhone Distribution";
 				CODE_SIGN_STYLE = Manual;
@@ -2170,7 +2170,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = app.bayie.BayieMobileApp;
 				PRODUCT_NAME = Bayie;
-				PROVISIONING_PROFILE = "3ae06847-c8db-48b2-922b-270a8722453c";
+				PROVISIONING_PROFILE = "";
 				PROVISIONING_PROFILE_SPECIFIER = adhoc_bayie_new;
 				SWIFT_OBJC_BRIDGING_HEADER = "BayieMobileApp/Library/BayieMobileApp-Bridging-Header.h";
 				SWIFT_VERSION = 3.0;
