@@ -271,7 +271,7 @@
     NSString *uuid = [defaults objectForKey:@"uuid"];
     NSLog(@"user in prooo%@", uuid);
     
-   NSDictionary *parameters =  @{@"username":_emailTextField.text,@"password":_passwordTextField.text,@"deviceId":uuid};
+        NSDictionary *parameters =  @{@"username":_emailTextField.text,@"password":_passwordTextField.text,@"deviceId":uuid,@"deviceType":@"ios"};
   //  NSDictionary *parameters =  @{@"username":@"23568974",@"password":@"12345678",@"deviceId":UUID};
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];

@@ -285,7 +285,7 @@
                           hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
                              NSString *UUID = [[NSUUID UUID] UUIDString];
                              
-                             NSDictionary *parameters =  @{@"name":[result objectForKey:@"first_name"],@"email":[result objectForKey:@"email"],@"uid":[result objectForKey:@"id"],@"provider":@"facebook",@"imageUrl":imageStringOfLoginUser,@"deviceId":UUID};
+                             NSDictionary *parameters =  @{@"name":[result objectForKey:@"first_name"],@"email":[result objectForKey:@"email"],@"uid":[result objectForKey:@"id"],@"provider":@"facebook",@"imageUrl":imageStringOfLoginUser,@"deviceId":UUID,@"deviceType":@"ios"};
                              NSError *error;
                              NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
                              NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -361,7 +361,7 @@
         
         NSString *UUID = [[NSUUID UUID] UUIDString];
         
-        NSDictionary *parameters =  @{@"name":fullName,@"email":email,@"uid":userId,@"provider":@"google",@"imageUrl":[userImage absoluteString],@"deviceId":UUID};
+        NSDictionary *parameters =  @{@"name":fullName,@"email":email,@"uid":userId,@"provider":@"google",@"imageUrl":[userImage absoluteString],@"deviceId":UUID,@"deviceType":@"ios"};
         NSError *error;
         NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
         NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
