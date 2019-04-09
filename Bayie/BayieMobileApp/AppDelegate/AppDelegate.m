@@ -436,7 +436,9 @@ fetchCompletionHandler:(void (^)(UIBackgroundFetchResult))completionHandler {
 
 -(void)settingAuctionDetailScreenWithInfo:(id)userInfo{
     AuctionDetailVC *auctionDetailVC = [[AuctionDetailVC alloc] initWithNibName:@"AuctionDetailVC" bundle:nil];
-    auctionDetailVC.adId = [NSString stringWithFormat:@"%@",[userInfo valueForKey:@"gcm.notification.auction_id"]];
+    if ([userInfo valueForKey:@"gcm.notification.auction_slug"]){
+        auctionDetailVC.adId = [NSString stringWithFormat:@"%@",[userInfo valueForKey:@"gcm.notification.auction_slug"]];
+    }
     auctionDetailVC.isFromNotification = YES;
     UINavigationController *auctionDetailNavCnlr = [[UINavigationController alloc] initWithRootViewController:auctionDetailVC];
     UIViewController *viewController = self.window.rootViewController;
