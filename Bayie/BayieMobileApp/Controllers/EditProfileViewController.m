@@ -21,7 +21,7 @@ typedef enum{
     Arabic
 }SelectedLanguage;
 
-@interface EditProfileViewController ()
+@interface EditProfileViewController ()<UITextFieldDelegate>
 {
     NSDictionary *updateProfiledataDict;
     NSArray *updateProfileddataArray;
@@ -188,7 +188,6 @@ typedef enum{
 }
 
 -(void)profileUpdate{
-    
     hud = [MBProgressHUD showHUDAddedTo:self.view animated:YES];
     hud.mode = MBProgressHUDModeIndeterminate;
     hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
@@ -619,6 +618,10 @@ typedef enum{
 
 }
 
+- (IBAction)tapGetureAction:(UITapGestureRecognizer *)sender {
+    [self.view endEditing:YES];
+}
+
 -(void) cleanLoc{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"lastLocStr"];
@@ -626,6 +629,13 @@ typedef enum{
     [defaults removeObjectForKey:@"lastLocID"];
     [defaults synchronize];
 
+}
+
+//UITextField Delegates
+
+-(BOOL)textFieldShouldReturn:(UITextField *)textField{
+    [textField endEditing:true];
+    return YES;
 }
 
 @end
