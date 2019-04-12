@@ -16,6 +16,11 @@
 #import "ChangePasswordViewController.h"
 #import "Utility.h"
 
+typedef enum{
+    English,
+    Arabic
+}SelectedLanguage;
+
 @interface EditProfileViewController ()
 {
     NSDictionary *updateProfiledataDict;
@@ -27,6 +32,8 @@
     NSString *selectedLan;
 
     UserProfile *myProfileload;
+    SelectedLanguage prevSelLanguage;
+    SelectedLanguage currentLanguage;
   //  DownPicker *dp;
 
 }
@@ -79,35 +86,33 @@
     if (self.isFromSocialLogin){
         [self removoChangePassword];
     }
+    NSString *strSelectedLanguage = [[[NSUserDefaults standardUserDefaults]objectForKey:@"AppleLanguages"] objectAtIndex:0];
+    if([strSelectedLanguage isEqualToString:[NSString stringWithFormat: @"ar"]]){
+        prevSelLanguage = Arabic;
+        currentLanguage = Arabic;
+    }
+    else{
+        prevSelLanguage = English;
+        currentLanguage = English;
+    }
 }
 
 -(void)removoChangePassword{
     self.changePasswordheightConstraint.constant = 0;
     self.changePasswordLabel.hidden = YES;
     self.chnagePasswordArrowButton.hidden = YES;
-    
 }
 
 -(void)lan_Selected:(id)dp {
    selectedLan = [self.downPicker text];
-    NSLog(@"%@selected languageeee  ", selectedLan);
-    if(![selectedLan isEqualToString:@"English"]){
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bayie" message:@"Do you want to change the language to Arabic ?" delegate:nil cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
-        alert.tag = 100;
-
-        [alert setDelegate:self];
-        [alert show];
-
-    }else{
-        UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bayie" message:@"Do you want to change the language to English ?" delegate:nil cancelButtonTitle:@"YES" otherButtonTitles:@"NO", nil];
-        alert.tag = 100;
-
-        [alert setDelegate:self];
-        [alert show];
-        
+    if([selectedLan isEqualToString:@"English"]){
+        currentLanguage = English;
     }
-  
+    else{
+        currentLanguage = Arabic;
+    }
 }
+
 //-(void)viewDidAppear:(BOOL)animated{
 //    NSMutableArray* bandArray = [[NSMutableArray alloc] init];
 //    
@@ -160,8 +165,10 @@
         }
     }
     else{
-        self.lastapiCallPro = @"updateProfile";
-        [self profileUpdate];
+        if ([self isValidDetails]){
+            self.lastapiCallPro = @"updateProfile";
+            [self profileUpdate];
+        }
     }
 }
 
@@ -187,9 +194,10 @@
     hud.label.text = [NSString stringWithFormat:NSLocalizedString(@"LOADING", nil), @(1000000)];
 
     NSString *lan;
-    if([selectedLan isEqualToString:@"English"]){
+    if (currentLanguage == English){
         lan = @"1";
-    }else{
+    }
+    else{
         lan = @"2";
     }
     DataClass *tknobj=[DataClass getInstance];
@@ -325,23 +333,23 @@
                 [alert addAction:okButton];
                 [self presentViewController:alert animated:YES completion:nil];
                 }else{
-                    if(_langChanged == YES){
-                    UIAlertController * alert =[UIAlertController
-                                                alertControllerWithTitle:@"Bayie" message:@"To change language please relaunch the app" preferredStyle:UIAlertControllerStyleAlert];
-                    
-                    UIAlertAction* okButton = [UIAlertAction
-                                               actionWithTitle:@"OK"
-                                               style:UIAlertActionStyleDefault
-                                               handler:^(UIAlertAction * action)
-                                               {
-                                                  [self cleanLoc]; 
-                                                   exit(0);
-                                               }];
-                    [alert addAction:okButton];
-                    [self presentViewController:alert animated:YES completion:nil];
+                    if (currentLanguage != prevSelLanguage){
+                         [self updateLanguage];
+                        UIAlertController * alert =[UIAlertController
+                                                    alertControllerWithTitle:@"Bayie" message:@"To change language please relaunch the app" preferredStyle:UIAlertControllerStyleAlert];
+                        
+                        UIAlertAction* okButton = [UIAlertAction
+                                                   actionWithTitle:@"OK"
+                                                   style:UIAlertActionStyleDefault
+                                                   handler:^(UIAlertAction * action)
+                                                   {
+                                                       [self cleanLoc];
+                                                       exit(0);
+                                                   }];
+                        [alert addAction:okButton];
+                        [self presentViewController:alert animated:YES completion:nil];
                     }
-                }
-                
+                    }
             } else {
                 UIAlertView *alert = [[UIAlertView alloc] initWithTitle:@"Bayie"
                                                                 message:data
@@ -406,8 +414,7 @@
         NSString *errormsg = responseDict[@"error"];
             NSString *data = responseDict[@"data"];
         
-                if ( [errormsg isEqualToString:@""]){
-                    
+                if ([errormsg isEqualToString:@""]){
                         UIAlertController * alert =[UIAlertController
                                                     alertControllerWithTitle:@"Bayie" message:responseDict[@"data"] preferredStyle:UIAlertControllerStyleAlert];
                         
@@ -441,6 +448,16 @@
 
             }
    
+}
+
+-(void)updateLanguage{
+    if (currentLanguage == English){
+         [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
+    }
+    else{
+        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
+    }
+    [[NSUserDefaults standardUserDefaults] synchronize];
 }
 
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
@@ -601,6 +618,7 @@
     [self performSegueWithIdentifier:@"ChangePassword" sender:self];
 
 }
+
 -(void) cleanLoc{
     NSUserDefaults *defaults = [NSUserDefaults standardUserDefaults];
     [defaults removeObjectForKey:@"lastLocStr"];
@@ -608,57 +626,6 @@
     [defaults removeObjectForKey:@"lastLocID"];
     [defaults synchronize];
 
-}
-- (void)alertView:(UIAlertView *)alertView didDismissWithButtonIndex:(NSInteger)buttonIndex {
-    
-    if (alertView.tag == 100) {
-
-    if ([selectedLan  isEqual: @"Arabic"])
-    {
-    if (buttonIndex == 0){
-        NSLog(@"arabic");
-        [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        self.lastapiCallPro = @"updateProfile";
-        self.langChanged = YES;
-        [self profileUpdate];
-        
-        
-        
-        // have to call profile update api here.
-      //  exit(0);
-    }else {
-        NSLog(@"english,dnn wnt to chnge"); // no btn
-              [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
-        [[NSUserDefaults standardUserDefaults] synchronize];
-        // have to call profile update api here.
-      //  exit(0);
-
-    }
-    }else if([selectedLan  isEqual: @"English"]){
-        
-        if (buttonIndex == 0){
-            NSLog(@"english");
-            [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"en", nil] forKey:@"AppleLanguages"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            // have to call profile update api here.
-            self.lastapiCallPro = @"updateProfile";
-            self.langChanged = YES;
-            [self profileUpdate];
-
-         //   exit(0);
-        }else {
-            NSLog(@"arabic, dnn wnt to change"); // no btn
-            [[NSUserDefaults standardUserDefaults] setObject:[NSArray arrayWithObjects:@"ar", nil] forKey:@"AppleLanguages"];
-            [[NSUserDefaults standardUserDefaults] synchronize];
-            // have to call profile update api here.
-            //  exit(0);
-            
-        }
-
-        
-    }
-}
 }
 
 @end
