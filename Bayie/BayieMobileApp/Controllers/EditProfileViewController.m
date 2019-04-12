@@ -201,7 +201,7 @@ typedef enum{
     }
     DataClass *tknobj=[DataClass getInstance];
     NSLog(@"%@", tknobj.userToken);
-    NSDictionary *parameters =  @{@"userToken":tknobj.userToken,@"name":_nameTextField.text,@"mobile":_phoneTextField.text,@"email":_emailTextField.text,@"location":_locationTextField.text,@"language" :[DataClass currentLanguageString]};
+    NSDictionary *parameters =  @{@"userToken":tknobj.userToken,@"name":_nameTextField.text,@"mobile":_phoneTextField.text,@"email":_emailTextField.text,@"location":_locationTextField.text,@"language" :lan};
     NSError *error;
     NSData *jsonData = [NSJSONSerialization dataWithJSONObject:parameters options:0 error:&error];
     NSString *jsonString = [[NSString alloc] initWithData:jsonData encoding:NSUTF8StringEncoding];
@@ -635,6 +635,18 @@ typedef enum{
 
 -(BOOL)textFieldShouldReturn:(UITextField *)textField{
     [textField endEditing:true];
+    return YES;
+}
+
+-(BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string{
+    if (textField == _phoneTextField){
+        if (range.location > 7 && range.length == 0){
+            return NO;
+        }
+        else{
+            return YES;
+        }
+    }
     return YES;
 }
 
