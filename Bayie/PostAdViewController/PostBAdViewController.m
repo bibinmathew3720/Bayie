@@ -89,6 +89,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     self.mobileTextField.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
+    self.priceTextField.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
     self.selectedCategory = nil;
     self.filterDictionary = nil;
     [self localisation];
