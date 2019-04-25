@@ -28,7 +28,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.mobileTextField.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
     [self.nameTextField becomeFirstResponder];
     
     self.emailTextField.tintColor = [UIColor blackColor];

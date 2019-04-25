@@ -80,6 +80,7 @@
     [self.bidHistoryTableView registerNib:[UINib nibWithNibName:@"BidHistoryTVC" bundle:nil]
          forCellReuseIdentifier:@"bidHistoryCell"];
     [self.imagesCollectionView registerNib:[UINib nibWithNibName:@"AuctionImagesCVC" bundle:nil] forCellWithReuseIdentifier:@"auctionImagesCVC"];
+    _myBidPriceTF.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
 }
 
 -(void)addingTimer{

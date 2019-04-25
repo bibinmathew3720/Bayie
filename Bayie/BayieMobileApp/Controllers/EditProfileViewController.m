@@ -48,12 +48,11 @@ typedef enum{
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    
+    self.phoneTextField.keyboardType = UIKeyboardTypeASCIICapableNumberPad;
     self.emailTextField.tintColor = [UIColor blackColor];
     self.nameTextField.tintColor = [UIColor blackColor];
     self.locationTextField.tintColor = [UIColor blackColor];
     self.phoneTextField.tintColor = [UIColor blackColor];
-    
     self.langChanged = NO;
     self.editProfileImage.layer.cornerRadius = self.editProfileImage.frame.size.height/2;
     self.editProfileImage.clipsToBounds = YES;
